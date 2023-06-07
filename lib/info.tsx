@@ -4,8 +4,8 @@ export const logo = logo_i;
 export const name = "Alexander Bays";
 export const email = {
 	key: "email",
-	value: "bays@956mb.com",
-	url: "mailto:bays@956mb.com",
+	value: "bays.956mb@gmail.com",
+	url: "mailto:bays.956mb@gmail.com",
 };
 export const twitter = {
 	key: "twitter",
