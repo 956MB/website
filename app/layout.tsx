@@ -11,6 +11,37 @@ export const metadata: Metadata = {
 	},
 	description:
 		"Self-taught programmer, graphic designer and neography hobbyist.",
+	openGraph: {
+		title: "Alexander Bays",
+		description:
+			"Self-taught programmer, graphic designer and neography hobbyist.",
+		url: "https://956mb.com",
+		siteName: "Alexander Bays",
+		images: [
+			{
+				url: "https://956mb.com/og.png",
+				width: 1310,
+				height: 1310,
+			},
+		],
+		locale: "en-US",
+		type: "website",
+	},
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			"max-video-preview": -1,
+			"max-image-preview": "large",
+			"max-snippet": -1,
+		},
+	},
+	twitter: {
+		title: "Alexander Bays",
+		card: "summary_large_image",
+	},
 	icons: {
 		shortcut: "/favicon.ico",
 	},
@@ -28,7 +59,7 @@ export default function RootLayout({
 				<main className="h-full min-w-0 flex flex-auto flex-col">
 					{children}
 					<Analytics />
-                    <Footer />
+					<Footer />
 				</main>
 			</body>
 		</html>
