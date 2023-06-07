@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: var(--background);
+	overscroll-behavior-y: contain;
+}
+
+hr {
+	height: 1px;
+	width: 100%;
+	border: 0 none;
+	margin: 30px 0 30px 0;
+    @apply bg-neutral-800;
+}
+.prose :where(hr):not(:where([class~="not-prose"] *)) {
+    margin: 30px 0 30px 0 !important;
+}
+
+.noselect {
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
+	cursor: default;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none !important;  /* IE and Edge */
+    scrollbar-width: none !important;  /* Firefox */
+}
+
+@font-face {
+	font-family: "RobotoMono_Regular";
+	src: url("../public/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf");
+	font-weight: 400;
+}
+@font-face {
+	font-family: "RobotoMono_Medium";
+	src: url("../public/fonts/Roboto_Mono/static/RobotoMono-Medium.ttf");
+	font-weight: 500;
+}
+@font-face {
+	font-family: "RobotoMono_SemiBold";
+	src: url("../public/fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf");
+	font-weight: 600;
+}
+@font-face {
+	font-family: "RobotoMono_Bold";
+	src: url("../public/fonts/Roboto_Mono/static/RobotoMono-Bold.ttf");
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: "Inter_Light";
+	src: url("../public/fonts/Inter Desktop/Inter-Light.ttf");
+	font-weight: 300;
+}
+@font-face {
+	font-family: "Inter_Regular";
+	src: url("../public/fonts/Inter Desktop/Inter-Regular.ttf");
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Inter_Medium";
+	src: url("../public/fonts/Inter Desktop/Inter-Medium.ttf");
+	font-weight: 500;
+}
+@font-face {
+	font-family: "Inter_SemiBold";
+	src: url("../public/fonts/Inter Desktop/Inter-SemiBold.ttf");
+	font-weight: 500;
+}
+@font-face {
+	font-family: "Inter_Bold";
+	src: url("../public/fonts/Inter Desktop/Inter-Bold.ttf");
+	font-weight: 700;
+}
+
+.font-inter-light {
+	font-family: "Inter_Light";
+}
+.font-inter-regular {
+	font-family: "Inter_Regular";
+}
+.font-inter-medium {
+	font-family: "Inter_Medium";
+}
+.font-inter-semibold {
+	font-family: "Inter_SemiBold";
+}
+.font-inter-bold {
+	font-family: "Inter_Bold";
+}
+.font-roboto-mono-regular {
+	font-family: "RobotoMono_Regular";
+}
+.font-roboto-mono-medium {
+	font-family: "RobotoMono_Medium";
+}
+.font-roboto-mono-semibold {
+	font-family: "RobotoMono_SemiBold";
+}
+.font-roboto-mono-bold {
+	font-family: "RobotoMono_Bold";
+}
+
+.highlight {
+    transition: all 0.1s ease-in-out;
+	font-family: "Inter_Bold" !important;
+	color: white !important;
+    cursor: pointer !important;
+}
+.highlight:hover {
+    font-size: 16px !important;
+}
+
+::selection {
+	background: rgb(255, 238, 0); /* WebKit/Blink Browsers */
+	color: black;
+}
+::-moz-selection {
+	background: rgb(255, 238, 0); /* Gecko Browsers */
+	color: black;
+}
+
+.prose .anchor {
+	@apply absolute invisible no-underline;
+
+	margin-left: -1em;
+	padding-right: 0.5em;
+	width: 80%;
+	max-width: 800px;
+	cursor: pointer;
+}
+.project-h .anchor {
+	@apply absolute opacity-0 no-underline;
+
+    display: block;
+
+	padding-right: 0.5em;
+    width: 100%;
+	cursor: pointer;
+}
+
+.anchor:hover {
+	@apply visible;
+}
+.project-h .anchor:hover {
+	@apply opacity-100;
+    margin-left: -1em;
+}
+
+.prose a {
+	@apply transition-all duration-100 text-white decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-inter-bold;
+}
+.project-h h3 a {
+	@apply transition-all text-white decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-inter-bold;
+}
+.prose a:hover {
+    font-size: 15px !important;
+}
+
+.prose .anchor:after {
+	@apply text-neutral-300 dark:text-neutral-700;
+	content: "#";
+}
+.project-h .anchor:after {
+	@apply text-neutral-300 dark:text-neutral-700;
+	content: "#";
+}
+
+.prose *:hover > .anchor {
+	@apply visible;
+}
+.project-h *:hover > .anchor {
+	@apply opacity-100;
+}
+
+.prose pre {
+	@apply border border-neutral-300 bg-neutral-900;
+}
+
+.prose code {
+	@apply text-neutral-300 dark:text-neutral-200 px-1 py-0.5 border border-neutral-100 dark:border-neutral-300 rounded-xl bg-neutral-100 dark:bg-neutral-900;
+}
+
+.prose pre code {
+	@apply text-neutral-300 dark:text-neutral-200 p-0;
+	border: initial;
+}
+
+.prose img {
+	/* Don't apply styles to next/image */
+	@apply mb-[1.25em];
+}
+.prose img:first-child {
+    @apply mt-0;
+}
+
+.prose > :first-child {
+	/* Override removing top margin, causing layout shift */
+	/* margin-bottom: 1.25em !important; */
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+	@apply text-neutral-50;
+}
+
+pre::-webkit-scrollbar {
+	display: none;
+}
+
+pre {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.prose .tweet a {
+	text-decoration: inherit;
+	font-weight: inherit;
+}
+
+table {
+	display: block;
+	max-width: fit-content;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.prose .callout > p {
+	margin: 0 !important;
+}
+
+.prose {
+    max-width: 100% !important;
+}
+
+[data-rehype-pretty-code-fragment] code {
+	@apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-white;
+	counter-reset: line;
+	box-decoration-break: clone;
+}
+[data-rehype-pretty-code-fragment] .line {
+	@apply py-1;
+}
+[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
+	counter-increment: line;
+	content: counter(line);
+	display: inline-block;
+	width: 1rem;
+	margin-right: 1rem;
+	text-align: right;
+	color: gray;
+}
+[data-rehype-pretty-code-fragment] .line--highlighted {
+	@apply bg-slate-500 bg-opacity-10;
+}
+[data-rehype-pretty-code-fragment] .line-highlighted span {
+	@apply relative;
+}
+[data-rehype-pretty-code-fragment] .word--highlighted {
+	@apply rounded-md bg-slate-500 bg-opacity-10 p-1;
+}
+[data-rehype-pretty-code-title] {
+	@apply px-4 py-3 font-mono text-xs font-medium border rounded-t-lg text-neutral-200 border-[#333333] bg-[#1c1c1c];
+}
+[data-rehype-pretty-code-title] + pre {
+	@apply mt-0 rounded-t-none border-t-0;
+}
+
+.prose p {
+    @apply text-neutral-300 font-roboto-mono-regular text-sm;
+}
+.prose li {
+    @apply text-neutral-300 font-roboto-mono-regular text-sm;
+}
+.prose li::marker {
+    @apply text-white font-inter-bold text-sm;
+}
+.prose strong {
+    @apply text-white font-roboto-mono-regular text-sm transition-all duration-100 cursor-pointer;
+}
+.prose strong:hover {
+    font-size: 15px !important;
+}
+.prose h2 {
+    @apply text-white font-inter-bold;
+}
+.prose h3 {
+    @apply text-white font-inter-bold;
+}
+.prose h4 {
+    @apply text-white font-inter-bold;
+}
+.project-h h3 {
+    @apply relative text-white font-inter-bold text-[28px] leading-7 whitespace-nowrap cursor-pointer;
+}
+#projects-container :last-child {
+    @apply border-b-0;
+}
+
+.callout p {
+    @apply text-neutral-100 font-roboto-mono-regular text-sm;
+}
+.prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+    @apply border-l-2 border-neutral-300 dark:border-neutral-300 pl-4;
+}
+
+.prose pre {
+    @apply rounded-none;
+}
+
+.prose :where(h2):not(:where([class~="not-prose"] *)) {
+    margin-top: 1em;
+}
+.prose :where(h3):not(:where([class~="not-prose"] *)) {
+    margin-top: 1em;
+}
+.prose :where(h4):not(:where([class~="not-prose"] *)) {
+    margin-top: 1em;
+}
