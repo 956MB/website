@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 		images: [
 			{
 				url: "https://956mb.com/og.png",
-				width: 1310,
-				height: 1310,
+				width: 1920,
+				height: 1080,
 			},
 		],
 		locale: "en-US",
