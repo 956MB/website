@@ -21,14 +21,14 @@ export const project_pros: IEntry = {
     image: {path: pros_i, width: 893, height: 791},
 };
 
-import _2048_i from "../public/images/projects/2048W.png";
+import _2048we_i from "../public/images/projects/2048W.png";
 export const project_2048: IEntry = {
-	id: "2048",
-	title: "2048",
-	link: "https://github.com/956MB/2048W",
+	id: "2048we",
+	title: "2048WE",
+	link: "https://github.com/956MB/2048WE",
 	summary: ["Full functionaly of the iOS app <span class='highlight'>2048</span>, right on your Apple Watch. High scores saved on device, end of game stats, and current game progress is never lost between app resets and Watch being turned off.", "This was my first attempt at making a standalone WatchOS app with the new way of not requiring the Watch app to be thethered to an iOS app. You don’t see many games on Apple Watch, mainly because theres not much you can do with the small form factor, but I thought the <span class='highlight'>2048</span> concept would work perfectly for it."],
     tags: ["WatchOS", "Swift", "SwiftUI"],
-    image: {path: _2048_i, width: 1080, height: 874},
+    image: {path: _2048we_i, width: 1080, height: 874},
 };
 
 import tx4_i from "../public/images/projects/TX4.png";

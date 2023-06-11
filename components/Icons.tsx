@@ -46,6 +46,75 @@ export function GitHubIcon() {
 	);
 }
 
+export function RepoIcon() {
+	return (
+		<svg
+			className="with-icon_icon__aLCKg"
+			data-testid="geist-icon"
+			fill="none"
+			height="16"
+			width="16"
+			shapeRendering="geometricPrecision"
+			stroke="currentColor"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			strokeWidth="1.5"
+			viewBox="0 0 24 24"
+		>
+			<path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+			<path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+		</svg>
+	);
+}
+
+export function AlignLeftIcon() {
+	return (
+		<svg
+			className="with-icon_icon__aLCKg"
+			data-testid="geist-icon"
+			fill="none"
+			height="18"
+			width="18"
+			shape-rendering="geometricPrecision"
+			stroke="currentColor"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			strokeWidth="1.5"
+			viewBox="0 0 24 24"
+		>
+			<path d="M17 10H3" />
+			<path d="M21 6H3" />
+			<path d="M21 14H3" />
+			<path d="M17 18H3" />
+		</svg>
+	);
+}
+
+export function ListIcon() {
+	return (
+		<svg
+			className="with-icon_icon__aLCKg"
+			data-testid="geist-icon"
+			fill="none"
+			height="18"
+			width="18"
+			shape-rendering="geometricPrecision"
+			stroke="currentColor"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			strokeWidth="1.5"
+			viewBox="0 0 24 24"
+		>
+			<path d="M8 6h13" />
+			<path d="M8 12h13" />
+			<path d="M8 18h13" />
+			<path d="M3 6h.01" />
+			<path d="M3 12h.01" />
+			<path d="M3 18h.01" />
+		</svg>
+	);
+}
+
 export function ArrowIcon() {
 	return (
 		<svg

@@ -2,32 +2,33 @@ import logo_i from "../public/logo.png";
 
 export const logo = logo_i;
 export const name = "Alexander Bays";
-export const email = {
-	key: "email",
-	value: "bays.956mb@gmail.com",
-	url: "mailto:bays.956mb@gmail.com",
-};
-export const twitter = {
-	key: "twitter",
-	value: "956MB",
-	url: "https://twitter.com/956MB",
-};
-export const github = {
-	key: "github",
-	value: "956MB",
-	url: "https://github.com/956MB",
-};
-export const codewars = {
-	key: "codewars",
-	value: "956MB",
-	url: "https://www.codewars.com/users/956MB",
-};
-export const reddit = {
-	key: "reddit",
-	value: "956MB",
-	url: "https://www.reddit.com/user/bauera5",
-};
-export const links = [email, twitter, github, codewars, reddit];
+export const links = [
+	{
+		key: "email",
+		value: "bays.956mb@gmail.com",
+		url: "mailto:bays.956mb@gmail.com",
+	},
+	{
+		key: "twitter",
+		value: "956MB",
+		url: "https://twitter.com/956MB",
+	},
+	{
+		key: "github",
+		value: "956MB",
+		url: "https://github.com/956MB",
+	},
+	{
+		key: "codewars",
+		value: "956MB",
+		url: "https://www.codewars.com/users/956MB",
+	},
+	{
+		key: "reddit",
+		value: "956MB",
+		url: "https://www.reddit.com/user/bauera5",
+	},
+];
 
 export const about_h = `About Me`;
 

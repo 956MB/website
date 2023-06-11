@@ -18,7 +18,7 @@ export function TextTitleSub({ children }: { children: React.ReactNode }) {
 
 export function TextParagraph({ children }: { children: React.ReactNode }) {
 	return (
-		<a className="font-roboto-mono-regular text-[15px] leading-5 m-0 text-neutral-300 about-text-p">
+		<a className="font-inter-medium text-[15px] leading-[1.4em] m-0 text-neutral-300 about-text-p">
 			{ReactHtmlParser(children)}
 		</a>
 	);

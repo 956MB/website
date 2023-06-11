@@ -11,11 +11,11 @@ export function ConceptHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-row items-center justify-start w-full py-[30px] m-0 px-[30px] sticky top-0">
 			<div className="flex flex-row items-center justify-center gap-x-5">
-				<span className="font-roboto-mono-medium text-[12px] text-neutral-600 whitespace-nowrap">
+				<span className="font-ibmplex-sans-medium text-[13px] text-neutral-600 whitespace-nowrap">
 					{entry.description}
 				</span>
 			</div>
-			<hr className="h-px w-full bg-neutral-800 mx-[20px] my-auto" />
+			<hr className="h-px w-full bg-neutral-800 ml-[20px] my-auto" />
 		</div>
 	);
 }
@@ -52,14 +52,14 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 											<a className="text-white font-inter-bold text-xl mr-auto">
 												{item.title}
 											</a>
-											<a className="text-neutral-300/95 font-roboto-mono-regular text-[13px]">
+											<a className="text-neutral-300/95 font-inter-medium leading-5 text-[13px]">
 												{item.summary}
 											</a>
 										</div>
 									</button>
 									{portal(
 										<div
-											className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all px-[5%] pt-[110px] pb-[55px] z-[99]"
+											className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all px-[5%] py-[55px] z-[99]"
 											onClick={closePortal}
 										>
 											<motion.div

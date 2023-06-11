@@ -10,8 +10,8 @@ export default async function AboutPage() {
 	return (
 		<section>
 			<div className="flex w-full mx-auto flex-col items-start /*border-t border-neutral-800*/ mt-[110px]">
-				<div className="relative flex flex-row justify-center mx-auto items-start overflow-auto px-[2.5%] max-w-[1080px]">
-					<div className="pr-[30px] flex-row text-right justify-end">
+				<div className="relative flex flex-col sm:flex-row justify-center mx-auto items-start overflow-auto px-[30px] max-w-[1080px] gap-x-[30px] lg:gap-x-[55px]">
+					<div className="flex-row text-right justify-start mb-[30px]">
 						<div className="block w-fit">
 							<div className="block relative h-[330px] w-[275px] px-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.1),rgba(0,0,0,1.0)),url('../public/images/is-this-anything/IMG_1853_invert.png')] bg-bottom bg-cover bg-no-repeat">
 								<Image

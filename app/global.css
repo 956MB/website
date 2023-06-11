@@ -66,28 +66,43 @@ hr {
 
 @font-face {
 	font-family: "Inter_Light";
-	src: url("../public/fonts/Inter Desktop/Inter-Light.ttf");
+	src: url("../public/fonts/Inter_Desktop/Inter-Light.ttf");
 	font-weight: 300;
 }
 @font-face {
 	font-family: "Inter_Regular";
-	src: url("../public/fonts/Inter Desktop/Inter-Regular.ttf");
+	src: url("../public/fonts/Inter_Desktop/Inter-Regular.ttf");
 	font-weight: 400;
 }
 @font-face {
 	font-family: "Inter_Medium";
-	src: url("../public/fonts/Inter Desktop/Inter-Medium.ttf");
+	src: url("../public/fonts/Inter_Desktop/Inter-Medium.ttf");
 	font-weight: 500;
 }
 @font-face {
 	font-family: "Inter_SemiBold";
-	src: url("../public/fonts/Inter Desktop/Inter-SemiBold.ttf");
-	font-weight: 500;
+	src: url("../public/fonts/Inter_Desktop/Inter-SemiBold.ttf");
+	font-weight: 600;
 }
 @font-face {
 	font-family: "Inter_Bold";
-	src: url("../public/fonts/Inter Desktop/Inter-Bold.ttf");
+	src: url("../public/fonts/Inter_Desktop/Inter-Bold.ttf");
 	font-weight: 700;
+}
+@font-face {
+	font-family: "IBMPlex_Sans_Light";
+	src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Light.ttf");
+	font-weight: 300;
+}
+@font-face {
+	font-family: "IBMPlex_Sans_Medium";
+	src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Medium.ttf");
+	font-weight: 500;
+}
+@font-face {
+	font-family: "IBMPlex_Sans_SemiBold";
+	src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-SemiBold.ttf");
+	font-weight: 600;
 }
 
 .font-inter-light {
@@ -116,6 +131,15 @@ hr {
 }
 .font-roboto-mono-bold {
 	font-family: "RobotoMono_Bold";
+}
+.font-ibmplex-sans-light {
+	font-family: "IBMPlex_Sans_Light";
+}
+.font-ibmplex-sans-medium {
+	font-family: "IBMPlex_Sans_Medium";
+}
+.font-ibmplex-sans-semibold {
+	font-family: "IBMPlex_Sans_SemiBold";
 }
 
 .highlight {
@@ -292,16 +316,16 @@ table {
 }
 
 .prose p {
-    @apply text-neutral-300 font-roboto-mono-regular text-sm;
+    @apply text-neutral-300 font-inter-medium text-sm;
 }
 .prose li {
-    @apply text-neutral-300 font-roboto-mono-regular text-sm;
+    @apply text-neutral-300 font-inter-medium text-sm;
 }
 .prose li::marker {
     @apply text-white font-inter-bold text-sm;
 }
 .prose strong {
-    @apply text-white font-roboto-mono-regular text-sm transition-all duration-100 cursor-pointer;
+    @apply text-white font-inter-semibold text-sm transition-all duration-100 cursor-pointer;
 }
 .prose strong:hover {
     font-size: 15px !important;
@@ -323,7 +347,7 @@ table {
 }
 
 .callout p {
-    @apply text-neutral-100 font-roboto-mono-regular text-sm;
+    @apply text-neutral-100 font-inter-medium text-sm;
 }
 .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
     @apply border-l-2 border-neutral-300 dark:border-neutral-300 pl-4;

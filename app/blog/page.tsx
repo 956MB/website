@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function BlogPage() {
 	return (
 		<section>
-			<div className="flex w-full flex-col flex-1 items-start /*border-t border-neutral-800*/ mt-[85px]">
+			<div className="flex w-full flex-col flex-1 items-start /*border-t border-neutral-800*/ mt-[55px]">
 				<BlogC />
 			</div>
 		</section>

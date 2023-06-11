@@ -42,7 +42,7 @@ export function ProjectInfo({
 
 				{React.Children.toArray(
 					entry.summary.map((summary_p, i) => (
-						<a className="font-roboto-mono-regular text-[15px] leading-5 m-0 text-neutral-300">
+						<a className="font-inter-medium text-[15px] leading-[1.4em] m-0 text-neutral-300">
 							{ReactHtmlParser(summary_p)}
 						</a>
 					))
@@ -94,7 +94,7 @@ export default function ProjectRow({
 						</button>
 						{portal(
 							<div
-								className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all px-[10%] pt-[110px] pb-[55px] z-[99]"
+								className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all px-[10%] py-[55px] z-[99]"
 								onClick={closePortal}
 							>
 								<motion.div

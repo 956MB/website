@@ -24,13 +24,13 @@ export default function Header() {
 
 	return (
 		<div className="fixed z-[55] h-[55px] min-h-[55px] max-h-[55px] w-full border-b border-neutral-800 flex justify-center flex-wrap transition bg-black/80 backdrop-blur">
-			<div className="flex flex-row gap-7 m-auto items-center">
+			<div className="flex flex-row gap-4 sm:gap-7 m-auto items-center">
 				{Object.entries(navItems).map(([path, { name }], i) => {
 					const isActive = path === pathname;
 					return path.includes("_") ? (
 						<a
 							key={path}
-							className=" text-white/[0.20] font-inter-medium text-sm no-underline whitespace-nowrap pointer-events-none select-none"
+							className=" text-white/[0.20] font-ibmplex-sans-semibold text-sm no-underline whitespace-nowrap pointer-events-none select-none"
 						>
 							/
 						</a>
@@ -75,13 +75,6 @@ export default function Header() {
 export function Footer() {
 	return (
 		<div className="flex flex-row flex-1 h-[55px] min-h-[55px] max-h-[55px] w-full border-t border-neutral-800 justify-center items-center text-center flex-wrap transition bg-black/80 backdrop-blur gap-x-3 mt-auto">
-			{/* <span
-				className={
-					"relative transition-all duration-100 font-inter-semibold text-[14px] text-center text-neutral-400 mb-[1px]"
-				}
-			>
-				hosted with
-			</span> */}
 			<a
 				rel="noopener noreferrer"
 				target="_blank"

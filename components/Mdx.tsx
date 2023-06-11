@@ -40,7 +40,7 @@ function RoundedImage(props) {
 					</button>
 					{portal(
 						<div
-							className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all px-[10%] pt-[110px] pb-[55px] z-[99]"
+							className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all px-[10%] py-[55px] z-[99]"
 							onClick={closePortal}
 						>
 							<motion.div

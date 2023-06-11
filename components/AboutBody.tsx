@@ -17,7 +17,7 @@ import { TextParagraph, TextTitle, TextTitleSub } from "./Text";
 export default function AboutBody() {
     return (
         <motion.div
-            className="pt-[30px] pl-[30px] flex-row text-left justify-start mr-0 /*border-l border-neutral-800*/"
+            className="pt-[30px] flex-row text-left justify-start mr-0 /*border-l border-neutral-800*/"
             initial={{ opacity: 0, scale: 1.07, y: 1.1 }}
             animate={{ opacity: 1, scale: 1.0, y: 0.0 }}
             exit={{ opacity: 0, scale: 1.07, y: 1.1 }}
