@@ -43,7 +43,7 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 								<React.Fragment>
 									<motion.div
 										className={clsx(
-											"flex flex-col relative justify-start mb-[30px] group"
+											"flex flex-col relative justify-end mb-[30px] lg:mb-0 group"
 										)}
 										variants={{
 											hidden: { opacity: 0 },
@@ -64,10 +64,10 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 										</button>
 										<div
 											className={clsx(
-												"opacity-100 lg:opacity-0 flex flex-col flex-wrap text-start justify-center absolute w-full m-0 b-0 l-0 px-0 pb-[16px] pt-[16px] gap-y-2 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.0),rgba(0,0,0,0.90))] transition-opacity duration-150 group-hover:opacity-100",
+												"opacity-100 lg:opacity-0 flex flex-col flex-wrap text-start justify-center absolute w-full m-0 b-0 l-0 px-0 lg:px-[16px] pb-[16px] pt-[16px] gap-y-2 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.0),rgba(0,0,0,0.90))] transition-opacity duration-150 group-hover:opacity-100",
 												item.summary.length <= 0
 													? "!opacity-100 pt-[20%]"
-													: "relative lg:absolute lg:b-0 lg:l-0 lg:pt-14 lg:px-[16px]"
+													: "relative lg:absolute lg:b-0 lg:l-0 lg:pt-14"
 											)}
 										>
 											<a className="text-white font-inter-bold text-xl mr-auto">
