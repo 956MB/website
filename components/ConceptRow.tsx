@@ -43,7 +43,7 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 								<React.Fragment>
 									<motion.div
 										className={clsx(
-											"flex flex-col relative justify-end group"
+											"flex flex-col relative justify-start mb-[30px] group"
 										)}
 										variants={{
 											hidden: { opacity: 0 },
