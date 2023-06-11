@@ -21,7 +21,7 @@ export default function BlogContainer() {
 					variants={{
 						show: {
 							transition: {
-								staggerChildren: 0.055,
+								staggerChildren: 0.075,
 							},
 						},
 					}}
@@ -35,7 +35,6 @@ export default function BlogContainer() {
 									row_title={post.title}
 									row_date={post.publishedAt}
 									row_selected={post.slug === selectedPage}
-									row_tag={post.tag ? post.tag : ""}
 								/>
 							</button>
 						))
@@ -67,21 +66,21 @@ export default function BlogContainer() {
 							<script type="application/ld+json">
 								{JSON.stringify(post.structuredData)}
 							</script>
-							<div className="flex flex-row items-center justify-center w-full p-0 mb-[30px]">
-								<span className="font-ibmplex-sans-light text-[51px] leading-[45px] mb-[10px] text-neutral-500 whitespace-nowrap text-center noselect">
+							<div className="flex flex-row items-start justify-center w-full p-0 mb-[30px]">
+								<span className="font-ibmplex-sans-light text-[51px] leading-[45px] text-neutral-500 whitespace-nowrap text-center noselect">
 									/
 								</span>
 								<div className="flex flex-col items-start justify-center content-center w-full m-0 pl-3 gap-1">
-									<span className="font-inter-bold text-2xl max-w-max leading-6 mr-auto text-white whitespace-nowrap">
+									<span className="font-inter-bold text-2xl max-w-max leading-6 mr-auto text-white sm:whitespace-nowrap">
 										{post.title}
 									</span>
-									{/* <hr className="hidden sm:block h-px w-full bg-neutral-800 mx-[20px] my-auto" /> */}
 									<span className="font-ibmplex-sans-medium text-sm text-neutral-400 whitespace-nowrap">
 										{toFormattedDate(post.publishedAt)}
 									</span>
 								</div>
 							</div>
 							<Mdx code={post.body.code} />
+                            <hr className="block sm:hidden h-px w-full bg-neutral-800 my-auto mt-[30px]" />
 						</section>
 					))
 				)}

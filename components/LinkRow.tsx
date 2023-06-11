@@ -8,7 +8,7 @@ export default function LinkRow({
 	row_href: string;
 }) {
 	return (
-		<div className="flex items-center content-between my-1">
+		<div className="flex w-full items-center content-between my-1">
 			<a className="text-neutral-400 text-sm no-underline mr-auto font-inter-medium">
 				{row_key}
 			</a>
