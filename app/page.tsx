@@ -1,7 +1,5 @@
 import { AboutBody, AboutLinks } from "components/AboutBody";
 
-export const revalidate = 60;
-
 export default async function AboutPage() {
 	return (
 		<section>

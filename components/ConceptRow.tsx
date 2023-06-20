@@ -66,7 +66,7 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 											className={clsx(
 												"opacity-100 lg:opacity-0 flex flex-col flex-wrap text-start justify-center absolute w-full m-0 b-0 l-0 px-0 lg:px-[16px] pb-[16px] pt-[16px] gap-y-2 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.0),rgba(0,0,0,0.90))] transition-opacity duration-150 group-hover:opacity-100",
 												item.summary.length <= 0
-													? "!opacity-100 pt-[20%]"
+													? "!opacity-100 pt-[20%] px-[16px]"
 													: "relative lg:absolute lg:b-0 lg:l-0 lg:pt-14"
 											)}
 										>

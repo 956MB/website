@@ -15,9 +15,9 @@ export default function BlogContainer() {
 
 	return (
 		<div className="flex flex-row flex-1 justify-center w-full max-w-[1920px] relative items-start mx-auto">
-			<div className="hidden lg:flex flex-col w-full min-w-[370px] max-w-[370px] sticky top-[55px] overflow-auto shrink-0 border-l border-neutral-800">
+			<div className="hidden lg:flex flex-col w-full min-w-[370px] max-w-[370px] sticky top-[55px] overflow-auto shrink-0">
 				<motion.div
-					className="flex flex-col w-full py-[55px] gap-0 overflow-auto shrink-0 /*border-b border-neutral-800/*"
+					className="flex flex-col w-full py-[30px] gap-0 overflow-auto shrink-0 /*border-b border-neutral-800/*"
 					variants={{
 						show: {
 							transition: {
@@ -68,7 +68,7 @@ export default function BlogContainer() {
 							</script>
 							<div className="flex flex-row items-start justify-center w-full p-0 mb-[30px]">
 								<span className="font-ibmplex-sans-light text-[51px] leading-[45px] text-neutral-500 whitespace-nowrap text-center noselect">
-									/
+									|
 								</span>
 								<div className="flex flex-col items-start justify-center content-center w-full m-0 pl-3 gap-1">
 									<span className="font-inter-bold text-2xl max-w-max leading-6 mr-auto text-white sm:whitespace-nowrap">

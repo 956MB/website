@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { toFormattedDateShort } from "lib/util";
-import { motion, Variants } from "framer-motion";
-import { RepoIcon, AlignLeftIcon } from "./Icons";
+import { motion } from "framer-motion";
 
 export default function BlogRow({
 	row_title,
@@ -23,8 +22,8 @@ export default function BlogRow({
 				show: { opacity: 1 },
 			}}
 		>
-			<a className="flex items-center justify-center text-[#9b9b9b] min-w-[40px] max-w-[40px] text-center noselect">
-				<AlignLeftIcon />
+			<a className="flex items-center justify-center text-[#9b9b9b] text-[15px] font-ibmplex-sans-medium min-w-[30px] max-w-[30px] text-center noselect">
+				{row_selected ? "|" : ""}
 			</a>
 			<a
 				className={clsx(
