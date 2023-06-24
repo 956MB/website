@@ -57,7 +57,7 @@ export function AboutLinks({ mobilePos }: { mobilePos: string }) {
 				mobilePos
 			)}
 		>
-			<div className="flex relative items-center justify-center h-[330px] w-full md:w-[275px] px-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,1.0),rgba(0,0,0,0.1),rgba(0,0,0,1.0)),url('../public/images/is-this-anything/IMG_1853_invert.png')] bg-bottom bg-cover bg-no-repeat">
+			<div className="flex relative items-center justify-center h-[330px] w-full md:w-[275px] px-0 /*bg-[linear-gradient(to_bottom,rgba(0,0,0,1.0),rgba(0,0,0,0.1),rgba(0,0,0,1.0)),url('../public/images/is-this-anything/IMG_1853_invert.png')]*/ bg-bottom bg-cover bg-no-repeat">
 				<Image
 					alt="logo"
 					className="absolute w-52 h-52 hover:mt-[-30px] transition-all duration-100 object-contain cursor-pointer"

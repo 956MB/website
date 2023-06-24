@@ -15,7 +15,7 @@ export default function BlogContainer() {
 
 	return (
 		<div className="flex flex-row flex-1 justify-center w-full max-w-[1920px] relative items-start mx-auto">
-			<div className="hidden lg:flex flex-col w-full min-w-[370px] max-w-[370px] sticky top-[55px] overflow-auto shrink-0">
+			<div className="hidden lg:flex flex-col w-full min-w-[300px] max-w-[300px] sticky top-[55px] overflow-auto shrink-0">
 				<motion.div
 					className="flex flex-col w-full py-[30px] gap-0 overflow-auto shrink-0 /*border-b border-neutral-800/*"
 					variants={{
@@ -30,12 +30,26 @@ export default function BlogContainer() {
 				>
 					{React.Children.toArray(
 						sortBlogs(allBlogs).map((post, i) => (
-							<button onClick={() => setSelectedPage(post.slug)}>
+							<button
+								className="relative"
+								onClick={() => setSelectedPage(post.slug)}
+							>
 								<BlogRow
 									row_title={post.title}
 									row_date={post.publishedAt}
 									row_selected={post.slug === selectedPage}
 								/>
+								{post.slug === selectedPage ? (
+									<motion.div
+										className="absolute inset-0 bg-neutral-900 rounded-md z-[-1]"
+										layoutId="blogList"
+										transition={{
+											type: "spring",
+											stiffness: 350,
+											damping: 30,
+										}}
+									/>
+								) : null}
 							</button>
 						))
 					)}
@@ -43,7 +57,7 @@ export default function BlogContainer() {
 			</div>
 
 			<motion.div
-				className="flex flex-col w-full flex-1 lg:max-w-[55%] pt-[30px] lg:pt-[55px] px-[30px] pb-[55px] lg:border-l border-neutral-800 gap-[55px]"
+				className="flex flex-col w-full flex-1 lg:max-w-[60%] pt-[30px] lg:pt-[55px] px-[55px] pb-[55px] /*lg:border-l border-neutral-800*/ gap-[55px]"
 				initial={{ opacity: 0, scale: 1.07, y: 1.1 }}
 				animate={{ opacity: 1, scale: 1.0, y: 0.0 }}
 				exit={{ opacity: 0, scale: 1.07, y: 1.1 }}
@@ -80,7 +94,7 @@ export default function BlogContainer() {
 								</div>
 							</div>
 							<Mdx code={post.body.code} />
-                            <hr className="block sm:hidden h-px w-full bg-neutral-800 my-auto mt-[30px]" />
+							<hr className="block sm:hidden h-px w-full bg-neutral-800 my-auto mt-[30px]" />
 						</section>
 					))
 				)}

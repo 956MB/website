@@ -95,6 +95,11 @@ hr {
 	font-weight: 300;
 }
 @font-face {
+	font-family: "IBMPlex_Sans_Regular";
+	src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Regular.ttf");
+	font-weight: 300;
+}
+@font-face {
 	font-family: "IBMPlex_Sans_Medium";
 	src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Medium.ttf");
 	font-weight: 500;
@@ -134,6 +139,9 @@ hr {
 }
 .font-ibmplex-sans-light {
 	font-family: "IBMPlex_Sans_Light";
+}
+.font-ibmplex-sans-regular {
+	font-family: "IBMPlex_Sans_Regular";
 }
 .font-ibmplex-sans-medium {
 	font-family: "IBMPlex_Sans_Medium";
@@ -229,7 +237,7 @@ hr {
 
 .prose img {
 	/* Don't apply styles to next/image */
-	@apply mb-[1.25em];
+	@apply mb-[1.25em] max-h-[900px] w-full;
 }
 .prose img:first-child {
     @apply mt-0;

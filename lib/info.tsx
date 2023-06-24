@@ -18,15 +18,15 @@ export const links = [
 		value: "956MB",
 		url: "https://github.com/956MB",
 	},
+    {
+        key: "reddit",
+        value: "956MB",
+        url: "https://www.reddit.com/user/bauera5",
+    },
 	{
 		key: "codewars",
 		value: "956MB",
 		url: "https://www.codewars.com/users/956MB",
-	},
-	{
-		key: "reddit",
-		value: "956MB",
-		url: "https://www.reddit.com/user/bauera5",
 	},
 ];
 

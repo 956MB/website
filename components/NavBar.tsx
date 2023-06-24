@@ -23,7 +23,7 @@ export default function Header() {
 	}
 
 	return (
-		<div className="fixed z-[55] h-[55px] min-h-[55px] max-h-[55px] w-full border-b border-neutral-800 flex justify-center flex-wrap transition bg-black/80 backdrop-blur">
+		<div className="fixed z-[55] h-[55px] min-h-[55px] max-h-[55px] w-full flex justify-center flex-wrap transition bg-black/80 backdrop-blur">
 			<div className="flex flex-row gap-4 sm:gap-7 m-auto items-center">
 				{Object.entries(navItems).map(([path, { name }], i) => {
 					const isActive = path === pathname;
