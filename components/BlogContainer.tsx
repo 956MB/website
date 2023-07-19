@@ -52,7 +52,7 @@ export default function BlogContainer() {
 									<span className="font-inter-semibold text-2xl max-w-max leading-6 mr-auto text-white sm:whitespace-nowrap">
 										{post.title}
 									</span>
-                                    <div className="inline-flex flex-row-reverse md:flex-row items-end justify-center child:font-ibmplex-sans-medium child:text-sm child:whitespace-nowrap py-[1px] ml-2">
+                                    <div className="inline-flex flex-row-reverse md:flex-row items-end justify-center child:font-ibmplex-sans-medium child:text-sm child:whitespace-nowrap py-[1px] md:ml-2">
                                         {React.Children.toArray(
                                             post.tags?.map((tag, i) => (
                                                 <div className="inline-flex flex-row-reverse md:flex-row items-end justify-center">
