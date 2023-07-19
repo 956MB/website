@@ -9,7 +9,7 @@ export default function LinkRow({
 }) {
 	return (
 		<div className="flex w-full items-center content-between my-1">
-			<a className="text-neutral-400 text-sm no-underline mr-auto font-inter-medium">
+			<a className="text-neutral-400 text-sm no-underline mr-auto font-inter-medium whitespace-nowrap">
 				{row_key}
 			</a>
 			<hr className="h-px w-full bg-neutral-800 mx-[10px] my-auto" />
