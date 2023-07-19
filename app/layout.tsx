@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 		template: "%s | Alexander Bays",
 	},
 	description:
-		"Self-taught programmer, graphic designer and neography hobbyist.",
+		"Self-taught programmer, graphic designer and r/neography hobbyist.",
 	openGraph: {
 		title: "Alexander Bays",
 		description:
-			"Self-taught programmer, graphic designer and neography hobbyist.",
+			"Self-taught programmer, graphic designer and r/neography hobbyist.",
 		url: "https://956mb.com",
 		siteName: "Alexander Bays",
 		images: [

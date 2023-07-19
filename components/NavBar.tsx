@@ -13,7 +13,7 @@ const navItems = {
 	_2: { name: "" },
 	"/concepts": { name: "concepts" },
 	_3: { name: "" },
-	"/blog/robert-eggers-poster-edits": { name: "blog" },
+	"/blog/poster-edits": { name: "blog" },
 };
 
 export default function Header() {
