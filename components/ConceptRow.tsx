@@ -4,7 +4,6 @@ import { IEntry, IEntryGroup } from "lib/interfaces";
 import React from "react";
 import { PortalWithState } from "react-portal";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import clsx from "clsx";
 
 export function ConceptHeader({ entry }: { entry: IEntryGroup }) {
@@ -22,17 +21,8 @@ export function ConceptHeader({ entry }: { entry: IEntryGroup }) {
 
 export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 	return (
-		<motion.div
+		<div
 			className="flex flex-col flex-wrap w-full relative"
-			variants={{
-				show: {
-					transition: {
-						staggerChildren: 0.055,
-					},
-				},
-			}}
-			initial="hidden"
-			animate="show"
 		>
 			<ConceptHeader entry={entry} />
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-3 w-full px-[30px] pb-[30px]">
@@ -41,14 +31,10 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 						<PortalWithState closeOnOutsideClick closeOnEsc>
 							{({ openPortal, closePortal, portal }) => (
 								<React.Fragment>
-									<motion.div
+									<div
 										className={clsx(
 											"flex flex-col relative justify-end mb-[30px] lg:mb-0 group"
 										)}
-										variants={{
-											hidden: { opacity: 0 },
-											show: { opacity: 1 },
-										}}
 									>
 										<button
 											className="flex flex-col relative justify-end group"
@@ -56,7 +42,7 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 										>
 											<Image
 												alt={item.id}
-												className="block object-cover w-full h-full aspect-video rounded-xl"
+												className="block object-cover w-full h-full aspect-video rounded-lg"
 												src={item.image.path}
 												width={item.image.width}
 												height={item.image.height}
@@ -77,32 +63,20 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 												{item.summary}
 											</a>
 										</div>
-									</motion.div>
+									</div>
 									{portal(
 										<div
 											className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all px-[5%] py-[55px] z-[99]"
 											onClick={closePortal}
 										>
-											<motion.div
-												initial={{ scale: 0 }}
-												animate={{ scale: 1 }}
-												exit={{ scale: 0 }}
-												transition={{
-													type: "spring",
-													damping: 30,
-													duration: 0.04,
-													stiffness: 350,
-													delay: 0,
-												}}
-											>
-												<Image
-													alt="project-img-modal"
-													className="block w-auto max-h-max object-contain overflow-hidden rounded-xl"
-													src={item.image.path}
-													width={item.image.width}
-													height={item.image.height}
-												/>
-											</motion.div>
+											
+                                            <Image
+                                                alt="project-img-modal"
+                                                className="block w-auto max-h-max object-contain overflow-hidden rounded-lg"
+                                                src={item.image.path}
+                                                width={item.image.width}
+                                                height={item.image.height}
+                                            />
 										</div>
 									)}
 								</React.Fragment>
@@ -111,6 +85,6 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 					))
 				)}
 			</div>
-		</motion.div>
+		</div>
 	);
 }

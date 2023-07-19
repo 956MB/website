@@ -19,7 +19,6 @@ const computedFields = {
 			datePublished: doc.publishedAt,
 			dateModified: doc.publishedAt,
 			description: doc.summary,
-            tag: doc.tag ? doc.tag : "",
 			image: doc.image
 				? `https://956mb.com${doc.image}`
 				: `https://956mb.com/api/og?title=${doc.title}`,
@@ -49,8 +48,13 @@ export const Blog = defineDocumentType(() => ({
 			type: "string",
 			required: true,
 		},
-        tag: {
-            type: "string",
+        tags: {
+            type: 'list',
+            of: { type: 'string' },
+        },
+        modified: {
+            type: 'boolean',
+            default: false,
         },
 		image: {
 			type: "string",

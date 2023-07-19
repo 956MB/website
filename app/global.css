@@ -151,13 +151,8 @@ hr {
 }
 
 .highlight {
-    transition: all 0.1s ease-in-out;
 	font-family: "Inter_Bold" !important;
 	color: white !important;
-    cursor: pointer !important;
-}
-.highlight:hover {
-    font-size: 16px !important;
 }
 
 ::selection {
@@ -227,7 +222,7 @@ hr {
 }
 
 .prose code {
-	@apply text-neutral-300 dark:text-neutral-200 px-1 py-0.5 border border-neutral-100 dark:border-neutral-300 rounded-xl bg-neutral-100 dark:bg-neutral-900;
+	@apply text-neutral-300 dark:text-neutral-200 px-1 py-0.5 border border-neutral-100 dark:border-neutral-300 rounded-lg bg-neutral-100 dark:bg-neutral-900;
 }
 
 .prose pre code {
@@ -237,7 +232,7 @@ hr {
 
 .prose img {
 	/* Don't apply styles to next/image */
-	@apply mb-[1.25em] max-h-[900px] w-full;
+	@apply mb-[1.25em] lg:max-h-[900px] w-full;
 }
 .prose img:first-child {
     @apply mt-0;
@@ -333,16 +328,13 @@ table {
     @apply text-white font-inter-bold text-sm;
 }
 .prose strong {
-    @apply text-white font-inter-semibold text-sm transition-all duration-100 cursor-pointer;
-}
-.prose strong:hover {
-    font-size: 15px !important;
+    @apply text-white font-inter-semibold text-sm transition-all duration-100;
 }
 .prose h2 {
     @apply text-white font-inter-bold;
 }
 .prose h3 {
-    @apply text-white font-inter-bold;
+    @apply text-white font-inter-semibold;
 }
 .prose h4 {
     @apply text-white font-inter-bold;

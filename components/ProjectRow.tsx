@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import clsx from "clsx";
@@ -72,10 +71,8 @@ export default function ProjectRow({
 	side: "left" | "right";
 }) {
 	return (
-		<motion.div
+		<div
 			className="relative flex flex-wrap flex-col justify-center items-center max-w-[85%]"
-			initial={{ x: side === "left" ? "-300px" : "300px", opacity: 0 }}
-			animate={{ x: 0, opacity: 1 }}
 		>
 			<PortalWithState
 				closeOnOutsideClick
@@ -86,7 +83,7 @@ export default function ProjectRow({
 						<button onClick={openPortal}>
 							<Image
 								alt="project-img"
-								className="block h-full max-h-[600px] w-auto max-w-[100%] object-contain cursor-pointer rounded-xl"
+								className="block h-full max-h-[600px] w-auto max-w-[100%] object-contain cursor-pointer rounded-lg"
 								src={entry.image.path}
 								width={entry.image.width}
 								height={entry.image.height}
@@ -97,26 +94,13 @@ export default function ProjectRow({
 								className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all px-[10%] py-[55px] z-[99]"
 								onClick={closePortal}
 							>
-								<motion.div
-									initial={{ scale: 0 }}
-									animate={{ scale: 1 }}
-									exit={{ scale: 0 }}
-									transition={{
-										type: "spring",
-										damping: 30,
-										duration: 0.04,
-										stiffness: 350,
-										delay: 0,
-									}}
-								>
-									<Image
-										alt="project-img-modal"
-										className="block w-auto max-h-max object-contain overflow-hidden rounded-xl"
-										src={entry.image.path}
-										width={entry.image.width}
-										height={entry.image.height}
-									/>
-								</motion.div>
+                                <Image
+                                    alt="project-img-modal"
+                                    className="block w-auto max-h-max object-contain overflow-hidden rounded-lg"
+                                    src={entry.image.path}
+                                    width={entry.image.width}
+                                    height={entry.image.height}
+                                />
 							</div>
 						)}
 					</React.Fragment>
@@ -125,6 +109,6 @@ export default function ProjectRow({
 			<ProjectInfo
 				entry={entry}
 			/>
-		</motion.div>
+		</div>
 	);
 }

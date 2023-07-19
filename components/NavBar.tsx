@@ -7,13 +7,13 @@ import { motion } from "framer-motion";
 import { VercelIcon } from "./Icons";
 
 const navItems = {
-	"/": { name: "about" },
+	"/": { name: "home" },
 	_1: { name: "" },
 	"/projects": { name: "projects" },
 	_2: { name: "" },
 	"/concepts": { name: "concepts" },
 	_3: { name: "" },
-	"/blog": { name: "blog" },
+	"/blog/robert-eggers-poster-edits": { name: "blog" },
 };
 
 export default function Header() {
@@ -47,12 +47,12 @@ export default function Header() {
 						>
 							<span
 								className={clsx(
-									"relative transition-all duration-100 font-inter-semibold active:mt-[4px] text-center",
-									path === pathname ? "text-white" : null
+									"relative transition-all duration-100 font-inter-medium active:mt-[4px] text-center",
+									pathname.includes(name) || pathname == path ? "text-white" : null
 								)}
 							>
 								{name}
-								{path === pathname ? (
+								{pathname.includes(path) ? (
 									<motion.div
 										className="absolute transition-all duration-100 text-white"
 										layoutId="navbar"
