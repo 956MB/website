@@ -327,7 +327,7 @@ table {
 }
 
 .prose p {
-	@apply text-neutral-300 font-inter-medium text-sm;
+	@apply text-neutral-300 font-inter-medium text-sm leading-6;
 }
 .prose li {
 	@apply text-neutral-300 font-inter-medium text-sm;

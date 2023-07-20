@@ -71,7 +71,6 @@ export default function BlogContainer() {
 							</div>
 							<hr className="h-px w-full bg-neutral-800 mb-[20px] mt-[10px]" />
 							<Mdx code={post.body.code} />
-							<hr className="block sm:hidden h-px w-full bg-neutral-800 my-auto mt-[30px]" />
 						</section>
 					))
 				)}

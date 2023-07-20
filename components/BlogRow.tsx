@@ -10,7 +10,7 @@ export default function BlogRow({ post }: { post: Blog }) {
 	return (
 		<div
 			className={clsx(
-				"flex w-full items-center justify-end content-between m-0 cursor-pointer py-[5px] pr-[20px] rounded-md group"
+				"flex w-full items-center justify-end content-between m-0 cursor-pointer py-[2px] pr-[20px] rounded-md group"
 			)}
 		>
 			<a
