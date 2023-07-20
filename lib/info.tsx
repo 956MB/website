@@ -38,7 +38,7 @@ export const links = [
 
 export const about_h = `About Me`;
 
-export const about_p = `Hi, my name is <span class='highlight'>${name}</span>, and I’m a self-taught programmer, graphic designer and r/neography enthusiast from <span class='highlight'> Dallas, TX </span>.`;
+export const about_p = `Hi, my name is <span class='highlight'>${name}</span>, and I’m a self-taught programmer, graphic designer and r/neography hobbyist from <span class='highlight'> Dallas, TX </span>.`;
 
 export const bio_p = `My main focus is in frontend design and functionality for desktop and mobile software. I typically start by prototyping in <span class='highlight'>Figma </span> and then bring functionality to my designs with code. I’ve created applications for <span class='highlight'>Windows </span>, <span class='highlight'>macOS</span>, <span class='highlight'>iPhone </span>, and <span class='highlight'>Apple Watch</span>. While I do lean towards Apple platforms, I'm comfortable working on projects using various frameworks and languages that I've come to learn.`;
 
