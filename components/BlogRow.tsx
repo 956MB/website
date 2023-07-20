@@ -13,20 +13,20 @@ export default function BlogRow({ post }: { post: Blog }) {
 				"flex w-full items-center justify-end content-between m-0 cursor-pointer py-[2px] pr-[20px] rounded-md group"
 			)}
 		>
-			<a
+			<span
 				className={clsx(
 					"flex items-center justify-center text-[32px] font-ibmplex-sans-regular min-w-[30px] max-w-[30px] text-center noselect",
 					selected ? "text-[#9b9b9b]" : "text-transparent"
 				)}
 			>
 				|
-			</a>
+			</span>
 			<div
 				className={clsx(
 					"flex flex-col gap-y-[2px] items-start justify-center w-full"
 				)}
 			>
-				<a
+				<span
 					className={clsx(
 						" inline-block text-[15px] mr-auto w-full whitespace-nowrap overflow-hidden overflow-ellipsis text-left transition-all duration-100",
 						selected
@@ -35,9 +35,9 @@ export default function BlogRow({ post }: { post: Blog }) {
 					)}
 				>
 					{post.title}
-				</a>
+				</span>
 				<div className="inline-flex flex-row gap-2">
-					<a
+					<span
 						className={clsx(
 							"font-ibmplex-sans-medium text-[13px] leading-3 whitespace-nowrap text-right transition-all duration-100",
 							selected
@@ -46,7 +46,7 @@ export default function BlogRow({ post }: { post: Blog }) {
 						)}
 					>
 						{toFormattedDateShort(post.publishedAt)}
-					</a>
+					</span>
                 </div>
 			</div>
 		</div>
