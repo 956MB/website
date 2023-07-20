@@ -18,10 +18,10 @@ hr {
 	width: 100%;
 	border: 0 none;
 	margin: 30px 0 30px 0;
-    @apply bg-neutral-800;
+	@apply bg-neutral-800;
 }
 .prose :where(hr):not(:where([class~="not-prose"] *)) {
-    margin: 30px 0 30px 0 !important;
+	margin: 30px 0 30px 0 !important;
 }
 
 .noselect {
@@ -32,15 +32,23 @@ hr {
 	cursor: default;
 }
 
+.clamp-3 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 3;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
-    display: none !important;
+	display: none !important;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-    -ms-overflow-style: none !important;  /* IE and Edge */
-    scrollbar-width: none !important;  /* Firefox */
+	-ms-overflow-style: none !important; /* IE and Edge */
+	scrollbar-width: none !important; /* Firefox */
 }
 
 @font-face {
@@ -176,10 +184,10 @@ hr {
 .project-h .anchor {
 	@apply absolute opacity-0 no-underline;
 
-    display: block;
+	display: block;
 
 	padding-right: 0.5em;
-    width: 100%;
+	width: 100%;
 	cursor: pointer;
 }
 
@@ -188,7 +196,7 @@ hr {
 }
 .project-h .anchor:hover {
 	@apply opacity-100;
-    margin-left: -1em;
+	margin-left: -1em;
 }
 
 .prose a {
@@ -198,7 +206,7 @@ hr {
 	@apply transition-all text-white decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-inter-bold;
 }
 .prose a:hover {
-    font-size: 15px !important;
+	font-size: 15px !important;
 }
 
 .prose .anchor:after {
@@ -235,7 +243,7 @@ hr {
 	@apply mb-[1.25em] lg:max-h-[900px] w-full;
 }
 .prose img:first-child {
-    @apply mt-0;
+	@apply mt-0;
 }
 
 .prose > :first-child {
@@ -282,7 +290,7 @@ table {
 }
 
 .prose {
-    max-width: 100% !important;
+	max-width: 100% !important;
 }
 
 [data-rehype-pretty-code-fragment] code {
@@ -319,50 +327,50 @@ table {
 }
 
 .prose p {
-    @apply text-neutral-300 font-inter-medium text-sm;
+	@apply text-neutral-300 font-inter-medium text-sm;
 }
 .prose li {
-    @apply text-neutral-300 font-inter-medium text-sm;
+	@apply text-neutral-300 font-inter-medium text-sm;
 }
 .prose li::marker {
-    @apply text-white font-inter-bold text-sm;
+	@apply text-white font-inter-bold text-sm;
 }
 .prose strong {
-    @apply text-white font-inter-semibold text-sm transition-all duration-100;
+	@apply text-white font-inter-semibold text-sm transition-all duration-100;
 }
 .prose h2 {
-    @apply text-white font-inter-bold;
+	@apply text-white font-inter-bold;
 }
 .prose h3 {
-    @apply text-white font-inter-semibold;
+	@apply text-white font-inter-semibold;
 }
 .prose h4 {
-    @apply text-white font-inter-bold;
+	@apply text-white font-inter-bold;
 }
 .project-h h3 {
-    @apply relative text-white font-inter-bold text-[28px] leading-7 whitespace-nowrap cursor-pointer;
+	@apply relative text-white font-inter-bold text-[28px] leading-7 whitespace-nowrap cursor-pointer;
 }
 #projects-container :last-child {
-    @apply border-b-0;
+	@apply border-b-0;
 }
 
 .callout p {
-    @apply text-neutral-100 font-inter-medium text-sm;
+	@apply text-neutral-100 font-inter-medium text-sm;
 }
 .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
-    @apply border-l-2 border-neutral-300 dark:border-neutral-300 pl-4;
+	@apply border-l-2 border-neutral-300 dark:border-neutral-300 pl-4;
 }
 
 .prose pre {
-    @apply rounded-none;
+	@apply rounded-none;
 }
 
 .prose :where(h2):not(:where([class~="not-prose"] *)) {
-    margin-top: 1em;
+	margin-top: 1em;
 }
 .prose :where(h3):not(:where([class~="not-prose"] *)) {
-    margin-top: 1em;
+	margin-top: 1em;
 }
 .prose :where(h4):not(:where([class~="not-prose"] *)) {
-    margin-top: 1em;
+	margin-top: 1em;
 }

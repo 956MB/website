@@ -5,7 +5,7 @@ import React from "react";
 import clsx from "clsx";
 import ReactHtmlParser from "react-html-parser";
 import { PortalWithState } from "react-portal";
-import { Github } from '@geist-ui/icons';
+import { Github } from 'react-bootstrap-icons';
 import { IEntry } from "lib/interfaces";
 
 export function ProjectInfo({
@@ -20,7 +20,7 @@ export function ProjectInfo({
 			)}
 		>
 			<div className="flex flex-wrap m-0 text-left flex-col gap-y-[12px] project-h">
-				<div className="flex flex-row flex-wrap items-center justify-start gap-x-3">
+				<div className="inline-flex flex-row flex-wrap items-center justify-start gap-x-3">
 					<h3 id={entry.id}>
 						<a className="anchor" href={`#${entry.id}`}>
 							<span className="icon icon-link"></span>
@@ -32,7 +32,7 @@ export function ProjectInfo({
 							rel="noopener noreferrer"
 							target="_blank"
 							href={entry.link}
-							className="flex items-center gap-2 text-white hover:text-neutral-400 transition-all duration-100 mt-[2px]"
+							className="flex items-center gap-2 text-white hover:text-neutral-400 transition-all duration-100"
 						>
 							<Github size={22}/>
 						</a>
@@ -50,8 +50,8 @@ export function ProjectInfo({
 				<div className="flex flex-wrap items-left flex-row gap-x-[10px] mt-[10px]">
 					{React.Children.toArray(
 						entry.tags.map((tag, i) => (
-							<div className="block bg-white/[0.10] hover:bg-white group px-[11px] pt-[2px] pb-[4px] rounded-[20px] items-center cursor-pointer transition-all duration-200">
-								<a className="pointer-events-none transition-all duration-200 text-white font-inter-semibold text-xs group-hover:text-black">
+							<div className="blockgroup pt-[2px] pb-[4px] cursor-pointer text-center items-center justify-center text-white mt-[1px] bg-neutral-900/80 hover:bg-neutral-800/90 rounded-md gap-2 px-2 border border-neutral-700/70 hover:border-neutral-700/80">
+								<a className="pointer-events-none text-white font-inter-semibold text-xs group-hover:text-black">
 									{tag}
 								</a>
 							</div>

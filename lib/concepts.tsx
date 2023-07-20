@@ -9,7 +9,7 @@ export const concept_comma_interface_challenge: IEntry = {
 	title: "Comma Interface Challenge",
 	link: "",
 	summary: [
-		"This was my take (apparently not very good) on a re-design of the Comma 3 interface. It came from an interview assignment called the 'Comma Interface Challenge', where Comma wanted modifications or whole different design structures for a 'Software updater' inside the UI. Supposedly I didn't fully grasp the full objective of the interview challenge, but I still feel the design 'overhaul' was solid and worth showing here.",
+		"This was my take (apparently not very good) on a re-design of the Comma 3 interface. It came from an interview assignment called the 'Comma Interface Challenge', where Comma wanted modifications or whole different design structures for a 'Software updater' inside the UI. I supposedly didn't fully grasp the objective of the interview challenge though.",
 	],
 	tags: [],
 	image: { path: comma_i, width: 4720, height: 2655 },
@@ -21,7 +21,7 @@ export const concept_intros: IEntry = {
 	title: '"Tro"... "Frame"... idk',
 	link: "",
 	summary: [
-		"This is a concept for a website idea I’ve had for a long time. It’s a website where any and all TV show or movie intro “frames” are collected. Sort of like if IMDB or Rotten Tomatoes was only for intros and end credits. For example, an actor or a producer can find the TV show(s) they’ve worked on and isolate the frame of an opening intro or end credits where their name appears, and do whatever they want with it. Or any other user can go and like what they think is cool. (ARTWORK FROM CHAINSAWMAN. I DO NOT TAKE CREDIT.)",
+		"This is a concept for a website idea I’ve had for a long time. It’s a website where any and all TV show or movie intro “frames” are collected. Sort of like if IMDB or Rotten Tomatoes was only for intros and end credits.",
 	],
 	tags: [],
 	image: { path: intros_i, width: 2560, height: 1440 },
@@ -33,7 +33,7 @@ export const concept_opgg_spectate: IEntry = {
 	title: 'OP.GG Client "Spectate pro matches"',
 	link: "",
 	summary: [
-		"This is a concept for the OP.GG ‘Pro Matches’ feature, integrated into their desktop client. I really liked the ‘Spectate Pro Players’ part of OP.GG’s website, but I thought it would be cool if you never had to leave the desktop client to load up and spectate pro games. This feature is probably implemented by this point.",
+		"This is a concept for the OP.GG ‘Pro Matches’ feature, integrated into their desktop client. I really liked the ‘Spectate Pro Players’ part of OP.GG’s website, but I thought it would be cool if you never had to leave the desktop client to load up and spectate pro games.",
 	],
 	tags: [],
 	image: { path: opgg_spectate_i, width: 1575, height: 885 },

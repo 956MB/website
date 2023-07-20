@@ -5,6 +5,7 @@ import React from "react";
 import { PortalWithState } from "react-portal";
 import Image from "next/image";
 import clsx from "clsx";
+import { AiOutlineExpand, AiOutlineCompress } from "react-icons/ai";
 
 export function ConceptHeader({ entry }: { entry: IEntryGroup }) {
 	return (
@@ -21,11 +22,9 @@ export function ConceptHeader({ entry }: { entry: IEntryGroup }) {
 
 export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div
-			className="flex flex-col flex-wrap w-full relative"
-		>
+		<div className="flex flex-col flex-wrap w-full relative">
 			<ConceptHeader entry={entry} />
-			<div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-3 w-full px-[30px] pb-[30px]">
+			<div className="grid grid-cols-1 justify-center items-start md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-3 w-full px-[30px] pb-[30px]">
 				{React.Children.toArray(
 					entry.items.map((item, i) => (
 						<PortalWithState closeOnOutsideClick closeOnEsc>
@@ -33,7 +32,7 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 								<React.Fragment>
 									<div
 										className={clsx(
-											"flex flex-col relative justify-end mb-[30px] lg:mb-0 group"
+											"relative z-0 flex flex-col justify-start group"
 										)}
 									>
 										<button
@@ -50,33 +49,46 @@ export default function ConceptRow({ entry }: { entry: IEntryGroup }) {
 										</button>
 										<div
 											className={clsx(
-												"opacity-100 lg:opacity-0 flex flex-col flex-wrap text-start justify-center absolute w-full m-0 b-0 l-0 px-0 lg:px-[16px] pb-[16px] pt-[16px] gap-y-2 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.0),rgba(0,0,0,0.90))] transition-opacity duration-150 group-hover:opacity-100",
-												item.summary.length <= 0
-													? "!opacity-100 pt-[20%] px-[16px]"
-													: "relative lg:absolute lg:b-0 lg:l-0 lg:pt-14"
+												"flex flex-col flex-nowrap text-start justify-center w-full lg:px-[16px] pb-[16px] pt-[16px] gap-y-2 group-hover:opacity-100"
 											)}
 										>
-											<a className="text-white font-inter-bold text-xl mr-auto">
+											<a className="text-white font-inter-semibold text-lg mr-auto">
 												{item.title}
 											</a>
-											<a className="text-neutral-300/95 font-inter-medium leading-5 text-[15px]">
-												{item.summary}
-											</a>
+											{item.summary.length > 0 ? (
+												<a className="text-neutral-300/95 font-inter-medium line-clamp-3 leading-[18px] text-[14px]">
+													{item.summary}
+												</a>
+											) : null}
 										</div>
 									</div>
 									{portal(
 										<div
-											className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all px-[5%] py-[55px] z-[99]"
-											onClick={closePortal}
-										>
-											
-                                            <Image
-                                                alt="project-img-modal"
-                                                className="block w-auto max-h-max object-contain overflow-hidden rounded-lg"
-                                                src={item.image.path}
-                                                width={item.image.width}
-                                                height={item.image.height}
-                                            />
+                                            className="flex flex-col flex-nowrap absolute items-center justify-center top-0 left-0 w-screen h-screen bg-black/90 pointer-events-all z-[99] backdrop-blur-sm"
+                                            onClick={closePortal}
+                                        >
+											<div className="relative p-4 flex flex-col items-center justify-end w-full h-full">
+												<div className="hidden sm:flex flex-col flex-wrap overflow-auto w-full items-center justify-center py-4 px-6 gap-3">
+													<a className="text-white font-inter-semibold text-xl">
+														{item.title}
+													</a>
+													{item.summary.length > 0 ? (
+														<a className="text-neutral-300/95 font-inter-medium text-center leading-[19px] text-[15px] max-w-3xl">
+															{item.summary}
+														</a>
+													) : null}
+												</div>
+											</div>
+											<div className="relative">
+												<Image
+													alt="project-img-modal"
+													className="block w-auto max-h-max object-contain overflow-hidden"
+													src={item.image.path}
+													width={item.image.width}
+													height={item.image.height}
+												/>
+											</div>
+											<div className="w-full h-full p-4"></div>
 										</div>
 									)}
 								</React.Fragment>

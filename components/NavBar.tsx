@@ -32,14 +32,14 @@ export default function Header() {
 							key={path}
 							className=" text-white/[0.20] font-ibmplex-sans-semibold text-sm no-underline whitespace-nowrap pointer-events-none select-none"
 						>
-							/
+							|
 						</a>
 					) : (
 						<Link
 							key={path}
 							href={path}
 							className={clsx(
-								"transition-all duration-100 flex align-middle justify-center items-center text-[16px] no-underline whitespace-nowrap capitalize",
+								"transition-all duration-100 flex align-middle justify-center items-center text-[16px] no-underline whitespace-nowrap lowercase",
 								{
 									"text-white/[0.4]": !isActive,
 								}

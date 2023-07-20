@@ -1,32 +1,38 @@
+import { TwitterIcon } from "components/Icons";
 import logo_i from "../public/logo.png";
 
 export const logo = logo_i;
 export const name = "Alexander Bays";
+export const email = 	{
+    key: "contact",
+    value: "bays.956mb@gmail.com",
+    url: "mailto:bays.956mb@gmail.com",
+}
 export const links = [
-	{
-		key: "email",
-		value: "bays.956mb@gmail.com",
-		url: "mailto:bays.956mb@gmail.com",
-	},
+    {
+        key: "github",
+        value: "956MB",
+        url: "https://github.com/956MB",
+    },
 	{
 		key: "twitter",
 		value: "956MB",
-		url: "https://twitter.com/956MB",
+        url: "https://twitter.com/956MB",
 	},
-	{
-		key: "github",
-		value: "956MB",
-		url: "https://github.com/956MB",
-	},
+    {
+        key: "mastadon",
+        value: "956MB",
+        url: "https://mastodon.social/@956MB",
+    },
     {
         key: "reddit",
         value: "956MB",
         url: "https://www.reddit.com/user/bauera5",
     },
 	{
-		key: "codewars",
+		key: "twitch",
 		value: "956MB",
-		url: "https://www.codewars.com/users/956MB",
+        url: "https://www.twitch.tv/956mb",
 	},
 ];
 
