@@ -39,7 +39,7 @@ function RoundedImage(props) {
 					</button>
 					{portal(
 						<div
-							className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all sm:px-[10%] z-[99]"
+							className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all sm:px-[10%] z-[99] backdrop-blur-sm"
 							onClick={closePortal}
 						>
                             <Image

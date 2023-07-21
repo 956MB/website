@@ -103,8 +103,8 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                 </div>
                                 {portal(
                                     <div className="flex flex-col absolute top-0 left-0 w-screen h-screen bg-black/90 pointer-events-all z-[99] backdrop-blur-sm">
-                                        <div className="flex-shrink-0 flex-grow sm:flex-grow-0 py-4 flex flex-col items-center justify-end overflow-hidden">
-                                            <div className="hidden sm:flex flex-col flex-nowrap w-full items-center justify-center py-4 gap-3">
+                                        <div className="flex-shrink-0 flex-grow sm:flex-grow-0 flex flex-col items-center justify-end overflow-hidden">
+                                            <div className="hidden sm:flex flex-col flex-nowrap w-full items-center justify-center py-4 gap-[15px]">
                                                 <div className="inline-flex flex-row items-center justify-center gap-2 max-w-3xl mx-6">
                                                     <CategoryIcon category={item.category}/>
                                                     <a className="text-white text-center w-full font-inter-semibold text-xl leading-5">

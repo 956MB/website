@@ -240,7 +240,7 @@ hr {
 
 .prose img {
 	/* Don't apply styles to next/image */
-	@apply mb-[1.25em] lg:max-h-[900px] w-full;
+	@apply mb-[1.10em] lg:max-h-[900px] w-full;
 }
 .prose img:first-child {
 	@apply mt-0;
@@ -327,7 +327,7 @@ table {
 }
 
 .prose p {
-	@apply text-neutral-300 font-inter-medium text-sm leading-6;
+	@apply text-neutral-300 font-inter-medium text-sm leading-6 mb-6;
 }
 .prose li {
 	@apply text-neutral-300 font-inter-medium text-sm;
@@ -366,11 +366,11 @@ table {
 }
 
 .prose :where(h2):not(:where([class~="not-prose"] *)) {
-	margin-top: 1em;
+	margin-top: 0;
 }
 .prose :where(h3):not(:where([class~="not-prose"] *)) {
-	margin-top: 1em;
+	margin-top: 0;
 }
 .prose :where(h4):not(:where([class~="not-prose"] *)) {
-	margin-top: 1em;
+	margin-top: 0;
 }

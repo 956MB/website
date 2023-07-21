@@ -14,7 +14,7 @@ const navItems = {
 	_2: { name: "" },
 	"/design": { name: "design" },
 	_3: { name: "" },
-	"/blog/poster-edits": { name: "blog" },
+	"/blog/tx4-for-real": { name: "blog" },
 };
 
 export default function Header() {

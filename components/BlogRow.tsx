@@ -10,7 +10,7 @@ export default function BlogRow({ post }: { post: Blog }) {
 	return (
 		<div
 			className={clsx(
-				"flex w-full items-center justify-end content-between m-0 cursor-pointer py-[2px] pr-[20px] rounded-md group"
+				"flex w-full items-center justify-end content-between m-0 cursor-pointer py-[1px] pr-[20px] rounded-md group"
 			)}
 		>
 			<span
@@ -23,7 +23,7 @@ export default function BlogRow({ post }: { post: Blog }) {
 			</span>
 			<div
 				className={clsx(
-					"flex flex-col gap-y-[2px] items-start justify-center w-full"
+					"flex flex-col gap-y-[1px] items-start justify-center w-full"
 				)}
 			>
 				<span

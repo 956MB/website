@@ -9,7 +9,7 @@ export const design_tx4: IEntry = {
 	title: "TX4",
 	category: "figma",
 	summary: [
-		"My actual attempt at the app TX4. I tried to keep the same general ideas and structure of the original Qt creation, but with a much more thought out design before going into development. This was crucial because doing things on the fly with no plan in Qt lead to a terrible look and feel.",
+		"An actual attempt at my previously shown app, TX4. I tried to keep the same general ideas and structure of the original Qt creation, but with a much more thought out design before going into development. This was crucial because doing things on the fly with no plan, in Qt no less, lead to a terrible look and feel. Development on it has already started in React, but is very early stages.",
 	],
 	image: { path: tx4_i, width: 2650, height: 1780 },
 };
