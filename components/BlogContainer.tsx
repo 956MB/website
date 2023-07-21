@@ -29,7 +29,8 @@ export default function BlogContainer() {
 							</Link>
 						))
 					)}
-                    <hr />
+                    {/* <hr /> */}
+                    <hr className="h-px w-full bg-neutral-800 mb-[20px] my-6" />
 				</div>
 			</div>
 

@@ -25,6 +25,13 @@ export function toFormattedDateShort(date: string) {
 	return date.slice(0, -4) + date.slice(-2);
 }
 
+export function rsplitPath(path: string) {
+    const parts = path.split("/");
+    const result = parts[parts.length - 1];
+
+    return result;
+}
+
 export function sortBlogs(blogs: Blog[]): Blog[] {
     return blogs.sort((a, b) => {
         if (new Date(a.publishedAt) > new Date(b.publishedAt)) {

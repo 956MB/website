@@ -50,7 +50,7 @@ export function AboutLinks({ mobilePos }: { mobilePos: string }) {
 							rel="noopener noreferrer"
 							target="_blank"
 							href={link.url}
-							className="flex min-w-[36px] min-h-[36px] text-center items-center justify-center text-white mt-[1px] bg-neutral-900/80 hover:bg-neutral-800/90 rounded-md gap-2 px-[10px] border border-neutral-700/70 hover:border-neutral-700/80"
+							className="flex min-w-[36px] min-h-[36px] text-center items-center justify-center text-white mt-[1px] bg-neutral-900/80 hover:bg-neutral-800/80 rounded-md gap-2 px-[10px] border border-neutral-700/70 hover:border-neutral-700/80"
 						>
 							{(() => {
 								switch (link.key) {

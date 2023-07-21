@@ -3,9 +3,12 @@ import { StaticImageData } from "next/image";
 export interface IEntry {
 	id: string;
 	title: string;
-	link: string;
-	summary: string[];
-	tags: string[];
+	link?: string;
+	summary?: string[];
+	tags?: string[];
+    category?: string;
+    groups?: string[];
+    linkBlog?: string;
 	image: {
 		path: StaticImageData;
 		width: number;

@@ -5,20 +5,21 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { VercelIcon } from "./Icons";
+import { rsplitPath } from "lib/util";
 
 const navItems = {
 	"/": { name: "home" },
 	_1: { name: "" },
 	"/projects": { name: "projects" },
 	_2: { name: "" },
-	"/concepts": { name: "concepts" },
+	"/design": { name: "design" },
 	_3: { name: "" },
 	"/blog/poster-edits": { name: "blog" },
 };
 
 export default function Header() {
 	let pathname = usePathname() || "/";
-	if (pathname.includes("/blog/")) {
+	if (pathname.includes("/blog")) {
 		pathname = "/blog";
 	}
 
@@ -30,7 +31,7 @@ export default function Header() {
 					return path.includes("_") ? (
 						<a
 							key={path}
-							className=" text-white/[0.20] font-ibmplex-sans-semibold text-sm no-underline whitespace-nowrap pointer-events-none select-none"
+							className=" text-white/20 font-ibmplex-sans-semibold text-sm no-underline whitespace-nowrap pointer-events-none select-none"
 						>
 							|
 						</a>
@@ -39,7 +40,7 @@ export default function Header() {
 							key={path}
 							href={path}
 							className={clsx(
-								"transition-all duration-100 flex align-middle justify-center items-center text-[16px] no-underline whitespace-nowrap lowercase",
+								"transition-all duration-100 flex align-middle justify-center items-center text-[16px] no-underline whitespace-nowrap",
 								{
 									"text-white/[0.4]": !isActive,
 								}
@@ -47,22 +48,11 @@ export default function Header() {
 						>
 							<span
 								className={clsx(
-									"relative transition-all duration-100 font-inter-medium active:mt-[4px] text-center",
+									"relative transition-all duration-100 font-inter-medium active:mt-[4px] text-center capitalize",
 									pathname.includes(name) || pathname == path ? "text-white" : null
 								)}
 							>
 								{name}
-								{pathname.includes(path) ? (
-									<motion.div
-										className="absolute transition-all duration-100 text-white"
-										layoutId="navbar"
-										transition={{
-											type: "spring",
-											stiffness: 350,
-											damping: 30,
-										}}
-									/>
-								) : null}
 							</span>
 						</Link>
 					);
