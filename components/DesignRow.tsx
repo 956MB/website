@@ -1,6 +1,6 @@
 "use client";
 
-import { IEntry, IEntryGroup } from "lib/interfaces";
+import { IEntryGroup } from "lib/interfaces";
 import React from "react";
 import { PortalWithState } from "react-portal";
 import Image from "next/image";
@@ -46,20 +46,20 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col flex-wrap w-full relative">
 			<DesignHeader entry={entry} />
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center items-start gap-5 lg:gap-3 w-full px-[30px] pb-[30px]">
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 3xl:grid-cols-6 justify-center items-start gap-5 lg:gap-3 w-full px-[30px] pb-[30px]">
 				{React.Children.toArray(entry.items.map((item, i) => (
                     <PortalWithState closeOnOutsideClick closeOnEsc>
                         {({ openPortal, closePortal, portal }) => (
                             <React.Fragment>
                                 <div
                                     className={clsx(
-                                        "relative z-0 flex flex-col justify-start group box-content border border-neutral-700/70 hover:border-neutral-700 rounded-lg overflow-hidden"
+                                        "relative z-0 flex flex-col justify-start group box-content border border-neutral-700/70 hover:border-neutral-700 rounded-lg overflow-hidden cursor-pointer"
                                     )}
+                                    onClick={item.linkBlog ? undefined : openPortal}
                                 >
                                     <a
                                         className="flex flex-col relative justify-end group border-b border-neutral-700/70"
                                         href={item.linkBlog ? item.linkBlog : undefined}
-                                        onClick={item.linkBlog ? undefined : openPortal}
                                     >
                                         <Image
                                             alt={item.id}
@@ -71,7 +71,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                     </a>
                                     <div
                                         className={clsx(
-                                            "flex flex-col text-start justify-center w-full px-[16px] pb-[16px] pt-[16px] gap-y-2 bg-gradient-to-t group-hover:from-neutral-800/60 group-hover:to-transparent",
+                                            "flex flex-col text-start justify-center w-full px-[16px] pb-[16px] pt-[16px] gap-y-2  group-hover:bg-gradient-to-t group-hover:from-neutral-800/60 group-hover:to-transparent",
                                             item.summary && item.summary.length <= 0 ? "h-[53px] min-h-[53px] max-h-[53px]" : null
                                         )}
                                     >
@@ -102,7 +102,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                     </div>
                                 </div>
                                 {portal(
-                                    <div className="flex flex-col absolute top-0 left-0 w-screen h-screen bg-black/90 pointer-events-all z-[99] backdrop-blur-sm">
+                                    <div className="flex flex-col absolute top-0 left-0 w-screen h-screen bg-black/90 pointer-events-all z-[99]">
                                         <div className="flex-shrink-0 flex-grow sm:flex-grow-0 flex flex-col items-center justify-end overflow-hidden">
                                             <div className="hidden sm:flex flex-col flex-nowrap w-full items-center justify-center py-4 gap-[15px]">
                                                 <div className="inline-flex flex-row items-center justify-center gap-2 max-w-3xl mx-6">

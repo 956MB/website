@@ -6,7 +6,6 @@ import BlogRow from "./BlogRow";
 import { Mdx } from "./Mdx";
 import React from "react";
 import clsx from "clsx";
-import Link from 'next/link';
 import { usePathname } from "next/navigation";
 
 export default function BlogContainer() {
@@ -14,22 +13,16 @@ export default function BlogContainer() {
 
 	return (
 		<div className="flex flex-row flex-1 justify-center w-full max-w-[1920px] relative items-start mx-auto">
-			<div className="hidden lg:flex flex-col w-full min-w-[300px] max-w-[300px] sticky top-[55px] overflow-auto shrink-0">
+			<div className="hidden lg:flex flex-col w-full min-w-[325px] max-w-[325px] sticky top-[55px] overflow-auto shrink-0">
 				<div
-					className="flex flex-col w-full py-[20px] gap-0 overflow-auto shrink-0 /*border-b border-neutral-800/*"
+					className="flex flex-col w-full py-[27px] gap-[7px] overflow-auto shrink-0"
 				>
 					{React.Children.toArray(
 						sortBlogs(allBlogs).map((post, i) => (
-							<Link
-                                key={post.slug}
-								className="relative"
-                                href={`/blog/${post.slug}`}
-							>
-								<BlogRow post={post} />
-							</Link>
+                            <BlogRow post={post} />
 						))
 					)}
-                    <hr className="h-px w-full bg-neutral-800 mb-[20px] my-6" />
+                    <hr className="h-px w-full bg-neutral-800 my-[20px]" />
 				</div>
 			</div>
 
@@ -69,7 +62,7 @@ export default function BlogContainer() {
                                     </div>
 								</div>
 							</div>
-							<hr className="h-px w-full bg-neutral-800 mb-[20px] mt-[10px]" />
+							<hr className="h-px w-full bg-neutral-800 mb-[20px] mt-[26px]" />
 							<Mdx code={post.body.code} />
 						</section>
 					))

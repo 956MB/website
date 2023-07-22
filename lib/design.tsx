@@ -39,7 +39,7 @@ export const design_intros: IEntry = {
 import opgg_spectate_i from "../public/images/concepts/OPGG.png";
 export const design_opgg_spectate: IEntry = {
 	id: "opgg-spectate",
-	title: 'OP.GG Client "Spectate pro matches"',
+	title: 'OP.GG "Spectate pro matches"',
 	category: "figma",
 	summary: [
 		"This is a concept for the OP.GG ‘Pro Matches’ feature, integrated into their desktop client. I really liked the ‘Spectate Pro Players’ part of OP.GG’s website, but I thought it would be cool if you never had to leave the desktop client to load up and spectate pro games.",

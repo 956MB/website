@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { VercelIcon } from "./Icons";
 import { rsplitPath } from "lib/util";
+import { copyright } from "lib/info";
 
 const navItems = {
 	"/": { name: "home" },
@@ -24,7 +25,7 @@ export default function Header() {
 	}
 
 	return (
-		<div className="fixed z-[55] h-[55px] min-h-[55px] max-h-[55px] w-full flex justify-center flex-wrap transition bg-black/80 backdrop-blur">
+		<div className="fixed z-[55] h-[55px] min-h-[55px] max-h-[55px] w-full flex justify-center flex-wrap transition bg-black/80 backdrop-blur sm:border-b border-neutral-800">
 			<div className="flex flex-row gap-4 sm:gap-7 m-auto items-center">
 				{Object.entries(navItems).map(([path, { name }], i) => {
 					const isActive = path === pathname;
@@ -64,7 +65,7 @@ export default function Header() {
 
 export function Footer() {
 	return (
-		<div className="flex flex-row flex-1 h-[55px] min-h-[55px] max-h-[55px] w-full border-t border-neutral-800 justify-center items-center text-center flex-wrap transition bg-black/80 backdrop-blur gap-x-3 mt-auto">
+		<div className="flex flex-row flex-1 h-[55px] min-h-[55px] max-h-[55px] w-full border-t border-neutral-800 justify-center items-center text-center flex-nowrap transition bg-black/80 backdrop-blur gap-x-3 mt-auto px-[30px]">
 			<a
 				rel="noopener noreferrer"
 				target="_blank"

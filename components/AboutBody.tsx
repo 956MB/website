@@ -11,16 +11,16 @@ import {
 	tools_p,
 } from "../lib/info";
 import { TextParagraph, TextTitleSub } from "./Text";
-import { links } from "../lib/info";
+import { socials } from "../lib/info";
 import { email } from "../lib/info";
 import React from "react";
 import clsx from "clsx";
 import { FaRedditAlien } from "react-icons/fa";
-import { Mastodon, Twitch, Twitter, Github, Reddit } from 'react-bootstrap-icons';
+import { Mastodon, Twitch, Twitter, Github, Discord } from 'react-bootstrap-icons';
 
 export function AboutBody() {
 	return (
-		<div className="flex-row text-left justify-start mr-0 /*border-l border-neutral-800*/">
+		<div className="flex-row text-left justify-start mr-0">
 			<div className="flex flex-wrap m-0 flex-col pr-0 pb-[30px] text-left gap-y-3">
 				<TextParagraph>{about_p}</TextParagraph>
 				<TextParagraph>{bio_p}</TextParagraph>
@@ -36,6 +36,17 @@ export function AboutBody() {
 }
 
 export function AboutLinks({ mobilePos }: { mobilePos: string }) {
+    const getSocial = (key: string): {color: string, icon: JSX.Element} => {
+        switch (key) {
+            case "github":   return {color: "hover:border-neutral-400/80", icon: <Github size={18}/>};
+            case "reddit":   return {color: "hover:border-[#FF4500]/80", icon: <FaRedditAlien size={21}/>};
+            case "twitter":  return {color: "hover:border-[#1D9BF0]/80", icon: <Twitter size={18}/>};
+            case "mastadon": return {color: "hover:border-[#6364FF]/80", icon: <Mastodon size={18}/>};
+            case "discord":  return {color: "hover:border-[#5865F2]/80", icon: <Discord size={18}/>};
+            default:         return {color: "hover:border-[#9146FF]/80", icon: <Twitch size={18}/>};
+        }
+    }
+
 	return (
 		<div
 			className={clsx(
@@ -44,29 +55,26 @@ export function AboutLinks({ mobilePos }: { mobilePos: string }) {
 			)}
 		>
 			<div className="inline-flex flex-row flex-wrap justify-center m-0 gap-3">
-				{links.map((link, i) =>
-					React.Children.toArray(
-						<a
-							rel="noopener noreferrer"
-							target="_blank"
-							href={link.url}
-							className="flex min-w-[36px] min-h-[36px] text-center items-center justify-center text-white mt-[1px] bg-neutral-900/80 hover:bg-neutral-800/80 rounded-md gap-2 px-[10px] border border-neutral-700/70 hover:border-neutral-700/80"
-						>
-							{(() => {
-								switch (link.key) {
-									case "github":   return <Github size={18}/>;
-                                    case "reddit":   return <FaRedditAlien size={21}/>;
-                                    case "twitter":  return <Twitter size={18}/>;
-                                    case "mastadon": return <Mastodon size={18}/>;
-									default:         return <Twitch size={18}/>;
-								}
-							})()}
-                            <span className="text-white text-xs no-underline mr-auto font-inter-semibold whitespace-nowrap capitalize">
-                                {link.key}
-                            </span>
-						</a>
-					)
-				)}
+				{socials.map((link, i) => {
+                    let socialVals = getSocial(link.key);
+                    return (
+                        React.Children.toArray(
+                            <a
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                href={link.url}
+                                className={clsx("flex min-w-[36px] min-h-[36px] text-center items-center justify-center text-white mt-[1px] bg-neutral-900/80 hover:bg-neutral-800/80 rounded-md gap-2 px-[10px] border border-neutral-700/70",
+                                    socialVals.color
+                                )}
+                            >
+                                {socialVals.icon}
+                                <span className="text-white text-xs no-underline mr-auto font-inter-semibold whitespace-nowrap capitalize">
+                                    {link.key}
+                                </span>
+                            </a>
+                        )
+                    )
+                })}
 			</div>
 			<div className="inline-flex flex-row gap-3">
 				<a className="text-neutral-400 text-sm no-underline mr-auto font-inter-medium whitespace-nowrap">

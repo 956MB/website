@@ -1,44 +1,28 @@
 import { TwitterIcon } from "components/Icons";
 import logo_i from "../public/logo.png";
+import { FaRedditAlien } from "react-icons/fa";
+import { Mastodon, Twitch, Twitter, Github, Discord } from 'react-bootstrap-icons';
 
 export const logo = logo_i;
 export const name = "Alexander Bays";
+export const copyright = "© Alexander Bays, 2023";
 export const email = 	{
     key: "contact",
     value: "bays.956mb@gmail.com",
     url: "mailto:bays.956mb@gmail.com",
 }
-export const links = [
-    {
-        key: "github",
-        value: "956MB",
-        url: "https://github.com/956MB",
-    },
-	{
-		key: "twitter",
-		value: "956MB",
-        url: "https://twitter.com/956MB",
-	},
-    {
-        key: "mastadon",
-        value: "956MB",
-        url: "https://mastodon.social/@956MB",
-    },
-    {
-        key: "reddit",
-        value: "956MB",
-        url: "https://www.reddit.com/user/bauera5",
-    },
-	{
-		key: "twitch",
-		value: "956MB",
-        url: "https://www.twitch.tv/956mb",
-	},
+export const socials = [
+    { key: "discord", url: "https://discordapp.com/users/111967411497947136" },
+    { key: "github", url: "https://github.com/956MB" },
+	{ key: "twitter", url: "https://twitter.com/956MB" },
+    { key: "reddit", url: "https://www.reddit.com/user/bauera5" },
+	{ key: "twitch", url: "https://www.twitch.tv/956mb" },
+    { key: "mastadon", url: "https://mastodon.social/@956MB" },
 ];
 
-export const about_h = `About Me`;
+export const whoami_h = ["whoami", "aboot meh", "info", "bio", "profile", "theres always a core", "load bearing walls", "easy mode firmware", "yo yo it's grease", "Elastomers", "alright, lets all go to bed mad", "what words", "here", "all the smoke", "left shoe right foot", "while i", "it matters not", "petty nonsensical irretants", "no. NO!", "flew into a rage", "malloc", "haha stop that", "temporal batch norm", "Polynomial cross-entropy", "++", "faulty syllogism", "bias vector", "define rarely... frequently.", "a good story about a bridge", "faulty syllogism", "bias vector", "a good story about a bridge", "define rarely... frequently.", "Your flow's warshed", "efficient actuators", "might urn", "but more importantly", "say nothing to noone about anything ever", "ow i burned my hand at night", "two ovens ago", "virtual gas", "no demonic entities, dave", "mass production rebar", "dont need it dont want it wont have it", "soul searching walk around town to dust in the wind", "low quality grapes", "unforseen cat problems", "well and truly indeed as ever", "light mode advocate", "there or there abouts", "color tv", "ruined westworld", "Anti-Bufferbloat", "generalized hyperbolic histogram transformations", "I-95 Southbound", "matmul", "as all get out", "nevermind a wheel", "bumper hall of chalky", "Humberfloob", "PICK EM UP", "amorphous carbon", "Leviathan class lifeform", "every villain is lemons", "where are my favors", "VXIBackplane", "prodigy vs protege", "LET ME SHOW YOU SOMETHIN",];
 
-export const about_p = `Hi, my name is <span class='highlight'>${name}</span>, and I’m a self-taught programmer, graphic designer and r/neography hobbyist from <span class='highlight'> Dallas, TX </span>.`;
+export const about_p = `My name is <span class='highlight'>${name}</span>, and I’m a self-taught programmer, graphic designer and r/neography hobbyist from <span class='highlight'> Dallas, TX </span>.`;
 
 export const bio_p = `My main focus is in frontend design and functionality for desktop and mobile software. I typically start by prototyping in <span class='highlight'>Figma </span> and then bring functionality to my designs with code. I’ve created applications for <span class='highlight'>Windows </span>, <span class='highlight'>macOS</span>, <span class='highlight'>iPhone </span>, and <span class='highlight'>Apple Watch</span>. While I do lean towards Apple platforms, I'm comfortable working on projects using various frameworks and languages that I've come to learn.`;
 

@@ -52,6 +52,12 @@ hr {
 }
 
 @font-face {
+	font-family: "GYEA_Regular";
+	src: url("../public/fonts/GYEA/GYEA-Regular.otf");
+	font-weight: 300;
+}
+
+@font-face {
 	font-family: "RobotoMono_Regular";
 	src: url("../public/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf");
 	font-weight: 400;
@@ -118,6 +124,13 @@ hr {
 	font-weight: 600;
 }
 
+.thicker-font {
+    text-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+
+.font-gyea-regular {
+	font-family: "GYEA_Regular";
+}
 .font-inter-light {
 	font-family: "Inter_Light";
 }
@@ -170,6 +183,16 @@ hr {
 ::-moz-selection {
 	background: rgb(255, 238, 0); /* Gecko Browsers */
 	color: black;
+}
+span.custom-font::selection {
+    background: rgb(255, 238, 0) !important; /* WebKit/Blink Browsers */
+    color: black !important;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000 !important;
+}
+span.custom-font::-moz-selection {
+    background: rgb(255, 238, 0) !important; /* WebKit/Blink Browsers */
+    color: black !important;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000 !important;
 }
 
 .prose .anchor {
@@ -240,7 +263,7 @@ hr {
 
 .prose img {
 	/* Don't apply styles to next/image */
-	@apply mb-[1.10em] lg:max-h-[900px] w-full;
+	@apply mb-2 lg:max-h-[900px] w-full;
 }
 .prose img:first-child {
 	@apply mt-0;
@@ -327,7 +350,7 @@ table {
 }
 
 .prose p {
-	@apply text-neutral-300 font-inter-medium text-sm leading-6 mb-6;
+	@apply text-neutral-300 font-inter-medium text-sm leading-6 mb-6 tracking-wide;
 }
 .prose li {
 	@apply text-neutral-300 font-inter-medium text-sm;

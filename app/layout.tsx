@@ -1,6 +1,6 @@
 import "./global.css";
 import type { Metadata } from "next";
-
+import Particles from "../components/particles";
 import { Analytics } from '@vercel/analytics/react';
 import Header, { Footer } from "components/NavBar";
 
@@ -61,6 +61,10 @@ export default function RootLayout({
 					<Analytics />
 					<Footer />
 				</main>
+                <Particles
+                    className="absolute inset-0 -z-10 animate-fade-in"
+                    quantity={100}
+                />
 			</body>
 		</html>
 	);
