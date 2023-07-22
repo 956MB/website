@@ -1,7 +1,4 @@
-import { TwitterIcon } from "components/Icons";
 import logo_i from "../public/logo.png";
-import { FaRedditAlien } from "react-icons/fa";
-import { Mastodon, Twitch, Twitter, Github, Discord } from 'react-bootstrap-icons';
 
 export const logo = logo_i;
 export const name = "Alexander Bays";
