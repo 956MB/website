@@ -39,4 +39,3 @@ next-env.d.ts
 # contentlayer
 .contentlayer
 TODO.md
-components/RepoRow.tsx

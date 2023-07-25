@@ -5,31 +5,12 @@ import React from "react";
 import { PortalWithState } from "react-portal";
 import Image from "next/image";
 import clsx from "clsx";
-import { PiFigmaLogo } from "react-icons/pi";
-import { SiAdobephotoshop } from "react-icons/si";
-import { HiMiniLanguage } from "react-icons/hi2";
-import { RiReactjsLine } from "react-icons/ri";
-
-function CategoryIcon({ category }: { category: string | undefined }) {
-    return (
-        <div className="child:text-neutral-500">
-            {!category ? null : (() => {
-                switch (category) {
-                    case "figma":       return <PiFigmaLogo size={21} />
-                    case "photoshop":   return <SiAdobephotoshop size={ 18 } />
-                    case "react":       return <RiReactjsLine size={ 21 } />
-                    case "script":      return <HiMiniLanguage size={ 21 } />
-                    default:            return null;
-                }
-            })()}
-        </div>
-    )
-}
+import Gallery, { CategoryIcon } from "./Gallery";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div className="flex flex-col items-start justify-start w-full py-3 m-0 gap-2">
-			<div className="flex flex-col items-start justify-center gap-2 px-[30px]">
+		<div className="flex flex-col items-start justify-start w-full py-5 sm:py-3 m-0 gap-2">
+			<div className="flex flex-col items-start justify-center gap-[5px] px-[30px]">
 				<span className="text-white font-inter-semibold text-lg leading-[18px]">
 					{entry.title}
 				</span>
@@ -53,7 +34,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                             <React.Fragment>
                                 <div
                                     className={clsx(
-                                        "relative z-0 flex flex-col justify-start group box-content border border-neutral-700/70 hover:border-neutral-700 rounded-lg overflow-hidden cursor-pointer"
+                                        "relative z-0 flex flex-col justify-start group box-content border border-neutral-700/70 hover:border-neutral-700 rounded-lg overflow-hidden cursor-pointer bg-black/80"
                                     )}
                                     onClick={item.linkBlog ? undefined : openPortal}
                                 >
@@ -64,9 +45,9 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                         <Image
                                             alt={item.id}
                                             className="block object-cover w-full h-full aspect-video cursor-pointer"
-                                            src={item.image.path}
-                                            width={item.image.width}
-                                            height={item.image.height}
+                                            src={item.images[0].path}
+                                            width={item.images[0].width}
+                                            height={item.images[0].height}
                                         />
                                     </a>
                                     <div
@@ -80,18 +61,20 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                             <span className="text-white font-inter-semibold text-sm truncate">
                                                 {item.title}
                                             </span>
-                                            <div className="inline-flex flex-row items-end justify-center ml-auto gap-x-2">
-                                                {React.Children.toArray(item.groups?.map((group, i) => (
-                                                    <span
-                                                        className={clsx(
-                                                            "text-neutral-300 font-inter-semibold text-[11px] py-[2px] px-[6px] bg-white/[9%] rounded-[4px] border border-neutral-800/70 box-content",
-                                                            !item.groups ? "opacity-0" : null
-                                                        )}
-                                                    >
-                                                        {group}
-                                                    </span>
-                                                )))}
-                                            </div>
+                                            {item.tags ? (
+                                                <div className="inline-flex flex-row items-end justify-center ml-auto gap-x-2">
+                                                    {React.Children.toArray(item.tags?.map((tag, i) => (
+                                                        <span
+                                                            className={clsx(
+                                                                "text-neutral-300 font-inter-semibold text-[11px] py-[2px] px-[6px] bg-white/[9%] rounded-[4px] border border-neutral-800/70 box-content",
+                                                                !item.tags ? "opacity-0" : null
+                                                            )}
+                                                        >
+                                                            {tag}
+                                                        </span>
+                                                    )))}
+                                                </div>
+                                            ) : null}
                                         </div>
                                         {item.summary &&
                                         item.summary.length > 0 ? (
@@ -102,38 +85,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                     </div>
                                 </div>
                                 {portal(
-                                    <div className="flex flex-col absolute top-0 left-0 w-screen h-screen bg-black/90 pointer-events-all z-[99]">
-                                        <div className="flex-shrink-0 flex-grow sm:flex-grow-0 flex flex-col items-center justify-end overflow-hidden">
-                                            <div className="hidden sm:flex flex-col flex-nowrap w-full items-center justify-center py-4 gap-[15px]">
-                                                <div className="inline-flex flex-row items-center justify-center gap-2 max-w-3xl mx-6">
-                                                    <CategoryIcon category={item.category}/>
-                                                    <a className="text-white text-center w-full font-inter-semibold text-xl leading-5">
-                                                        {item.title}
-                                                    </a>
-                                                </div>
-                                                <hr className="h-px w-full bg-neutral-800 my-auto" />
-                                                {item.summary &&
-                                                item.summary.length > 0 ? (
-                                                    <a className="text-neutral-300/95 font-inter-medium text-center leading-[19px] text-[15px] max-w-3xl mx-6">
-                                                        {item.summary}
-                                                    </a>
-                                                ) : null}
-                                            </div>
-                                        </div>
-
-                                        <div className="flex flex-grow items-center justify-center overflow-hidden">
-                                            <Image
-                                                alt="project-img-modal"
-                                                className="block max-w-full max-h-full object-contain cursor-pointer"
-                                                src={item.image.path}
-                                                width={item.image.width}
-                                                height={item.image.height}
-                                                onClick={closePortal}
-                                            />
-                                        </div>
-
-                                        <div className="flex-shrink-0 flex-1 p-4 overflow-auto"></div>
-                                    </div>
+                                    <Gallery item={item} closeAction={closePortal} />
                                 )}
                             </React.Fragment>
                         )}

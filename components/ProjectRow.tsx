@@ -84,9 +84,9 @@ export default function ProjectRow({
 							<Image
 								alt="project-img"
 								className="block h-full max-h-[600px] w-auto max-w-[100%] object-contain cursor-pointer rounded-lg"
-								src={entry.image.path}
-								width={entry.image.width}
-								height={entry.image.height}
+								src={entry.images[0].path}
+								width={entry.images[0].width}
+								height={entry.images[0].height}
 							/>
 						</button>
 						{portal(
@@ -97,9 +97,9 @@ export default function ProjectRow({
                                 <Image
                                     alt="project-img-modal"
                                     className="block w-auto max-h-max object-contain overflow-hidden rounded-lg"
-                                    src={entry.image.path}
-                                    width={entry.image.width}
-                                    height={entry.image.height}
+                                    src={entry.images[0].path}
+                                    width={entry.images[0].width}
+                                    height={entry.images[0].height}
                                 />
 							</div>
 						)}

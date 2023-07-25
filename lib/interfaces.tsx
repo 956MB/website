@@ -9,11 +9,13 @@ export interface IEntry {
     category?: string;
     groups?: string[];
     linkBlog?: string;
-	image: {
-		path: StaticImageData;
-		width: number;
-		height: number;
-	};
+	images: IEntryImage[];
+}
+
+export interface IEntryImage {
+    path: string;
+    width: number;
+    height: number;
 }
 
 export interface IEntryGroups extends Array<IEntryGroup>{}
