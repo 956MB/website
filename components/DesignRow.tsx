@@ -6,6 +6,7 @@ import { PortalWithState } from "react-portal";
 import Image from "next/image";
 import clsx from "clsx";
 import Gallery, { CategoryIcon } from "./Gallery";
+import Tooltip from "./Tooltip";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
@@ -57,7 +58,9 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                         )}
                                     >
                                         <div className="flex flex-row gap-x-2 items-center justify-start">
-                                            <CategoryIcon category={item.category}/>
+                                            <Tooltip content={item.category}>
+                                                <CategoryIcon category={item.category} />
+                                            </Tooltip>
                                             <span className="text-white font-inter-semibold text-sm truncate">
                                                 {item.title}
                                             </span>

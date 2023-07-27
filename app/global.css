@@ -52,8 +52,8 @@ hr {
 }
 
 @font-face {
-	font-family: "GYEA_Regular";
-	src: url("../public/fonts/GYEA/GYEA.otf");
+	font-family: "GYEA_Bold";
+	src: url("../public/fonts/GYEA/GYEA_Bold.otf");
 	font-weight: 300;
 }
 
@@ -128,8 +128,8 @@ hr {
     text-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
 }
 
-.font-gyea-regular {
-	font-family: "GYEA_Regular";
+.font-gyea-bold {
+	font-family: "GYEA_Bold";
 }
 .font-inter-light {
 	font-family: "Inter_Light";

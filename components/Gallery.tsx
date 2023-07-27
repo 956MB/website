@@ -141,7 +141,9 @@ export default function Gallery({
 							</button>
 						</div>
 						<div className="inline-flex flex-row items-center justify-center gap-2 w-full sm:max-w-3xl mx-4">
-							<CategoryIcon category={item.category} />
+                            <Tooltip content={item.category}>
+	    						<CategoryIcon category={item.category} />
+                            </Tooltip>
 							<a className="text-white text-center font-inter-semibold text-lg sm:text-xl leading-5 py-2 whitespace-nowrap">
 								{item.title}
 							</a>
