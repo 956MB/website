@@ -3,10 +3,7 @@
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { VercelIcon } from "./Icons";
-import { rsplitPath } from "lib/util";
-import { copyright } from "lib/info";
 
 const navItems = {
 	"/": { name: "home" },
@@ -15,7 +12,7 @@ const navItems = {
 	_2: { name: "" },
 	"/design": { name: "design" },
 	_3: { name: "" },
-	"/blog/tx4-for-real": { name: "blog" },
+	"/blog/gyea-cleanup-pt1": { name: "blog" },
 };
 
 export default function Header() {

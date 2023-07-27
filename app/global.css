@@ -53,7 +53,7 @@ hr {
 
 @font-face {
 	font-family: "GYEA_Bold";
-	src: url("../public/fonts/GYEA/GYEA_Bold.otf");
+	src: url("../public/fonts/GYEA/Gyea-Bold.otf");
 	font-weight: 300;
 }
 
@@ -362,7 +362,7 @@ table {
 	@apply text-white font-inter-semibold text-sm transition-all duration-100;
 }
 .prose h2 {
-	@apply text-white font-inter-bold;
+	@apply text-white font-inter-semibold;
 }
 .prose h3 {
 	@apply text-white font-inter-semibold;

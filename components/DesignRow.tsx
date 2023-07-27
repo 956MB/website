@@ -58,7 +58,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                         )}
                                     >
                                         <div className="flex flex-row gap-x-2 items-center justify-start">
-                                            <Tooltip content={item.category}>
+                                            <Tooltip content={item.category} position={"top"}>
                                                 <CategoryIcon category={item.category} />
                                             </Tooltip>
                                             <span className="text-white font-inter-semibold text-sm truncate">

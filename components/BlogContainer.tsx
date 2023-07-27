@@ -42,7 +42,7 @@ export default function BlogContainer() {
 							</script>
 							<div className="flex flex-row items-start justify-center w-full p-0">
 								<div className="flex flex-col md:flex-row items-start justify-center content-center m-0 w-full gap-2">
-									<span className="font-inter-semibold text-2xl max-w-max leading-6 mr-auto text-white sm:whitespace-nowrap">
+									<span className="font-inter-semibold text-[25px] max-w-max leading-6 mr-auto text-white sm:whitespace-nowrap">
 										{post.title}
 									</span>
                                     <div className="inline-flex flex-row-reverse md:flex-row items-end justify-center child:font-ibmplex-sans-medium child:text-sm child:whitespace-nowrap py-[1px] md:ml-2">

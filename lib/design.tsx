@@ -89,16 +89,14 @@ export const designs_section: IEntryGroup = {
 
 export const script_eggers_posters_gyea: IEntry = {
 	id: "script-eggers-gyea",
-	title: "Robert Eggers posters",
+	title: "Movie Posters",
 	category: "script",
 	tags: ["GYEA"],
-	linkBlog: "https://www.956mb.com/blog/poster-edits",
 	images: [
-		{
-			path: "/images/poster-edits/northman-poster.png",
-			width: 3000,
-			height: 4404,
-		},
+		{ path: "/images/poster-edits/the-northman.png", width: 1500, height: 2202 },
+		{ path: "/images/poster-edits/the-revenant.png", width: 2000, height: 3000 },
+		{ path: "/images/poster-edits/alien.png", width: 2000, height: 3000 },
+		{ path: "/images/poster-edits/the-lighthouse.png", width: 1778, height: 2667 },
 	],
 };
 
