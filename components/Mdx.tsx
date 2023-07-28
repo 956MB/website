@@ -23,6 +23,8 @@ const CustomLink = (props) => {
 };
 
 function RoundedImage(props) {
+    const { alt, ...rest } = props;
+
 	return (
 		<PortalWithState
 			closeOnOutsideClick
@@ -32,8 +34,8 @@ function RoundedImage(props) {
 				<React.Fragment>
 					<button onClick={openPortal}>
 						<Image
-							alt={props.alt}
-							{...props}
+							alt={alt}
+							{...rest}
 						/>
 					</button>
 					{portal(
@@ -42,9 +44,9 @@ function RoundedImage(props) {
 							onClick={closePortal}
 						>
                             <Image
-                                alt={props.alt}
-                                className="block h-full max-h-screen w-auto max-w-[100%] object-contain cursor-pointer"
-                                {...props}
+                                alt={alt}
+                                className="block max-h-screen h-auto w-auto object-contain cursor-pointer"
+                                {...rest}
                             />
 						</div>
 					)}
