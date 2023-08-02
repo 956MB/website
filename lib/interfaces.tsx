@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 export interface IEntry {
 	id: string;
 	title: string;

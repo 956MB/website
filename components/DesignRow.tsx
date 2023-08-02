@@ -7,6 +7,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import Gallery, { CategoryIcon } from "./Gallery";
 import Tooltip from "./Tooltip";
+import { PiArrowUpRightBold } from "react-icons/pi";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
@@ -49,6 +50,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                             src={item.images[0].path}
                                             width={item.images[0].width}
                                             height={item.images[0].height}
+                                            loading="eager"
                                         />
                                     </a>
                                     <div
@@ -64,6 +66,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                             <span className="text-white font-inter-semibold text-sm truncate">
                                                 {item.title}
                                             </span>
+                                            {item.linkBlog ? (<PiArrowUpRightBold size={16} className="text-white" />) : null}
                                             {item.tags ? (
                                                 <div className="inline-flex flex-row items-end justify-center ml-auto gap-x-2">
                                                     {React.Children.toArray(item.tags?.map((tag, i) => (
@@ -79,12 +82,6 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                                 </div>
                                             ) : null}
                                         </div>
-                                        {item.summary &&
-                                        item.summary.length > 0 ? (
-                                            <a className="text-neutral-300/95 font-inter-medium sm:line-clamp-3 leading-[18px] text-[13px]">
-                                                {item.summary}
-                                            </a>
-                                        ) : null}
                                     </div>
                                 </div>
                                 {portal(

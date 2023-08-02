@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { allBlogs } from "contentlayer/generated";
+import { allBlogs, Blog } from "contentlayer/generated";
+import { notFound } from "next/navigation";
 const BlogC = dynamic(() => import("components/BlogContainer"), { ssr: false });
 
 export async function generateMetadata({
@@ -46,11 +47,17 @@ export async function generateMetadata({
 	};
 }
 
-export default async function BlogPage({ params }) {
+export default async function Blog({ params }) {
+    const post = allBlogs.find((post) => post.slug === params.slug);
+
+    if (!post) {
+        notFound();
+    }
+
 	return (
 		<section>
-			<div className="flex w-full flex-col flex-1 items-start mt-[55px]">
-				<BlogC />
+			<div className="flex w-full flex-col flex-1 items-start relative">
+				<BlogC selectedPost={post} />
 			</div>
 		</section>
 	);

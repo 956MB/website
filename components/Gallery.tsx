@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { IEntry } from "lib/interfaces";
+import { IEntry, IEntryImage } from "lib/interfaces";
 import { PiFigmaLogo } from "react-icons/pi";
 import { SiAdobephotoshop } from "react-icons/si";
 import { HiMiniLanguage } from "react-icons/hi2";
@@ -54,7 +54,10 @@ export function GalleryButton({
 			)}
 			onClick={clickAction}
 		>
-			<Tooltip content={dir === "left" ? "Back" : "Next"} position={"bottom"}>
+			<Tooltip
+				content={dir === "left" ? "Back" : "Next"}
+				position={"bottom"}
+			>
 				{dir === "left" ? (
 					<ArrowLeft
 						size={19}
@@ -110,6 +113,27 @@ export function GalleryButtons({
 	);
 }
 
+function GalleryImage({
+	idx,
+	images,
+}: {
+	idx: number;
+	images: IEntryImage[];
+}) {
+	return (
+		<Image
+			alt="project-img-modal"
+			className={clsx(
+				"block max-h-full max-w-full object-contain m-0",
+			)}
+			src={images[idx].path}
+			width={images[idx].width}
+			height={images[idx].height}
+            loading="eager"
+		/>
+	);
+}
+
 export default function Gallery({
 	item,
 	closeAction,
@@ -133,12 +157,11 @@ export default function Gallery({
 	});
 
 	return (
-		<div className="flex flex-col absolute top-0 left-0 w-screen h-screen bg-black/90 pointer-events-all z-[99]">
-			<div className="flex-shrink-0 flex-grow-0 flex flex-col items-center justify-start backdrop-blur">
+		<div className="flex flex-col absolute top-0 left-0 w-screen h-screen bg-black/90 pointer-events-all z-[99] backdrop-blur">
+			<div className="flex-shrink-0 flex-grow-0 flex flex-col items-center justify-start">
 				<div
 					className={clsx(
-						"flex flex-col flex-nowrap w-full items-center justify-center sm:border-b border-neutral-800",
-						item.summary ? "pb-4" : null
+						"flex flex-col flex-nowrap w-full items-center justify-center sm:border-b border-neutral-800 mb-[15px]"
 					)}
 				>
 					<div className="flex flex-row items-center w-full min-h-[55px] justify-center px-2 sm:px-4">
@@ -154,7 +177,10 @@ export default function Gallery({
 						</div>
 						<div className="inline-flex flex-row items-center justify-center gap-2 w-full sm:max-w-3xl mx-4">
 							<div className="hidden sm:flex w-full"></div>
-							<Tooltip content={item.category} position={"bottom"}>
+							<Tooltip
+								content={item.category}
+								position={"bottom"}
+							>
 								<CategoryIcon category={item.category} />
 							</Tooltip>
 							<a className="text-white text-center font-inter-semibold text-lg sm:text-xl leading-5 py-2 whitespace-nowrap">
@@ -216,17 +242,14 @@ export default function Gallery({
 				</div>
 			</div>
 
-			<div className="flex flex-grow items-center justify-center overflow-hidden" {...swipeHandlers}>
-				<Image
-					alt="project-img-modal"
-					className="block max-w-full max-h-full object-contain"
-					src={item.images[selectedIdx].path}
-					width={item.images[selectedIdx].width}
-					height={item.images[selectedIdx].height}
-				/>
+			<div
+				className="flex flex-grow items-center justify-center overflow-hidden gap-0"
+				{...swipeHandlers}
+			>
+				<GalleryImage idx={selectedIdx} images={item.images} />
 			</div>
 
-			<div className="flex-shrink-0 flex-1 p-4 overflow-auto"></div>
+			{item.summary ? <div className="flex-shrink-0 flex-1 p-4 overflow-auto"></div> : null }
 		</div>
 	);
 }

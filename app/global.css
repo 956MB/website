@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+}
+
 html,
 body {
 	height: 100%;
@@ -178,11 +182,11 @@ hr {
 
 ::selection {
 	background: rgb(255, 238, 0); /* WebKit/Blink Browsers */
-	color: black;
+	color: black !important;
 }
 ::-moz-selection {
 	background: rgb(255, 238, 0); /* Gecko Browsers */
-	color: black;
+	color: black !important;
 }
 span.custom-font::selection {
     background: rgb(255, 238, 0) !important; /* WebKit/Blink Browsers */
@@ -263,7 +267,7 @@ span.custom-font::-moz-selection {
 
 .prose img {
 	/* Don't apply styles to next/image */
-	@apply mb-2 lg:max-h-[900px] w-full;
+	@apply mb-2 w-full h-full object-contain;
 }
 .prose img:first-child {
 	@apply mt-0;
@@ -362,13 +366,13 @@ table {
 	@apply text-white font-inter-semibold text-sm transition-all duration-100;
 }
 .prose h2 {
-	@apply text-white font-inter-semibold;
+	@apply text-white font-inter-semibold mb-6;
 }
 .prose h3 {
-	@apply text-white font-inter-semibold;
+	@apply text-white font-inter-semibold mb-6;
 }
 .prose h4 {
-	@apply text-white font-inter-bold;
+	@apply text-white font-inter-bold mb-6;
 }
 .project-h h3 {
 	@apply relative text-white font-inter-bold text-[28px] leading-7 whitespace-nowrap cursor-pointer;

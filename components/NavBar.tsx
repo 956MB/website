@@ -22,8 +22,8 @@ export default function Header() {
 	}
 
 	return (
-		<div className="fixed z-[55] h-[55px] min-h-[55px] max-h-[55px] w-full flex justify-center flex-wrap transition bg-black/80 backdrop-blur sm:border-b border-neutral-800">
-			<div className="flex flex-row gap-4 sm:gap-7 m-auto items-center">
+		<div className={clsx("fixed z-[55] h-[55px] min-h-[55px] max-h-[55px] w-full flex justify-center flex-wrap transition bg-black/80 backdrop-blur sm:border-b border-neutral-800")}>
+			<div className="flex flex-row gap-4 sm:gap-6 m-auto items-center">
 				{Object.entries(navItems).map(([path, { name }], i) => {
 					const isActive = path === pathname;
 					return path.includes("_") ? (
@@ -46,7 +46,7 @@ export default function Header() {
 						>
 							<span
 								className={clsx(
-									"relative transition-all duration-100 font-inter-medium active:mt-[4px] text-center capitalize",
+									"relative transition-all duration-100 font-inter-medium active:mt-[4px] text-center lowercase",
 									pathname.includes(name) || pathname == path ? "text-white" : null
 								)}
 							>

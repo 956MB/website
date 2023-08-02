@@ -36,7 +36,11 @@ export const design_intros: IEntry = {
 		"This is a concept for a website idea I’ve had for a long time. It’s a website where any and all TV show or movie intro “frames” are collected. Sort of like if IMDB or Rotten Tomatoes was only for intros and end credits.",
 	],
 	images: [
-		{ path: "/images/concepts/intros.png", width: 2560, height: 1440 },
+		{ path: "/images/tro-io/ImagePage.png", width: 1920, height: 947 },
+		{ path: "/images/tro-io/SimilarImages.png", width: 1920, height: 1189 },
+		{ path: "/images/tro-io/Banner.png", width: 1920, height: 368 },
+		{ path: "/images/tro-io/intros.png", width: 2560, height: 1440 },
+		{ path: "/images/tro-io/Titlebars.png", width: 1920, height: 1074 },
 	],
 };
 
@@ -115,11 +119,10 @@ export const script_brands: IEntry = {
 	category: "script",
 	tags: ["Tab"],
 	images: [
-		{
-			path: "/images/brand-logos-scripts/IMG_R78968.png",
-			width: 2021,
-			height: 1096,
-		},
+		{ path: "/images/brand-logos-scripts/IMG_V678.png", width: 1920, height: 1080, },
+		{ path: "/images/brand-logos-scripts/IMG_R78968.png", width: 2021, height: 1096, },
+		{ path: "/images/brand-logos-scripts/IMG_R121234.png", width: 2021, height: 1096, },
+		{ path: "/images/brand-logos-scripts/IMG_R90636.png", width: 2021, height: 1096, },
 	],
 };
 

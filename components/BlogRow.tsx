@@ -11,7 +11,7 @@ export default function BlogRow({ post }: { post: Blog }) {
 	return (
 		<div
 			className={clsx(
-				"flex w-full items-center justify-end content-between m-0 py-[3px] px-4",
+				"flex w-full items-center justify-end content-between m-0",
 			)}
 		>
 			
@@ -34,12 +34,12 @@ export default function BlogRow({ post }: { post: Blog }) {
                 </div>
                 <Link
                     key={post.slug}
-                    className="inline-block text-[15px] leading-4 mr-auto w-full whitespace-nowrap overflow-hidden overflow-ellipsis text-left transition-all duration-100"
+                    className="inline-block text-[15px] leading-4 mr-auto whitespace-nowrap overflow-hidden overflow-ellipsis text-left transition-all duration-100"
                     href={`/blog/${post.slug}`}
                 >
                     <span
                         className={clsx(selected
-                                ? "text-white underline font-inter-semibold"
+                                ? "text-white underline font-inter-bold"
                                 : "text-neutral-400 hover:text-white hover:underline font-inter-medium"
                         )}
                     >

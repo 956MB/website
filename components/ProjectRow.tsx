@@ -72,6 +72,7 @@ export default function ProjectRow({
 }) {
 	return (
 		<div
+            id={entry.id}
 			className="relative flex flex-wrap flex-col justify-center items-center max-w-[85%]"
 		>
 			<PortalWithState
@@ -87,6 +88,7 @@ export default function ProjectRow({
 								src={entry.images[0].path}
 								width={entry.images[0].width}
 								height={entry.images[0].height}
+                                loading="eager"
 							/>
 						</button>
 						{portal(
@@ -100,6 +102,7 @@ export default function ProjectRow({
                                     src={entry.images[0].path}
                                     width={entry.images[0].width}
                                     height={entry.images[0].height}
+                                    loading="eager"
                                 />
 							</div>
 						)}
