@@ -10,27 +10,27 @@ import Tooltip from "./Tooltip";
 import { PiArrowUpRightBold } from "react-icons/pi";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
-	return (
-		<div className="flex flex-col items-start justify-start w-full py-5 sm:py-3 m-0 gap-2">
-			<div className="flex flex-col items-start justify-center gap-[5px] px-[30px]">
-				<span className="text-white font-inter-semibold text-lg leading-[18px]">
-					{entry.title}
-				</span>
-				<span className="font-ibmplex-sans-medium text-[13px] leading-4 text-neutral-600">
-					{entry.description}
-				</span>
-			</div>
-			<hr className="h-px w-full bg-neutral-800 my-auto" />
-		</div>
-	);
+    return (
+        <div className="flex flex-col items-start justify-start w-full max-w-screen-2xl py-5 sm:py-3 m-0 gap-2">
+            <div className="flex flex-col items-start justify-center gap-[5px] px-7">
+                <span className="text-white font-inter-semibold text-lg leading-[18px]">
+                    {entry.title}
+                </span>
+                <span className="font-ibmplex-sans-medium text-[13px] leading-4 text-neutral-600">
+                    {entry.description}
+                </span>
+            </div>
+            <hr className="h-px w-full bg-neutral-800 my-auto" />
+        </div>
+    );
 }
 
 export default function DesignRow({ entry }: { entry: IEntryGroup }) {
-	return (
-		<div className="flex flex-col flex-wrap w-full relative">
-			<DesignHeader entry={entry} />
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 3xl:grid-cols-6 justify-center items-start gap-5 lg:gap-3 w-full px-[30px] pb-[30px]">
-				{React.Children.toArray(entry.items.map((item, i) => (
+    return (
+        <div className="flex flex-col flex-wrap w-full relative justify-center items-center">
+            <DesignHeader entry={entry} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center items-start gap-5 lg:gap-3 w-full max-w-screen-2xl px-7 pb-7">
+                {React.Children.toArray(entry.items.map((item, i) => (
                     <PortalWithState closeOnOutsideClick closeOnEsc>
                         {({ openPortal, closePortal, portal }) => (
                             <React.Fragment>
@@ -91,7 +91,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                         )}
                     </PortalWithState>
                 )))}
-			</div>
-		</div>
-	);
+            </div>
+        </div>
+    );
 }

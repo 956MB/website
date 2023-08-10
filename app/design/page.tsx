@@ -5,20 +5,20 @@ import React from "react";
 import DesignRow from "components/DesignRow";
 
 export const metadata: Metadata = {
-	title: "Design",
-	description: "Various Figma, Photoshop and other design concepts.",
+    title: "Design",
+    description: "Various Figma, Photoshop and other design concepts.",
 };
 
 export default function DesignPage() {
-	return (
-		<section>
-			<div className="flex w-full flex-col flex-wrap items-center justify-start mt-[55px] sm:pt-[20px]">
-				{React.Children.toArray(
-					groups.map((group, i) => (
+    return (
+        <section>
+            <div className="flex w-full flex-col flex-wrap items-center justify-start mt-[75px] sm:pt-[20px] gap-3">
+                {React.Children.toArray(
+                    groups.map((group, i) => (
                         <DesignRow entry={group} />
-					))
-				)}
-			</div>
-		</section>
-	);
+                    ))
+                )}
+            </div>
+        </section>
+    );
 }

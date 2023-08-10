@@ -11,7 +11,7 @@ import BlogLink from "./BlogLink";
 function BlogSectionTitle({ title, sub }: { title: string; sub?: string }) {
     return (
         <div className="inline-flex flex-col">
-            <div className="inline-flex flex-row gap-x-3 child:text-[14px] child:leading-6 child:sm:whitespace-nowrap py-[12px]">
+            <div className="inline-flex flex-row gap-x-3 child:text-[14px] child:leading-6 child:sm:whitespace-nowrap py-[15px]">
                 <span className="font-inter-semibold text-white">
                     {title}
                 </span>
@@ -28,7 +28,7 @@ function BlogSectionTitle({ title, sub }: { title: string; sub?: string }) {
 
 function BlogEntries({ post }: { post: Blog }) {
     return (
-        <div className="hidden lg:flex flex-col shrink w-full min-w-[325px] max-w-[325px] sticky top-[55px] overflow-auto ml-[25px]">
+        <div className="hidden lg:flex flex-col shrink w-full min-w-[300px] max-w-[300px] sticky top-[75px] overflow-auto">
             <div
                 className="flex flex-col w-full max-h-screen overflow-hidden"
             >
@@ -48,10 +48,10 @@ function BlogEntries({ post }: { post: Blog }) {
 
                         <BlogSectionTitle title="LINKS" />
 
-                        <div className="inline-flex flex-col gap-y-[10px] py-[12px] mb-[80px] pr-[15px]">
+                        <div className="inline-flex flex-col gap-y-[10px] py-[15px] mb-[80px] pr-[15px]">
                             {React.Children.toArray(
                                 post.links?.map((link, i) => (
-                                    <BlogLink link={link} num={i+1} />
+                                    <BlogLink link={link} num={i + 1} />
                                 ))
                             )}
                         </div>
@@ -63,30 +63,30 @@ function BlogEntries({ post }: { post: Blog }) {
 }
 
 export default function BlogContainer({ selectedPost }: { selectedPost: Blog }) {
-	return (
-		<div className="flex flex-row flex-1 justify-center w-full max-h-full max-w-7xl items-start mx-auto">
-            <BlogEntries post={selectedPost}/>
+    return (
+        <div className="flex flex-row flex-1 justify-center w-full max-h-full items-start mx-auto px-7 max-w-screen-2xl">
+            <BlogEntries post={selectedPost} />
 
-			<div
-				className="flex flex-col w-full flex-1 lg:max-w-[100%] pt-[85px] pl-[25px] pr-[25px] lg:pl-[35px] pb-[55px] gap-[55px]"
-			>
-				{React.Children.toArray(
-					sortBlogs(allBlogs).map((post) => (
-						<section
-							className={clsx(
-								"block",
-								post.slug === selectedPost.slug ? null : "lg:hidden"
-							)}
-						>
-							<script type="application/ld+json">
-								{JSON.stringify(post.structuredData)}
-							</script>
+            <div
+                className="flex flex-col w-full flex-1 max-w-[100%] pt-[95px] pl-[25px] pr-[25px] lg:pl-[35px] pb-[55px] gap-[55px] lg:max-w-4xl"
+            >
+                {React.Children.toArray(
+                    sortBlogs(allBlogs).map((post) => (
+                        <section
+                            className={clsx(
+                                "block",
+                                post.slug === selectedPost.slug ? null : "lg:hidden"
+                            )}
+                        >
+                            <script type="application/ld+json">
+                                {JSON.stringify(post.structuredData)}
+                            </script>
 
-							<div className="flex flex-row items-start justify-center w-full p-0">
-								<div className="flex flex-col md:flex-row items-start justify-center content-center m-0 w-full gap-2">
-									<span className="font-inter-bold text-[28px] max-w-max leading-6 mr-auto text-white sm:whitespace-nowrap">
-										{post.title}
-									</span>
+                            <div className="flex flex-row items-start justify-center w-full p-0">
+                                <div className="flex flex-col md:flex-row items-start justify-center content-center m-0 w-full gap-2">
+                                    <span className="font-inter-bold text-[28px] max-w-max leading-6 mr-auto text-white sm:whitespace-nowrap">
+                                        {post.title}
+                                    </span>
                                     <div className="inline-flex flex-row-reverse md:flex-row items-end justify-center child:font-ibmplex-sans-medium child:text-sm child:whitespace-nowrap py-[1px] md:ml-2">
                                         {React.Children.toArray(
                                             post.tags?.map((tag, i) => (
@@ -102,30 +102,34 @@ export default function BlogContainer({ selectedPost }: { selectedPost: Blog }) 
                                             {toFormattedDate(post.publishedAt)}
                                         </span>
                                     </div>
-								</div>
-							</div>
+                                </div>
+                            </div>
 
-							<hr className="h-px w-full bg-neutral-800 mb-[20px] mt-[28px]" />
+                            <hr className="h-px w-full bg-neutral-800 mb-[20px] mt-5 sm:mt-7" />
 
-							<Mdx code={post.body.code} />
+                            <Mdx code={post.body.code} />
 
                             {post.links ? (
                                 <div className="inline-flex lg:hidden flex-col w-full">
                                     <BlogSectionTitle title="LINKS" />
 
-                                    <div className="inline-flex flex-col gap-y-[10px] py-[12px] mb-[80px] pr-[15px]">
+                                    <div className="inline-flex flex-col gap-y-[10px] py-[15px] mb-[80px] pr-[15px]">
                                         {React.Children.toArray(
                                             post.links?.map((link, i) => (
-                                                <BlogLink link={link} num={i+1} />
+                                                <BlogLink link={link} num={i + 1} />
                                             ))
                                         )}
                                     </div>
                                 </div>
                             ) : null}
-						</section>
-					))
-				)}
-			</div>
-		</div>
-	);
+                        </section>
+                    ))
+                )}
+            </div>
+
+            <div className="hidden lg:flex w-full max-w-[325px] top-[55px] overflow-auto">
+
+            </div>
+        </div>
+    );
 }
