@@ -27,11 +27,11 @@ export default function Header() {
                     href={"/"}
                 >
                     <Image
-                         alt="logo"
-                         className="w-6 h-6 object-contain cursor-pointer mt-[3px] ml-[2px]"
-                         src={logo_s}
-                         placeholder="blur"
-                         priority
+                        alt="logo"
+                        className="w-6 h-6 object-contain cursor-pointer mt-[3px] ml-[2px]"
+                        src={logo_s}
+                        placeholder="blur"
+                        priority
                     />
                 </Link>
 

@@ -6,16 +6,16 @@ export const logo_s = logo_s_i;
 export const name = "Alexander Bays";
 export const copyright = "© Alexander Bays, 2023";
 export const email = {
-       key: "contact",
-       value: "bays.956mb@gmail.com",
-       url: "mailto:bays.956mb@gmail.com",
+     key: "contact",
+     value: "bays.956mb@gmail.com",
+     url: "mailto:bays.956mb@gmail.com",
 }
 export const socials = [
-       { key: "discord", url: "https://discordapp.com/users/111967411497947136" },
-       { key: "github", url: "https://github.com/956MB" },
-       { key: "twitter", url: "https://twitter.com/956MB" },
-       { key: "reddit", url: "https://www.reddit.com/user/bauera5" },
-       { key: "twitch", url: "https://www.twitch.tv/956mb" }
+     { key: "discord", url: "https://discordapp.com/users/111967411497947136" },
+     { key: "github", url: "https://github.com/956MB" },
+     { key: "twitter", url: "https://twitter.com/956MB" },
+     { key: "reddit", url: "https://www.reddit.com/user/bauera5" },
+     { key: "twitch", url: "https://www.twitch.tv/956mb" }
 ];
 
 export const whoami_h = ["whoami", "aboot meh", "info", "bio", "profile"];

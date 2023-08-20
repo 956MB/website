@@ -16,7 +16,8 @@ import { email } from "../lib/info";
 import React from "react";
 import clsx from "clsx";
 import { FaRedditAlien } from "react-icons/fa";
-import { Mastodon, Twitch, Twitter, Github, Discord } from 'react-bootstrap-icons';
+import { Mastodon, Twitch, Github, Discord } from 'react-bootstrap-icons';
+import { XIcon } from "./Icons";
 
 export function AboutBody() {
     return (
@@ -40,7 +41,7 @@ export function AboutLinks({ mobilePos }: { mobilePos: string }) {
         switch (key) {
             case "github": return { color: "hover:border-neutral-400/80", icon: <Github size={18} /> };
             case "reddit": return { color: "hover:border-[#FF4500]/80", icon: <FaRedditAlien size={21} /> };
-            case "twitter": return { color: "hover:border-[#1D9BF0]/80", icon: <Twitter size={18} /> };
+            case "twitter": return { color: "hover:border-[#1D9BF0]/80", icon: <XIcon /> };
             case "mastadon": return { color: "hover:border-[#6364FF]/80", icon: <Mastodon size={18} /> };
             case "discord": return { color: "hover:border-[#5865F2]/80", icon: <Discord size={18} /> };
             default: return { color: "hover:border-[#9146FF]/80", icon: <Twitch size={18} /> };
@@ -55,7 +56,7 @@ export function AboutLinks({ mobilePos }: { mobilePos: string }) {
             )}
         >
             <div className="inline-flex flex-row flex-wrap justify-center m-0 gap-3">
-                {socials.map((link, i) => {
+                {socials.map((link) => {
                     let socialVals = getSocial(link.key);
                     return (
                         React.Children.toArray(
