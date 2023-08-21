@@ -18,7 +18,7 @@ export const socials = [
      { key: "twitch", url: "https://www.twitch.tv/956mb" }
 ];
 
-export const whoami_h = ["whoami", "aboot meh", "info", "bio", "profile"];
+export const whoami_h = ["whoami", "aboot meh", "info", "bio", "profile", "hello", "welcome", "hi"];
 
 export const about_p = `My name is <span class='highlight'>${name}</span>, and I’m a self-taught programmer, graphic designer and r/neography hobbyist from <span class='highlight'> Dallas, TX </span>.`;
 
@@ -28,7 +28,7 @@ export const background_h = `Background:`;
 
 export const background_p = `I started my self-taught skills journey around 2010, initially focusing on graphic design and mastering <span class='highlight'>Photoshop</span>. In 2018, a computer engineer friend introduced me to programming, and it quickly became my passion. After some exploration, I think I \"settled into the design side\" of programming, combining my still expanding coding skills with a keen eye for aesthetics.`;
 
-export const languages_h = `Languages & frameworks:`;
+export const languages_h = `Skills:`;
 
 export const languages_p = `In addition to loving <span class='highlight'>Swift</span> (and of course <span class='highlight'>SwiftUI</span>) for Apple products, I've worked a lot with both <span class='highlight'>JavaScript</span> and <span class='highlight'>TypeScript</span> to make universal dekstop apps and websites in <span class='highlight'>React</span> (<span class='highlight'>this website is React!</span>), and I've explored the frontend framework <span class='highlight'>Qt</span> with <span class='highlight'>C++</span> to some degree. When I'm not using the tried and true <span class='highlight'>Electron</span> for the desktop, I'm trying to get the brand new framework <span class='highlight'>Tauri</span> to work for me and really master the <span class='highlight'>Rust</span> language. Aside from these languages and libraries for creating frontends, my main scripting language of choice is <span class='highlight'>Python</span>. Which I've used for tons of little things, including coding challenges like <span class='highlight'>Codewars</span> and <span class='highlight'>AdventOfCode</span>`;
 

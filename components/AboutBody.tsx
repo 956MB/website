@@ -22,7 +22,7 @@ import { XIcon } from "./Icons";
 export function AboutBody() {
     return (
         <div className="flex-row text-left justify-start mr-0">
-            <div className="flex flex-wrap m-0 flex-col pr-0 pb-[30px] text-left gap-y-4">
+            <div className="flex flex-wrap m-0 flex-col pr-0 pb-[30px] text-left gap-y-5">
                 <TextParagraph>{about_p}</TextParagraph>
                 <TextParagraph>{bio_p}</TextParagraph>
                 <TextTitleSub>{background_h}</TextTitleSub>
@@ -51,7 +51,7 @@ export function AboutLinks({ mobilePos }: { mobilePos: string }) {
     return (
         <div
             className={clsx(
-                "flex flex-col w-full items-center justify-center mb-[30px] gap-y-[20px] lg:gap-y-[40px]",
+                "flex flex-col w-full items-center justify-center mb-[20px] gap-y-[20px] lg:gap-y-[40px]",
                 mobilePos
             )}
         >

@@ -2,6 +2,18 @@ import { IEntry, IEntryGroup, IEntryGroups } from "./interfaces";
 
 // NOTE: concepts
 
+export const design_wallpaper_sync: IEntry = {
+	id: "design_wallpaper_sync",
+	title: "WallpaperSync",
+	category: "figma",
+	summary: [
+		"This is another spontaneous project idea for a desktop app to set and automatically handle your different wallpapers on multiple devices. I'm personally a Synergy user, and have been for a long time, but I also manually switch back and forth between my Mac and PC. So, my intended use case came from having a folder of auto-rotating wallpapers on my Mac that I wanted to apply the exact same way to my PC, without any manually transferring of files through Google Drive or something.",
+	],
+	images: [
+		{ path: "/images/wallpaper-sync/wallpaper-sync.png", width: 3616, height: 3662 },
+	],
+};
+
 export const design_tx4: IEntry = {
 	id: "design_tx4",
 	title: "TX4",
@@ -10,11 +22,10 @@ export const design_tx4: IEntry = {
 		"An actual attempt at my previously shown app, TX4. I tried to keep the same general ideas and structure of the original Qt creation, but with a much more thought out design before going into development. This was crucial because doing things on the fly with no plan, in Qt no less, lead to a terrible look and feel. Development on it has already started in React, but is very early stages.",
 	],
 	images: [
-		{ path: "/images/tx4-for-real/tx4.png", width: 2650, height: 1780 },
-		{ path: "/images/tx4-for-real/loading.png", width: 1340, height: 905 },
-		{ path: "/images/tx4-for-real/main.png", width: 1340, height: 905 },
-		{ path: "/images/tx4-for-real/viewer.png", width: 1340, height: 905 },
-		{ path: "/images/tx4-for-real/map.png", width: 1340, height: 905 },
+		{ path: "/images/tx4-for-real/map.png", width: 2680, height: 1810 },
+		{ path: "/images/tx4-for-real/main.png", width: 2680, height: 1810 },
+		{ path: "/images/tx4-for-real/viewer.png", width: 2680, height: 1810 },
+		{ path: "/images/tx4-for-real/loading.png", width: 2680, height: 1810 },
 	],
 };
 
@@ -75,6 +86,7 @@ export const design_plan: IEntry = {
 };
 
 export const designs = [
+    design_wallpaper_sync,
 	design_tx4,
 	design_comma_interface_challenge,
 	design_intros,

@@ -21,7 +21,7 @@ export default function Header() {
 
     return (
         <div className={clsx("fixed z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full flex justify-center flex-wrap transition bg-black/80 backdrop-blur")}>
-            <div className={clsx("flex flex-row gap-8 m-auto items-center justify-center sm:justify-start w-full px-7", pathname == "/" ? "max-w-[960px]" : "max-w-screen-2xl")}>
+            <div className={clsx("flex flex-row gap-8 m-auto items-center justify-center sm:justify-start w-full px-7 max-w-screen-2xl")}>
                 <Link
                     key={"home"}
                     href={"/"}

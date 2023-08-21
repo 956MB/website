@@ -11,7 +11,7 @@ import { PiArrowUpRightBold } from "react-icons/pi";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
     return (
-        <div className="flex flex-col items-start justify-start w-full max-w-screen-2xl py-5 sm:py-3 m-0 gap-2">
+        <div className="flex flex-col items-start justify-start w-full max-w-screen-2xl py-5 sm:pt-3 sm:pb-4 m-0 gap-2">
             <div className="flex flex-col items-start justify-center gap-[5px] px-7">
                 <span className="text-white font-inter-semibold text-lg leading-[18px]">
                     {entry.title}
@@ -20,7 +20,7 @@ export function DesignHeader({ entry }: { entry: IEntryGroup }) {
                     {entry.description}
                 </span>
             </div>
-            <hr className="h-px w-full bg-neutral-800 my-auto" />
+            <hr className="h-px w-full bg-neutral-800 my-auto mx-7" />
         </div>
     );
 }
@@ -29,7 +29,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
     return (
         <div className="flex flex-col flex-wrap w-full relative justify-center items-center">
             <DesignHeader entry={entry} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center items-start gap-5 lg:gap-3 w-full max-w-screen-2xl px-7 pb-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center items-start gap-5 lg:gap-4 w-full max-w-screen-2xl px-7 pb-7">
                 {React.Children.toArray(entry.items.map((item, i) => (
                     <PortalWithState closeOnOutsideClick closeOnEsc>
                         {({ openPortal, closePortal, portal }) => (

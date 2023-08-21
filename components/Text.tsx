@@ -10,7 +10,7 @@ export function TextTitle({ children }: { children: React.ReactNode }) {
 
 export function TextTitleSub({ children }: { children: React.ReactNode }) {
     return (
-        <a className="font-inter-bold text-[15px] m-0 text-white text-left">
+        <a className="font-inter-bold text-xl m-0 text-white text-left">
             {ReactHtmlParser(children)}
         </a>
     );

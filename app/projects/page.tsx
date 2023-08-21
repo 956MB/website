@@ -15,10 +15,9 @@ export default function ProjectsPage() {
             <div className="flex w-full mx-auto flex-col items-start mt-[75px] last:border-transparent gap-y-8">
                 {React.Children.toArray(
                     projects.map((project, i) => (
-                        <div className="relative flex flex-row justify-center w-full items-start overflow-auto px-[2.5%] pt-[30px]">
+                        <div className="relative flex flex-row justify-center w-full items-center overflow-auto px-[2.5%] py-[2.5%]">
                             <ProjectRow
                                 entry={project}
-                                side={(i % 2) == 0 ? "right" : "left"}
                             />
                         </div>
                     ))
