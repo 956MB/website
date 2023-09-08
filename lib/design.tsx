@@ -70,6 +70,7 @@ export const design_opgg_spectate: IEntry = {
 		{ path: "/images/concepts/pros/liiv.png", width: 2208, height: 999 },
 		{ path: "/images/concepts/pros/mundo.png", width: 2415, height: 843 },
 		{ path: "/images/concepts/pros/t1.png", width: 2300, height: 694 },
+		{ path: "/images/concepts/OPGG.png", width: 1575, height: 885 },
 	],
 };
 
