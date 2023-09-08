@@ -10,7 +10,11 @@ export const design_wallpaper_sync: IEntry = {
 		"This is another spontaneous project idea for a desktop app to set and automatically handle your different wallpapers on multiple devices. I'm personally a Synergy user, and have been for a long time, but I also manually switch back and forth between my Mac and PC. So, my intended use case came from having a folder of auto-rotating wallpapers on my Mac that I wanted to apply the exact same way to my PC, without any manually transferring of files through Google Drive or something.",
 	],
 	images: [
-		{ path: "/images/wallpaper-sync/wallpaper-sync.png", width: 3616, height: 3662 },
+		{
+			path: "/images/wallpaper-sync/wallpaper-sync.png",
+			width: 3616,
+			height: 3662,
+		},
 	],
 };
 
@@ -44,7 +48,7 @@ export const design_intros: IEntry = {
 	title: '"Tro"... "Frame"... idk',
 	category: "figma",
 	summary: [
-		"This is a concept for a website idea I’ve had for a long time. It’s a website where any and all TV show or movie intro “frames” are collected. Sort of like if IMDB or Rotten Tomatoes was only for intros and end credits.",
+		"This is a concept for a website I’ve had for a long time. It’s a website where any and all TV show or movie intro “frames” are collected. Sort of like if IMDB or Rotten Tomatoes was only for intros and end credits.",
 	],
 	images: [
 		{ path: "/images/tro-io/ImagePage.png", width: 1920, height: 947 },
@@ -57,12 +61,16 @@ export const design_intros: IEntry = {
 
 export const design_opgg_spectate: IEntry = {
 	id: "opgg-spectate",
-	title: 'OP.GG "Spectate pro matches"',
+	title: 'OP.GG "Spectate pro matches" / "Pros"',
 	category: "figma",
 	summary: [
 		"This is a concept for the OP.GG ‘Pro Matches’ feature, integrated into their desktop client. I really liked the ‘Spectate Pro Players’ part of OP.GG’s website, but I thought it would be cool if you never had to leave the desktop client to load up and spectate pro games.",
 	],
-	images: [{ path: "/images/concepts/OPGG.png", width: 1575, height: 885 }],
+	images: [
+		{ path: "/images/concepts/pros/liiv.png", width: 2208, height: 999 },
+		{ path: "/images/concepts/pros/mundo.png", width: 2415, height: 843 },
+		{ path: "/images/concepts/pros/t1.png", width: 2300, height: 694 },
+	],
 };
 
 export const design_lol_icon_tool: IEntry = {
@@ -86,7 +94,7 @@ export const design_plan: IEntry = {
 };
 
 export const designs = [
-    design_wallpaper_sync,
+	design_wallpaper_sync,
 	design_tx4,
 	design_comma_interface_challenge,
 	design_intros,
@@ -95,9 +103,9 @@ export const designs = [
 	design_plan,
 ];
 export const designs_section: IEntryGroup = {
-	title: "Concepts",
+	title: "Concepts and Prototypes",
 	description:
-		"Collection of UI concepts and ideas for past and future projects",
+		"Collection of UI prototypes and ideas for past and future projects",
 	items: designs,
 };
 
@@ -109,10 +117,22 @@ export const script_eggers_posters_gyea: IEntry = {
 	category: "script",
 	tags: ["GYEA"],
 	images: [
-		{ path: "/images/poster-edits/the-northman.png", width: 1500, height: 2202 },
-		{ path: "/images/poster-edits/the-revenant.png", width: 2000, height: 3000 },
+		{
+			path: "/images/poster-edits/the-northman.png",
+			width: 1500,
+			height: 2202,
+		},
+		{
+			path: "/images/poster-edits/the-revenant.png",
+			width: 2000,
+			height: 3000,
+		},
 		{ path: "/images/poster-edits/alien.png", width: 2000, height: 3000 },
-		{ path: "/images/poster-edits/the-lighthouse.png", width: 1778, height: 2667 },
+		{
+			path: "/images/poster-edits/the-lighthouse.png",
+			width: 1778,
+			height: 2667,
+		},
 	],
 };
 
@@ -131,10 +151,26 @@ export const script_brands: IEntry = {
 	category: "script",
 	tags: ["Tab"],
 	images: [
-		{ path: "/images/brand-logos-scripts/IMG_V678.png", width: 1920, height: 1080, },
-		{ path: "/images/brand-logos-scripts/IMG_R78968.png", width: 2021, height: 1096, },
-		{ path: "/images/brand-logos-scripts/IMG_R121234.png", width: 2021, height: 1096, },
-		{ path: "/images/brand-logos-scripts/IMG_R90636.png", width: 2021, height: 1096, },
+		{
+			path: "/images/brand-logos-scripts/IMG_V678.png",
+			width: 1920,
+			height: 1080,
+		},
+		{
+			path: "/images/brand-logos-scripts/IMG_R78968.png",
+			width: 2021,
+			height: 1096,
+		},
+		{
+			path: "/images/brand-logos-scripts/IMG_R121234.png",
+			width: 2021,
+			height: 1096,
+		},
+		{
+			path: "/images/brand-logos-scripts/IMG_R90636.png",
+			width: 2021,
+			height: 1096,
+		},
 	],
 };
 
@@ -180,9 +216,9 @@ export const scripts = [
 	script_hokj,
 ];
 export const scripts_section: IEntryGroup = {
-	title: "Scripts",
+	title: "r/neography",
 	description:
-		"Constructed scripts (and eventually conlangs) I've drawn and developed",
+		"Constructed scripts (and eventually conlangs) I make for fun",
 	items: scripts,
 };
 

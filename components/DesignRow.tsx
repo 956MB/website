@@ -7,20 +7,21 @@ import Image from "next/image";
 import clsx from "clsx";
 import Gallery, { CategoryIcon } from "./Gallery";
 import Tooltip from "./Tooltip";
-import { PiArrowUpRightBold } from "react-icons/pi";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
     return (
-        <div className="flex flex-col items-start justify-start w-full max-w-screen-2xl py-5 sm:pt-3 sm:pb-4 m-0 gap-2">
+        <div className="flex flex-col items-start justify-start w-full max-w-screen-2xl py-5 sm:pt-3 sm:pb-4 m-0 gap-3">
             <div className="flex flex-col items-start justify-center gap-[5px] px-7">
-                <span className="text-white font-inter-semibold text-lg leading-[18px]">
+                <span className="text-white font-inter-semibold text-xl leading-[18px]">
                     {entry.title}
                 </span>
                 <span className="font-ibmplex-sans-medium text-[13px] leading-4 text-neutral-600">
                     {entry.description}
                 </span>
             </div>
-            <hr className="h-px w-full bg-neutral-800 my-auto mx-7" />
+            <div className="flex flex-row px-7 items-center justify-center w-full">
+                <hr className="h-px w-full bg-neutral-800 my-auto" />
+            </div>
         </div>
     );
 }
@@ -36,17 +37,17 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                             <React.Fragment>
                                 <div
                                     className={clsx(
-                                        "relative z-0 flex flex-col justify-start group box-content border border-neutral-700/70 hover:border-neutral-700 rounded-lg overflow-hidden cursor-pointer bg-black/80"
+                                        "relative z-0 flex flex-col justify-start group box-content overflow-hidden cursor-pointer bg-black/80"
                                     )}
                                     onClick={item.linkBlog ? undefined : openPortal}
                                 >
                                     <a
-                                        className="flex flex-col relative justify-end group border-b border-neutral-700/70"
+                                        className="flex flex-col relative justify-end group"
                                         href={item.linkBlog ? item.linkBlog : undefined}
                                     >
                                         <Image
                                             alt={item.id}
-                                            className="block object-cover w-full h-full aspect-video cursor-pointer"
+                                            className="block object-cover w-full h-full aspect-[4/3] cursor-pointer"
                                             src={item.images[0].path}
                                             width={item.images[0].width}
                                             height={item.images[0].height}
@@ -55,7 +56,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                     </a>
                                     <div
                                         className={clsx(
-                                            "flex flex-col text-start justify-center w-full px-[16px] pb-[16px] pt-[16px] gap-y-2  group-hover:bg-gradient-to-t group-hover:from-neutral-800/60 group-hover:to-transparent",
+                                            "z-10 flex flex-col text-start justify-center w-full px-[16px] pb-[16px] pt-[16px] gap-y-2",
                                             item.summary && item.summary.length <= 0 ? "h-[53px] min-h-[53px] max-h-[53px]" : null
                                         )}
                                     >
@@ -66,7 +67,6 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                             <span className="text-white font-inter-semibold text-sm truncate">
                                                 {item.title}
                                             </span>
-                                            {item.linkBlog ? (<PiArrowUpRightBold size={16} className="text-white" />) : null}
                                             {item.tags ? (
                                                 <div className="inline-flex flex-row items-end justify-center ml-auto gap-x-2">
                                                     {React.Children.toArray(item.tags?.map((tag, i) => (

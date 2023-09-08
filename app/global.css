@@ -128,10 +128,6 @@ hr {
 	font-weight: 600;
 }
 
-.thicker-font {
-    text-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
-}
-
 .font-gyea-bold {
 	font-family: "GYEA_Bold";
 }

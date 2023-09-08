@@ -37,7 +37,7 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 					<div className="flex flex-wrap items-left flex-row gap-x-[10px] ml-auto">
 						{React.Children.toArray(
 							entry.tags?.map((tag, i) => (
-								<div className="blockgroup pt-[2px] pb-[4px] cursor-pointer text-center items-center justify-center text-white mt-[1px] bg-neutral-900/80 hover:bg-neutral-800/90 rounded-md gap-2 px-2 border border-neutral-700/70 hover:border-neutral-700/80">
+								<div className="blockgroup pt-[2px] pb-[4px] text-center items-center justify-center text-white mt-[1px] bg-neutral-900/80 hover:bg-neutral-800/90 rounded-full gap-2 px-3 border border-neutral-700/70 hover:border-neutral-700/80">
 									<a className="pointer-events-none text-white font-inter-semibold text-xs group-hover:text-black">
 										{tag}
 									</a>

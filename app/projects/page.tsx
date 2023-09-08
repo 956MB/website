@@ -12,13 +12,14 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
     return (
         <section>
-            <div className="flex w-full mx-auto flex-col items-start mt-[75px] last:border-transparent gap-y-8">
+            <div className="flex w-full mx-auto flex-col items-start mt-[75px] last:border-transparent">
                 {React.Children.toArray(
                     projects.map((project, i) => (
-                        <div className="relative flex flex-row justify-center w-full items-center overflow-auto px-[2.5%] py-[2.5%]">
+                        <div className="relative flex flex-col justify-center w-full items-center overflow-auto px-[2.5%] pt-[2.5%]">
                             <ProjectRow
                                 entry={project}
                             />
+                            <hr className="h-px w-full max-w-4xl bg-neutral-800 my-8" />
                         </div>
                     ))
                 )}
