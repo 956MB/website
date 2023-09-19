@@ -1,7 +1,7 @@
-import { allBlogs } from "contentlayer/generated";
+import { allContents } from "contentlayer/generated";
 
 export default async function sitemap() {
-	const blogs = allBlogs.map((post) => ({
+	const blogs = allContents.filter((i) => i.category === "blog").map((post) => ({
 		url: `https://956mb.com/blog/${post.slug}`,
 		lastModified: post.publishedAt,
 	}));

@@ -9,10 +9,10 @@ import {
     languages_p,
     tools_h,
     tools_p,
-} from "../lib/info";
+} from "lib/info";
 import { TextParagraph, TextTitleSub } from "./Text";
-import { socials } from "../lib/info";
-import { email } from "../lib/info";
+import { socials } from "lib/info";
+import { email } from "lib/info";
 import React from "react";
 import clsx from "clsx";
 import { FaRedditAlien } from "react-icons/fa";
@@ -56,7 +56,7 @@ export function AboutLinks({ mobilePos }: { mobilePos: string }) {
             )}
         >
             <div className="inline-flex lg:hidden m-0 flex-row flex-wrap justify-center gap-3">
-                {socials.map((link) => {
+                {socials.slice(0, -1).map((link) => {
                     let socialVals = getSocial(link.key);
                     return (
                         React.Children.toArray(

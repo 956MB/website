@@ -5,6 +5,7 @@ import { IEntry, IEntryGroup, IEntryGroups } from "./interfaces";
 export const design_wallpaper_sync: IEntry = {
 	id: "design_wallpaper_sync",
 	title: "WallpaperSync",
+    date: "08/17/2023",
 	category: "figma",
 	summary: [
 		"This is another spontaneous project idea for a desktop app to set and automatically handle your different wallpapers on multiple devices. I'm personally a Synergy user, and have been for a long time, but I also manually switch back and forth between my Mac and PC. So, my intended use case came from having a folder of auto-rotating wallpapers on my Mac that I wanted to apply the exact same way to my PC, without any manually transferring of files through Google Drive or something.",
@@ -21,6 +22,7 @@ export const design_wallpaper_sync: IEntry = {
 export const design_tx4: IEntry = {
 	id: "design_tx4",
 	title: "TX4",
+    date: "06/25/2023",
 	category: "figma",
 	summary: [
 		"An actual attempt at my previously shown app, TX4. I tried to keep the same general ideas and structure of the original Qt creation, but with a much more thought out design before going into development. This was crucial because doing things on the fly with no plan, in Qt no less, lead to a terrible look and feel. Development on it has already started in React, but is very early stages.",
@@ -36,6 +38,7 @@ export const design_tx4: IEntry = {
 export const design_comma_interface_challenge: IEntry = {
 	id: "comma-interface-challenge",
 	title: "Comma Interface Challenge",
+    date: "11/14/2022",
 	category: "figma",
 	summary: [
 		"This was my take (apparently not very good) on a re-design of the Comma 3 interface. It came from an interview assignment called the 'Comma Interface Challenge', where Comma wanted modifications or whole different design structures for a 'Software updater' inside the UI. I supposedly didn't fully grasp the objective of the interview challenge though.",
@@ -46,6 +49,7 @@ export const design_comma_interface_challenge: IEntry = {
 export const design_intros: IEntry = {
 	id: "intros",
 	title: '"Tro"... "Frame"... idk',
+    date: "05/18/2023",
 	category: "figma",
 	summary: [
 		"This is a concept for a website I’ve had for a long time. It’s a website where any and all TV show or movie intro “frames” are collected. Sort of like if IMDB or Rotten Tomatoes was only for intros and end credits.",
@@ -62,6 +66,7 @@ export const design_intros: IEntry = {
 export const design_opgg_spectate: IEntry = {
 	id: "opgg-spectate",
 	title: 'OP.GG "Spectate pro matches" / "Pros"',
+    date: "08/21/2021",
 	category: "figma",
 	summary: [
 		"This is a concept for the OP.GG ‘Pro Matches’ feature, integrated into their desktop client. I really liked the ‘Spectate Pro Players’ part of OP.GG’s website, but I thought it would be cool if you never had to leave the desktop client to load up and spectate pro games.",
@@ -77,6 +82,7 @@ export const design_opgg_spectate: IEntry = {
 export const design_lol_icon_tool: IEntry = {
 	id: "lol-icon-tool",
 	title: "LoL Icon Tool",
+    date: "08/21/2021",
 	category: "react",
 	summary: [
 		"This concept was made before the overhaul to the borders and ranks. This website allows you to pair borders to icons to banners to customize your LoL profile, or see what combinations look good. All level and rank borders/banners and every icon would be available to preview.",
@@ -87,6 +93,7 @@ export const design_lol_icon_tool: IEntry = {
 export const design_plan: IEntry = {
 	id: "pLan",
 	title: "pLan",
+    date: "05/30/2020",
 	category: "photoshop",
 	summary: [
 		"“Logo” and “brand aesthetics” for my first programming language, pLan. Which of course doesn’t actually exist yet. It’ll be done in 20 years. I guess I really like coming up with names for programming languages and creating graphics for them more than I like learning how to actually make one.",
@@ -97,14 +104,15 @@ export const design_plan: IEntry = {
 export const designs = [
 	design_wallpaper_sync,
 	design_tx4,
-	design_comma_interface_challenge,
 	design_intros,
+	design_comma_interface_challenge,
 	design_opgg_spectate,
 	design_lol_icon_tool,
 	design_plan,
 ];
 export const designs_section: IEntryGroup = {
 	title: "Concepts and Prototypes",
+    category: "concept",
 	description:
 		"Collection of UI prototypes and ideas for past and future projects",
 	items: designs,
@@ -115,6 +123,7 @@ export const designs_section: IEntryGroup = {
 export const script_eggers_posters_gyea: IEntry = {
 	id: "script-eggers-gyea",
 	title: "Movie Posters",
+    date: "07/19/2023",
 	category: "script",
 	tags: ["GYEA"],
 	images: [
@@ -140,6 +149,7 @@ export const script_eggers_posters_gyea: IEntry = {
 export const script_gyea: IEntry = {
 	id: "script-hokj",
 	title: '"GYEA"',
+    date: "06/21/2023",
 	category: "script",
 	tags: ["GYEA"],
 	linkBlog: "https://www.956mb.com/blog/is-this-anything",
@@ -149,6 +159,7 @@ export const script_gyea: IEntry = {
 export const script_brands: IEntry = {
 	id: "script-brands-tab-hokj",
 	title: "Brand logos",
+    date: "05/25/2023",
 	category: "script",
 	tags: ["Tab"],
 	images: [
@@ -178,6 +189,7 @@ export const script_brands: IEntry = {
 export const script_tab: IEntry = {
 	id: "script-tab",
 	title: '"Tab"',
+    date: "05/18/2023",
 	category: "script",
 	tags: ["Tab"],
 	linkBlog: "https://www.956mb.com/blog/very-different-look-now",
@@ -187,6 +199,7 @@ export const script_tab: IEntry = {
 export const script_before_tab: IEntry = {
 	id: "script-before-tab",
 	title: "Before Tab",
+    date: "04/23/2023",
 	category: "script",
 	tags: ["Tab"],
 	linkBlog: "https://www.956mb.com/blog/something-new",
@@ -202,9 +215,10 @@ export const script_before_tab: IEntry = {
 export const script_hokj: IEntry = {
 	id: "script-hokj",
 	title: '"Hokj"',
+    date: "03/30/2023",
 	category: "script",
 	tags: ["Hokj"],
-	linkBlog: "https://www.956mb.com/blog/no-idea-what-im-doing",
+	linkBlog: "https://www.956mb.com/blog/continuation-variation",
 	images: [{ path: "/images/concepts/hokj.png", width: 1362, height: 720 }],
 };
 
@@ -218,6 +232,7 @@ export const scripts = [
 ];
 export const scripts_section: IEntryGroup = {
 	title: "r/neography",
+    category: "script",
 	description:
 		"Constructed scripts (and eventually conlangs) I make for fun",
 	items: scripts,

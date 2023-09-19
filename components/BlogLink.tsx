@@ -25,6 +25,7 @@ export default function BlogLink({ link, num }: { link: string, num: number }) {
 						{num + "."}
 					</span>
                 </div>
+                
                 <Link
                     key={label}
                     rel="noopener noreferrer"

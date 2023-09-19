@@ -39,3 +39,9 @@ next-env.d.ts
 # contentlayer
 .contentlayer
 TODO.md
+
+# later
+app/extra
+components/ExtraRow.tsx
+backup
+public/images/extra

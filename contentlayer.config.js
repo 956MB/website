@@ -31,8 +31,8 @@ const computedFields = {
 	},
 };
 
-export const Blog = defineDocumentType(() => ({
-	name: "Blog",
+export const Content = defineDocumentType(() => ({
+	name: "Content",
 	filePathPattern: `**/*.mdx`,
 	contentType: "mdx",
 	fields: {
@@ -48,20 +48,25 @@ export const Blog = defineDocumentType(() => ({
 			type: "string",
 			required: true,
 		},
-        tags: {
-            type: 'list',
-            of: { type: 'string' },
-        },
-        links: {
-            type: 'list',
-            of: { type: 'string' },
-        },
-        modified: {
-            type: 'boolean',
-            default: false,
-        },
-		image: {
+		category: {
 			type: "string",
+			required: true,
+		},
+		credit: {
+			type: "boolean",
+		},
+		tags: {
+			type: "list",
+			of: { type: "string" },
+		},
+		links: {
+			type: "list",
+			of: { type: "string" },
+		},
+		images: {
+			type: "list",
+			of: { type: "string" },
+			required: true,
 		},
 	},
 	computedFields,
@@ -69,7 +74,7 @@ export const Blog = defineDocumentType(() => ({
 
 export default makeSource({
 	contentDirPath: "content",
-	documentTypes: [Blog],
+	documentTypes: [Content],
 	mdx: {
 		remarkPlugins: [remarkGfm],
 		rehypePlugins: [

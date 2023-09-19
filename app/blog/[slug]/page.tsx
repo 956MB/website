@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { allBlogs, Blog } from "contentlayer/generated";
+import { allContents, Content } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 const BlogC = dynamic(() => import("components/BlogContainer"), { ssr: false });
 
 export async function generateMetadata({
 	params,
 }): Promise<Metadata | undefined> {
-	const post = allBlogs.find((post) => post.slug === params.slug);
+	const post = allContents.find((post) => post.slug === params.slug);
 	if (!post) {
 		return;
 	}
@@ -16,9 +16,9 @@ export async function generateMetadata({
 		title,
 		publishedAt: publishedTime,
 		summary: description,
-		image,
 		slug,
 	} = post;
+    const image = post.images[0];
 	const ogImage = image
 		? `https://956mb.com${image}`
 		: `https://956mb.com/og?title=${title}`;
@@ -48,7 +48,7 @@ export async function generateMetadata({
 }
 
 export default async function Blog({ params }) {
-    const post = allBlogs.find((post) => post.slug === params.slug);
+    const post = allContents.filter((i) => i.category === "blog").find((post) => post.slug === params.slug);
 
     if (!post) {
         notFound();
@@ -56,7 +56,7 @@ export default async function Blog({ params }) {
 
 	return (
 		<section>
-			<div className="flex w-full flex-col flex-1 items-start relative">
+			<div className="flex w-full flex-col flex-1 items-start relative px-7">
 				<BlogC selectedPost={post} />
 			</div>
 		</section>

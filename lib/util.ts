@@ -1,4 +1,4 @@
-import { Blog } from "contentlayer/generated";
+import { Content } from "contentlayer/generated";
 
 export function toTitleCase(str: string) {
 	return str
@@ -32,7 +32,13 @@ export function rsplitPath(path: string) {
     return result;
 }
 
-export function sortBlogs(blogs: Blog[]): Blog[] {
+export function filterContentTags(blogs: Content[], tag: string): Content[] {
+    return blogs.filter((blog): blog is Content => {
+        return blog && blog.tags !== undefined && blog.tags?.includes(tag);
+    })
+}
+
+export function sortContent(blogs: Content[]): Content[] {
     return blogs.sort((a, b) => {
         if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
             return -1;

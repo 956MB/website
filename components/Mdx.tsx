@@ -25,6 +25,16 @@ const CustomLink = (props) => {
     return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
 
+function ImageGrid({ imageUrls }) {
+    return (
+        <div className="image-grid">
+            {imageUrls.map((imageUrl, index) => (
+                <img key={index} src={imageUrl} alt={`Image ${index}`} />
+            ))}
+        </div>
+    );
+}
+
 function RoundedImage(props) {
     const { alt, ...rest } = props;
 
@@ -77,17 +87,6 @@ function RoundedImage(props) {
                                 />
                             </div>
                         </div>
-                        // <div
-                        // 	className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all sm:px-[10%] z-[99]"
-                        // >
-                        //     <Image
-                        //         alt={alt}
-                        //         className="block max-h-screen h-auto w-auto object-contain cursor-pointer"
-                        //         loading="eager"
-                        //         onClick={closePortal}
-                        //         {...rest}
-                        //     />
-                        // </div>
                     )}
                 </React.Fragment>
             )}
@@ -98,6 +97,7 @@ function RoundedImage(props) {
 const components = {
     Image: RoundedImage,
     a: CustomLink,
+    ImageGrid: ImageGrid,
 };
 
 interface MdxProps {

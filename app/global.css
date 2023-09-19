@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+	color-scheme: dark;
 }
 
 html,
@@ -176,6 +176,10 @@ hr {
 	color: white !important;
 }
 
+.cls-1 {
+	fill: #fff;
+}
+
 ::selection {
 	background: rgb(255, 238, 0); /* WebKit/Blink Browsers */
 	color: black !important;
@@ -185,14 +189,14 @@ hr {
 	color: black !important;
 }
 span.custom-font::selection {
-    background: rgb(255, 238, 0) !important; /* WebKit/Blink Browsers */
-    color: black !important;
-    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000 !important;
+	background: rgb(255, 238, 0) !important; /* WebKit/Blink Browsers */
+	color: black !important;
+	text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000 !important;
 }
 span.custom-font::-moz-selection {
-    background: rgb(255, 238, 0) !important; /* WebKit/Blink Browsers */
-    color: black !important;
-    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000 !important;
+	background: rgb(255, 238, 0) !important; /* WebKit/Blink Browsers */
+	color: black !important;
+	text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000 !important;
 }
 
 .prose .anchor {
@@ -263,7 +267,7 @@ span.custom-font::-moz-selection {
 
 .prose img {
 	/* Don't apply styles to next/image */
-	@apply mb-2 w-full h-full object-contain;
+	@apply mb-2 h-full object-contain;
 }
 .prose img:first-child {
 	@apply mt-0;
@@ -396,4 +400,11 @@ table {
 }
 .prose :where(h4):not(:where([class~="not-prose"] *)) {
 	margin-top: 0;
+}
+
+.entry-summary a {
+	@apply text-neutral-300;
+}
+.entry-summary a:hover {
+	@apply text-white underline;
 }

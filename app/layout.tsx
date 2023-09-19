@@ -55,15 +55,15 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="text-black bg-black">
 			<body className="antialiased flex flex-col md:flex-row overflow-scroll no-scrollbar">
-				<Header />
 				<main className="h-full min-w-0 flex flex-auto flex-col">
+				    <Header />
 					{children}
 					<Analytics />
 					<Footer />
 				</main>
                 <Particles
                     className="absolute inset-0 -z-10 animate-fade-in"
-                    quantity={100}
+                    quantity={120}
                 />
 			</body>
 		</html>
