@@ -16,25 +16,19 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 			)}
 		>
 			<div className="flex flex-wrap m-0 text-left flex-col gap-y-[12px] project-h">
-				<div className="inline-flex flex-row flex-wrap items-center justify-start gap-x-3 mb-3">
-					<h3 id={entry.id}>
-						<a className="anchor" href={`#${entry.id}`}>
-							<span className="icon icon-link"></span>
-						</a>
-						{entry.title}
-					</h3>
-					{!entry.link ? null : (
+				<div className="inline-flex flex-col sm:flex-row flex-wrap items-start sm:items-center justify-start gap-x-3 mb-3 gap-y-3">
+					<div className="inline-flex flex-row gap-x-3">
 						<a
+							id={entry.id}
 							rel="noopener noreferrer"
 							target="_blank"
 							href={entry.link}
-							className="flex items-center gap-2 text-white hover:text-neutral-400 transition-all duration-100"
 						>
-							<Github size={22} />
+							<span className="text-3xl text-white font-inter-bold hover:underline">{entry.title}</span>
 						</a>
-					)}
+					</div>
 
-					<div className="flex flex-wrap items-left flex-row gap-x-[10px] ml-auto">
+					<div className="flex flex-wrap items-left flex-row gap-x-[10px] sm:ml-auto">
 						{React.Children.toArray(
 							entry.tags?.map((tag, i) => (
 								<div className="blockgroup pt-[2px] pb-[4px] text-center items-center justify-center text-white mt-[1px] bg-neutral-900/80 hover:bg-neutral-800/90 rounded-full gap-2 px-3 border border-neutral-700/70 hover:border-neutral-700/80">

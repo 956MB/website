@@ -7,7 +7,7 @@ import Header, { Footer } from "components/NavBar";
 export const metadata: Metadata = {
 	title: {
 		default: "Alexander Bays",
-		template: "%s | Alexander Bays",
+		template: "%s - Alexander Bays",
 	},
 	description:
 		"Self-taught programmer, graphic designer and r/neography hobbyist.",

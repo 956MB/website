@@ -175,28 +175,23 @@ hr {
 	font-family: "Inter_Bold" !important;
 	color: white !important;
 }
+.large-highlight {
+	font-family: "Inter_Bold" !important;
+	color: white !important;
+    font-size: 1.2rem !important;
+}
 
 .cls-1 {
 	fill: #fff;
 }
 
 ::selection {
-	background: rgb(255, 238, 0); /* WebKit/Blink Browsers */
+	background: rgb(255, 255, 255); /* WebKit/Blink Browsers */
 	color: black !important;
 }
 ::-moz-selection {
-	background: rgb(255, 238, 0); /* Gecko Browsers */
+	background: rgb(255, 255, 255); /* Gecko Browsers */
 	color: black !important;
-}
-span.custom-font::selection {
-	background: rgb(255, 238, 0) !important; /* WebKit/Blink Browsers */
-	color: black !important;
-	text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000 !important;
-}
-span.custom-font::-moz-selection {
-	background: rgb(255, 238, 0) !important; /* WebKit/Blink Browsers */
-	color: black !important;
-	text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000 !important;
 }
 
 .prose .anchor {
