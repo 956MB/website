@@ -2,6 +2,23 @@ import { IEntry, IEntryGroup, IEntryGroups } from "./interfaces";
 
 // NOTE: concepts
 
+export const design_tdb_landing: IEntry = {
+    id: "design_tdb_landing",
+    title: "TDB Landing Site",
+    date: "09/28/2023",
+    category: "figma",
+    summary: [
+        "Very simple and VERY static landing page design for my iOS/iPadOS/macOS app, TDB. The idea of the app and it's overall functionality is super easy to understand, so I thought it's landing site should be the same. There's no need for a bunch of animations or slides advertising what it can do, one page with a demo and a download button should be enough. (NOT on the App Store yet.)",
+    ],
+    images: [
+        {
+            path: "/images/concepts/tdb-landing/tdb-landing-1.png",
+            width: 2880,
+            height: 2160,
+        },
+    ],
+};
+
 export const design_wallpaper_sync: IEntry = {
 	id: "design_wallpaper_sync",
 	title: "WallpaperSync",
@@ -102,6 +119,7 @@ export const design_plan: IEntry = {
 };
 
 export const designs = [
+    design_tdb_landing,
 	design_wallpaper_sync,
 	design_tx4,
 	design_intros,
@@ -114,7 +132,7 @@ export const designs_section: IEntryGroup = {
 	title: "Concepts and Prototypes",
     category: "concept",
 	description:
-		"Collection of UI prototypes and ideas for past and future projects",
+		"Collection of UI prototypes and ideas for past, present and future projects",
 	items: designs,
 };
 
