@@ -22,7 +22,7 @@ import { XIcon } from "./Icons";
 export function AboutBody() {
     return (
         <div className="flex-row text-left justify-start items-start mr-0">
-            <div className="flex flex-wrap m-0 flex-col pr-0 pb-[30px] text-left gap-y-5 items-start justify-start overflow-hidden">
+            <div className="flex flex-wrap m-0 flex-col pr-0 py-[30px] text-left gap-y-5 items-start justify-start overflow-hidden">
                 <TextParagraph>{about_p}</TextParagraph>
                 <TextParagraph>{bio_p}</TextParagraph>
                 <TextTitleSub>{background_h}</TextTitleSub>
@@ -55,7 +55,7 @@ export function AboutLinks({ mobilePos }: { mobilePos: string }) {
                 mobilePos
             )}
         >
-            <div className="inline-flex lg:hidden m-0 flex-row flex-wrap justify-center gap-3">
+            <div className="inline-flex sm:hidden m-0 flex-row flex-wrap justify-center gap-3">
                 {socials.slice(0, -1).map((link) => {
                     let socialVals = getSocial(link.key);
                     return (

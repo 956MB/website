@@ -39,12 +39,12 @@ export default function Header() {
 	return (
 		<div
 			className={clsx(
-				"relative lg:fixed z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full flex justify-center flex-wrap transition"
+				"relative lg:fixed z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full flex justify-center"
 			)}
 		>
 			<div
 				className={clsx(
-					"flex flex-row gap-7 sm:gap-10 m-auto items-center justify-start w-full h-full max-w-screen-3xl mx-7 border-b border-neutral-800 bg-black/90 backdrop-blur"
+					"flex flex-row gap-7 sm:gap-10 m-auto items-center justify-start w-full h-full max-w-screen-3xl mx-6 sm:mx-7 border-b border-neutral-800 bg-black/90 backdrop-blur"
 				)}
 			>
 				<Link key={"home"} href={"/"}>
@@ -109,15 +109,21 @@ export default function Header() {
 
 export function Footer() {
 	return (
-		<div className="flex flex-row flex-1 h-[75px] min-h-[75px] max-h-[75px] w-full border-t border-neutral-800 justify-center items-center text-center flex-nowrap transition bg-black/80 backdrop-blur gap-x-3 mt-auto px-[30px]">
-			<a
-				rel="noopener noreferrer"
-				target="_blank"
-				href={"https://vercel.com/"}
-				className="flex items-center text-white transition-all duration-100 mt-[1px]"
-			>
-				<VercelIcon />
-			</a>
-		</div>
+        <div
+			className={clsx(
+				"flex flex-row flex-1 z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full justify-center"
+			)}
+		>
+            <div className="flex flex-row flex-1 h-[75px] min-h-[75px] max-h-[75px] w-full max-w-screen-3xl mx-6 sm:mx-7 border-t border-neutral-800 justify-center items-center text-center flex-nowrap bg-black/80 backdrop-blur gap-x-3 mt-auto px-[30px]">
+                <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href={"https://vercel.com/"}
+                    className="flex items-center text-white transition-all duration-100 mt-[1px]"
+                >
+                    <VercelIcon />
+                </a>
+            </div>
+        </div>
 	);
 }

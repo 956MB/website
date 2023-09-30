@@ -12,7 +12,7 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 	return (
 		<div
 			className={clsx(
-				"flex flex-col flex-1 items-start mb-[30px] pt-[40px] max-w-[800px] h-full"
+				"flex flex-col flex-1 items-start pt-6 sm:pt-[40px] w-full sm:max-w-[800px] h-full"
 			)}
 		>
 			<div className="flex flex-wrap m-0 text-left flex-col gap-y-[12px] project-h">
@@ -43,7 +43,7 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 
 				{React.Children.toArray(
 					entry.summary?.map((summary_p, i) => (
-						<a className="font-inter-medium text-[15px] leading-[1.4em] m-0 text-neutral-300">
+						<a className="font-inter-medium text-[15px] leading-[1.5em] m-0 text-neutral-300">
 							{ReactHtmlParser(summary_p)}
 						</a>
 					))
@@ -57,7 +57,7 @@ export default function ProjectRow({ entry }: { entry: IEntry }) {
 	return (
 		<div
 			id={entry.id}
-			className="relative flex flex-wrap flex-col justify-center items-center max-w-[85%]"
+			className="relative flex flex-wrap flex-col justify-center items-center w-full sm:py-3 sm:max-w-[85%]"
 		>
 			<PortalWithState closeOnOutsideClick closeOnEsc>
 				{({ openPortal, closePortal, portal }) => (

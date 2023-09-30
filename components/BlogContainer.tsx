@@ -30,7 +30,7 @@ function BlogEntries() {
 			<div className="flex flex-col w-full max-h-screen overflow-hidden">
 				<BlogSectionTitle title="POSTS" />
 
-				<div className="flex flex-col max-h-full shrink overflow-y-scroll overflow-x-hidden no-scrollbar gap-y-[12px] py-[12px]">
+				<div className="flex flex-col max-h-full shrink overflow-y-scroll overflow-x-hidden no-scrollbar gap-y-[12px] py-5">
 					{React.Children.toArray(
 						sortContent(
 							allContents.filter((i) => i.category === "blog")
@@ -98,7 +98,7 @@ export default function BlogContainer({
 								<div className="inline-flex lg:hidden flex-col w-full">
 									<BlogSectionTitle title="LINKS" />
 
-									<div className="inline-flex flex-col gap-y-[10px] pt-[14px] pb-[16px] mb-8">
+									<div className="inline-flex flex-col gap-y-[10px] py-5 mb-8">
 										{React.Children.toArray(
 											post.links?.map((link, i) => (
 												<BlogLink

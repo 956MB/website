@@ -55,7 +55,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="text-black bg-black">
 			<body className="antialiased flex flex-col md:flex-row overflow-scroll no-scrollbar">
-				<main className="h-full min-w-0 flex flex-auto flex-col">
+				<main className="h-full min-w-0 flex flex-auto flex-col items-center">
 				    <Header />
 					{children}
 					<Analytics />
