@@ -50,7 +50,7 @@ export default function Header() {
 				<Link key={"home"} href={"/"}>
 					<Image
 						alt="logo"
-						className="w-6 h-6 object-contain cursor-pointer mt-[3px] ml-[2px]"
+						className="w-6 h-6 object-contain cursor-pointer mt-[1px] ml-[2px]"
 						src={logo_s}
 						placeholder="blur"
 						priority
@@ -65,7 +65,7 @@ export default function Header() {
 							key={path}
 							href={path}
 							className={clsx(
-								"transition-all duration-100 flex align-middle justify-center items-center text-[16px] no-underline whitespace-nowrap",
+								"transition-all duration-100 flex align-middle justify-center items-center text-[14px] no-underline whitespace-nowrap mt-[1px]",
 								{
 									"text-white/[0.4]": !isActive,
 								}
@@ -73,7 +73,7 @@ export default function Header() {
 						>
 							<span
 								className={clsx(
-									"relative font-inter-medium text-center lowercase",
+									"relative font-inter-semibold text-center uppercase",
 									pathname.includes(name) || pathname == path
 										? "text-white"
 										: null

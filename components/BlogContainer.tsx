@@ -51,7 +51,7 @@ export default function BlogContainer({
 		<div className="flex flex-row flex-1 justify-center w-full max-h-full items-start mx-auto max-w-screen-3xl">
 			<BlogEntries />
 
-			<div className="flex flex-col w-full flex-1 max-w-[100%] pt-8 lg:pt-[111px] lg:px-[50px] pb-[55px] gap-[55px]">
+			<div className="flex flex-col w-full flex-1 max-w-[100%] pt-8 lg:pt-[111px] lg:px-[50px] pb-[55px] gap-[55px] min-w-[60%]">
 				{React.Children.toArray(
 					sortContent(
 						allContents.filter((i) => i.category === "blog")
@@ -74,7 +74,7 @@ export default function BlogContainer({
 										{post.title}
 									</span>
 									<div className="inline-flex flex-row-reverse md:flex-row items-center justify-center child:font-ibmplex-sans-medium child:text-sm child:whitespace-nowrap py-[1px] md:ml-2 gap-x-4">
-										<div className="inline-flex flex-row-reverse md:flex-row items-end justify-center gap-x-3">
+										{/* <div className="inline-flex flex-row-reverse md:flex-row items-end justify-center gap-x-3">
 											{React.Children.toArray(
 												post.tags?.map((tag, i) => (
 													<span className="text-neutral-300 font-inter-semibold text-[11px] py-[2px] px-[6px] bg-neutral-900 rounded-[4px] border border-neutral-800 box-content ml-auto whitespace-nowrap uppercase">
@@ -82,7 +82,7 @@ export default function BlogContainer({
 													</span>
 												))
 											)}
-										</div>
+										</div> */}
 										<span className="text-neutral-300 font-ibmplex-sans-medium">
 											{toFormattedDate(post.publishedAt)}
 										</span>
