@@ -1,10 +1,11 @@
 import "./global.css";
 import type { Metadata } from "next";
 import Particles from "../components/particles";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 import Header, { Footer } from "components/NavBar";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://956mb.com"),
 	title: {
 		default: "Alexander Bays",
 		template: "%s - Alexander Bays",
@@ -40,7 +41,10 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		title: "Alexander Bays",
+		description:
+			"Self-taught programmer, graphic designer and r/neography hobbyist.",
 		card: "summary_large_image",
+        images: "https://956mb.com/og.png",
 	},
 	icons: {
 		shortcut: "/favicon.ico",
@@ -56,15 +60,15 @@ export default function RootLayout({
 		<html lang="en" className="text-black bg-black">
 			<body className="antialiased flex flex-col md:flex-row overflow-scroll no-scrollbar">
 				<main className="h-full min-w-0 flex flex-auto flex-col items-center">
-				    <Header />
+					<Header />
 					{children}
 					<Analytics />
 					<Footer />
 				</main>
-                <Particles
-                    className="absolute inset-0 -z-10 animate-fade-in"
-                    quantity={120}
-                />
+				<Particles
+					className="absolute inset-0 -z-10 animate-fade-in"
+					quantity={120}
+				/>
 			</body>
 		</html>
 	);

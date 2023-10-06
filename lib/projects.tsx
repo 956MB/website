@@ -5,7 +5,7 @@ const tdb_i = "/images/projects/tdb.png";
 export const project_tdb: IEntry = {
 	id: "tdb",
 	title: "TDB",
-	link: "https://github.com/956MB/TDB",
+	link: "https://twitter.com/TDBApp",
 	summary: [
 		"Everything you need to know about <span class='highlight'>Tesla</span> products. Full spec sheets and detailed info about every vehicle, solar product, and piece of software Tesla has released in the last 15 years.",
 		"This app takes heavy inspiration = the very popular app MacTracker. <span class='highlight'>“A Tesla version of this would be awesome”</span>, we said. I also thought I could do a better job than MacTracker by implementing 3D and/or AR models into the app and one up their tiny PNGs.",
