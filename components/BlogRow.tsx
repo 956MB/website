@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { Content } from "contentlayer/generated";
-import { toFormattedDateShort } from "lib/util";
+import { replaceSlash } from "lib/util";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -11,7 +11,7 @@ export default function BlogRow({ post }: { post: Content }) {
 	return (
 		<div
 			className={clsx(
-				"flex w-full items-center justify-end content-between m-0",
+				"relative flex w-full items-center justify-end content-between m-0 pr-6 py-[5px]"
 			)}
 		>
 			
@@ -22,13 +22,13 @@ export default function BlogRow({ post }: { post: Content }) {
 			>
                 <Link
                     key={post.slug}
-                    className="inline-block text-[15px] leading-4 mr-auto overflow-hidden overflow-ellipsis text-left transition-all duration-100"
+                    className="inline-block text-[15px] leading-4 uppercase mr-auto overflow-hidden overflow-ellipsis text-left transition-all duration-100"
                     href={`/blog/${post.slug}`}
                 >
                     <span
                         className={clsx(selected
-                                ? "text-white underline font-inter-bold"
-                                : "text-neutral-400 hover:text-white hover:underline font-inter-medium"
+                            ? "text-white underline font-inter-bold"
+                            : "text-neutral-400 hover:text-white hover:underline font-inter-semibold"
                         )}
                     >
                         {post.title}
@@ -38,16 +38,20 @@ export default function BlogRow({ post }: { post: Content }) {
 				<div className="inline-flex flex-row gap-2">
 					<span
 						className={clsx(
-							"font-ibmplex-sans-medium text-[14px] leading-4 whitespace-nowrap text-right transition-all duration-100",
+							"text-[14px] leading-4 whitespace-nowrap text-right transition-all duration-100",
 							selected
-								? "text-white"
-								: "text-neutral-600"
+								? "text-white font-ibmplex-sans-semibold"
+								: "text-neutral-600 font-ibmplex-sans-medium"
 						)}
 					>
-						{toFormattedDateShort(post.publishedAt)}
+						{replaceSlash(post.publishedAt)}
 					</span>
                 </div>
 			</div>
+
+            {selected && (
+                <div className="absolute inset-y-0 right-0 w-[2px] bg-white"></div>
+            )}
 		</div>
 	);
 }

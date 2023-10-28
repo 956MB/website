@@ -5,7 +5,7 @@ import React from "react";
 import DesignRow from "components/DesignRow";
 
 export const metadata: Metadata = {
-    title: "Design",
+    title: "Designs",
     description: "Various Figma, Photoshop and other design concepts.",
 };
 

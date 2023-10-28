@@ -3,6 +3,7 @@ export interface IEntry {
 	title: string;
     date?: string;
 	link?: string;
+    count?: number;
 	summary?: string[];
 	tags?: string[];
     category?: string;

@@ -57,7 +57,7 @@ export default function ProjectRow({ entry }: { entry: IEntry }) {
 	return (
 		<div
 			id={entry.id}
-			className="relative flex flex-wrap flex-col justify-center items-center w-full sm:py-3 sm:max-w-[85%]"
+			className="relative flex flex-wrap flex-col justify-center items-center w-full sm:py-5 sm:max-w-[85%]"
 		>
 			<PortalWithState closeOnOutsideClick closeOnEsc>
 				{({ openPortal, closePortal, portal }) => (

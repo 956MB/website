@@ -44,6 +44,19 @@ hr {
 	-webkit-line-clamp: 3;
 }
 
+.nav-fade {
+	--mask: linear-gradient(
+			to left,
+			rgba(0, 0, 0, 1) 0,
+			rgba(0, 0, 0, 1) 60%,
+			rgba(0, 0, 0, 0) 95%,
+			rgba(0, 0, 0, 0) 0
+		)
+		100% 50% / 100% 100% repeat-x;
+	-webkit-mask: var(--mask);
+	mask: var(--mask);
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
 	display: none !important;
@@ -178,7 +191,7 @@ hr {
 .large-highlight {
 	font-family: "Inter_Bold" !important;
 	color: white !important;
-    font-size: 1.2rem !important;
+	font-size: 1.2rem !important;
 }
 
 .cls-1 {

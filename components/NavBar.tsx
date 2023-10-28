@@ -14,7 +14,7 @@ import React from "react";
 
 const navItems = {
 	"/projects": { name: "projects" },
-	"/design": { name: "design" },
+	"/designs": { name: "designs" },
 	"/blog/gyea-cleanup-pt1": { name: "blog" },
 };
 
@@ -44,48 +44,53 @@ export default function Header() {
 		>
 			<div
 				className={clsx(
-					"flex flex-row gap-7 sm:gap-10 m-auto items-center justify-start w-full h-full max-w-screen-3xl mx-6 sm:mx-7 border-b border-neutral-800 bg-black/90 backdrop-blur"
+					"flex flex-row gap-6 sm:gap-10 m-auto items-center justify-start w-full h-full max-w-screen-3xl mx-6 sm:mx-7 border-b border-neutral-800 bg-black/90 backdrop-blur"
 				)}
 			>
 				<Link key={"home"} href={"/"}>
 					<Image
 						alt="logo"
-						className="w-6 h-6 object-contain cursor-pointer mt-[1px] ml-[2px]"
+						className="w-6 h-6 min-w-[24px] min-h-[24px] object-contain cursor-pointer mt-[2px] ml-[2px]"
 						src={logo_s}
 						placeholder="blur"
 						priority
 					/>
 				</Link>
 
-				{Object.entries(navItems).map(([path, { name }]) => {
-					const isActive = path === pathname;
+                <div className="inline-flex flex-row gap-6 sm:gap-10 items-center justify-center h-full overflow-hidden">
+                    {Object.entries(navItems).map(([path, { name }]) => {
+                        const isActive = path === pathname;
 
-					return (
-						<Link
-							key={path}
-							href={path}
-							className={clsx(
-								"transition-all duration-100 flex align-middle justify-center items-center text-[14px] no-underline whitespace-nowrap mt-[1px]",
-								{
-									"text-white/[0.4]": !isActive,
-								}
-							)}
-						>
-							<span
-								className={clsx(
-									"relative font-inter-semibold text-center uppercase",
-									pathname.includes(name) || pathname == path
-										? "text-white"
-										: null
-								)}
-							>
-								{name}
-							</span>
-						</Link>
-					);
-				})}
+                        return (
+                            <Link
+                                key={path}
+                                href={path}
+                                className={clsx(
+                                    "relative flex align-middle text-center justify-center items-center text-[14px] leading-[14px] no-underline whitespace-nowrap mt-[2px] h-full",
+                                    {
+                                        "text-white/[0.4]": !isActive,
+                                    }
+                                )}
+                            >
+                                <span
+                                    className={clsx(
+                                        "relative font-inter-semibold text-center uppercase",
+                                        pathname.includes(name) || pathname == path
+                                            ? "text-white font-inter-bold"
+                                            : null
+                                    )}
+                                >
+                                    {name}
+                                </span>
+                                {pathname.includes(name) || pathname == path ? (
+                                    <div className="absolute inset-x-0 bottom-0 h-[3px] bg-white"></div>
+                                ) : null}
+                            </Link>
+                        );
+                    })}
+                </div>
 
-				<div className="hidden md:inline-flex ml-auto flex-row flex-wrap justify-center gap-3 md:-mr-[9px]">
+				<div className="hidden md:inline-flex ml-auto flex-row justify-center gap-3 md:-mr-[9px]">
 					{socials.map((link) => {
 						let socialIcn = getSocial(link.key);
 						return React.Children.toArray(

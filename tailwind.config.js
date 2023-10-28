@@ -7,6 +7,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+            backdropBlur: {
+                'smallest': '1px',
+            },
             screens: {
                 '3xl': '1792px',
             },

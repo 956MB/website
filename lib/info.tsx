@@ -25,7 +25,7 @@ export const whoami_h = [
 	"hello",
 ];
 
-export const credit_discalimer = "I do not take credit for any of the original artwork or photos in this section. I am only trying to share stuff that I think is cool.";
+export const credit_discalimer = "I have NOT photographed, painted or rendered any of the wallpapers here. I am just trying to share them for others to enjoy.";
 
 export const about_p = `My name is <span class='large-highlight'>${name}</span>, and I’m a self-taught programmer, graphic designer and r/neography hobbyist from <span class='large-highlight'> Dallas, TX </span>.`;
 

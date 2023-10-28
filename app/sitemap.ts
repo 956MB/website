@@ -6,7 +6,7 @@ export default async function sitemap() {
 		lastModified: post.publishedAt,
 	}));
 
-	const routes = ["", "/projects", "/deisgn"].map((route) => ({
+	const routes = ["", "/projects", "/deisgns"].map((route) => ({
 		url: `https://956mb.com${route}`,
 		lastModified: new Date().toISOString().split("T")[0],
 	}));

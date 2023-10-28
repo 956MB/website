@@ -11,12 +11,12 @@ import { toFormattedDate, toFormattedDateShort } from "lib/util";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
     return (
-        <div className="flex flex-col items-start justify-start w-full max-w-screen-3xl py-5 sm:pt-3 sm:pb-4 m-0 gap-5 sm:gap-3">
-            <div className="flex flex-col items-start justify-center gap-[6px]">
-                <span className="text-white font-inter-semibold text-xl leading-[18px]">
+        <div className="flex flex-col items-start justify-start w-full py-5 sm:pt-3 sm:pb-4 m-0 gap-5 sm:gap-3">
+            <div className="flex flex-col items-start justify-center gap-2">
+                <span className="text-white font-inter-semibold text-[21px] leading-[18px]">
                     {entry.title}
                 </span>
-                <span className="font-ibmplex-sans-medium text-[13px] leading-4 text-neutral-600">
+                <span className="font-ibmplex-sans-medium text-sm leading-4 text-neutral-600">
                     {entry.description}
                 </span>
             </div>
@@ -29,9 +29,9 @@ export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 
 export default function DesignRow({ entry }: { entry: IEntryGroup }) {
     return (
-        <div className="flex flex-col flex-wrap w-full relative justify-center items-center">
+        <div className="flex flex-col flex-wrap w-full relative justify-center items-center max-w-screen-3xl">
             <DesignHeader entry={entry} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center items-start gap-5 lg:gap-4 gap-y-0 lg:gap-y-4 w-full max-w-screen-3xl pb-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center items-start gap-5 lg:gap-4 gap-y-0 lg:gap-y-4 w-full pb-7">
                 {React.Children.toArray(entry.items.map((item, i) => (
                     <PortalWithState closeOnOutsideClick closeOnEsc>
                         {({ openPortal, closePortal, portal }) => (

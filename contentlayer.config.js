@@ -59,6 +59,12 @@ export const Content = defineDocumentType(() => ({
 			type: "list",
 			of: { type: "string" },
 		},
+        downloadLink: {
+            type: "string",
+        },
+        count: {
+            type: "number",
+        },
 		links: {
 			type: "list",
 			of: { type: "string" },

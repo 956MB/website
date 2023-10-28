@@ -1,5 +1,8 @@
 import { Content } from "contentlayer/generated";
 
+export function replaceSlash(date: string) {
+    return date.replace(/\//g, ".");
+}
 export function toTitleCase(str: string) {
 	return str
 		.toLowerCase()

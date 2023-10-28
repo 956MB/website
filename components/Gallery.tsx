@@ -1,15 +1,13 @@
 import Image from "next/image";
-import { IEntry, IEntryImage } from "lib/interfaces";
+import { IEntry } from "lib/interfaces";
 import { PiFigmaLogo } from "react-icons/pi";
 import { SiAdobephotoshop } from "react-icons/si";
 import { HiMiniLanguage } from "react-icons/hi2";
 import { RiReactjsLine } from "react-icons/ri";
 import { XLg, ArrowRight, ArrowLeft } from "react-bootstrap-icons";
-import { useState } from "react";
 import clsx from "clsx";
 import Tooltip from "./Tooltip";
 import React from "react";
-import useSwipe from "lib/useSwipe";
 import { toFormattedDateShort } from "lib/util";
 
 export function CategoryIcon({ category }: { category: string | undefined }) {
@@ -121,20 +119,6 @@ export default function Gallery({
 	item: IEntry;
 	closeAction: () => void;
 }) {
-	const [selectedIdx, setSelectedIdx] = useState<number>(0);
-	const updateSelectedIdx = (dir: number) => {
-		if (
-			(dir == 1 && selectedIdx == item.images.length - 1) ||
-			(dir == -1 && selectedIdx == 0)
-		)
-			return;
-		setSelectedIdx(selectedIdx + dir);
-	};
-
-	const swipeHandlers = useSwipe({
-		onSwipedLeft: () => updateSelectedIdx(1),
-		onSwipedRight: () => updateSelectedIdx(-1),
-	});
 
 	return (
 		<div className="flex flex-col absolute top-0 justify-center items-center left-0 w-screen h-screen bg-black/90 pointer-events-all z-[99] backdrop-blur">
@@ -191,40 +175,33 @@ export default function Gallery({
 							item.images.length <= 1 ? "hidden" : null
 						)}
 					>
-						<GalleryButtons
-							imagesCount={item.images.length}
-							selectedIdx={selectedIdx}
-							updateIdx={updateSelectedIdx}
-						/>
 					</div>
 				</div>
 			</div>
 
-			<div
-				className={clsx(
-					"flex flex-col flex-grow items-center h-full overflow-auto no-scrollbar gap-2 max-w-screen-3xl",
-					item.images.length <= 1 ? "justify-center" : "justify-start"
-				)}
-				{...swipeHandlers}
-			>
-				{/* <GalleryImage idx={selectedIdx} images={item.images} /> */}
-				{React.Children.toArray(
-					item.images?.map((image) => (
-						<Image
-							alt="project-img-modal"
-							className={clsx(
-								"block max-h-full max-w-full object-contain m-0"
-							)}
-							src={image.path}
-							width={image.width}
-							height={image.height}
-							loading="eager"
-						/>
-					))
-				)}
-			</div>
-
-			{/* {item.summary ? <div className="flex-shrink-0 flex-1 p-4 overflow-auto"></div> : null } */}
+            <div className=" flex flex-col justify-start items-center h-full w-full overflow-auto no-scrollbar">
+                <div
+                    className={clsx(
+                        "flex flex-col flex-grow items-center gap-2 max-w-screen-2xl",
+                        item.images.length <= 1 ? "justify-center" : "justify-start"
+                    )}
+                    >
+                    {React.Children.toArray(
+                        item.images?.map((image) => (
+                            <Image
+                                alt="project-img-modal"
+                                className={clsx(
+                                    "block max-h-full max-w-full object-contain m-0"
+                                )}
+                                src={image.path}
+                                width={image.width}
+                                height={image.height}
+                                loading="eager"
+                            />
+                        ))
+                    )}
+                </div>
+            </div>
 		</div>
 	);
 }
