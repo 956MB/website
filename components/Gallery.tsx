@@ -46,10 +46,8 @@ export function GalleryButton({
 		<button
 			className={clsx(
 				"px-3 sm:px-2 h-full sm:h-auto py-3 sm:py-1 group",
-				isDisabled
-					? "!cursor-default pointer-events-none select-none"
-					: null,
-				dir == "left" ? "sm:ml-auto" : null
+				isDisabled && "!cursor-default pointer-events-none select-none",
+				dir == "left" && "sm:ml-auto"
 			)}
 			onClick={clickAction}
 		>
@@ -151,28 +149,28 @@ export default function Gallery({
 								{item.title}
 							</a>
 							<div className="hidden sm:flex gap-x-2 w-full items-center justify-start pl-2">
-								{item.date ? (
+								{item.date && (
 									<span className="text-neutral-300 font-inter-semibold text-[12px] py-[2px] px-[6px] bg-white/[9%] rounded-[4px] border border-neutral-800/70 box-content whitespace-nowrap">
 										{toFormattedDateShort(item.date)}
 									</span>
-								) : null}
+								)}
 							</div>
 						</div>
 						<div className="flex h-full w-full justify-end"></div>
 					</div>
-					{item.summary && item.summary.length > 0 ? (
+					{(item.summary && item.summary.length > 0) && (
 						<hr className="h-px w-full bg-neutral-800 mt-0 mb-0" />
-					) : null}
-					{item.summary && item.summary.length > 0 ? (
+					)}
+					{(item.summary && item.summary.length > 0) && (
 						<a className="text-neutral-300/95 font-inter-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-3xl mx-6 my-5">
 							{item.summary}
 						</a>
-					) : null}
+					)}
 					<hr className="flex sm:hidden h-px w-full bg-neutral-800 mb-[1px] mt-0" />
 					<div
 						className={clsx(
 							"flex sm:hidden",
-							item.images.length <= 1 ? "hidden" : null
+							item.images.length <= 1 && "hidden"
 						)}
 					>
 					</div>

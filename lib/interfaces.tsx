@@ -25,4 +25,5 @@ export interface IEntryGroup {
 	category: string;
 	description: string;
 	items: IEntry[];
+    credit?: boolean;
 }

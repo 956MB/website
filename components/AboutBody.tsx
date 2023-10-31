@@ -51,11 +51,11 @@ export function AboutLinks({ mobilePos }: { mobilePos: string }) {
     return (
         <div
             className={clsx(
-                "flex flex-col w-full items-center justify-center mb-[30px] gap-y-[20px] lg:gap-y-[40px]",
+                "flex flex-col w-full items-start lg:items-center justify-start mb-[30px] gap-y-[20px] lg:gap-y-[40px]",
                 mobilePos
             )}
         >
-            <div className="inline-flex sm:hidden m-0 flex-row flex-wrap justify-center gap-3">
+            {/* <div className="inline-flex sm:hidden m-0 flex-row flex-wrap justify-center gap-3">
                 {socials.slice(0, -1).map((link) => {
                     let socialVals = getSocial(link.key);
                     return (
@@ -76,7 +76,7 @@ export function AboutLinks({ mobilePos }: { mobilePos: string }) {
                         )
                     )
                 })}
-            </div>
+            </div> */}
             <div className="inline-flex flex-row gap-3">
                 <a className="text-neutral-400 text-sm no-underline mr-auto font-inter-medium whitespace-nowrap">
                     {email.key}:

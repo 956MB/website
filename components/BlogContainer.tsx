@@ -13,11 +13,11 @@ function BlogSectionTitle({ title, sub, padding }: { title: string; sub?: string
 		<div className="inline-flex flex-col">
 			<div className={clsx("inline-flex flex-row justify-start items-center gap-x-3 child:text-[14px] child:leading-6 child:sm:whitespace-nowrap h-[76px] min-h-[76px] max-h-[76px]", padding ? "pl-5" : "")}>
 				<span className="font-inter-semibold text-white">{title}</span>
-				{sub ? (
+				{sub && (
 					<span className="font-inter-semibold text-neutral-500">
 						{sub}
 					</span>
-				) : null}
+				)}
 			</div>
 			<hr className="h-px w-full bg-neutral-800 my-0" />
 		</div>
@@ -85,7 +85,7 @@ export default function BlogContainer({
 
 							<Mdx code={post.body.code} />
 
-							{post.links ? (
+							{post.links && (
 								<div className="inline-flex lg:hidden flex-col w-full">
 									<BlogSectionTitle title="LINKS" />
 
@@ -100,14 +100,14 @@ export default function BlogContainer({
 										)}
 									</div>
 								</div>
-							) : null}
+							)}
 						</section>
 					))
 				)}
 			</div>
 
 			<div className="hidden lg:flex flex-col shrink w-full max-w-[358px] sticky top-[75px] overflow-auto border-l border-neutral-800">
-				{selectedPost.links ? (
+				{selectedPost.links && (
 					<div className="inline-flex flex-col">
 						<BlogSectionTitle title="LINKS" padding={true} />
 
@@ -119,7 +119,7 @@ export default function BlogContainer({
 							)}
 						</div>
 					</div>
-				) : null}
+				)}
 			</div>
 		</div>
 	);

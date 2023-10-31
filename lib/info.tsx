@@ -4,7 +4,7 @@ import logo_s_i from "../public/logo-small.png";
 export const logo = logo_i;
 export const logo_s = logo_s_i;
 export const name = "Alexander Bays";
-export const copyright = "© Alexander Bays, 2023";
+export const copyright = "© Alexander Bays 2023";
 export const email = {
 	key: "contact",
 	value: "bays.956mb@gmail.com",
@@ -14,7 +14,7 @@ export const socials = [
 	{ key: "twitter", url: "https://twitter.com/956MB" },
 	{ key: "github", url: "https://github.com/956MB" },
 	{ key: "reddit", url: "https://www.reddit.com/user/bauera5" },
-	{ key: "mail", url: "mailto:bays.956mb@gmail.com" },
+	{ key: "email", url: "mailto:bays.956mb@gmail.com" },
 ];
 
 export const whoami_h = [
@@ -25,7 +25,11 @@ export const whoami_h = [
 	"hello",
 ];
 
-export const credit_discalimer = "I have NOT photographed, painted or rendered any of the wallpapers here. I am just trying to share them for others to enjoy.";
+export const extras_explained = {
+    "title": "Why this page?",
+    "description": "I love screen grabbing from things like movies, shows, and games, and then using Photoshop or Topaz to make them into wallpapers. I do it all the time. I also feel a great urge to share them with others since I think they're so cool, and most things arent natively in 5K (yet). Hopefully this section comes across an a \"public repo\" of sorts for cool wallpapers and things like custom app icons, and not me trying to claim these as my own works. Enjoy.",
+    "disclaimer": "Anything that is marked I DO NOT take credit for. I have NOT photographed, painted or rendered anything here unless specified. I am just trying to share things I've messed with or that I personally use for others to enjoy.",
+}
 
 export const about_p = `My name is <span class='large-highlight'>${name}</span>, and I’m a self-taught programmer, graphic designer and r/neography hobbyist from <span class='large-highlight'> Dallas, TX </span>.`;
 

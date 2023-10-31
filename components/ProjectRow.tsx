@@ -3,7 +3,7 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import clsx from "clsx";
-import ReactHtmlParser from "react-html-parser";
+import Parse from "html-react-parser";
 import { PortalWithState } from "react-portal";
 import { Github } from "react-bootstrap-icons";
 import { IEntry } from "lib/interfaces";
@@ -44,7 +44,7 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 				{React.Children.toArray(
 					entry.summary?.map((summary_p, i) => (
 						<a className="font-inter-medium text-[15px] leading-[1.5em] m-0 text-neutral-300">
-							{ReactHtmlParser(summary_p)}
+							{Parse(summary_p)}
 						</a>
 					))
 				)}
@@ -65,7 +65,7 @@ export default function ProjectRow({ entry }: { entry: IEntry }) {
 						<button onClick={openPortal}>
 							<Image
 								alt="project-img"
-								className="block max-h-[700px] max-w-full object-contain cursor-pointer rounded-lg"
+								className="block max-h-[700px] max-w-full object-contain cursor-pointer"
 								src={entry.images[0].path}
 								width={entry.images[0].width}
 								height={entry.images[0].height}
@@ -79,7 +79,7 @@ export default function ProjectRow({ entry }: { entry: IEntry }) {
 							>
 								<Image
 									alt="project-img-modal"
-									className="block max-h-full max-w-full object-contain overflow-hidden rounded-lg"
+									className="block max-h-full max-w-full object-contain overflow-hidden"
 									src={entry.images[0].path}
 									width={entry.images[0].width}
 									height={entry.images[0].height}

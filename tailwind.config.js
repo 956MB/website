@@ -13,6 +13,9 @@ module.exports = {
             screens: {
                 '3xl': '1792px',
             },
+            scale: {
+                '80': '0.8',
+            },
 			fontFamily: {
 				interbold: ["var(--font-inter-bold)"],
 			},

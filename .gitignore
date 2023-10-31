@@ -41,19 +41,4 @@ next-env.d.ts
 TODO.md
 
 # later
-app/extra
-components/ExtraRow.tsx
 backup
-public/images/extra
-content/armored-core-vi.mdx
-content/casw.mdx
-content/cybertruck.mdx
-content/dune.mdx
-content/ghibli-colors.mdx
-content/ghibli-greens.mdx
-content/hassan-massoudy.mdx
-content/maybe-tomorrow.mdx
-content/oppenheimer.mdx
-content/polestar-synergy.mdx
-content/void.mdx
-content/westworld-s3.mdx

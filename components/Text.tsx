@@ -1,25 +1,25 @@
-import ReactHtmlParser from "react-html-parser";
+import Parse from "html-react-parser";
 
-export function TextTitle({ children }: { children: React.ReactNode }) {
+export function TextTitle({ children }: { children: string }) {
     return (
         <a className="font-inter-bold text-[28px] mb-[10px] text-white leading-5">
-            {ReactHtmlParser(children)}
+            {Parse(children)}
         </a>
     );
 }
 
-export function TextTitleSub({ children }: { children: React.ReactNode }) {
+export function TextTitleSub({ children }: { children: string }) {
     return (
         <a className="font-inter-bold text-xl m-0 text-white text-left">
-            {ReactHtmlParser(children)}
+            {Parse(children)}
         </a>
     );
 }
 
-export function TextParagraph({ children }: { children: React.ReactNode }) {
+export function TextParagraph({ children }: { children: string }) {
     return (
         <a className="font-inter-medium text-[15px] leading-[1.5em] m-0 text-neutral-300 about-text-p text-left">
-            {ReactHtmlParser(children)}
+            {Parse(children)}
         </a>
     );
 }
