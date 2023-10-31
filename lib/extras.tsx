@@ -176,7 +176,7 @@ export const extra_ghibli_colors: IEntry = {
     credit: true,
 	images: [
 		{
-			path: "/images/extras/wallpapers/スタジオジブリ作品-green3.png",
+			path: "/images/extras/wallpapers/ghibli-colors-green3.png",
 			width: 5120,
 			height: 2880,
 		},
@@ -342,7 +342,7 @@ export const extra_cybertruck: IEntry = {
     credit: true,
 	images: [
 		{
-			path: "/images/extras/wallpapers/cybertruck.png",
+			path: "/images/extras/wallpapers/cybertruck-redesign.png",
 			width: 3840,
 			height: 2160,
 		},
