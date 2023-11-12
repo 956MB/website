@@ -13,7 +13,7 @@ const ITEM_DEF_HEIGHT = 383;
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col sm:sticky sm:top-[75px] items-start justify-start w-full pt-5 sm:pt-4 m-0 gap-5 sm:gap-4 sm:z-50 bg-black/90 backdrop-blur">
-			<div className="flex flex-col items-start justify-center gap-3 sm:gap-2">
+			<div className="flex flex-col items-start justify-center gap-2">
 				<span className="text-white font-inter-semibold text-[21px] leading-[18px]">
 					{entry.title}
 				</span>

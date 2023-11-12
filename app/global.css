@@ -275,7 +275,7 @@ hr {
 
 .prose img {
 	/* Don't apply styles to next/image */
-	@apply mb-2 h-full object-contain;
+	@apply mb-1 sm:mb-2 h-full object-contain;
 }
 .prose img:first-child {
 	@apply mt-0;

@@ -8,7 +8,7 @@ export default function BlogLink({ link, num }: { link: string, num: number }) {
 	return (
 		<div
 			className={clsx(
-				"flex w-full items-center justify-start content-between m-0 py-[5px] pr-6",
+				"flex w-full items-center justify-start content-between m-0 sm:py-[5px] pr-6",
 			)}
 		>
 

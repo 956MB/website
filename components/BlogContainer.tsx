@@ -11,7 +11,7 @@ import BlogLink from "./BlogLink";
 function BlogSectionTitle({ title, sub, padding }: { title: string; sub?: string, padding?: boolean }) {
 	return (
 		<div className="inline-flex flex-col">
-			<div className={clsx("inline-flex flex-row justify-start items-center gap-x-2 child:text-[14px] child:leading-6 child:sm:whitespace-nowrap h-[56px] min-h-[56px] max-h-[56px]", padding ? "pl-5" : "")}>
+			<div className={clsx("inline-flex flex-row justify-start items-center gap-x-2 child:text-[14px] child:leading-6 child:sm:whitespace-nowrap h-[46px] min-h-[46px] max-h-[46px] sm:h-[56px] sm:min-h-[56px] sm:max-h-[56px]", padding ? "pl-5" : "")}>
 				<span className="font-inter-semibold text-white">{title}</span>
 				{sub && (
 					<span className="font-inter-semibold text-neutral-500">
@@ -71,7 +71,7 @@ export default function BlogContainer({
                 )}
             </div>
 
-			<div className="flex flex-col w-full flex-1 pt-8 max-w-[100%] lg:pt-[75px] lg:pl-6 pb-[10px] gap-[55px] min-w-[50%] bg-black/40">
+			<div className="flex flex-col w-full flex-1 pt-6 sm:pt-8 max-w-[100%] lg:pt-[75px] lg:pl-6 pb-[10px] gap-10 sm:gap-[55px] min-w-[50%] bg-black/40">
 				{React.Children.toArray(
 					sortContent(
 						allContents.filter((i) => i.category === "blog")
@@ -88,9 +88,9 @@ export default function BlogContainer({
 								{JSON.stringify(post.structuredData)}
 							</script>
 
-							<div className="flex flex-row items-center justify-start w-full p-0 h-[76px] min-h-[76px] max-h-[76px]">
-								<div className="flex flex-col md:flex-row items-start justify-start content-center m-0 w-full gap-2">
-									<span className="font-inter-bold text-[26px] max-w-max leading-6 text-white sm:whitespace-nowrap uppercase">
+							<div className="flex flex-row items-center justify-start w-full p-0 sm:h-[76px] sm:min-h-[76px] sm:max-h-[76px] pb-2 sm:pb-0">
+								<div className="flex flex-col md:flex-row items-start justify-start content-center m-0 w-full gap-1 sm:gap-2">
+									<span className="font-inter-bold text-[23px] sm:text-[26px] max-w-max leading-6 text-white sm:whitespace-nowrap uppercase">
 										{post.title}
 									</span>
 									<div className="inline-flex flex-row-reverse md:flex-row items-center justify-center child:font-ibmplex-sans-medium child:text-sm child:whitespace-nowrap py-[2px] md:ml-2 gap-x-4">
@@ -109,7 +109,7 @@ export default function BlogContainer({
 								<div className="inline-flex lg:hidden flex-col w-full">
 									<BlogSectionTitle title="LINKS" />
 
-									<div className="inline-flex flex-col gap-y-[16px] py-5 mb-8">
+									<div className="inline-flex flex-col gap-y-[16px] py-5 mb-4">
 										{React.Children.toArray(
 											post.links?.map((link, i) => (
 												<BlogLink

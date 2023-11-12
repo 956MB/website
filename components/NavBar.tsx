@@ -62,7 +62,7 @@ export default function Header() {
 				<Link key={"home"} href={"/"}>
 					<Image
 						alt="logo"
-						className="w-6 h-6 min-w-[24px] min-h-[24px] object-contain cursor-pointer mt-[2px] ml-[2px] animate-spin-slow"
+						className="w-6 h-6 min-w-[24px] min-h-[24px] object-contain cursor-pointer mt-[2px] ml-[2px]"
 						src={logo_s}
 						placeholder="blur"
 						priority

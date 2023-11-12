@@ -65,10 +65,6 @@ export default function RootLayout({
 					<Analytics />
 					<Footer />
 				</main>
-				<Particles
-					className="absolute inset-0 -z-10 animate-fade-in"
-					quantity={120}
-				/>
 			</body>
 		</html>
 	);
