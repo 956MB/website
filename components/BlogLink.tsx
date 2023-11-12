@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
+import { FiArrowUpRight } from "react-icons/fi";
 
 export default function BlogLink({ link, num }: { link: string, num: number }) {
     const [label, _link] = link.split("||");
@@ -7,39 +8,29 @@ export default function BlogLink({ link, num }: { link: string, num: number }) {
 	return (
 		<div
 			className={clsx(
-				"flex w-full items-center justify-end content-between m-0",
+				"flex w-full items-center justify-start content-between m-0 py-[5px] pr-6",
 			)}
 		>
-			
-			<div
-				className={clsx(
-					"flex flex-row gap-x-3 items-start justify-start w-full"
-				)}
-			>
-				<div className="inline-flex flex-row gap-2">
-					<span
-						className={clsx(
-							"font-ibmplex-sans-medium text-[14px] leading-4 whitespace-nowrap text-right transition-all duration-100 text-neutral-600"
-						)}
-					>
-						{num + "."}
-					</span>
-                </div>
-                
-                <Link
-                    key={label}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href={_link}
-                    className="inline-block text-[15px] leading-4 mr-auto overflow-hidden overflow-ellipsis text-left transition-all duration-100 -mt-[1px]"
+
+            <a
+                key={_link}
+                rel="noopener noreferrer"
+                target="_blank"
+                href={_link}
+                className={clsx(
+                    "flex items-center justify-left text-left text-[15px] leading-4 text-neutral-200 no-underline child:hover:text-white transition-all duration-50 gap-x-2"
+                )}
+            >
+                <FiArrowUpRight
+                    size={18}
+                    className={"text-neutral-500 -ml-[3px]"}
+                />
+                <span
+                    className={clsx("hover:underline font-inter-medium")}
                 >
-                    <span
-                        className={clsx("text-white hover:underline font-inter-medium")}
-                    >
-                        {label}
-                    </span>
-                </Link>
-			</div>
+                    {label}
+                </span>
+            </a>
 		</div>
 	);
 }

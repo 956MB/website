@@ -180,7 +180,7 @@ export default function Gallery({
             <div className=" flex flex-col justify-start items-center h-full w-full overflow-auto no-scrollbar">
                 <div
                     className={clsx(
-                        "flex flex-col flex-grow items-center gap-2 max-w-screen-2xl",
+                        "flex flex-col flex-grow items-center gap-2 max-w-screen-lg",
                         item.images.length <= 1 ? "justify-center" : "justify-start"
                     )}
                     >

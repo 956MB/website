@@ -11,7 +11,7 @@ import BlogLink from "./BlogLink";
 function BlogSectionTitle({ title, sub, padding }: { title: string; sub?: string, padding?: boolean }) {
 	return (
 		<div className="inline-flex flex-col">
-			<div className={clsx("inline-flex flex-row justify-start items-center gap-x-3 child:text-[14px] child:leading-6 child:sm:whitespace-nowrap h-[76px] min-h-[76px] max-h-[76px]", padding ? "pl-5" : "")}>
+			<div className={clsx("inline-flex flex-row justify-start items-center gap-x-2 child:text-[14px] child:leading-6 child:sm:whitespace-nowrap h-[56px] min-h-[56px] max-h-[56px]", padding ? "pl-5" : "")}>
 				<span className="font-inter-semibold text-white">{title}</span>
 				{sub && (
 					<span className="font-inter-semibold text-neutral-500">
@@ -26,9 +26,9 @@ function BlogSectionTitle({ title, sub, padding }: { title: string; sub?: string
 
 function BlogEntries() {
 	return (
-		<div className="hidden lg:flex flex-col shrink w-full max-w-[358px] sticky top-[75px] overflow-auto border-r border-neutral-800">
+		<div className="hidden lg:flex flex-col shrink w-full">
 			<div className="flex flex-col w-full max-h-screen overflow-hidden">
-				<BlogSectionTitle title="POSTS" />
+				<BlogSectionTitle title="POSTS" sub={`${allContents.length}`} />
 
 				<div className="flex flex-col max-h-full shrink overflow-y-scroll overflow-x-hidden no-scrollbar gap-y-[6px] py-6">
 					{React.Children.toArray(
@@ -49,16 +49,36 @@ export default function BlogContainer({
 }) {
 	return (
 		<div className="flex flex-row flex-1 justify-center w-full max-h-full items-start mx-auto max-w-screen-3xl">
-			<BlogEntries />
+			<div className="hidden lg:flex flex-col shrink w-full max-w-[361px] sticky top-[75px] overflow-auto border-r border-neutral-800">
+                <BlogEntries />
+                
+                {selectedPost.links && (
+                    <div className="flex flex-col shrink w-full overflow-auto">
+                            <div className="inline-flex flex-col">
+                                <hr className="h-px w-full bg-neutral-800 my-0" />
 
-			<div className="flex flex-col w-full flex-1 max-w-[100%] pt-8 lg:pt-[75px] lg:px-6 pb-[55px] gap-[55px] min-w-[60%] bg-black/40">
+                                <BlogSectionTitle title="LINKS" sub={`${selectedPost.links?.length}`} />
+
+                                <div className="inline-flex flex-col gap-y-[6px] py-6">
+                                    {React.Children.toArray(
+                                        selectedPost.links?.map((link, i) => (
+                                            <BlogLink link={link} num={i + 1} />
+                                        ))
+                                    )}
+                                </div>
+                            </div>
+                    </div>
+                )}
+            </div>
+
+			<div className="flex flex-col w-full flex-1 pt-8 max-w-[100%] lg:pt-[75px] lg:pl-6 pb-[10px] gap-[55px] min-w-[50%] bg-black/40">
 				{React.Children.toArray(
 					sortContent(
 						allContents.filter((i) => i.category === "blog")
 					).map((post) => (
 						<section
 							className={clsx(
-								"block",
+								"block w-full max-w-screen-lg",
 								post.slug === selectedPost.slug
 									? null
 									: "lg:hidden"
@@ -75,7 +95,7 @@ export default function BlogContainer({
 									</span>
 									<div className="inline-flex flex-row-reverse md:flex-row items-center justify-center child:font-ibmplex-sans-medium child:text-sm child:whitespace-nowrap py-[2px] md:ml-2 gap-x-4">
 										<span className="text-neutral-400 font-ibmplex-sans-medium uppercase">
-											{replaceSlash(post.publishedAt)}
+											{post.publishedAt}
 										</span>
 									</div>
 								</div>
@@ -103,22 +123,6 @@ export default function BlogContainer({
 							)}
 						</section>
 					))
-				)}
-			</div>
-
-			<div className="hidden lg:flex flex-col shrink w-full max-w-[358px] sticky top-[75px] overflow-auto border-l border-neutral-800">
-				{selectedPost.links && (
-					<div className="inline-flex flex-col">
-						<BlogSectionTitle title="LINKS" padding={true} />
-
-						<div className="inline-flex flex-col gap-y-[16px] py-6 pl-6">
-							{React.Children.toArray(
-								selectedPost.links?.map((link, i) => (
-									<BlogLink link={link} num={i + 1} />
-								))
-							)}
-						</div>
-					</div>
 				)}
 			</div>
 		</div>

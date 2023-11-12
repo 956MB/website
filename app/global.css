@@ -416,3 +416,12 @@ table {
 .entry-summary a:hover {
 	@apply text-white underline;
 }
+
+@keyframes spin-slow {
+	to {
+		transform: rotate(360deg);
+	}
+}
+.animate-spin-slow {
+	animation: spin-slow 10s linear infinite;
+}

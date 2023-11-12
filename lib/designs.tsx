@@ -138,6 +138,36 @@ export const designs_section: IEntryGroup = {
 
 // NOTE: scripts
 
+export const script_circles_only: IEntry = {
+	id: "script-circles-only-apparently",
+	title: "Circles only, apparently",
+    date: "11.12.2023",
+	category: "script",
+	tags: ["Circles"],
+	images: [
+		{
+			path: "/images/circles-only-apparently/circles_only_1.png",
+			width: 1038,
+			height: 504,
+		},
+		{
+			path: "/images/circles-only-apparently/circles_only_2.png",
+			width: 1041,
+			height: 2411,
+		},
+		{
+			path: "/images/circles-only-apparently/circles_only_3.png",
+			width: 1284,
+			height: 1272,
+		},
+		{
+			path: "/images/circles-only-apparently/circles_only_4.png",
+			width: 1236,
+			height: 1770,
+		},
+	],
+};
+
 export const script_eggers_posters_gyea: IEntry = {
 	id: "script-eggers-gyea",
 	title: "Movie Posters",
@@ -241,6 +271,7 @@ export const script_hokj: IEntry = {
 };
 
 export const scripts = [
+    script_circles_only,
 	script_eggers_posters_gyea,
 	script_gyea,
 	script_brands,
