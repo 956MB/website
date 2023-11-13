@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default async function AboutPage() {
 	return (
-		<section className="sm:h-full pt-[50px] lg:pt-[140px] mb-[30px] sm:mb-0 lg:mb-12">
-			<div className="relative flex flex-col flex-1 sm:h-full sm:justify-start mx-auto items-start px-6 sm:px-7 sm:max-w-4xl gap-y-5 lg:gap-y-12">
+		<section>
+			<div className="relative flex flex-col sm:justify-start mx-auto items-start px-6 sm:px-7 sm:max-w-4xl gap-y-5 lg:gap-y-12 pt-12 sm:pt-16 pb-8 sm:pb-12">
                 <div className="flex w-full relative justify-start items-center">
                     <div className="flex w-full h-full justify-center items-center max-h-28 border border-neutral-800 bg-black overflow-hidden">
                         <Image
