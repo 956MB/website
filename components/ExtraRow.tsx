@@ -9,11 +9,9 @@ import { MdOutlineLayers } from "react-icons/md";
 import { PiWarningCircleBold } from "react-icons/pi";
 import { LiaDownloadSolid } from "react-icons/lia";
 
-const ITEM_DEF_HEIGHT = 385;
-
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div className="flex flex-col sm:sticky sm:top-[75px] items-start justify-start w-full max-w-screen-3xl py-5 sm:pt-4 pb-0 m-0 gap-5 sm:gap-4 sm:z-50 bg-black/90 backdrop-blur">
+		<div className="flex flex-col sticky top-0 lg:top-[75px] items-start justify-start w-full max-w-screen-3xl py-5 sm:pt-4 pb-0 m-0 gap-5 sm:gap-4 sm:z-50 bg-black/90 backdrop-blur z-50">
 			<div className="flex flex-col sm:flex-row w-full max-w-screen-3xl items-start sm:items-center gap-3">
 				<div className="flex flex-col items-start justify-center gap-3 sm:gap-2">
 					<span className="text-white font-inter-semibold text-[21px] leading-[18px]">

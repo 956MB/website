@@ -144,6 +144,7 @@ export const script_circles_only: IEntry = {
     date: "11.12.2023",
 	category: "script",
 	tags: ["Circles"],
+	linkBlog: "https://www.956mb.com/blog/circles-only-apparently",
 	images: [
 		{
 			path: "/images/circles-only-apparently/circles_only_1.png",

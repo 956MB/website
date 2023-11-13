@@ -51,7 +51,7 @@ export default function Header() {
 	return (
 		<div
 			className={clsx(
-				"relative lg:fixed z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full flex justify-center"
+				"relative lg:sticky lg:top-0 z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full flex justify-center"
 			)}
 		>
 			<div
@@ -75,7 +75,7 @@ export default function Header() {
                     )}
                 </div>
 
-				<div className="inline-flex flex-row gap-6 sm:gap-10 items-center justify-center h-full overflow-hidden">
+				<div className="flex sm:inline-flex flex-row sm:gap-10 items-center justify-between sm:justify-center h-full w-full sm:w-auto overflow-hidden">
 					{Object.entries(navItems).map(([path, { name }]) => {
 						const isActive = path === pathname;
 

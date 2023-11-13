@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ExtraPage() {
 	return (
 		<section>
-			<div className="flex w-full flex-col flex-wrap items-center justify-start lg:mt-[75px] sm:pt-7 gap-y-3 sm:gap-y-7 pb-6 px-6 sm:px-7">
+			<div className="flex w-full flex-col flex-wrap items-center justify-start sm:pt-7 gap-y-3 sm:gap-y-7 pb-6 px-6 sm:px-7">
 				
                 <div className="flex flex-col sm:flex-row w-full items-end justify-center sm:justify-end mt-6 sm:mt-0 max-w-screen-3xl gap-3">
 					
@@ -27,7 +27,7 @@ export default function ExtraPage() {
 									{extras_explained.title}
 								</span>
 
-								<span className="font-ibmplex-sans-medium text-sm leading-4 text-neutral-500">
+								<span className="font-ibmplex-sans-medium text-sm leading-5 sm:leading-4 text-neutral-500">
 									{extras_explained.description}
 								</span>
 							</div>

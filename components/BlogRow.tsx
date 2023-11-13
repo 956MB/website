@@ -14,7 +14,7 @@ export default function BlogRow({ post }: { post: Content }) {
 				"relative flex w-full items-center justify-end content-between m-0 pr-6 py-[5px]"
 			)}
 		>
-			<a
+			<div
 				className={clsx(
 					"flex flex-row gap-x-3 items-start justify-start w-full transition-all duration-50 text-neutral-400"
 				)}
@@ -41,7 +41,7 @@ export default function BlogRow({ post }: { post: Content }) {
 				>
 					{post.publishedAt}
 				</span>
-			</a>
+			</div>
 
 			{selected && (
 				<div className="absolute inset-y-0 right-0 w-[3px] bg-white"></div>

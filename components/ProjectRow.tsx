@@ -5,8 +5,9 @@ import React from "react";
 import clsx from "clsx";
 import Parse from "html-react-parser";
 import { PortalWithState } from "react-portal";
-import { Github } from "react-bootstrap-icons";
+import { Github, XLg } from "react-bootstrap-icons";
 import { IEntry } from "lib/interfaces";
+import Tooltip from "./Tooltip";
 
 export function ProjectInfo({ entry }: { entry: IEntry }) {
 	return (
@@ -24,7 +25,9 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 							target="_blank"
 							href={entry.link}
 						>
-							<span className="text-3xl text-white font-inter-bold hover:underline">{entry.title}</span>
+							<span className="text-3xl text-white font-inter-bold hover:underline">
+								{entry.title}
+							</span>
 						</a>
 					</div>
 
@@ -74,9 +77,25 @@ export default function ProjectRow({ entry }: { entry: IEntry }) {
 						</button>
 						{portal(
 							<div
-								className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 pointer-events-all px-[10%] py-[55px] z-[99]"
+								className="flex flex-row flex-wrap absolute items-center justify-center top-0 left-0 w-full h-full bg-black/75 backdrop-blur-sm pointer-events-all px-[10%] py-[55px] z-[99]"
 								onClick={closePortal}
 							>
+								<div className="flex flex-row absolute left-7 top-7 z-50">
+									<button
+										className="h-full px-1 group"
+										onClick={closePortal}
+									>
+										<Tooltip
+											content="Close"
+											position={"bottom"}
+										>
+											<XLg
+												size={18}
+												className="text-white"
+											/>
+										</Tooltip>
+									</button>
+								</div>
 								<Image
 									alt="project-img-modal"
 									className="block max-h-full max-w-full object-contain overflow-hidden"

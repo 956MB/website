@@ -58,8 +58,8 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className="text-black bg-black">
-			<body className="antialiased flex flex-col md:flex-row overflow-scroll no-scrollbar">
-				<main className="h-full min-w-0 flex flex-auto flex-col items-center">
+			<body className="antialiased flex flex-col md:flex-row overflow-auto">
+				<main className="min-w-0 flex flex-auto flex-col items-center h-fit">
 					<Header />
 					{children}
 					<Analytics />

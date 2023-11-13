@@ -71,7 +71,7 @@ export default function BlogContainer({
                 )}
             </div>
 
-			<div className="flex flex-col w-full flex-1 pt-6 sm:pt-8 max-w-[100%] lg:pt-[75px] lg:pl-6 pb-[10px] gap-10 sm:gap-[55px] min-w-[50%] bg-black/40">
+			<div className="flex flex-col w-full flex-1 max-w-[100%] lg:pl-6 pb-[10px] gap-10 sm:gap-[55px] min-w-[50%] bg-black/40">
 				{React.Children.toArray(
 					sortContent(
 						allContents.filter((i) => i.category === "blog")
@@ -88,7 +88,7 @@ export default function BlogContainer({
 								{JSON.stringify(post.structuredData)}
 							</script>
 
-							<div className="flex flex-row items-center justify-start w-full p-0 sm:h-[76px] sm:min-h-[76px] sm:max-h-[76px] pb-2 sm:pb-0">
+							<div className="flex flex-row sticky top-0 sm:relative items-center justify-start w-full p-0 sm:h-[76px] sm:min-h-[76px] sm:max-h-[76px] pb-5 pt-5 sm:pt-0 sm:pb-0 bg-black/90 backdrop-blur z-50">
 								<div className="flex flex-col md:flex-row items-start justify-start content-center m-0 w-full gap-1 sm:gap-2">
 									<span className="font-inter-bold text-[23px] sm:text-[26px] max-w-max leading-6 text-white sm:whitespace-nowrap uppercase">
 										{post.title}
