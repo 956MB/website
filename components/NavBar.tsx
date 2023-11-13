@@ -59,15 +59,21 @@ export default function Header() {
 					"flex flex-row gap-6 sm:gap-10 m-auto items-center justify-start w-full h-full max-w-screen-3xl mx-6 sm:mx-7 border-b border-neutral-800 bg-black/90 backdrop-blur"
 				)}
 			>
-				<Link key={"home"} href={"/"}>
-					<Image
-						alt="logo"
-						className="w-6 h-6 min-w-[24px] min-h-[24px] object-contain cursor-pointer mt-[2px] ml-[2px]"
-						src={logo_s}
-						placeholder="blur"
-						priority
-					/>
-				</Link>
+                <div className="relative inline-flex justify-center items-center h-full">
+                    <Link key={"home"} href={"/"}>
+                        <Image
+                            alt="logo"
+                            className="w-6 h-6 min-w-[24px] min-h-[24px] object-contain cursor-pointer mt-[2px] ml-[2px]"
+                            src={logo_s}
+                            placeholder="blur"
+                            priority
+                        />
+                    </Link>
+
+                    {pathname === "/" && (
+                        <div className="absolute inset-x-0 bottom-0 h-[3px] bg-white"></div>
+                    )}
+                </div>
 
 				<div className="inline-flex flex-row gap-6 sm:gap-10 items-center justify-center h-full overflow-hidden">
 					{Object.entries(navItems).map(([path, { name }]) => {
@@ -82,7 +88,7 @@ export default function Header() {
 								)}
 							>
 								{path.includes("/extras") && (
-									<div className="absolute inset-y-0 left-0 w-[1px] my-4 bg-transparent sm:bg-neutral-800"></div>
+									<div className="absolute inset-y-0 left-0 w-[1px] my-5 bg-transparent sm:bg-neutral-800"></div>
 								)}
 								<div className="relative flex align-middle text-center justify-center items-center h-full">
 									<Link
@@ -115,7 +121,7 @@ export default function Header() {
 					})}
 				</div>
 
-				<div className="hidden md:inline-flex ml-auto flex-row justify-center gap-6 text-[14px] leading-[14px]">
+				<div className="hidden lg:inline-flex ml-auto flex-row justify-center gap-6 text-[14px] leading-[14px]">
 					{socialMap()}
 				</div>
 			</div>
@@ -127,11 +133,11 @@ export function Footer() {
 	return (
 		<div
 			className={clsx(
-				"flex flex-row flex-1 z-[55] min-h-[75px] sm:max-h-[75px] w-full justify-center"
+				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center"
 			)}
 		>
-			<div className="flex flex-col justify-center items-start sm:items-center flex-1 min-h-[75px] sm:max-h-[75px] w-full max-w-screen-3xl mx-6 sm:mx-7 border-t border-neutral-800 flex-nowrap bg-black/80 backdrop-blur mt-auto pt-6 pb-3 sm:pt-0 sm:pb-0 gap-1">
-				<div className="flex flex-row sm:hidden w-full justify-start items-center gap-3  text-[13px] leading-[13px]">
+			<div className="flex flex-col justify-center items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-6 lg:mx-7 border-t border-neutral-800 flex-nowrap bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1">
+				<div className="flex flex-row lg:hidden w-full justify-start items-center gap-3  text-[13px] leading-[13px]">
 					{socialMap()}
 				</div>
 				<div className="flex flex-row w-full text-[13px] sm:text-[14px] leading-[14px] font-inter-semibold text-left uppercase text-neutral-500">
