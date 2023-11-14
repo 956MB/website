@@ -11,10 +11,11 @@ export const email = {
 	url: "mailto:bays.956mb@gmail.com",
 };
 export const socials = [
-	{ key: "x", url: "https://x.com/956MB" },
-	{ key: "github", url: "https://github.com/956MB" },
-	{ key: "reddit", url: "https://www.reddit.com/user/bauera5" },
-	{ key: "email", url: "mailto:bays.956mb@gmail.com" },
+	{ serv: "x", name: "956MB", url: "https://x.com/956MB" },
+	{ serv: "github", name: "956MB", url: "https://github.com/956MB" },
+	{ serv: "reddit", name: "bauera5", url: "https://www.reddit.com/user/bauera5" },
+	{ serv: "ko-fi", name: "956MB", url: "https://ko-fi.com/956mb" },
+	{ serv: "email", name: "", url: "mailto:bays.956mb@gmail.com" },
 ];
 
 export const whoami_h = [

@@ -8,7 +8,7 @@ import { logo_s, copyright } from "lib/info";
 import Image from "next/image";
 import { socials } from "lib/info";
 import { FiArrowUpRight } from "react-icons/fi";
-import React from "react";
+import React, { useState } from "react";
 
 const navItems = {
 	"/projects": { name: "projects" },
@@ -17,32 +17,35 @@ const navItems = {
 	"/extras": { name: "extras" },
 };
 
-function socialMap() {
-	return socials.map((link) => {
-		return React.Children.toArray(
-			<a
-				key={link.key}
-				rel="noopener noreferrer"
-				target="_blank"
-				href={link.url}
-				className={clsx(
-					"flex text-center items-center justify-left text-neutral-200 mt-[2px] no-underline whitespace-nowrap child:hover:text-white transition-all duration-50"
-				)}
-			>
-				<span
-					className={clsx("relative font-inter-semibold uppercase")}
-				>
-					{link.key}
-				</span>
-				{
-					<FiArrowUpRight
-						size={18}
-						className={"text-neutral-500 ml-1"}
-					/>
-				}
-			</a>
-		);
-	});
+function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
+    const [isHovered, setIsHovered] = useState(false);
+
+    return (
+        <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href={url}
+            className={clsx(
+                "flex text-center items-center justify-right text-neutral-200 mt-[2px] no-underline whitespace-nowrap child:hover:text-white transition-all duration-75"
+            )}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <span
+                className={clsx(
+                    "font-inter-semibold uppercase"
+                )}
+            >
+                {isHovered ? (name || serv) : serv}
+            </span>
+            {
+                <FiArrowUpRight
+                    size={18}
+                    className={"text-neutral-500 ml-1"}
+                />
+            }
+        </a>
+    )
 }
 
 export default function Header() {
@@ -59,21 +62,21 @@ export default function Header() {
 					"flex flex-row gap-6 sm:gap-10 m-auto items-center justify-start w-full h-full max-w-screen-3xl mx-6 sm:mx-7 border-b border-neutral-800 bg-black/90 backdrop-blur"
 				)}
 			>
-                <div className="relative inline-flex justify-center items-center h-full">
-                    <Link key={"home"} href={"/"}>
-                        <Image
-                            alt="logo"
-                            className="w-6 h-6 min-w-[24px] min-h-[24px] object-contain cursor-pointer mt-[2px] ml-[2px]"
-                            src={logo_s}
-                            placeholder="blur"
-                            priority
-                        />
-                    </Link>
+				<div className="relative inline-flex justify-center items-center h-full">
+					<Link key={"home"} href={"/"}>
+						<Image
+							alt="logo"
+							className="w-6 h-6 min-w-[24px] min-h-[24px] object-contain cursor-pointer mt-[2px] ml-[2px]"
+							src={logo_s}
+							placeholder="blur"
+							priority
+						/>
+					</Link>
 
-                    {pathname === "/" && (
-                        <div className="absolute inset-x-0 bottom-0 h-[3px] bg-white"></div>
-                    )}
-                </div>
+					{pathname === "/" && (
+						<div className="absolute inset-x-0 bottom-0 h-[3px] bg-white"></div>
+					)}
+				</div>
 
 				<div className="flex sm:inline-flex flex-row sm:gap-10 items-center justify-between sm:justify-center h-full w-full sm:w-auto overflow-hidden">
 					{Object.entries(navItems).map(([path, { name }]) => {
@@ -122,7 +125,9 @@ export default function Header() {
 				</div>
 
 				<div className="hidden lg:inline-flex ml-auto flex-row justify-center gap-6 text-[14px] leading-[14px]">
-					{socialMap()}
+                    {React.Children.toArray(
+                        socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
+                    )}
 				</div>
 			</div>
 		</div>
@@ -137,8 +142,10 @@ export function Footer() {
 			)}
 		>
 			<div className="flex flex-col justify-center items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-6 lg:mx-7 border-t border-neutral-800 flex-nowrap bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1">
-				<div className="flex flex-row lg:hidden w-full justify-start items-center gap-3  text-[13px] leading-[13px]">
-					{socialMap()}
+				<div className="flex flex-row lg:hidden w-full justify-between sm:justify-start items-center gap-3  text-[13px] leading-[13px]">
+                    {React.Children.toArray(
+                        socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
+                    )}
 				</div>
 				<div className="flex flex-row w-full text-[13px] sm:text-[14px] leading-[14px] font-inter-semibold text-left uppercase text-neutral-500">
 					<div className="flex flex-col justify-center items-start w-full h-full py-4 mr-auto">
