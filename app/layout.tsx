@@ -58,6 +58,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className="text-black bg-black">
+            <head>
+				<link rel="icon" href="/favicon.ico" sizes="any" />
+				<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+				<link rel="apple-touch-icon" href="/favicon.png" />
+			</head>
 			<body className="antialiased flex flex-col md:flex-row overflow-auto">
 				<main className="min-w-0 flex flex-auto flex-col items-center h-fit">
 					<Header />
