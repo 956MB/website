@@ -94,7 +94,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 									)}
 								>
 									<div className="flex flex-row w-full gap-x-2 items-start justify-start">
-										<div className="flex flex-col w-full justify-start items-start gap-y-2">
+										<div className="flex flex-col w-full justify-start items-start gap-y-0">
 											<div className="flex flex-row gap-2 items-center justify-start w-full">
 												<span className="text-white font-inter-semibold text-base truncate m-0">
 													{item.title}

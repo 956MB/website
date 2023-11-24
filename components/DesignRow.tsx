@@ -30,7 +30,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col flex-wrap w-full relative justify-center items-center max-w-screen-3xl">
 			<DesignHeader entry={entry} />
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center items-start gap-5 lg:gap-4 gap-y-0 lg:gap-y-4 w-full pt-5 sm:pt-4">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center items-start gap-5 lg:gap-4 gap-y-0 lg:gap-y-0 w-full pt-5 sm:pt-4">
 				{React.Children.toArray(
 					entry.items.map((item, i) => (
 						<PortalWithState closeOnOutsideClick closeOnEsc>

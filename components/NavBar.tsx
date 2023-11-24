@@ -115,7 +115,10 @@ export default function Header() {
 										</span>
 										{(pathname.includes(name) ||
 											pathname == path) && (
-											<div className="absolute inset-x-0 bottom-0 h-[3px] bg-white"></div>
+											<div className={clsx(
+                                                "absolute inset-x-0 bottom-0 h-[3px]",
+                                                path.includes("/extras") ? "bg-yellow-500" : "bg-white"
+                                            )}></div>
 										)}
 									</Link>
 								</div>

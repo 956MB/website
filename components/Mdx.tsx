@@ -35,7 +35,7 @@ function ImageGrid({ imageUrls }) {
     );
 }
 
-function RoundedImage(props) {
+function MdxImage(props) {
     const { alt, ...rest } = props;
 
     return (
@@ -95,7 +95,7 @@ function RoundedImage(props) {
 }
 
 const components = {
-    Image: RoundedImage,
+    Image: MdxImage,
     a: CustomLink,
     ImageGrid: ImageGrid,
 };

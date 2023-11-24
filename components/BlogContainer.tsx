@@ -71,7 +71,7 @@ export default function BlogContainer({
                 )}
             </div>
 
-			<div className="flex flex-col w-full flex-1 max-w-[100%] lg:pl-6 pb-[10px] gap-10 sm:gap-[55px] min-w-[50%] bg-black/40">
+			<div className="flex flex-col w-full flex-1 max-w-[100%] lg:pl-6 pb-6 gap-10 sm:gap-[55px] min-w-[50%] bg-black/40">
 				{React.Children.toArray(
 					sortContent(
 						allContents.filter((i) => i.category === "blog")

@@ -164,7 +164,7 @@ export default function Gallery({
 					)}
 				>
 					{item.summary && item.summary.length > 0 && (
-						<a className="text-neutral-300/95 font-inter-medium text-left leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-6 my-5">
+						<a className="text-neutral-300/95 font-inter-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-6 my-5">
 							{item.summary}
 						</a>
 					)}
@@ -174,7 +174,10 @@ export default function Gallery({
 					)}
 				</div>
 
-				<div className="flex flex-col flex-grow items-center gap-2 max-w-screen-lg">
+				<div className={clsx(
+                    "flex flex-col flex-grow items-center gap-2",
+                    item.images.length <= 1 ? "max-w-screen-3xl" : "max-w-screen-xl"
+                )}>
 					{React.Children.toArray(
 						item.images?.map((image) => (
 							<Image
