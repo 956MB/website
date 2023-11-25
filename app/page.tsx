@@ -6,15 +6,15 @@ export default async function AboutPage() {
 		<section>
 			<div className="relative flex flex-col sm:justify-start mx-auto items-start px-6 sm:px-7 sm:max-w-4xl gap-y-5 lg:gap-y-12 pt-12 sm:pt-16 pb-8 sm:pb-12">
                 <div className="flex w-full relative justify-start items-center">
-                    <div className="flex w-full h-full justify-center items-center max-h-28 border border-neutral-800 bg-black overflow-hidden">
+                    <div className="flex w-full h-full justify-center items-start max-h-28 border border-neutral-800 bg-black overflow-hidden">
                         <Image
                             alt={"banner"}
                             className={
-                                "w-full h-full object-cover scale-175 sm:scale-125"
+                                "w-full h-full object-cover"
                             }
-                            src={"/banner-red.png"}
-                            width={4792}
-                            height={2471}
+                            src={"/banner-pl.png"}
+                            width={1500}
+                            height={500}
                             loading="eager"
                         />
 
