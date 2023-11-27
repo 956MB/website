@@ -11,6 +11,12 @@ module.exports = {
 				neutral: {
 					350: "#C3C3C3",
 				},
+                'redc': '#FC057C',
+                'orangec': '#FF5700',
+                'yellowc': '#eab308',
+                'greenc': '#CCFF00',
+                'bluec': '#002EFF',
+                'pinkc': '#FF00B6',
 			},
 			backdropBlur: {
 				smallest: "1px",

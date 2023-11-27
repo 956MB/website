@@ -175,7 +175,7 @@ export default function Gallery({
 				</div>
 
 				<div className={clsx(
-                    "flex flex-col flex-grow items-center gap-2",
+                    "flex flex-col flex-grow items-center gap-3",
                     item.images.length <= 1 ? "max-w-screen-3xl" : "max-w-screen-xl"
                 )}>
 					{React.Children.toArray(

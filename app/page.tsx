@@ -1,4 +1,4 @@
-import { AboutBody, AboutLinks } from "components/AboutBody";
+import { AboutBody } from "components/AboutBody";
 import Image from "next/image";
 
 export default async function AboutPage() {
@@ -32,7 +32,6 @@ export default async function AboutPage() {
                 </div>
 
 				<AboutBody />
-				{/* <AboutLinks mobilePos="block" /> */}
 			</div>
 		</section>
 	);

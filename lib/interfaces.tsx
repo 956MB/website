@@ -10,6 +10,7 @@ export interface IEntry {
     credit?: boolean;
     groups?: string[];
     linkBlog?: string;
+    thumbnail?: IEntryImage;
 	images: IEntryImage[];
 }
 

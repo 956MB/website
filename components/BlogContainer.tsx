@@ -88,8 +88,8 @@ export default function BlogContainer({
 								{JSON.stringify(post.structuredData)}
 							</script>
 
-							<div className="flex flex-row sticky top-0 sm:relative items-center justify-start w-full p-0 sm:h-[76px] sm:min-h-[76px] sm:max-h-[76px] pb-5 pt-5 sm:pt-0 sm:pb-0 bg-black/90 backdrop-blur z-50">
-								<div className="flex flex-col md:flex-row items-start justify-start content-center m-0 w-full gap-1 sm:gap-2">
+							<div className="flex flex-row sticky top-0 sm:relative items-center justify-start w-full p-0 sm:h-[76px] sm:min-h-[76px] sm:max-h-[76px] pb-4 pt-5 sm:pt-0 sm:pb-0 bg-black/90 backdrop-blur z-50 border-b border-neutral-800 mb-6">
+								<div className="flex flex-col md:flex-row items-start justify-start content-center m-0 w-full gap-2 sm:gap-3">
 									<span className="font-inter-bold text-[23px] sm:text-[26px] max-w-max leading-6 text-white sm:whitespace-nowrap uppercase">
 										{post.title}
 									</span>
@@ -101,7 +101,7 @@ export default function BlogContainer({
 								</div>
 							</div>
 
-							<hr className="h-px w-full bg-neutral-800 mb-6 mt-0" />
+							{/* <hr className="h-px w-full bg-neutral-800 mb-6 mt-0" /> */}
 
 							<Mdx code={post.body.code} />
 

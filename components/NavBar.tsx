@@ -26,14 +26,19 @@ function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
             target="_blank"
             href={url}
             className={clsx(
-                "flex text-center items-center justify-right text-neutral-200 mt-[2px] no-underline whitespace-nowrap child:hover:text-white transition-all duration-75"
+                "flex text-center items-center justify-right mt-[2px] no-underline whitespace-nowrap transition-all duration-75",
+                serv.includes("x") && "child:hover:text-redc",
+                serv.includes("github") && "child:hover:text-greenc",
+                serv.includes("reddit") && "child:hover:text-bluec",
+                serv.includes("ko-fi") && "child:hover:text-yellowc",
+                serv.includes("email") && "child:hover:text-orangec"
             )}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <span
                 className={clsx(
-                    "font-inter-semibold uppercase"
+                    "font-inter-semibold uppercase !text-white"
                 )}
             >
                 {isHovered ? (name || serv) : serv}
@@ -41,7 +46,9 @@ function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
             {
                 <FiArrowUpRight
                     size={18}
-                    className={"text-neutral-500 ml-1"}
+                    className={clsx(
+                        "text-neutral-500 ml-1"
+                    )}
                 />
             }
         </a>
@@ -117,7 +124,10 @@ export default function Header() {
 											pathname == path) && (
 											<div className={clsx(
                                                 "absolute inset-x-0 bottom-0 h-[3px]",
-                                                path.includes("/extras") ? "bg-yellow-500" : "bg-white"
+                                                path.includes("/projects") && "bg-redc",
+                                                path.includes("/designs") && "bg-greenc",
+                                                path.includes("/blog") && "bg-bluec",
+                                                path.includes("/extras") && "bg-yellowc"
                                             )}></div>
 										)}
 									</Link>
