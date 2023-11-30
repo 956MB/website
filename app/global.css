@@ -275,7 +275,7 @@ hr {
 
 .prose img {
 	/* Don't apply styles to next/image */
-	@apply mb-1 sm:mb-2 h-full object-contain;
+	@apply mb-1 sm:mb-2 h-full object-contain rounded-lg;
 }
 .prose img:first-child {
 	@apply mt-0;
@@ -410,10 +410,14 @@ table {
 	margin-top: 0;
 }
 
-.entry-summary a {
-	@apply text-neutral-200;
+.entry-summary a,
+.gallery-summary a
+{
+	@apply text-neutral-100;
 }
-.entry-summary a:hover {
+.entry-summary a:hover,
+.gallery-summary a:hover
+{
 	@apply text-white underline;
 }
 

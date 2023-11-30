@@ -2,16 +2,12 @@
 
 import {
     about_p,
-    background_h,
     background_p,
     bio_p,
-    languages_h,
     languages_p,
-    tools_h,
     tools_p,
 } from "lib/info";
-import { TextParagraph, TextTitleSub } from "./Text";
-import { socials } from "lib/info";
+import { TextParagraph } from "./Text";
 import { email } from "lib/info";
 import React from "react";
 import clsx from "clsx";
@@ -25,11 +21,11 @@ export function AboutBody() {
             <div className="flex flex-wrap m-0 flex-col pr-0 text-left gap-y-5 items-start justify-start overflow-hidden">
                 <TextParagraph>{about_p}</TextParagraph>
                 <TextParagraph>{bio_p}</TextParagraph>
-                <TextTitleSub>{background_h}</TextTitleSub>
                 <TextParagraph>{background_p}</TextParagraph>
-                <TextTitleSub>{languages_h}</TextTitleSub>
+                <div className="flex flex-row items-center justify-center w-full my-1 sm:my-2">
+                    <hr className="h-px w-full bg-neutral-800 my-auto" />
+                </div>
                 <TextParagraph>{languages_p}</TextParagraph>
-                <TextTitleSub>{tools_h}</TextTitleSub>
                 <TextParagraph>{tools_p}</TextParagraph>
             </div>
         </div>

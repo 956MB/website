@@ -8,7 +8,7 @@ import { XLg, ArrowRight, ArrowLeft } from "react-bootstrap-icons";
 import clsx from "clsx";
 import Tooltip from "./Tooltip";
 import React from "react";
-import { toFormattedDateShort } from "lib/util";
+import parse from "html-react-parser";
 
 export function CategoryIcon({ category }: { category: string | undefined }) {
 	return (
@@ -164,8 +164,10 @@ export default function Gallery({
 					)}
 				>
 					{item.summary && item.summary.length > 0 && (
-						<a className="text-neutral-300/95 font-inter-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-6 my-5">
-							{item.summary}
+						<a className="text-neutral-300/95 font-inter-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-6 my-5 gallery-summary">
+                            {parse(
+                                item.summary.join("")
+                            )}
 						</a>
 					)}
 

@@ -40,14 +40,23 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 										className={clsx(
 											"relative z-0 flex flex-col justify-start group box-content"
 										)}
+                                        id={item.id}
 										onClick={
 											item.linkBlog
 												? undefined
 												: openPortal
 										}
 									>
+                                        {item.new == true && (
+                                            <div className="flex flex-row gap-1 absolute top-2 right-2 items-center justify-center bg-black/50 backdrop-blur-lg rounded-full m-0 z-20">
+                                                <span className="text-[12px] leading-[12px] font-inter-semibold cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
+                                                    {"NEW"}
+                                                </span>
+                                            </div>
+                                        )}
+
 										<a
-											className="flex flex-col relative justify-end group overflow-hidden"
+											className="flex flex-col relative justify-end group rounded-lg overflow-hidden"
 											href={
 												item.linkBlog
 													? item.linkBlog
@@ -86,9 +95,11 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 												</span>
 
 												{item.date && (
-													<span className="text-neutral-300 font-inter-semibold text-[12px] py-[2px] px-[6px] bg-neutral-900 rounded-[4px] border border-neutral-800 box-content whitespace-nowrap ml-auto">
-														{item.date}
-													</span>
+													<div className="flex flex-row gap-1 items-center justify-center bg-black/40 backdrop-blur-lg rounded-full m-0 z-20 pointer-events-none ml-auto">
+                                                        <span className="text-[12px] leading-[12px] font-inter-semibold cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
+                                                            {item.date}
+                                                        </span>
+                                                    </div>
 												)}
 											</div>
 										</div>

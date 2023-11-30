@@ -1,4 +1,4 @@
-import { IEntry, IEntryGroup, IEntryGroups } from "./interfaces";
+import { IEntry, IEntryGroup, IEntryGroupLinks, IEntryGroups } from "./interfaces";
 
 // NOTE: ui
 
@@ -159,6 +159,40 @@ export const ui_section: IEntryGroup = {
 	items: ui,
 };
 
+// NOTE: drawings
+
+export const drawing_cybertruck: IEntry = {
+	id: "drawing_cybertruck",
+	title: "Cybertruck painting",
+    date: "11.29.2023",
+	category: "photoshop",
+    new: true,
+	summary: [
+		"My first ever painting / photo manipuation like this using Procreate (I literally just got my iPad 2 days ago to get into this stuff). I'm a huge Cybertruck fan, and I wanted my first attempt to be something related to it or another Tesla product. Credit to <a href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a> for the great photos, and thanks to him for letting me use it as a base layer.",
+	],
+    thumbnail: {
+        path: "/images/drawings/cybertruck/cybertruck-thumb-red.png",
+        width: 1000,
+        height: 1000,
+    },
+	images: [
+        { path: "/images/drawings/cybertruck/cybertruck-red.png", width: 2174, height: 2933, },
+        { path: "/images/drawings/cybertruck/cybertruck-green.png", width: 2174, height: 2933, },
+        { path: "/images/drawings/cybertruck/cybertruck-yellow.png", width: 2174, height: 2933, },
+    ],
+};
+
+export const drawings = [
+    drawing_cybertruck,
+];
+export const drawings_section: IEntryGroup = {
+	title: "Drawings/Paintings",
+    category: "drawings",
+	description:
+		"Everything I draw in Procreate or Photoshop that falls under photo manipulation or concept art",
+	items: drawings,
+};
+
 // NOTE: logos
 
 export const logo_tdb: IEntry = {
@@ -189,10 +223,11 @@ export const logo_tbab: IEntry = {
 };
 
 export const logo_plan: IEntry = {
-	id: "pLan",
+	id: "logo_plan",
 	title: "pLan",
     date: "05.30.2020",
 	category: "photoshop",
+    new: true,
 	summary: [
 		"“Logo” and “brand aesthetics” for my first programming language, pLan. Which of course doesn’t actually exist yet. It’ll be done in 20 years. I guess I really like coming up with names for programming languages and creating graphics for them more than I like learning how to actually make one.",
 	],
@@ -228,7 +263,7 @@ export const logos = [
     logo_2048
 ];
 export const logos_section: IEntryGroup = {
-	title: "Logos/Icons",
+	title: "Logos / Icons",
     category: "logo",
 	description:
 		"A few logos/icons I've made for projects or personal use",
@@ -238,10 +273,11 @@ export const logos_section: IEntryGroup = {
 // NOTE: scripts
 
 export const script_circles_only: IEntry = {
-	id: "script-circles-only-apparently",
+	id: "script_circles_only",
 	title: "Circles only, apparently",
     date: "11.12.2023",
 	category: "script",
+    new: true,
 	tags: ["Circles"],
 	linkBlog: "https://www.956mb.com/blog/circles-only-apparently",
 	images: [
@@ -269,7 +305,7 @@ export const script_circles_only: IEntry = {
 };
 
 export const script_eggers_posters_gyea: IEntry = {
-	id: "script-eggers-gyea",
+	id: "script_eggers_gyea",
 	title: "Movie Posters",
     date: "07.19.2023",
 	category: "script",
@@ -295,7 +331,7 @@ export const script_eggers_posters_gyea: IEntry = {
 };
 
 export const script_gyea: IEntry = {
-	id: "script-hokj",
+	id: "script_hokj",
 	title: '"GYEA"',
     date: "06.21.2023",
 	category: "script",
@@ -305,7 +341,7 @@ export const script_gyea: IEntry = {
 };
 
 export const script_brands: IEntry = {
-	id: "script-brands-tab-hokj",
+	id: "script_brands_tab_hokj",
 	title: "Brand logos",
     date: "05.25.2023",
 	category: "script",
@@ -335,7 +371,7 @@ export const script_brands: IEntry = {
 };
 
 export const script_tab: IEntry = {
-	id: "script-tab",
+	id: "script_tab",
 	title: '"Tab"',
     date: "05.18.2023",
 	category: "script",
@@ -345,7 +381,7 @@ export const script_tab: IEntry = {
 };
 
 export const script_before_tab: IEntry = {
-	id: "script-before-tab",
+	id: "script_before_tab",
 	title: "Before Tab",
     date: "04.23.2023",
 	category: "script",
@@ -361,7 +397,7 @@ export const script_before_tab: IEntry = {
 };
 
 export const script_hokj: IEntry = {
-	id: "script-hokj",
+	id: "script_hokj",
 	title: '"Hokj"',
     date: "03.30.2023",
 	category: "script",
@@ -389,4 +425,11 @@ export const scripts_section: IEntryGroup = {
 
 // NOTE: sections
 
-export const groups: IEntryGroups = [ui_section, logos_section, scripts_section];
+export const groups: IEntryGroups = [ui_section, logos_section, drawings_section, scripts_section];
+
+export const recents_group: IEntryGroupLinks = {
+	title: "New stuff",
+    category: "list",
+    links: ["/designs#drawing_cybertruck", "/designs#script_circles_only", "/designs", "/designs/#logo_plan"],
+	items: [drawing_cybertruck, script_circles_only, ui_tdb_landing, logo_plan],
+};

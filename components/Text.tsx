@@ -10,7 +10,7 @@ export function TextTitle({ children }: { children: string }) {
 
 export function TextTitleSub({ children }: { children: string }) {
     return (
-        <a className="font-inter-bold text-xl m-0 text-white text-left">
+        <a className="font-inter-bold text-base m-0 text-white text-left">
             {Parse(children)}
         </a>
     );
@@ -18,7 +18,7 @@ export function TextTitleSub({ children }: { children: string }) {
 
 export function TextParagraph({ children }: { children: string }) {
     return (
-        <a className="font-inter-medium text-[15px] leading-[1.5em] m-0 text-neutral-300 about-text-p text-left">
+        <a className="font-inter-medium text-[15px] leading-[1.5em] m-0 text-neutral-350 about-text-p text-left">
             {Parse(children)}
         </a>
     );

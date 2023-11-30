@@ -34,11 +34,11 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 					<div className="flex flex-wrap items-left flex-row gap-x-[10px] sm:ml-auto">
 						{React.Children.toArray(
 							entry.tags?.map((tag, i) => (
-								<div className="blockgroup pt-[2px] pb-[4px] text-center items-center justify-center text-white mt-[1px] bg-neutral-900/80 hover:bg-neutral-800/90 rounded-full gap-2 px-3 border border-neutral-700/70 hover:border-neutral-700/80">
-									<a className="pointer-events-none text-white font-inter-semibold text-xs group-hover:text-black">
-										{tag}
-									</a>
-								</div>
+								<div className="flex flex-row gap-1 items-center justify-center bg-black/40 backdrop-blur-lg rounded-full m-0 z-20 pointer-events-none">
+                                    <span className="text-[12px] leading-[12px] font-inter-semibold cursor-default border border-white/20 text-white/90 rounded-full px-[8px] pt-[8px] pb-[7px]">
+                                        {tag}
+                                    </span>
+                                </div>
 							))
 						)}
 					</div>

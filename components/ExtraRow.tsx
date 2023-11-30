@@ -13,14 +13,13 @@ export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col sticky top-0 lg:top-[75px] items-start justify-start w-full max-w-screen-3xl py-5 sm:pt-4 pb-0 m-0 gap-5 sm:gap-4 sm:z-50 bg-black/90 backdrop-blur z-50">
 			<div className="flex flex-col sm:flex-row w-full max-w-screen-3xl items-start sm:items-center gap-3">
-				<div className="flex flex-col items-start justify-center gap-3 sm:gap-2">
-					<span className="text-white font-inter-semibold text-[21px] leading-[18px]">
-						{entry.title}
-					</span>
-
-					<span className="font-ibmplex-sans-medium text-sm leading-4 text-neutral-500">
-						{entry.description}
-					</span>
+				<div className="inline-flex flex-col sm:flex-row items-start justify-end gap-2 sm:gap-3 leading-[21px]">
+                    <span className="text-white font-inter-semibold text-[21px] whitespace-nowrap">
+                        {entry.title}
+                    </span>
+                    <span className="font-ibmplex-sans-medium text-sm mt-[1px] text-neutral-500">
+                        {entry.description}
+                    </span>
 				</div>
 			</div>
 			<div className="flex flex-row items-center justify-center w-full">
@@ -49,18 +48,21 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 								className={clsx(
 									"relative z-0 flex flex-col justify-start group box-content"
 								)}
+                                id={item.id}
 							>
 								{item.count && item.count > 1 && (
-									<div className="flex flex-row gap-1 absolute top-2 right-2 px-2 py-[7px] items-center justify-center border border-white/10 bg-black/20 backdrop-blur-lg rounded-full m-0 z-20 text-white/90">
-										<span className="text-[12px] leading-[12px] font-inter-semibold cursor-default">
-											{item.count}
-										</span>
-										<MdOutlineLayers size={16} />
-									</div>
+                                    <div className="flex flex-row gap-1 absolute top-2 right-2 items-center justify-center bg-black/30 backdrop-blur-lg rounded-full m-0 z-20">
+                                        <div className="inline-flex flex-row justify-center items-center gap-1 cursor-default border border-white/20 text-white/90 rounded-full px-2 py-[6px]">
+                                            <span className="text-[12px] leading-[12px] font-inter-semibold">
+                                                {item.count}
+                                            </span>
+                                            <MdOutlineLayers size={16} />
+                                        </div>
+                                    </div>
 								)}
 								<a
 									className={clsx(
-										"relative flex flex-col justify-end group object-cover overflow-hidden bg-gradient-to-t from-white/10 to-transparent backdrop-blur-sm sm:backdrop-blur-none",
+										"relative flex flex-col justify-end group object-cover overflow-hidden rounded-lg bg-gradient-to-t from-white/10 to-transparent backdrop-blur-sm sm:backdrop-blur-none",
 										item.link && " cursor-pointer",
 										item.link &&
 											item.category === "wallpaper" &&

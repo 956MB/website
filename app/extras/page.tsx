@@ -53,7 +53,7 @@ export default function ExtraPage() {
 					</div>
 				</div>
 
-                <div className="flex flex-row items-center justify-center w-full mb-0 sm:mb-4">
+                <div className="flex flex-row items-center justify-center w-full mb-0">
                     <hr className="h-px w-full bg-neutral-800 my-auto" />
                 </div>
 

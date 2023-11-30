@@ -7,6 +7,7 @@ export interface IEntry {
 	summary?: string[];
 	tags?: string[];
     category?: string;
+    new?: boolean;
     credit?: boolean;
     groups?: string[];
     linkBlog?: string;
@@ -24,7 +25,15 @@ export interface IEntryGroups extends Array<IEntryGroup>{}
 export interface IEntryGroup {
 	title: string;
 	category: string;
-	description: string;
+	description?: string;
 	items: IEntry[];
     credit?: boolean;
+}
+export interface IEntryGroupLinks extends IEntryGroup{
+    title: string;
+	category: string;
+	description?: string;
+	items: IEntry[];
+    credit?: boolean;
+    links: string[];
 }
