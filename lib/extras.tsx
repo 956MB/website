@@ -1,4 +1,4 @@
-import { IEntry, IEntryGroup, IEntryGroups, IEntryImage } from "./interfaces";
+import { IEntry, IEntryGroup, IEntryGroups } from "./interfaces";
 
 // NOTE: icons
 
@@ -10,7 +10,7 @@ export const icon_vscodium: IEntry = {
     summary: [
 		"B/W versions of an unofficial VSCodium icon. Credit to <a href=\"https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072\">@setanarut</a> for the original variation of the logo.",
 	],
-	link: "https://drive.google.com/drive/folders/1Z9KTCUN5J5K5bRuOTbiX-gEe-qs29O9q?usp=sharing",
+	link: "https://store.956mb.com/l/vscodium-icon",
 	count: 2,
     credit: true,
 	images: [
@@ -30,8 +30,7 @@ export const icon_parallels: IEntry = {
     summary: [
 		"My edits to a custom Parallels icon by <a href=\"https://www.reddit.com/r/MacOS/comments/mucnsz/i_got_tired_of_the_parallels_desktop_icon_not/2\">u/JonMarksbury</a>, using the Windows 11 background. Credit to him for the original concept.",
 	],
-	link: "https://drive.google.com/drive/folders/1yd3wpwRIlKl23g0ZI7HLhSMmPwDRV4-Q?usp=sharing",
-	count: 1,
+	link: "https://store.956mb.com/l/parallels-icon",
     credit: true,
 	images: [
 		{
@@ -50,8 +49,6 @@ export const icon_tdb: IEntry = {
     summary: [
 		"App icon for my iOS/iPadOS/macOS app \"TDB\". Made by me.",
 	],
-	link: "https://drive.google.com/drive/folders/1_vb22u6Z7wYfcR-raFxMMUtT6ulg4nYX?usp=sharing",
-	count: 2,
     credit: false,
 	images: [
 		{
@@ -70,7 +67,7 @@ export const icon_2048we: IEntry = {
     summary: [
 		"The custom app icon for my Apple Watch app, 2048WE (Apple Watch Edition). Made by me.",
 	],
-	link: "https://drive.google.com/drive/folders/1m1c2uQNplq5lG3Dah-OWKhYDtWgWfSki?usp=sharing",
+	link: "https://store.956mb.com/l/2048we-icon",
 	count: 4,
     credit: false,
 	images: [
@@ -90,8 +87,6 @@ export const icon_mssnc: IEntry = {
     summary: [
 		"\"macOS version\" of the Microsoft Sticky Notes app icon, used in my unreleased app, \"MSSNC\".",
 	],
-	link: "",
-	count: 1,
     credit: true,
 	images: [
 		{

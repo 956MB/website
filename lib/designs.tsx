@@ -1,11 +1,11 @@
-import { IEntry, IEntryGroup, IEntryGroupLinks, IEntryGroups } from "./interfaces";
+import { IEntry, IEntryGroup, IEntryGroups, IEntryGroupLinks } from "./interfaces";
 
 // NOTE: ui
 
 export const ui_tdb_landing: IEntry = {
     id: "ui_tdb_landing",
     title: "TDB Landing Site",
-    date: "09.28.2023",
+    date: "9.28.2023",
     category: "figma",
     summary: [
         "Very simple and VERY static landing page design for my iOS/iPadOS/macOS app, TDB. The idea of the app and it's overall functionality is super easy to understand, so I thought it's landing site should be the same. There's no need for a bunch of animations or slides advertising what it can do, one page with a demo and a download button should be enough. (NOT on the App Store yet.)",
@@ -27,7 +27,7 @@ export const ui_tdb_landing: IEntry = {
 export const ui_wallpaper_sync: IEntry = {
 	id: "ui_wallpaper_sync",
 	title: "WallpaperSync",
-    date: "08.17.2023",
+    date: "8.17.2023",
 	category: "figma",
 	summary: [
 		"This is another spontaneous project idea for a desktop app to set and automatically handle your different wallpapers on multiple devices. I'm personally a Synergy user, and have been for a long time, but I also manually switch back and forth between my Mac and PC. So, my intended use case came from having a folder of auto-rotating wallpapers on my Mac that I wanted to apply the exact same way to my PC, without any manually transferring of files through Google Drive or something.",
@@ -49,7 +49,7 @@ export const ui_wallpaper_sync: IEntry = {
 export const ui_tx4: IEntry = {
 	id: "ui_tx4",
 	title: "TX4",
-    date: "06.25.2023",
+    date: "6.25.2023",
 	category: "figma",
 	summary: [
 		"An actual attempt at my previously shown app, TX4. I tried to keep the same general ideas and structure of the original Qt creation, but with a much more thought out design before going into development. This was crucial because doing things on the fly with no plan, in Qt no less, lead to a terrible look and feel. Development on it has already started in React, but is very early stages.",
@@ -91,7 +91,7 @@ export const ui_comma_interface_challenge: IEntry = {
 export const ui_intros: IEntry = {
 	id: "intros",
 	title: '"Tro"... "Frame"... idk',
-    date: "05.18.2023",
+    date: "5.18.2023",
 	category: "figma",
 	summary: [
 		"This is a concept for a website I’ve had for a long time. It’s a website where any and all TV show or movie intro “frames” are collected. Sort of like if IMDB or Rotten Tomatoes was only for intros and end credits.",
@@ -113,7 +113,7 @@ export const ui_intros: IEntry = {
 export const ui_opgg_spectate: IEntry = {
 	id: "opgg-spectate",
 	title: 'OP.GG "Spectate pro matches" / "Pros"',
-    date: "08.21.2021",
+    date: "8.21.2021",
 	category: "figma",
 	summary: [
 		"This is a concept for the OP.GG ‘Pro Matches’ feature, integrated into their desktop client. I really liked the ‘Spectate Pro Players’ part of OP.GG’s website, but I thought it would be cool if you never had to leave the desktop client to load up and spectate pro games.",
@@ -134,7 +134,7 @@ export const ui_opgg_spectate: IEntry = {
 export const ui_lol_icon_tool: IEntry = {
 	id: "lol-icon-tool",
 	title: "LoL Icon Tool",
-    date: "08.21.2021",
+    date: "8.21.2021",
 	category: "react",
 	summary: [
 		"This concept was made before the overhaul to the borders and ranks. This website allows you to pair borders to icons to banners to customize your LoL profile, or see what combinations look good. All level and rank borders/banners and every icon would be available to preview.",
@@ -186,7 +186,7 @@ export const drawings = [
     drawing_cybertruck,
 ];
 export const drawings_section: IEntryGroup = {
-	title: "Drawings/Paintings",
+	title: "Drawings",
     category: "drawings",
 	description:
 		"Everything I draw in Procreate or Photoshop that falls under photo manipulation or concept art",
@@ -198,7 +198,7 @@ export const drawings_section: IEntryGroup = {
 export const logo_tdb: IEntry = {
 	id: "logo_tdb",
 	title: "TDB App Icon",
-    date: "09.28.2023",
+    date: "9.28.2023",
 	category: "photoshop",
 	summary: [
 		"App icon for my iOS/iPadOS/macOS Tesla database app, TDB. Two versions, the square being the initial iOS app icon, and the circle one for profile pictures and various other things. (Still in development, NOT on the App Store yet.)",
@@ -212,7 +212,7 @@ export const logo_tdb: IEntry = {
 export const logo_tbab: IEntry = {
 	id: "logo_tbab",
 	title: "Personal \"logo\"",
-    date: "07.19.2023",
+    date: "7.19.2023",
 	category: "photoshop",
 	summary: [
 		"The \"logo\" I made for myself in the process of drawing characters for my \"GYEA\" script. I noticed after the fact that two of the characters sort of looked like the letter combinations 'TB' and 'AB'. Both of course being initials in my name, Trevor Alexander Bays.",
@@ -225,7 +225,7 @@ export const logo_tbab: IEntry = {
 export const logo_plan: IEntry = {
 	id: "logo_plan",
 	title: "pLan",
-    date: "05.30.2020",
+    date: "5.30.2020",
 	category: "photoshop",
     new: true,
 	summary: [
@@ -246,7 +246,7 @@ export const logo_plan: IEntry = {
 export const logo_2048: IEntry = {
 	id: "logo_2048",
 	title: "2048WE App Icon",
-    date: "06.22.2023",
+    date: "6.22.2023",
 	category: "photoshop",
 	summary: [
 		"The custom app icon for my Apple Watch app, 2048WE (Apple Watch Edition). Made by me.",
@@ -307,7 +307,7 @@ export const script_circles_only: IEntry = {
 export const script_eggers_posters_gyea: IEntry = {
 	id: "script_eggers_gyea",
 	title: "Movie Posters",
-    date: "07.19.2023",
+    date: "7.19.2023",
 	category: "script",
 	tags: ["GYEA"],
 	images: [
@@ -333,7 +333,7 @@ export const script_eggers_posters_gyea: IEntry = {
 export const script_gyea: IEntry = {
 	id: "script_hokj",
 	title: '"GYEA"',
-    date: "06.21.2023",
+    date: "6.21.2023",
 	category: "script",
 	tags: ["GYEA"],
 	linkBlog: "https://www.956mb.com/blog/is-this-anything",
@@ -343,7 +343,7 @@ export const script_gyea: IEntry = {
 export const script_brands: IEntry = {
 	id: "script_brands_tab_hokj",
 	title: "Brand logos",
-    date: "05.25.2023",
+    date: "5.25.2023",
 	category: "script",
 	tags: ["Tab"],
 	images: [
@@ -373,7 +373,7 @@ export const script_brands: IEntry = {
 export const script_tab: IEntry = {
 	id: "script_tab",
 	title: '"Tab"',
-    date: "05.18.2023",
+    date: "5.18.2023",
 	category: "script",
 	tags: ["Tab"],
 	linkBlog: "https://www.956mb.com/blog/very-different-look-now",
@@ -383,7 +383,7 @@ export const script_tab: IEntry = {
 export const script_before_tab: IEntry = {
 	id: "script_before_tab",
 	title: "Before Tab",
-    date: "04.23.2023",
+    date: "4.23.2023",
 	category: "script",
 	tags: ["Tab"],
 	linkBlog: "https://www.956mb.com/blog/something-new",
@@ -399,7 +399,7 @@ export const script_before_tab: IEntry = {
 export const script_hokj: IEntry = {
 	id: "script_hokj",
 	title: '"Hokj"',
-    date: "03.30.2023",
+    date: "3.30.2023",
 	category: "script",
 	tags: ["Hokj"],
 	linkBlog: "https://www.956mb.com/blog/continuation-variation",
@@ -430,6 +430,7 @@ export const groups: IEntryGroups = [ui_section, logos_section, drawings_section
 export const recents_group: IEntryGroupLinks = {
 	title: "New stuff",
     category: "list",
-    links: ["/designs#drawing_cybertruck", "/designs#script_circles_only", "/designs", "/designs/#logo_plan"],
-	items: [drawing_cybertruck, script_circles_only, ui_tdb_landing, logo_plan],
+    useFirsts: [3],
+    links: ["/designs#drawing_cybertruck", "/designs#script_circles_only", "/designs"],
+	items: [drawing_cybertruck, script_circles_only, ui_tdb_landing],
 };

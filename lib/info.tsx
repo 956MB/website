@@ -28,7 +28,7 @@ export const whoami_h = [
 
 export const extras_explained = {
     "title": "Why this page?",
-    "description": "I love screen grabbing from things like movies, shows, and games, and then using Photoshop or Topaz to make them into wallpapers. I do it all the time. I also feel a great urge to share them with others since I think they're so cool, and most things arent natively in 5K (yet). Hopefully this section comes across an a \"public repo\" of sorts for cool wallpapers and things like custom app icons, and not me trying to claim these as my own works. Enjoy.",
+    "description": "I love screen grabbing from things like movies/TV/games, and then using Photoshop or Topaz Photo AI to make them into wallpapers. I also feel a great urge to share them with others since I think they're so cool, and most things arent natively in 5K (yet). Hopefully this section comes across an a \"public repo\" of sorts for cool wallpapers and stuff, and not me trying to claim these as my own works. Enjoy.",
     "disclaimer": "Anything that is marked I DO NOT take credit for. I have NOT photographed, painted or rendered anything here unless specified. I am just trying to share things I've messed with or that I personally use for others to enjoy.",
 }
 

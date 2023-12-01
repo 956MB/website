@@ -1,3 +1,9 @@
+export interface IEntryImage {
+    path: string;
+    width: number;
+    height: number;
+}
+
 export interface IEntry {
 	id: string;
 	title: string;
@@ -15,12 +21,6 @@ export interface IEntry {
 	images: IEntryImage[];
 }
 
-export interface IEntryImage {
-    path: string;
-    width: number;
-    height: number;
-}
-
 export interface IEntryGroups extends Array<IEntryGroup>{}
 export interface IEntryGroup {
 	title: string;
@@ -36,4 +36,5 @@ export interface IEntryGroupLinks extends IEntryGroup{
 	items: IEntry[];
     credit?: boolean;
     links: string[];
+    useFirsts?: number[];
 }

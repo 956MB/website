@@ -22,11 +22,11 @@ export default function RecentRow({ entry }: { entry: IEntryGroupLinks }) {
 		<div className="flex flex-col flex-wrap w-full relative justify-center items-center sm:max-w-4xl sm:mt-2">
 			<RecentHeader />
 
-			<div className="grid grid-cols-1 sm:grid-cols-2 justify-center items-start gap-5 w-full pt-5 sm:pt-8">
+			<div className="inline-flex flex-col justify-center items-start gap-5 w-full pt-5 sm:pt-8">
 				{React.Children.toArray(
 					entry.items.map((item, i) => (
 						<a
-							className="flex flex-col relative group z-0 h-full max-h-28 border border-neutral-800 hover:border-neutral-700 bg-black overflow-hidden justify-center items-center group box-content cursor-pointer rounded-lg"
+							className="flex flex-col relative group z-0 h-full w-full max-h-28 border border-neutral-800 hover:border-neutral-700 bg-black overflow-hidden justify-center items-center group box-content cursor-pointer rounded-lg"
 							id={item.id}
 							href={entry.links[i]}
 						>
@@ -52,7 +52,7 @@ export default function RecentRow({ entry }: { entry: IEntryGroupLinks }) {
 							/>
 							<div
 								className={clsx(
-									"z-50 flex flex-col text-start justify-center w-full h-full py-6 px-5 gap-y-2 bg-gradient-to-r from-black/95 via-black/70 to-transparent hover:from-black/80"
+									"z-50 flex flex-col text-start justify-center w-full h-full py-6 px-5 gap-y-2 bg-gradient-to-l from-black/95 via-black/70 to-black/30 hover:from-black/80 hover:to-black/20"
 								)}
 							>
 								<div className="flex flex-row gap-x-5 items-center justify-start">
