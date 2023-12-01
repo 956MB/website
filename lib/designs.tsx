@@ -152,7 +152,7 @@ export const ui = [
 	// ui_lol_icon_tool,
 ];
 export const ui_section: IEntryGroup = {
-	title: "UI",
+	title: "UI / UX",
     category: "concept",
 	description:
 		"Collection of UI prototypes and ideas for past and future projects",

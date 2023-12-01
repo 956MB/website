@@ -145,9 +145,11 @@ export default function Gallery({
 
 						<div className="hidden sm:flex gap-x-2 items-center justify-start pl-2">
 							{item.date && (
-								<span className="text-neutral-300 font-inter-semibold text-[12px] py-[2px] px-[6px] bg-white/[9%] rounded-[4px] border border-neutral-800/70 box-content whitespace-nowrap">
-									{item.date}
-								</span>
+								<div className="flex flex-row gap-1 items-center justify-center bg-black/50 backdrop-blur-lg rounded-full m-0 z-20">
+                                    <span className="text-[12px] leading-[12px] font-inter-semibold cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
+                                        {item.date}
+                                    </span>
+                                </div>
 							)}
 						</div>
 					</div>
@@ -164,11 +166,11 @@ export default function Gallery({
 					)}
 				>
 					{item.summary && item.summary.length > 0 && (
-						<a className="text-neutral-300/95 font-inter-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-6 my-5 gallery-summary">
+						<span className="text-neutral-300/95 font-inter-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-6 my-5 gallery-summary">
                             {parse(
                                 item.summary.join("")
                             )}
-						</a>
+						</span>
 					)}
 
 					{item.summary && item.summary.length > 0 && (

@@ -112,7 +112,7 @@ export default function Header() {
 									>
 										<span
 											className={clsx(
-												"relative font-inter-semibold text-center uppercase",
+												"relative font-inter-semibold uppercase text-center",
 												(pathname.includes(name) ||
 													pathname == path) &&
 													"text-white font-inter-bold"
@@ -160,8 +160,8 @@ export function Footer() {
                         socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
                     )}
 				</div>
-				<div className="flex flex-row w-full text-[13px] sm:text-[14px] leading-[14px] font-inter-semibold text-left uppercase text-neutral-500">
-					<div className="flex flex-col justify-center items-start w-full h-full py-4 mr-auto">
+				<div className="flex flex-row w-full text-[13px] sm:text-[14px] leading-[14px] font-inter-semibold text-left text-neutral-500">
+					<div className="flex flex-col justify-center items-start w-full h-full uppercase py-4 mr-auto">
 						<span>{copyright}</span>
 					</div>
 					<a
