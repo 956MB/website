@@ -170,6 +170,9 @@ export const painting_cybertruck_texas: IEntry = {
 	summary: [
 		"My second Procreate painting of a Cybertruck, again original photograph by <a href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a>. Maybe this one is an improvement on the first, maybe not? I need to get more confident at drawing clean lines and work towards more photorealism.",
 	],
+    thumbnail: {
+        path: "/images/drawings/cybertruck-texas/cybertruck-texas-thumb.png", width: 1000, height: 1000
+    },
 	images: [
         { path: "/images/drawings/cybertruck-texas/cybertruck-texas.png", width: 5120, height: 2880, },
     ],

@@ -193,6 +193,31 @@ hr {
 	color: white !important;
 	font-size: 1.2rem !important;
 }
+.name-highlight {
+    font-family: "Inter_Bold" !important;
+    color: white !important;
+	font-size: 1.5rem !important;
+}
+
+.p-swift { color: #F83325 !important; }
+.p-swiftui { color: #186FFD !important; }
+.p-qt { color: #42CD52 !important; }
+.p-javascript { color: #EFD81A !important; }
+.p-typescript { color: #2F73C0 !important; }
+.p-react { color: #169ECA !important; }
+.p-cpp { color: #004488 !important; }
+.p-tauri { color: #FFC132 !important; }
+.p-electron { color: #9FEAF9 !important; }
+.p-rust { color: #7E4124 !important; }
+.p-python { color: #FED741 !important; }
+.p-codewars { color: #B0361E !important; }
+.p-aoc { color: #00CC00 !important; }
+.p-figma { color: #A359FF !important; }
+.p-photoshop { color: #31A8FF !important; }
+.p-illustrator { color: #FF9A01 !important; }
+.p-fontlab { color: #F75105 !important; }
+.p-calligraphr { color: #67499E !important; }
+
 
 .cls-1 {
 	fill: #fff;
