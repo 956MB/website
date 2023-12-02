@@ -11,9 +11,9 @@ import { LiaDownloadSolid } from "react-icons/lia";
 
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div className="flex flex-col sticky top-0 lg:top-[75px] items-start justify-start w-full max-w-screen-3xl py-5 sm:pt-4 pb-0 m-0 gap-5 sm:gap-4 sm:z-50 bg-black/90 backdrop-blur z-50">
+		<div className="flex flex-col sticky top-0 lg:top-[75px] items-start justify-start w-full max-w-screen-3xl pt-[13px] sm:pt-4 pb-0 m-0 gap-3 sm:gap-4 sm:z-50 bg-black/90 backdrop-blur z-50">
 			<div className="flex flex-col sm:flex-row w-full max-w-screen-3xl items-start sm:items-center gap-3">
-				<div className="inline-flex flex-col sm:flex-row items-start justify-end gap-2 sm:gap-3 leading-[21px]">
+				<div className="inline-flex flex-col sm:flex-row items-start justify-end gap-[3px] sm:gap-3 leading-[21px]">
                     <span className="text-white font-inter-semibold text-[21px] whitespace-nowrap">
                         {entry.title}
                     </span>
@@ -84,7 +84,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 										width={item.images[0].width}
 										height={item.images[0].height}
 										loading="eager"
-										priority
+                                        unoptimized={true}
 									/>
 								</a>
 								<div

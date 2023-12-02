@@ -49,6 +49,7 @@ function MdxImage(props) {
                         <Image
                             alt={alt}
                             loading="eager"
+                            unoptimized={true}
                             {...rest}
                         />
                     </button>
@@ -83,6 +84,7 @@ function MdxImage(props) {
                                     alt={alt}
                                     className="block max-h-full max-w-full object-contain m-0"
                                     loading="eager"
+                                    unoptimized={true}
                                     {...rest}
                                 />
                             </div>

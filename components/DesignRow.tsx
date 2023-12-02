@@ -10,8 +10,8 @@ import Tooltip from "./Tooltip";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div className="flex flex-col sticky top-0 lg:top-[75px] items-start justify-start w-full pt-5 sm:pt-4 m-0 gap-5 sm:gap-4 z-50 bg-black/90 backdrop-blur">
-			<div className="inline-flex flex-col sm:flex-row items-start justify-end gap-2 sm:gap-3 leading-[21px]">
+		<div className="flex flex-col sticky top-0 lg:top-[75px] items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 sm:gap-4 z-50 bg-black/90 backdrop-blur">
+			<div className="inline-flex flex-col sm:flex-row items-start justify-end gap-[3px] sm:gap-3 leading-[21px]">
                 <span className="text-white font-inter-semibold text-[21px] whitespace-nowrap">
                     {entry.title}
                 </span>
@@ -30,7 +30,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col flex-wrap w-full relative justify-center items-center max-w-screen-3xl">
 			<DesignHeader entry={entry} />
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 justify-center items-start gap-5 lg:gap-4 gap-y-0 lg:gap-y-0 w-full pt-5 sm:pt-4">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 justify-center items-start gap-5 lg:gap-4 gap-y-4 w-full pt-5 sm:pt-4">
 				{React.Children.toArray(
 					entry.items.map((item, i) => (
 						<PortalWithState closeOnOutsideClick closeOnEsc>
@@ -38,7 +38,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 								<React.Fragment>
 									<div
 										className={clsx(
-											"relative z-0 flex flex-col justify-start group box-content"
+											"relative z-0 flex flex-col justify-start group box-content border border-neutral-800 rounded-lg overflow-hidden"
 										)}
                                         id={item.id}
 										onClick={
@@ -70,17 +70,22 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 												width={item.thumbnail ? item.thumbnail.width : item.images[0].width}
 												height={item.thumbnail ? item.thumbnail.height : item.images[0].height}
 												loading="eager"
-											/>
+                                                unoptimized={true}
+                                            />
 										</a>
 										<div
 											className={clsx(
-												"z-10 flex flex-col text-start justify-center w-full pb-[16px] pt-[16px] gap-y-2",
+												"z-10 absolute bottom-0 sm:opacity-0 sm:transition-opacity sm:duration-200 group-hover:opacity-100 flex flex-col text-start justify-end w-full sm:h-full pt-[16px] sm:pt-0 backdrop-blur-sm sm:backdrop-blur-none pb-[16px] gap-y-2 bg-gradient-to-t from-black/80 sm:from-black/70 to-black/80 sm:to-transparent pl-3 pr-4 pointer-events-none",
+                                                item.category == "photoshop" && "sm:pl-4 sm:pr-4",
 												item.summary &&
 													item.summary.length <= 0 &&
 													"h-[53px] min-h-[53px] max-h-[53px]"
 											)}
 										>
-											<div className="flex flex-row gap-x-2 items-center justify-start">
+											<div className={clsx(
+                                                "flex flex-row gap-x-2 items-center justify-start overflow-hidden",
+                                                item.category == "photoshop" && "gap-x-3"
+                                            )}>
 												<Tooltip
 													content={item.category}
 													position={"top"}
@@ -90,16 +95,15 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 													/>
 												</Tooltip>
 
-												<span className="text-white font-inter-semibold text-md truncate">
-													{item.title}
-												</span>
-
 												{item.date && (
-													<div className="flex flex-row gap-1 items-center justify-center bg-black/40 backdrop-blur-lg rounded-full m-0 z-20 pointer-events-none ml-auto">
-                                                        <span className="text-[12px] leading-[12px] font-inter-semibold cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
-                                                            {item.date}
+                                                    <Tooltip
+                                                        content={item.date}
+                                                        position={"top"}
+                                                    >
+                                                        <span className="text-white font-inter-semibold w-full text-md">
+                                                            {item.title}
                                                         </span>
-                                                    </div>
+                                                    </Tooltip>
 												)}
 											</div>
 										</div>

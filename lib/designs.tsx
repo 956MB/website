@@ -170,11 +170,6 @@ export const painting_cybertruck_texas: IEntry = {
 	summary: [
 		"My second Procreate painting of a Cybertruck, again original photograph by <a href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a>. Maybe this one is an improvement on the first, maybe not? I need to get more confident at drawing clean lines and work towards more photorealism.",
 	],
-    thumbnail: {
-        path: "/images/drawings/cybertruck-texas/cybertruck-texas-thumb.png",
-        width: 1000,
-        height: 1000,
-    },
 	images: [
         { path: "/images/drawings/cybertruck-texas/cybertruck-texas.png", width: 5120, height: 2880, },
     ],
@@ -182,7 +177,7 @@ export const painting_cybertruck_texas: IEntry = {
 
 export const painting_cybertruck: IEntry = {
 	id: "painting_cybertruck",
-	title: "Cybertruck painting",
+	title: "Cybertruck paining",
     date: "11.29.2023",
 	category: "photoshop",
     new: true,
@@ -201,9 +196,32 @@ export const painting_cybertruck: IEntry = {
     ],
 };
 
+export const redesign_cybertruck: IEntry = {
+	id: "redesign_cybertruck",
+	title: "Cybertruck redesign by u/Wenbell",
+    date: "9.4.2023",
+	category: "photoshop",
+	summary: [
+		'My photo manipulation (all the white) of a Cybertruck concept from <a href="https://www.reddit.com/r/ghibli/comments/fo3mnu/thanks_to_ia_ive_made_a_collection_of_flawless_hq/?utm_source=share&utm_medium=web2x&context=3">u/Weenbell</a> on Reddit. Credit to him for the original modification of Cybertruck design.',
+	],
+    thumbnail: {
+        path: "/images/drawings/cybertruck-redesign/cybertruck-redesign-thumb.png",
+        width: 1000,
+        height: 1000,
+    },
+	images: [
+        {
+			path: "/images/drawings/cybertruck-redesign/cybertruck-redesign.png",
+			width: 3840,
+			height: 2160,
+		},
+    ],
+};
+
 export const drawings = [
     painting_cybertruck_texas,
     painting_cybertruck,
+    redesign_cybertruck,
 ];
 export const drawings_section: IEntryGroup = {
 	title: "Drawings / Photo Manipulation",
@@ -217,7 +235,7 @@ export const drawings_section: IEntryGroup = {
 
 export const logo_tdb: IEntry = {
 	id: "logo_tdb",
-	title: "TDB App Icon",
+	title: "TDB App Icon / X",
     date: "9.28.2023",
 	category: "photoshop",
 	summary: [
@@ -263,24 +281,28 @@ export const logo_plan: IEntry = {
     ],
 };
 
-export const logo_2048: IEntry = {
-	id: "logo_2048",
-	title: "2048WE App Icon",
-    date: "6.22.2023",
+export const logo_d: IEntry = {
+	id: "logo_d",
+	title: "D",
+    date: "12.2.2023",
 	category: "photoshop",
 	summary: [
-		"The custom app icon for my Apple Watch app, 2048WE (Apple Watch Edition). Made by me.",
+		"I have NO idea what this is, I just started painting.",
 	],
+    new: true,
+    useLinkPreview: { path: "/images/concepts/d/d-banner.png", width: 1764, height: 588, },
+    thumbnail: { path: "/images/concepts/d/d-thumb-1000.png", width: 1000, height: 1000, },
 	images: [
-        { path: "/images/extras/icons/2048WE/2048WE.png", width: 512, height: 512 },
+        { path: "/images/concepts/d/d-logo.png", width: 2571, height: 2571 },
+        { path: "/images/concepts/d/d-x-banner.png", width: 1797, height: 857 },
     ],
 };
 
 export const logos = [
+    logo_d,
     logo_plan,
 	logo_tdb,
-    logo_tbab,
-    logo_2048
+    logo_tbab
 ];
 export const logos_section: IEntryGroup = {
 	title: "Logos / Icons",
@@ -451,6 +473,6 @@ export const recents_group: IEntryGroupLinks = {
 	title: "New stuff",
     category: "list",
     useFirsts: [3],
-    links: ["/designs#painting_cybertruck_texas", "/designs#script_circles_only", "/designs"],
-	items: [painting_cybertruck_texas, script_circles_only, ui_tdb_landing],
+    links: ["designs/#logo_d", "/designs#painting_cybertruck_texas", "/designs"],
+	items: [logo_d, painting_cybertruck_texas, ui_tdb_landing],
 };

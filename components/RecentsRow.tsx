@@ -34,34 +34,35 @@ export default function RecentRow({ entry }: { entry: IEntryGroupLinks }) {
 								alt={item.id}
 								className="absolute object-cover w-full h-full aspect-square cursor-pointer ease-in-out transition-transform duration-75 hover:scale-105"
 								src={
-									item.thumbnail
-										? item.thumbnail.path
-										: item.images[0].path
+									item.useLinkPreview?.path ||
+                                    item.thumbnail?.path ||
+                                    item.images[0].path
 								}
 								width={
-									item.thumbnail
-										? item.thumbnail.width
-										: item.images[0].width
+									item.useLinkPreview?.width ||
+                                    item.thumbnail?.width ||
+                                    item.images[0].width
 								}
 								height={
-									item.thumbnail
-										? item.thumbnail.height
-										: item.images[0].height
+									item.useLinkPreview?.height ||
+                                    item.thumbnail?.height ||
+                                    item.images[0].height
 								}
 								loading="eager"
+                                unoptimized={true}
 							/>
 							<div
 								className={clsx(
-									"z-50 flex flex-col text-start justify-center w-full h-full py-6 px-5 gap-y-2 bg-gradient-to-l from-black/95 via-black/70 to-black/30 hover:from-black/80 hover:to-black/20"
+									"z-50 flex flex-col text-start justify-center w-full h-full py-6 px-5 gap-y-2 bg-gradient-to-l from-black/80 via-black/50 to-black/30 hover:from-black/40 hover:to-black/10"
 								)}
 							>
-								<div className="flex flex-row gap-x-5 items-center justify-start">
+								<div className="flex flex-row gap-x-3 items-center justify-start">
 									<span className="text-white font-inter-semibold text-md truncate">
 										{item.title}
 									</span>
 
 									{item.date && (
-										<div className="flex flex-row gap-1 items-center justify-center bg-black/40 backdrop-blur-lg rounded-full m-0 z-20 pointer-events-none ml-auto">
+										<div className="flex flex-row gap-1 items-center justify-center bg-black/30 backdrop-blur-lg rounded-full m-0 z-20 pointer-events-none ml-auto">
 											<span className="text-[12px] leading-[12px] font-inter-semibold cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
 												{item.date}
 											</span>

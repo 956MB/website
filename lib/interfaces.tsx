@@ -14,6 +14,7 @@ export interface IEntry {
 	tags?: string[];
     category?: string;
     new?: boolean;
+    useLinkPreview?: IEntryImage;
     credit?: boolean;
     groups?: string[];
     linkBlog?: string;

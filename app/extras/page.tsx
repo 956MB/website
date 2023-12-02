@@ -23,7 +23,7 @@ export default function ExtraPage() {
                         
                         <div className="flex flex-col items-start justify-start w-full sm:pt-4 m-0 gap-5 sm:gap-4">
                             <div className="flex flex-col sm:flex-row w-full max-w-screen-3xl items-start sm:items-center gap-3">
-                                <div className="flex flex-col items-start justify-center gap-3">
+                                <div className="flex flex-col items-start justify-center gap-2 sm:gap-3">
                                     <span className="text-white font-inter-semibold text-[21px] leading-[18px]">
                                         {extras_explained.title}
                                     </span>

@@ -12,7 +12,7 @@ import parse from "html-react-parser";
 
 export function CategoryIcon({ category }: { category: string | undefined }) {
 	return (
-		<div className="child:text-neutral-500">
+		<div className="child:text-neutral-400">
 			{!category
 				? null
 				: (() => {
@@ -193,6 +193,7 @@ export default function Gallery({
 								width={image.width}
 								height={image.height}
 								loading="eager"
+                                unoptimized={true}
 							/>
 						))
 					)}

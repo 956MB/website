@@ -73,6 +73,7 @@ export default function ProjectRow({ entry }: { entry: IEntry }) {
 								width={entry.images[0].width}
 								height={entry.images[0].height}
 								loading="eager"
+                                unoptimized={true}
 							/>
 						</button>
 						{portal(
@@ -103,6 +104,7 @@ export default function ProjectRow({ entry }: { entry: IEntry }) {
 									width={entry.images[0].width}
 									height={entry.images[0].height}
 									loading="eager"
+                                    unoptimized={true}
 								/>
 							</div>
 						)}
