@@ -159,10 +159,29 @@ export const ui_section: IEntryGroup = {
 	items: ui,
 };
 
-// NOTE: drawings
+// NOTE: drawings / photo manipulation
 
-export const drawing_cybertruck: IEntry = {
-	id: "drawing_cybertruck",
+export const painting_cybertruck_texas: IEntry = {
+	id: "painting_cybertruck_texas",
+	title: "Cybertruck 2 (Texas)",
+    date: "12.1.2023",
+	category: "photoshop",
+    new: true,
+	summary: [
+		"My second Procreate painting of a Cybertruck, again original photograph by <a href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a>. Maybe this one is an improvement on the first, maybe not? I need to get more confident at drawing clean lines and work towards more photorealism.",
+	],
+    thumbnail: {
+        path: "/images/drawings/cybertruck-texas/cybertruck-texas-thumb.png",
+        width: 1000,
+        height: 1000,
+    },
+	images: [
+        { path: "/images/drawings/cybertruck-texas/cybertruck-texas.png", width: 5120, height: 2880, },
+    ],
+};
+
+export const painting_cybertruck: IEntry = {
+	id: "painting_cybertruck",
 	title: "Cybertruck painting",
     date: "11.29.2023",
 	category: "photoshop",
@@ -183,13 +202,14 @@ export const drawing_cybertruck: IEntry = {
 };
 
 export const drawings = [
-    drawing_cybertruck,
+    painting_cybertruck_texas,
+    painting_cybertruck,
 ];
 export const drawings_section: IEntryGroup = {
-	title: "Drawings",
+	title: "Drawings / Photo Manipulation",
     category: "drawings",
 	description:
-		"Everything I draw in Procreate or Photoshop that falls under photo manipulation or concept art",
+		"Everything I draw in Procreate or edit Photoshop that falls under photo manipulation or concept art",
 	items: drawings,
 };
 
@@ -419,7 +439,7 @@ export const scripts_section: IEntryGroup = {
 	title: "Scripts",
     category: "script",
 	description:
-		"Constructed scripts (and eventually conlangs) I draw for fun (r/neography)",
+		"Construced scripts (and eventually conlangs) I draw for fun (r/neography)",
 	items: scripts,
 };
 
@@ -431,6 +451,6 @@ export const recents_group: IEntryGroupLinks = {
 	title: "New stuff",
     category: "list",
     useFirsts: [3],
-    links: ["/designs#drawing_cybertruck", "/designs#script_circles_only", "/designs"],
-	items: [drawing_cybertruck, script_circles_only, ui_tdb_landing],
+    links: ["/designs#painting_cybertruck_texas", "/designs#script_circles_only", "/designs"],
+	items: [painting_cybertruck_texas, script_circles_only, ui_tdb_landing],
 };
