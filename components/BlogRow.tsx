@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { Content } from "contentlayer/generated";
-import { replaceSlash } from "lib/util";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -16,17 +15,17 @@ export default function BlogRow({ post }: { post: Content }) {
 		>
 			<div
 				className={clsx(
-					"flex flex-row gap-x-3 items-start justify-start w-full transition-all duration-50 text-neutral-400"
+					"flex flex-row gap-x-3 items-start justify-center w-full transition-all duration-50 text-neutral-400"
 				)}
 			>
 				<Link
 					key={post.slug}
-					className="inline-block text-[15px] leading-4 uppercase mr-auto overflow-hidden overflow-ellipsis text-left"
+					className="inline-block text-[15px] leading-4 mr-auto overflow-hidden overflow-ellipsis text-left"
 					href={`/blog/${post.slug}`}
 				>
 					<span
 						className={clsx("font-inter-semibold hover:underline hover:text-white",
-							selected && "text-white underline font-inter-bold"
+							selected && "text-white font-inter-bold"
 						)}
 					>
 						{post.title}

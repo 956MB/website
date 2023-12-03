@@ -160,7 +160,7 @@ export default function Gallery({
 				<div
 					className={clsx(
 						"flex flex-col flex-grow items-center w-full",
-						item.images.length <= 1
+						item.content.length <= 1
 							? "justify-center"
 							: "justify-start"
 					)}
@@ -180,22 +180,38 @@ export default function Gallery({
 
 				<div className={clsx(
                     "flex flex-col flex-grow items-center gap-3",
-                    item.images.length <= 1 ? "max-w-screen-3xl" : "max-w-screen-xl"
+                    item.content.length <= 1 ? "max-w-screen-3xl" : "max-w-screen-xl"
                 )}>
 					{React.Children.toArray(
-						item.images?.map((image) => (
-							<Image
-								alt="project-img-modal"
-								className={clsx(
-									"block max-h-full max-w-full object-contain m-0"
-								)}
-								src={image.path}
-								width={image.width}
-								height={image.height}
-								loading="eager"
-                                unoptimized={true}
-							/>
-						))
+						item.content?.map((content) => {
+                            return content.path.includes(".mp4") ? (
+                                <video
+                                    className={clsx(
+                                        "block max-h-full max-w-full object-contain m-0"
+                                    )}
+                                    src={(content.path)}
+                                    width={content.width}
+                                    height={content.height}
+                                    controls
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                />
+                            ) : (
+                                <Image
+                                    alt="project-img-modal"
+                                    className={clsx(
+                                        "block max-h-full max-w-full object-contain m-0"
+                                    )}
+                                    src={content.path}
+                                    width={content.width}
+                                    height={content.height}
+                                    loading="eager"
+                                    unoptimized={true}
+                                />
+                            )
+                        })
 					)}
 				</div>
 			</div>

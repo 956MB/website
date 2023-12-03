@@ -30,7 +30,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col flex-wrap w-full relative justify-center items-center max-w-screen-3xl">
 			<DesignHeader entry={entry} />
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 justify-center items-start gap-5 lg:gap-4 gap-y-4 w-full pt-5 sm:pt-4">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 justify-center items-start gap-5 lg:gap-3 gap-y-4 sm:gap-y-3 w-full pt-4 sm:pt-3">
 				{React.Children.toArray(
 					entry.items.map((item, i) => (
 						<PortalWithState closeOnOutsideClick closeOnEsc>
@@ -38,7 +38,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 								<React.Fragment>
 									<div
 										className={clsx(
-											"relative z-0 flex flex-col justify-start group box-content border border-neutral-800 rounded-lg overflow-hidden"
+											"relative z-0 flex flex-col justify-start group box-content rounded-lg overflow-hidden"
 										)}
                                         id={item.id}
 										onClick={
@@ -66,9 +66,9 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 											<Image
 												alt={item.id}
 												className="block object-cover w-full h-full aspect-square cursor-pointer ease-in-out transition-transform duration-75 hover:scale-105"
-												src={item.thumbnail ? item.thumbnail.path : item.images[0].path}
-												width={item.thumbnail ? item.thumbnail.width : item.images[0].width}
-												height={item.thumbnail ? item.thumbnail.height : item.images[0].height}
+												src={item.thumbnail ? item.thumbnail.path : item.content[0].path}
+												width={item.thumbnail ? item.thumbnail.width : item.content[0].width}
+												height={item.thumbnail ? item.thumbnail.height : item.content[0].height}
 												loading="eager"
                                                 unoptimized={true}
                                             />

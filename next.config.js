@@ -1,5 +1,6 @@
 const { get } = require("@vercel/edge-config");
 const { withContentlayer } = require("next-contentlayer");
+const withVideos = require('next-videos')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,7 +9,7 @@ const nextConfig = {
 	},
 	experimental: {
 		appDir: true,
-        serverActions: true,
+		serverActions: true,
 	},
 	redirects() {
 		try {
@@ -77,3 +78,4 @@ const securityHeaders = [
 ];
 
 module.exports = withContentlayer(nextConfig);
+module.exports = withVideos()

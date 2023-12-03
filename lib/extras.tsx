@@ -13,7 +13,7 @@ export const icon_vscodium: IEntry = {
 	link: "https://store.956mb.com/l/vscodium-icon",
 	count: 2,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/icons/vscodium.png",
 			width: 1024,
@@ -32,7 +32,7 @@ export const icon_parallels: IEntry = {
 	],
 	link: "https://store.956mb.com/l/parallels-icon",
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/icons/Parallels/parallels-angled.png",
 			width: 1024,
@@ -50,7 +50,7 @@ export const icon_tdb: IEntry = {
 		"App icon for my iOS/iPadOS/macOS app \"TDB\". Made by me.",
 	],
     credit: false,
-	images: [
+	content: [
 		{
 			path: "/images/extras/icons/tdb.png",
 			width: 1024,
@@ -70,7 +70,7 @@ export const icon_2048we: IEntry = {
 	link: "https://store.956mb.com/l/2048we-icon",
 	count: 4,
     credit: false,
-	images: [
+	content: [
 		{
 			path: "/images/extras/icons/2048WE/2048WE.png",
 			width: 512,
@@ -88,7 +88,7 @@ export const icon_mssnc: IEntry = {
 		"\"macOS version\" of the Microsoft Sticky Notes app icon, used in my unreleased app, \"MSSNC\".",
 	],
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/icons/mssnc.png",
 			width: 1024,
@@ -127,7 +127,7 @@ export const extra_polestar_synergy: IEntry = {
 	link: "https://drive.google.com/drive/folders/1-naPWu9jKup8hzA-rwvFCK-5hIV5vpP7?usp=sharing",
 	count: 5,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/Polestar-Synergy-Back.png",
 			width: 5120,
@@ -148,7 +148,7 @@ export const extra_maybe_tomorrow: IEntry = {
 	link: "https://drive.google.com/drive/folders/1BuaV2bpohb--hNgEav1sElaX-LXYMP91?usp=sharing",
 	count: 4,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/maybe-tomorrow-red.png",
 			width: 3840,
@@ -169,7 +169,7 @@ export const extra_ghibli_colors: IEntry = {
 	link: "https://drive.google.com/drive/folders/1zuMZQfx7B_pTh7Y1vErBXOpoWqe6ik1k?usp=sharing",
 	count: 25,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/ghibli-colors-green3.png",
 			width: 5120,
@@ -190,7 +190,7 @@ export const extra_ghibli_greens: IEntry = {
 	link: "https://drive.google.com/drive/folders/1hcvKaCeBN--SbUPbZbhA24J_2oyZE4Rt?usp=sharing",
 	count: 111,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/Ghibli-Greens-poppy-26.png",
 			width: 5120,
@@ -211,7 +211,7 @@ export const extra_westworld_s3: IEntry = {
 	link: "https://drive.google.com/drive/folders/1S2GS2Dw7t_RnFX1U4yl_rjJ0-mOjkZWa?usp=sharing",
 	count: 26,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/WWF-deepred.png",
 			width: 5120,
@@ -230,7 +230,7 @@ export const extra_dune: IEntry = {
 	link: "https://drive.google.com/drive/folders/1YM573MPs-J3vYygf9N5B_NtzS2BH6PbI?usp=sharing",
 	count: 1,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/dune.png",
 			width: 5120,
@@ -251,7 +251,7 @@ export const extra_armored_core_vi: IEntry = {
 	link: "https://drive.google.com/drive/folders/1MMuairvZA4f0Gb8miA26VI1_ytuXxEyl?usp=sharing",
 	count: 9,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/ACVI-00027.png",
 			width: 3840,
@@ -272,7 +272,7 @@ export const extra_colors_and_shapes: IEntry = {
 	link: "https://drive.google.com/drive/folders/15pwpAQRDgW4TadCb07zq2TUDR5GtgMLk?usp=sharing",
 	count: 15,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/CASWF-00169.png",
 			width: 5120,
@@ -293,7 +293,7 @@ export const extra_hassan_massoudy: IEntry = {
 	link: "https://drive.google.com/drive/folders/1i0Zf3II5JaSc4s6JnyORfPiu5Lnzm5gT?usp=sharing",
 	count: 172,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/_0010_HM326.png",
 			width: 2600,
@@ -314,7 +314,7 @@ export const extra_oppenheimer: IEntry = {
 	link: "https://drive.google.com/drive/folders/1wZj5UQEBC6nW9DHeX3l1XZV31JuhIKlh?usp=sharing",
 	count: 1,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/oppenheimer.jpg",
 			width: 5120,
@@ -335,7 +335,7 @@ export const extra_cybertruck: IEntry = {
 	link: "https://drive.google.com/drive/folders/1d2DtdnDqvSqY4KfGYtSjHVkodIIr9mjn?usp=sharing",
 	count: 1,
     credit: true,
-	images: [
+	content: [
 		{
 			path: "/images/extras/wallpapers/cybertruck-redesign.png",
 			width: 3840,

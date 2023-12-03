@@ -35,7 +35,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 			<ExtraHeader entry={entry} />
 			<div
 				className={clsx(
-					"grid justify-center items-start gap-5 lg:gap-4 w-full max-w-screen-3xl pt-5 sm:pt-4",
+					"grid justify-center items-start gap-5 lg:gap-3 w-full max-w-screen-3xl pt-5 sm:pt-3",
 					entry.category === "icons"
 						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
 						: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
@@ -80,9 +80,9 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 												? "aspect-square object-contain scale-75"
 												: "aspect-video sm:aspect-video object-cover"
 										)}
-										src={item.images[0].path}
-										width={item.images[0].width}
-										height={item.images[0].height}
+										src={item.content[0].path}
+										width={item.content[0].width}
+										height={item.content[0].height}
 										loading="eager"
                                         unoptimized={true}
 									/>

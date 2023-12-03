@@ -26,6 +26,7 @@
     "strictNullChecks": true
   },
   "include": [
+    "video.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
