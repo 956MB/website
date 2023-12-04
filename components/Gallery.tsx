@@ -160,7 +160,7 @@ export default function Gallery({
 				<div
 					className={clsx(
 						"flex flex-col flex-grow items-center w-full",
-						item.content.length <= 1
+						item.images.length <= 1
 							? "justify-center"
 							: "justify-start"
 					)}
@@ -180,10 +180,10 @@ export default function Gallery({
 
 				<div className={clsx(
                     "flex flex-col flex-grow items-center gap-3",
-                    item.content.length <= 1 ? "max-w-screen-3xl" : "max-w-screen-xl"
+                    item.images.length <= 1 ? "max-w-screen-3xl" : "max-w-screen-xl"
                 )}>
 					{React.Children.toArray(
-						item.content?.map((content) => {
+						item.images?.map((content) => {
                             return content.path.includes(".mp4") ? (
                                 <video
                                     className={clsx(

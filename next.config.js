@@ -1,6 +1,5 @@
 const { get } = require("@vercel/edge-config");
 const { withContentlayer } = require("next-contentlayer");
-const withVideos = require('next-videos')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -34,7 +33,7 @@ const ContentSecurityPolicy = `
     script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
     style-src 'self' 'unsafe-inline';
     img-src * blob: data:;
-    media-src 'none';
+    media-src 'self' https://956mb.com;
     connect-src *;
     font-src 'self';
 `;
@@ -78,4 +77,3 @@ const securityHeaders = [
 ];
 
 module.exports = withContentlayer(nextConfig);
-module.exports = withVideos()

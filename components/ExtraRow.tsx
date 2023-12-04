@@ -80,11 +80,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 												? "aspect-square object-contain scale-75"
 												: "aspect-video sm:aspect-video object-cover"
 										)}
-										src={item.content[0].path}
-										width={item.content[0].width}
-										height={item.content[0].height}
+										src={item.images[0].path}
+										width={item.images[0].width}
+										height={item.images[0].height}
 										loading="eager"
-                                        unoptimized={true}
 									/>
 								</a>
 								<div
