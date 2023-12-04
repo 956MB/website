@@ -288,7 +288,7 @@ export const logo_plan: IEntry = {
 
 export const logo_d: IEntry = {
 	id: "logo_d",
-	title: "D",
+	title: "\"D\" / \"O\"",
     date: "12.2.2023",
 	category: "photoshop",
 	summary: [
@@ -296,8 +296,10 @@ export const logo_d: IEntry = {
 	],
     new: true,
     useLinkPreview: { path: "/images/concepts/d/d-banner.png", width: 1764, height: 588, },
-    thumbnail: { path: "/images/concepts/d/d-thumb-1000.png", width: 1000, height: 1000, },
+    thumbnail: { path: "/images/concepts/d/o-thumb-1000.png", width: 1000, height: 1000, },
 	images: [
+        { path: "/images/concepts/d/o-logo.png", width: 2571, height: 2571 },
+        { path: "/images/concepts/d/o-x-banner.png", width: 1797, height: 857 },
         { path: "/images/concepts/d/d-logo.png", width: 2571, height: 2571 },
         { path: "/images/concepts/d/d-x-banner.png", width: 1797, height: 857 },
         { path: "/videos/d-timelapse.mp4", width: 1440, height: 1440 },
