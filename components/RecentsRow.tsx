@@ -36,20 +36,19 @@ export default function RecentRow({ entry }: { entry: IEntryGroupLinks }) {
 								src={
 									item.useLinkPreview?.path ||
                                     item.thumbnail?.path ||
-                                    item.content[0].path
+                                    item.images[0].path
 								}
 								width={
 									item.useLinkPreview?.width ||
                                     item.thumbnail?.width ||
-                                    item.content[0].width
+                                    item.images[0].width
 								}
 								height={
 									item.useLinkPreview?.height ||
                                     item.thumbnail?.height ||
-                                    item.content[0].height
+                                    item.images[0].height
 								}
 								loading="eager"
-                                unoptimized={true}
 							/>
 							<div
 								className={clsx(

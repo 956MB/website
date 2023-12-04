@@ -15,7 +15,7 @@ export const ui_tdb_landing: IEntry = {
         width: 1920,
         height: 1920,
     },
-    content: [
+    images: [
         {
             path: "/images/tdb-landing/tdb-landing-2.png",
             width: 2880,
@@ -37,7 +37,7 @@ export const ui_wallpaper_sync: IEntry = {
         width: 1458,
         height: 1458,
     },
-	content: [
+	images: [
 		{
 			path: "/images/wallpaper-sync/wallpaper-sync.png",
 			width: 3616,
@@ -59,7 +59,7 @@ export const ui_tx4: IEntry = {
         width: 1260,
         height: 1260,
     },
-	content: [
+	images: [
 		{ path: "/images/tx4-for-real/map.png", width: 2680, height: 1810 },
 		{ path: "/images/tx4-for-real/main.png", width: 2680, height: 1810 },
 		{ path: "/images/tx4-for-real/viewer.png", width: 2680, height: 1810 },
@@ -80,7 +80,7 @@ export const ui_comma_interface_challenge: IEntry = {
         width: 1480,
         height: 1480,
     },
-	content: [
+	images: [
         { path: "/images/comma-interface-challenge/home.png", width: 2160, height: 1080 },
         { path: "/images/comma-interface-challenge/popup.png", width: 2160, height: 1080 },
         { path: "/images/comma-interface-challenge/update.png", width: 2160, height: 1080 },
@@ -101,7 +101,7 @@ export const ui_intros: IEntry = {
         width: 1104,
         height: 1104,
     },
-	content: [
+	images: [
 		{ path: "/images/tro-io/ImagePage.png", width: 1920, height: 947 },
 		{ path: "/images/tro-io/SimilarImages.png", width: 1920, height: 1189 },
 		{ path: "/images/tro-io/Banner.png", width: 1920, height: 368 },
@@ -123,7 +123,7 @@ export const ui_opgg_spectate: IEntry = {
         width: 824,
         height: 824,
     },
-	content: [
+	images: [
 		{ path: "/images/concepts/pros/liiv.png", width: 2208, height: 999 },
 		{ path: "/images/concepts/pros/mundo.png", width: 2415, height: 843 },
 		{ path: "/images/concepts/pros/t1.png", width: 2300, height: 694 },
@@ -139,7 +139,7 @@ export const ui_lol_icon_tool: IEntry = {
 	summary: [
 		"This concept was made before the overhaul to the borders and ranks. This website allows you to pair borders to icons to banners to customize your LoL profile, or see what combinations look good. All level and rank borders/banners and every icon would be available to preview.",
 	],
-	content: [{ path: "/images/concepts/LoL.png", width: 1794, height: 1009 }],
+	images: [{ path: "/images/concepts/LoL.png", width: 1794, height: 1009 }],
 };
 
 export const ui = [
@@ -173,7 +173,7 @@ export const painting_cybertruck_texas: IEntry = {
     thumbnail: {
         path: "/images/drawings/cybertruck-texas/cybertruck-texas-thumb.png", width: 1000, height: 1000
     },
-	content: [
+	images: [
         { path: "/images/drawings/cybertruck-texas/cybertruck-texas.png", width: 5120, height: 2880, },
         { path: "/videos/cybertruck-texas-timelapse.mp4", width: 1920, height: 1080 },
     ],
@@ -193,7 +193,7 @@ export const painting_cybertruck: IEntry = {
         width: 1000,
         height: 1000,
     },
-	content: [
+	images: [
         { path: "/images/drawings/cybertruck/cybertruck-red.png", width: 2174, height: 2933, },
         { path: "/images/drawings/cybertruck/cybertruck-green.png", width: 2174, height: 2933, },
         { path: "/images/drawings/cybertruck/cybertruck-yellow.png", width: 2174, height: 2933, },
@@ -214,7 +214,7 @@ export const redesign_cybertruck: IEntry = {
         width: 1000,
         height: 1000,
     },
-	content: [
+	images: [
         {
 			path: "/images/drawings/cybertruck-redesign/cybertruck-redesign.png",
 			width: 3840,
@@ -246,7 +246,7 @@ export const logo_tdb: IEntry = {
 	summary: [
 		"App icon for my iOS/iPadOS/macOS Tesla database app, TDB. Two versions, the square being the initial iOS app icon, and the circle one for profile pictures and various other things. (Still in development, NOT on the App Store yet.)",
 	],
-	content: [
+	images: [
         { path: "/thumbnails/tdb-circle-thumb.png", width: 1024, height: 1024, },
         { path: "/thumbnails/tdb-square-thumb.png", width: 1024, height: 1024, },
     ],
@@ -260,7 +260,7 @@ export const logo_tbab: IEntry = {
 	summary: [
 		"The \"logo\" I made for myself in the process of drawing characters for my \"GYEA\" script. I noticed after the fact that two of the characters sort of looked like the letter combinations 'TB' and 'AB'. Both of course being initials in my name, Trevor Alexander Bays.",
 	],
-	content: [
+	images: [
         { path: "/thumbnails/tbab-thumb.png", width: 1024, height: 1024, },
     ],
 };
@@ -279,7 +279,7 @@ export const logo_plan: IEntry = {
         width: 571,
         height: 571,
     },
-	content: [
+	images: [
         { path: "/images/concepts/pLan/pLan-logo.png", width: 1600, height: 1600 },
         { path: "/images/concepts/pLan/pLan-x.png", width: 1168, height: 571 },
         { path: "/images/concepts/pLan/pLan-mockup.png", width: 3840, height: 2160 }
@@ -292,12 +292,12 @@ export const logo_d: IEntry = {
     date: "12.2.2023",
 	category: "photoshop",
 	summary: [
-		"I have NO idea what this is, I just started painting.",
+		"I have NO ida what this is, I just started painting.",
 	],
     new: true,
     useLinkPreview: { path: "/images/concepts/d/d-banner.png", width: 1764, height: 588, },
     thumbnail: { path: "/images/concepts/d/d-thumb-1000.png", width: 1000, height: 1000, },
-	content: [
+	images: [
         { path: "/images/concepts/d/d-logo.png", width: 2571, height: 2571 },
         { path: "/images/concepts/d/d-x-banner.png", width: 1797, height: 857 },
         { path: "/videos/d-timelapse.mp4", width: 1440, height: 1440 },
@@ -328,7 +328,7 @@ export const script_circles_only: IEntry = {
     new: true,
 	tags: ["Circles"],
 	linkBlog: "https://www.956mb.com/blog/circles-only-apparently",
-	content: [
+	images: [
 		{
 			path: "/images/circles-only-apparently/circles_only_1.png",
 			width: 1038,
@@ -358,7 +358,7 @@ export const script_eggers_posters_gyea: IEntry = {
     date: "7.19.2023",
 	category: "script",
 	tags: ["GYEA"],
-	content: [
+	images: [
 		{
 			path: "/images/poster-edits/the-northman.png",
 			width: 1500,
@@ -385,7 +385,7 @@ export const script_gyea: IEntry = {
 	category: "script",
 	tags: ["GYEA"],
 	linkBlog: "https://www.956mb.com/blog/is-this-anything",
-	content: [{ path: "/images/concepts/gyea.png", width: 1745, height: 789 }],
+	images: [{ path: "/images/concepts/gyea.png", width: 1745, height: 789 }],
 };
 
 export const script_brands: IEntry = {
@@ -394,7 +394,7 @@ export const script_brands: IEntry = {
     date: "5.25.2023",
 	category: "script",
 	tags: ["Tab"],
-	content: [
+	images: [
 		{
 			path: "/images/brand-logos-scripts/IMG_V678.png",
 			width: 1920,
@@ -425,7 +425,7 @@ export const script_tab: IEntry = {
 	category: "script",
 	tags: ["Tab"],
 	linkBlog: "https://www.956mb.com/blog/very-different-look-now",
-	content: [{ path: "/images/concepts/tab.png", width: 1358, height: 929 }],
+	images: [{ path: "/images/concepts/tab.png", width: 1358, height: 929 }],
 };
 
 export const script_before_tab: IEntry = {
@@ -435,7 +435,7 @@ export const script_before_tab: IEntry = {
 	category: "script",
 	tags: ["Tab"],
 	linkBlog: "https://www.956mb.com/blog/something-new",
-	content: [
+	images: [
 		{
 			path: "/images/something-new/IMG_54322.jpg",
 			width: 1358,
@@ -451,7 +451,7 @@ export const script_hokj: IEntry = {
 	category: "script",
 	tags: ["Hokj"],
 	linkBlog: "https://www.956mb.com/blog/continuation-variation",
-	content: [{ path: "/images/concepts/hokj.png", width: 1362, height: 720 }],
+	images: [{ path: "/images/concepts/hokj.png", width: 1362, height: 720 }],
 };
 
 export const scripts = [

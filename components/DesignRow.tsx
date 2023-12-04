@@ -66,11 +66,10 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 											<Image
 												alt={item.id}
 												className="block object-cover w-full h-full aspect-square cursor-pointer ease-in-out transition-transform duration-75 hover:scale-105"
-												src={item.thumbnail ? item.thumbnail.path : item.content[0].path}
-												width={item.thumbnail ? item.thumbnail.width : item.content[0].width}
-												height={item.thumbnail ? item.thumbnail.height : item.content[0].height}
+												src={item.thumbnail ? item.thumbnail.path : item.images[0].path}
+												width={item.thumbnail ? item.thumbnail.width : item.images[0].width}
+												height={item.thumbnail ? item.thumbnail.height : item.images[0].height}
 												loading="eager"
-                                                unoptimized={true}
                                             />
 										</a>
 										<div
