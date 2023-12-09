@@ -228,19 +228,20 @@ export const painting_power_lines: IEntry = {
 	title: "Power lines in a random town",
     date: "12.9.2023",
 	category: "photoshop",
+    useLinkPreview: { path: "/images/drawings/power-lines/power-lines.png", width: 3000, height: 4000, },
     thumbnail: {
-        path: "/images/drawings/power-lines/power-lines-thumb.jpg",
+        path: "/images/drawings/power-lines/power-lines-thumb.png",
         width: 1000,
         height: 1000,
     },
 	images: [
         {
-			path: "/images/drawings/power-lines/power-lines.jpg",
+			path: "/images/drawings/power-lines/power-lines.png",
 			width: 3000,
 			height: 4000,
 		},
         {
-			path: "/images/drawings/power-lines/power-lines-bw.jpg",
+			path: "/images/drawings/power-lines/power-lines-bw.png",
 			width: 3000,
 			height: 4000,
 		}
