@@ -11,11 +11,11 @@ import Tooltip from "./Tooltip";
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col sticky top-0 lg:top-[75px] items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 sm:gap-4 z-50 bg-black/90 backdrop-blur">
-			<div className="inline-flex flex-col sm:flex-row items-start justify-end gap-[3px] sm:gap-3 leading-[21px]">
-                <span className="text-white font-inter-semibold text-[21px] whitespace-nowrap">
+			<div className="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-[3px] sm:gap-3 leading-[21px]">
+                <span className="text-white font-inter-semibold text-[21px] leading-7">
                     {entry.title}
                 </span>
-				<span className="font-ibmplex-sans-medium text-sm mt-[2px] text-neutral-500">
+				<span className="font-ibmplex-sans-medium text-sm text-neutral-500">
 					{entry.description}
 				</span>
 			</div>
@@ -74,8 +74,8 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 										</a>
 										<div
 											className={clsx(
-												"z-10 absolute bottom-0 sm:opacity-0 sm:transition-opacity sm:duration-200 group-hover:opacity-100 flex flex-col text-start justify-end w-full sm:h-full pt-[16px] sm:pt-0 backdrop-blur-sm sm:backdrop-blur-none pb-[16px] gap-y-2 bg-gradient-to-t from-black/80 sm:from-black/70 to-black/80 sm:to-transparent pl-3 pr-4 pointer-events-none",
-                                                item.category == "photoshop" && "sm:pl-4 sm:pr-4",
+												"z-10 absolute bottom-0 sm:opacity-0 sm:transition-opacity sm:duration-200 group-hover:opacity-100 flex flex-col text-start justify-end w-full sm:h-full pt-[16px] sm:pt-0 sm:backdrop-blur-none pb-[16px] gap-y-2 bg-gradient-to-r sm:bg-gradient-to-t from-black sm:from-black/70 to-black/10 sm:to-transparent pl-3 pr-4 pointer-events-none",
+                                                item.category == "photoshop" && "pl-4 pr-4",
 												item.summary &&
 													item.summary.length <= 0 &&
 													"h-[53px] min-h-[53px] max-h-[53px]"

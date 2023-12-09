@@ -69,12 +69,6 @@ hr {
 }
 
 @font-face {
-	font-family: "GYEA_Bold";
-	src: url("../public/fonts/GYEA/Gyea-Bold.otf");
-	font-weight: 300;
-}
-
-@font-face {
 	font-family: "RobotoMono_Regular";
 	src: url("../public/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf");
 	font-weight: 400;

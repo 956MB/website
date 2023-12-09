@@ -201,7 +201,7 @@ export const painting_cybertruck: IEntry = {
 
 export const redesign_cybertruck: IEntry = {
 	id: "redesign_cybertruck",
-	title: "Cybertruck redesign by u/Wenbell",
+	title: "Cybertruck redesign by u/Wenbell (Photo manipulation)",
     date: "9.4.2023",
 	category: "photoshop",
 	summary: [
