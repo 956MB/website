@@ -166,7 +166,6 @@ export const painting_cybertruck_texas: IEntry = {
 	title: "Cybertruck 2 (Texas)",
     date: "12.1.2023",
 	category: "photoshop",
-    new: true,
 	summary: [
 		"My second Procreate painting of a Cybertruck, again original photograph by <a href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a>. Maybe this one is an improvement on the first, maybe not? I need to get more confident at drawing clean lines and work towards more photorealism.",
 	],
@@ -184,7 +183,6 @@ export const painting_cybertruck: IEntry = {
 	title: "Cybertruck paining",
     date: "11.29.2023",
 	category: "photoshop",
-    new: true,
 	summary: [
 		"My first ever painting / photo manipuation like this using Procreate (I literally just got my iPad 2 days ago to get into this stuff). I'm a huge Cybertruck fan, and I wanted my first attempt to be something related to it or another Tesla product. Credit to <a href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a> for the great photos, and thanks to him for letting me use it as a base layer.",
 	],
@@ -311,7 +309,6 @@ export const logo_plan: IEntry = {
 	title: "pLan",
     date: "5.30.2020",
 	category: "photoshop",
-    new: true,
 	summary: [
 		"“Logo” and “brand aesthetics” for my first programming language, pLan. Which of course doesn’t actually exist yet. It’ll be done in 20 years. I guess I really like coming up with names for programming languages and creating graphics for them more than I like learning how to actually make one.",
 	],
@@ -335,7 +332,6 @@ export const logo_d: IEntry = {
 	summary: [
 		"I have NO ida what this is, I just started painting.",
 	],
-    new: true,
     useLinkPreview: { path: "/images/concepts/d/d-banner.png", width: 1764, height: 588, },
     thumbnail: { path: "/images/concepts/d/o-thumb-1000.png", width: 1000, height: 1000, },
 	images: [
@@ -368,7 +364,6 @@ export const script_circles_only: IEntry = {
 	title: "Circles only, apparently",
     date: "11.12.2023",
 	category: "script",
-    new: true,
 	tags: ["Circles"],
 	linkBlog: "https://www.956mb.com/blog/circles-only-apparently",
 	images: [
