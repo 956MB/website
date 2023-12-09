@@ -20,7 +20,6 @@ specifiers:
   date-fns: ^2.29.3
   dotenv: ^16.0.3
   framer-motion: ^8.5.4
-  headers: ^0.9.6
   html-react-parser: ^3.0.4
   kysely: ^0.23.4
   kysely-planetscale: ^1.2.1
@@ -59,7 +58,6 @@ dependencies:
   date-fns: 2.30.0
   dotenv: 16.3.1
   framer-motion: 8.5.5_biqbaboplfbrettd7655fr4n2y
-  headers: 0.9.6
   html-react-parser: 3.0.16_react@18.2.0
   kysely: 0.23.5
   kysely-planetscale: 1.4.0_6t2ki2pvi6g46d5tqwf2ndvosi
@@ -2179,10 +2177,6 @@ packages:
       hast-util-parse-selector: 3.1.1
       property-information: 6.3.0
       space-separated-tokens: 2.0.2
-    dev: false
-
-  /headers/0.9.6:
-    resolution: {integrity: sha512-jUqE9cWbvlwYbzY2/5KFec4dXl2zUAOJxlFqkip1zogodj5OeOmzRRIZt+jbRyebYNoOQAmje+SviGQ4FU5mYg==}
     dev: false
 
   /hey-listen/1.0.8:
