@@ -7,23 +7,15 @@ export const name = "Alexander Bays";
 export const copyright = "© Alexander Bays 2023";
 export const email = {
 	key: "contact",
-	value: "bays.956mb@gmail.com",
-	url: "mailto:bays.956mb@gmail.com",
+	value: "bays@956mb.com",
+	url: "mailto:bays@956mb.com",
 };
 export const socials = [
 	{ serv: "x", name: "956MB", url: "https://x.com/956MB" },
 	{ serv: "github", name: "956MB", url: "https://github.com/956MB" },
 	{ serv: "reddit", name: "bauera5", url: "https://www.reddit.com/user/bauera5" },
 	{ serv: "ko-fi", name: "956MB", url: "https://ko-fi.com/956mb" },
-	{ serv: "email", name: "", url: "mailto:bays.956mb@gmail.com" },
-];
-
-export const whoami_h = [
-	"aboot meh",
-	"info",
-	"bio",
-	"profile",
-	"hello",
+	{ serv: "email", name: "bays@956mb.com", url: "mailto:bays@956mb.com" },
 ];
 
 export const extras_explained = {

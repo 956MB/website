@@ -149,7 +149,7 @@ export const ui = [
 	ui_intros,
 	ui_comma_interface_challenge,
 	ui_opgg_spectate,
-	// ui_lol_icon_tool,
+	ui_lol_icon_tool,
 ];
 export const ui_section: IEntryGroup = {
 	title: "UI / UX",
@@ -223,13 +223,53 @@ export const redesign_cybertruck: IEntry = {
     ],
 };
 
+export const painting_power_lines: IEntry = {
+	id: "painting_power_lines",
+	title: "Power lines in a random town",
+    date: "12.9.2023",
+	category: "photoshop",
+    thumbnail: {
+        path: "/images/drawings/power-lines/power-lines-thumb.jpg",
+        width: 1000,
+        height: 1000,
+    },
+	images: [
+        {
+			path: "/images/drawings/power-lines/power-lines.jpg",
+			width: 3000,
+			height: 4000,
+		},
+        {
+			path: "/images/drawings/power-lines/power-lines-bw.jpg",
+			width: 3000,
+			height: 4000,
+		}
+    ],
+};
+
+export const sketch_box: IEntry = {
+	id: "sketch_box",
+	title: "A box of some kind",
+    date: "12.9.2023",
+	category: "photoshop",
+	images: [
+        {
+			path: "/images/drawings/sketches/IMG_0180.jpg",
+			width: 2625,
+			height: 2625,
+		}
+    ],
+};
+
 export const drawings = [
+    sketch_box,
+    painting_power_lines,
     painting_cybertruck_texas,
     painting_cybertruck,
     redesign_cybertruck,
 ];
 export const drawings_section: IEntryGroup = {
-	title: "Drawings / Photo Manipulation",
+	title: "Paintings, Sketches and Photo Manipulations",
     category: "drawings",
 	description:
 		"Everything I draw in Procreate or edit Photoshop that falls under photo manipulation or concept art",
@@ -480,7 +520,6 @@ export const groups: IEntryGroups = [ui_section, logos_section, drawings_section
 export const recents_group: IEntryGroupLinks = {
 	title: "New stuff",
     category: "list",
-    useFirsts: [3],
-    links: ["designs/#logo_d", "/designs#painting_cybertruck_texas", "/designs"],
-	items: [logo_d, painting_cybertruck_texas, ui_tdb_landing],
+    links: ["designs/#painting_power_lines", "designs/#logo_d", "/designs#painting_cybertruck_texas"],
+	items: [painting_power_lines, logo_d, painting_cybertruck_texas],
 };
