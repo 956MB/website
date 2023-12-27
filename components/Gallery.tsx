@@ -90,7 +90,7 @@ export function GalleryButtons({
 				"flex flex-row items-center h-full w-full sm:w-auto justify-center sm:justify-right sm:ml-4 sm:min-w-[100px]"
 			)}
 		>
-			<span className="hidden sm:block text-right text-neutral-500 text-xs font-inter-medium mr-3">{`${
+			<span className="hidden sm:block text-right text-neutral-500 text-xs font-neue-haas-grotesk-medium mr-3">{`${
 				selectedIdx + 1
 			} of ${imagesCount}`}</span>
 			<GalleryButton
@@ -98,7 +98,7 @@ export function GalleryButtons({
 				isDisabled={selectedIdx == 0}
 				clickAction={() => updateIdx(-1)}
 			/>
-			<span className="block sm:hidden text-right text-neutral-500 text-xs font-inter-medium mx-3">{`${
+			<span className="block sm:hidden text-right text-neutral-500 text-xs font-neue-haas-grotesk-medium mx-3">{`${
 				selectedIdx + 1
 			} of ${imagesCount}`}</span>
 			<GalleryButton
@@ -139,14 +139,14 @@ export default function Gallery({
 							<CategoryIcon category={item.category} />
 						</Tooltip>
 
-						<a className="text-white text-center font-inter-semibold text-lg sm:text-xl leading-5 py-2 whitespace-nowrap">
+						<a className="text-white text-center font-neue-haas-grotesk-medium text-lg sm:text-xl leading-5 py-2 whitespace-nowrap">
 							{item.title}
 						</a>
 
 						<div className="hidden sm:flex gap-x-2 items-center justify-start pl-2">
 							{item.date && (
 								<div className="flex flex-row gap-1 items-center justify-center bg-black/50 backdrop-blur-lg rounded-full m-0 z-20">
-                                    <span className="text-[12px] leading-[12px] font-inter-semibold cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
+                                    <span className="text-[12px] leading-[12px] font-neue-haas-grotesk-medium cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
                                         {item.date}
                                     </span>
                                 </div>
@@ -166,7 +166,7 @@ export default function Gallery({
 					)}
 				>
 					{item.summary && item.summary.length > 0 && (
-						<span className="text-neutral-300/95 font-inter-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-6 my-5 gallery-summary">
+						<span className="text-neutral-400 font-neue-haas-grotesk-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-6 my-5 gallery-summary">
                             {parse(
                                 item.summary.join("")
                             )}

@@ -47,7 +47,7 @@ export const icon_tdb: IEntry = {
 	date: "09.03.2023",
 	category: "icon",
     summary: [
-		"App icon for my iOS/iPadOS/macOS app \"TDB\". Made by me.",
+		"App icon for my iOS/iPadOS/macOS app <a href=\"https://www.tdb.fyi/\">TDB</a>. Made by me.",
 	],
     credit: false,
 	images: [
@@ -330,7 +330,7 @@ export const extra_cybertruck: IEntry = {
 	category: "wallpaper",
 	tags: ["5K", "MANIPULATION"],
 	summary: [
-		'My photo modification and upscaling of a Cybertruck concept from <a href="https://www.reddit.com/r/ghibli/comments/fo3mnu/thanks_to_ia_ive_made_a_collection_of_flawless_hq/?utm_source=share&utm_medium=web2x&context=3">u/Weenbell</a> on Reddit. Credit to him for the original modification of Cybertruck design.',
+		'My photo manipulation and upscaling of a Cybertruck concept from <a href="https://www.reddit.com/r/ghibli/comments/fo3mnu/thanks_to_ia_ive_made_a_collection_of_flawless_hq/?utm_source=share&utm_medium=web2x&context=3">u/Weenbell</a> on Reddit. Credit to him for the original modification of Cybertruck design.',
 	],
 	link: "https://drive.google.com/drive/folders/1d2DtdnDqvSqY4KfGYtSjHVkodIIr9mjn?usp=sharing",
 	count: 1,

@@ -31,39 +31,3 @@ export function AboutBody() {
         </div>
     );
 }
-
-export function AboutLinks({ mobilePos }: { mobilePos: string }) {
-    const getSocial = (key: string): { color: string, icon: JSX.Element } => {
-        switch (key) {
-            case "github": return { color: "hover:border-neutral-400/80", icon: <Github size={18} /> };
-            case "reddit": return { color: "hover:border-[#FF4500]/80", icon: <FaRedditAlien size={21} /> };
-            case "twitter": return { color: "hover:border-[#1D9BF0]/80", icon: <XIcon /> };
-            case "mastadon": return { color: "hover:border-[#6364FF]/80", icon: <Mastodon size={18} /> };
-            case "discord": return { color: "hover:border-[#5865F2]/80", icon: <Discord size={18} /> };
-            default: return { color: "hover:border-[#9146FF]/80", icon: <Twitch size={18} /> };
-        }
-    }
-
-    return (
-        <div
-            className={clsx(
-                "flex flex-col w-full items-start lg:items-center justify-start mb-[30px] gap-y-[20px] lg:gap-y-[40px]",
-                mobilePos
-            )}
-        >
-            <div className="inline-flex flex-row gap-3">
-                <a className="text-neutral-400 text-sm no-underline mr-auto font-inter-medium whitespace-nowrap">
-                    {email.key}:
-                </a>
-                <a
-                    className="text-white text-sm m-0 font-inter-semibold transition-all duration-100 hover:underline"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href={email.url}
-                >
-                    {email.value}
-                </a>
-            </div>
-        </div>
-    );
-}

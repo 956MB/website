@@ -25,9 +25,9 @@ function BlogSectionTitle({
 					padding ? "pl-5" : ""
 				)}
 			>
-				<span className="font-inter-semibold text-white">{title}</span>
+				<span className="font-neue-haas-grotesk-medium text-white">{title}</span>
 				{sub && (
-					<span className="font-inter-semibold text-neutral-500">
+					<span className="font-neue-haas-grotesk-medium text-neutral-500">
 						{sub}
 					</span>
 				)}
@@ -62,7 +62,7 @@ export default function BlogContainer({
 }) {
 	return (
 		<div className="flex flex-row flex-1 justify-center w-full max-h-full items-start mx-auto max-w-screen-3xl">
-			<div className="hidden lg:flex flex-col shrink w-full max-w-[361px] sticky top-[75px] overflow-auto border-r border-neutral-800">
+			<div className="hidden lg:flex flex-col shrink w-full max-w-[361px] sticky top-0 overflow-auto">
 
 				{selectedPost.links && (
                     <div className="flex flex-col shrink w-full overflow-auto">
@@ -89,7 +89,7 @@ export default function BlogContainer({
                 <BlogEntries />
 			</div>
 
-			<div className="flex flex-col w-full flex-1 max-w-[100%] lg:pl-6 pb-6 gap-10 sm:gap-[55px] min-w-[50%] bg-black/40">
+			<div className="flex flex-col w-full flex-1 max-w-[100%] lg:pl-8 pb-6 gap-10 sm:gap-[55px] min-w-[50%] bg-black/40">
 				{React.Children.toArray(
 					sortContent(
 						allContents.filter((i) => i.category === "blog")
@@ -108,7 +108,7 @@ export default function BlogContainer({
 
 							<div className="flex flex-row sticky top-0 sm:relative items-center justify-start w-full p-0 sm:h-[76px] sm:min-h-[76px] sm:max-h-[76px] pb-4 pt-5 sm:pt-0 sm:pb-0 bg-black/90 backdrop-blur z-50 border-b border-neutral-800 mb-6">
 								<div className="flex flex-col md:flex-row items-start justify-start content-center m-0 w-full gap-2 sm:gap-3">
-									<span className="font-inter-bold text-[23px] sm:text-[26px] max-w-max leading-6 text-white sm:whitespace-nowrap uppercase">
+									<span className="font-neue-haas-grotesk-medium text-[23px] sm:text-[26px] max-w-max leading-6 text-white sm:whitespace-nowrap uppercase">
 										{post.title}
 									</span>
 									<div className="inline-flex flex-row-reverse md:flex-row items-center justify-center child:font-ibmplex-sans-medium child:text-sm child:whitespace-nowrap py-[2px] md:ml-2 gap-x-4">
@@ -118,8 +118,6 @@ export default function BlogContainer({
 									</div>
 								</div>
 							</div>
-
-							{/* <hr className="h-px w-full bg-neutral-800 mb-6 mt-0" /> */}
 
 							<Mdx code={post.body.code} />
 

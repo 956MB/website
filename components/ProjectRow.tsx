@@ -25,7 +25,7 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 							target="_blank"
 							href={entry.link}
 						>
-							<span className="text-3xl text-white font-inter-bold hover:underline">
+							<span className="text-3xl leading-[30px] text-white font-neue-haas-grotesk-medium hover:underline">
 								{entry.title}
 							</span>
 						</a>
@@ -35,7 +35,7 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 						{React.Children.toArray(
 							entry.tags?.map((tag, i) => (
 								<div className="flex flex-row gap-1 items-center justify-center bg-black/40 backdrop-blur-lg rounded-full m-0 z-20 pointer-events-none">
-                                    <span className="text-[12px] leading-[12px] font-inter-semibold cursor-default border border-white/20 text-white/90 rounded-full px-[8px] pt-[8px] pb-[7px]">
+                                    <span className="text-[12px] leading-[12px] font-neue-haas-grotesk-medium cursor-default border border-white/20 text-white/90 rounded-full px-[8px] pt-[8px] pb-[7px]">
                                         {tag}
                                     </span>
                                 </div>
@@ -46,7 +46,7 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 
 				{React.Children.toArray(
 					entry.summary?.map((summary_p, i) => (
-						<a className="font-inter-medium text-[15px] leading-[1.5em] m-0 text-neutral-300">
+						<a className="font-ibmplex-sans-medium text-[15px] leading-[20px] m-0 text-neutral-400">
 							{Parse(summary_p)}
 						</a>
 					))

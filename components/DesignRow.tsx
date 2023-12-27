@@ -10,9 +10,9 @@ import Tooltip from "./Tooltip";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div className="flex flex-col sticky top-0 lg:top-[75px] items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 sm:gap-4 z-50 bg-black/90 backdrop-blur">
+		<div className="flex flex-col sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 sm:gap-4 z-50 bg-black/90 backdrop-blur">
 			<div className="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-[3px] sm:gap-3 leading-[21px]">
-                <span className="text-white font-inter-semibold text-[21px] leading-7">
+                <span className="text-white font-neue-haas-grotesk-medium text-[21px] leading-7">
                     {entry.title}
                 </span>
 				<span className="font-ibmplex-sans-medium text-sm text-neutral-500">
@@ -38,7 +38,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 								<React.Fragment>
 									<div
 										className={clsx(
-											"relative z-0 flex flex-col justify-start group box-content rounded-lg overflow-hidden"
+											"relative z-0 flex flex-col justify-start group box-content rounded-md overflow-hidden"
 										)}
                                         id={item.id}
 										onClick={
@@ -49,14 +49,14 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 									>
                                         {item.new == true && (
                                             <div className="flex flex-row gap-1 absolute top-2 right-2 items-center justify-center bg-black/50 backdrop-blur-lg rounded-full m-0 z-20">
-                                                <span className="text-[12px] leading-[12px] font-inter-semibold cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
+                                                <span className="text-[12px] leading-[12px] font-neue-haas-grotesk-medium cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
                                                     {"NEW"}
                                                 </span>
                                             </div>
                                         )}
 
 										<a
-											className="flex flex-col relative justify-end group rounded-lg overflow-hidden"
+											className="flex flex-col relative justify-end group rounded-md overflow-hidden"
 											href={
 												item.linkBlog
 													? item.linkBlog
@@ -99,7 +99,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                                         content={item.date}
                                                         position={"top"}
                                                     >
-                                                        <span className="text-white font-inter-semibold w-full text-md">
+                                                        <span className="text-white font-neue-haas-grotesk-medium w-full text-md">
                                                             {item.title}
                                                         </span>
                                                     </Tooltip>

@@ -26,7 +26,7 @@ function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
             target="_blank"
             href={url}
             className={clsx(
-                "flex text-center items-center justify-right mt-[2px] no-underline whitespace-nowrap transition-all duration-75",
+                "flex text-center items-center justify-center no-underline whitespace-nowrap transition-all duration-75",
                 serv.includes("x") && "child:hover:text-redc",
                 serv.includes("github") && "child:hover:text-greenc",
                 serv.includes("reddit") && "child:hover:text-bluec",
@@ -38,7 +38,7 @@ function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
         >
             <span
                 className={clsx(
-                    "font-inter-semibold uppercase !text-white"
+                    "font-neue-haas-grotesk-medium uppercase !text-white"
                 )}
             >
                 {isHovered ? (name || serv) : serv}
@@ -61,19 +61,19 @@ export default function Header() {
 	return (
 		<div
 			className={clsx(
-				"relative lg:sticky lg:top-0 z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full flex justify-center"
+				"relative z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full flex justify-center"
 			)}
 		>
 			<div
 				className={clsx(
-					"flex flex-row gap-6 sm:gap-10 m-auto items-center justify-start w-full h-full max-w-screen-3xl mx-6 sm:mx-7 border-b border-neutral-800 bg-black/90 backdrop-blur"
+					"flex flex-row gap-6 sm:gap-10 m-auto items-center justify-start w-full h-full max-w-screen-3xl mx-6 sm:mx-7 bg-black/90 backdrop-blur"
 				)}
 			>
 				<div className="relative inline-flex justify-center items-center h-full">
 					<Link key={"home"} href={"/"}>
 						<Image
 							alt="logo"
-							className="w-6 h-6 min-w-[24px] min-h-[24px] object-contain cursor-pointer mt-[2px] ml-[2px]"
+							className="w-6 h-6 min-w-[24px] min-h-[24px] object-contain cursor-pointer ml-[2px]"
 							src={logo_s}
 							placeholder="blur"
 							priority
@@ -104,7 +104,7 @@ export default function Header() {
 									<Link
 										href={path}
 										className={clsx(
-											"text-[13px] sm:text-[14px] leading-[14px] no-underline whitespace-nowrap mt-[2px] hover:text-white",
+											"text-[13px] sm:text-[14px] leading-[14px] no-underline whitespace-nowrap hover:text-white",
 											{
 												"text-neutral-500": !isActive,
 											}
@@ -112,10 +112,9 @@ export default function Header() {
 									>
 										<span
 											className={clsx(
-												"relative font-inter-semibold uppercase text-center",
+												"relative font-neue-haas-grotesk-medium uppercase text-center",
 												(pathname.includes(name) ||
-													pathname == path) &&
-													"text-white font-inter-bold"
+													pathname == path) && "text-white"
 											)}
 										>
 											{name}
@@ -154,13 +153,13 @@ export function Footer() {
 				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center"
 			)}
 		>
-			<div className="flex flex-col justify-center items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-6 lg:mx-7 border-t border-neutral-800 flex-nowrap bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1">
+			<div className="flex flex-col justify-center items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-6 lg:mx-7 flex-nowrap bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1">
 				<div className="flex flex-row lg:hidden w-full justify-between sm:justify-start items-center gap-3  text-[13px] leading-[13px]">
                     {React.Children.toArray(
                         socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
                     )}
 				</div>
-				<div className="flex flex-row w-full text-[13px] sm:text-[14px] leading-[14px] font-inter-semibold text-left text-neutral-500">
+				<div className="flex flex-row w-full text-[13px] sm:text-[14px] leading-[14px] font-neue-haas-grotesk-medium text-left text-neutral-500">
 					<div className="flex flex-col justify-center items-start w-full h-full uppercase py-4 mr-auto">
 						<span>{copyright}</span>
 					</div>
@@ -168,7 +167,7 @@ export function Footer() {
 						rel="noopener noreferrer"
 						target="_blank"
 						href={"https://vercel.com/"}
-						className="flex items-center text-white transition-all duration-100 mt-[1px]"
+						className="flex items-center text-white transition-all duration-100"
 					>
 						<VercelIcon />
 					</a>

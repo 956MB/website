@@ -16,6 +16,7 @@ export interface IEntry {
     new?: boolean;
     useLinkPreview?: IEntryImage;
     credit?: boolean;
+    aspectRatio?: boolean;
     groups?: string[];
     linkBlog?: string;
     thumbnail?: IEntryImage;

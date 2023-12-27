@@ -56,13 +56,13 @@ export default function RecentRow({ entry }: { entry: IEntryGroupLinks }) {
 								)}
 							>
 								<div className="flex flex-row gap-x-3 items-center justify-start">
-									<span className="text-white font-inter-semibold text-md truncate">
+									<span className="text-white font-neue-haas-grotesk-medium text-md truncate">
 										{item.title}
 									</span>
 
 									{item.date && (
 										<div className="flex flex-row gap-1 items-center justify-center bg-black/30 backdrop-blur-lg rounded-full m-0 z-20 pointer-events-none ml-auto">
-											<span className="text-[12px] leading-[12px] font-inter-semibold cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
+											<span className="text-[12px] leading-[12px] font-neue-haas-grotesk-medium cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
 												{item.date}
 											</span>
 										</div>

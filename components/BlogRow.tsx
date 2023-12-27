@@ -24,8 +24,8 @@ export default function BlogRow({ post }: { post: Content }) {
 					href={`/blog/${post.slug}`}
 				>
 					<span
-						className={clsx("font-inter-semibold hover:underline hover:text-white",
-							selected && "text-white font-inter-bold"
+						className={clsx("font-neue-haas-grotesk-medium hover:underline hover:text-white",
+							selected && "text-white font-neue-haas-grotesk-bold"
 						)}
 					>
 						{post.title}

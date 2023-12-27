@@ -134,6 +134,21 @@ hr {
 	src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-SemiBold.ttf");
 	font-weight: 600;
 }
+@font-face {
+	font-family: "Neue_Haas_Grotesk_Roman";
+	src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayRoman.ttf");
+	font-weight: 300;
+}
+@font-face {
+	font-family: "Neue_Haas_Grotesk_Medium";
+	src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayMedium.ttf");
+	font-weight: 500;
+}
+@font-face {
+	font-family: "Neue_Haas_Grotesk_Bold";
+	src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayBold.ttf");
+	font-weight: 700;
+}
 
 .font-gyea-bold {
 	font-family: "GYEA_Bold";
@@ -177,18 +192,27 @@ hr {
 .font-ibmplex-sans-semibold {
 	font-family: "IBMPlex_Sans_SemiBold";
 }
+.font-neue-haas-grotesk-regular {
+	font-family: "Neue_Haas_Grotesk_Roman";
+}
+.font-neue-haas-grotesk-medium {
+	font-family: "Neue_Haas_Grotesk_Medium";
+}
+.font-neue-haas-grotesk-bold {
+	font-family: "Neue_Haas_Grotesk_Bold";
+}
 
 .highlight {
-	font-family: "Inter_Bold" !important;
+	font-family: "Neue_Haas_Grotesk_Bold" !important;
 	color: white !important;
 }
 .large-highlight {
-	font-family: "Inter_Bold" !important;
+	font-family: "Neue_Haas_Grotesk_Bold" !important;
 	color: white !important;
 	font-size: 1.2rem !important;
 }
 .name-highlight {
-    font-family: "Inter_Bold" !important;
+    font-family: "Neue_Haas_Grotesk_Bold" !important;
     color: white !important;
 	font-size: 1.5rem !important;
 }
@@ -381,28 +405,28 @@ table {
 }
 
 .prose p {
-	@apply text-neutral-300 font-inter-medium text-sm leading-6 mb-6 tracking-wide;
+	@apply text-neutral-300 font-neue-haas-grotesk-medium text-sm leading-5 mb-6 tracking-wide;
 }
 .prose li {
-	@apply text-neutral-300 font-inter-medium text-sm;
+	@apply text-neutral-300 font-neue-haas-grotesk-medium text-sm;
 }
 .prose li::marker {
-	@apply text-white font-inter-bold text-sm;
+	@apply text-white font-neue-haas-grotesk-bold text-sm;
 }
 .prose strong {
-	@apply text-white font-inter-semibold text-sm transition-all duration-100;
+	@apply text-white font-neue-haas-grotesk-medium text-sm transition-all duration-100;
 }
 .prose h2 {
-	@apply text-white font-inter-semibold mb-6;
+	@apply text-white font-neue-haas-grotesk-medium mb-6;
 }
 .prose h3 {
-	@apply text-white font-inter-semibold mb-6;
+	@apply text-white font-neue-haas-grotesk-medium mb-6;
 }
 .prose h4 {
-	@apply text-white font-inter-bold mb-6;
+	@apply text-white font-neue-haas-grotesk-bold mb-6;
 }
 .project-h h3 {
-	@apply relative text-white font-inter-bold text-[28px] leading-7 whitespace-nowrap cursor-pointer;
+	@apply relative text-white font-neue-haas-grotesk-bold text-[28px] leading-7 whitespace-nowrap cursor-pointer;
 }
 #projects-container :last-child {
 	@apply border-b-0;

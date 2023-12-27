@@ -166,6 +166,7 @@ export const painting_cybertruck_texas: IEntry = {
 	title: "Cybertruck 2 (Texas)",
     date: "12.1.2023",
 	category: "photoshop",
+    aspectRatio: true,
 	summary: [
 		"My second Procreate painting of a Cybertruck, again original photograph by <a href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a>. Maybe this one is an improvement on the first, maybe not? I need to get more confident at drawing clean lines and work towards more photorealism.",
 	],
@@ -183,6 +184,7 @@ export const painting_cybertruck: IEntry = {
 	title: "Cybertruck paining",
     date: "11.29.2023",
 	category: "photoshop",
+    aspectRatio: true,
 	summary: [
 		"My first ever painting / photo manipuation like this using Procreate (I literally just got my iPad 2 days ago to get into this stuff). I'm a huge Cybertruck fan, and I wanted my first attempt to be something related to it or another Tesla product. Credit to <a href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a> for the great photos, and thanks to him for letting me use it as a base layer.",
 	],
@@ -201,7 +203,7 @@ export const painting_cybertruck: IEntry = {
 
 export const redesign_cybertruck: IEntry = {
 	id: "redesign_cybertruck",
-	title: "Cybertruck redesign by u/Wenbell (Photo manipulation)",
+	title: "Cybertruck redesign by u/Wenbell",
     date: "9.4.2023",
 	category: "photoshop",
 	summary: [
@@ -226,6 +228,7 @@ export const painting_power_lines: IEntry = {
 	title: "Power lines in a random town",
     date: "12.9.2023",
 	category: "photoshop",
+    aspectRatio: true,
     useLinkPreview: { path: "/images/drawings/power-lines/power-lines.png", width: 3000, height: 4000, },
     thumbnail: {
         path: "/images/drawings/power-lines/power-lines-thumb.png",

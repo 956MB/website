@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 
 export default function BlogLink({ link, num }: { link: string, num: number }) {
@@ -23,10 +22,10 @@ export default function BlogLink({ link, num }: { link: string, num: number }) {
             >
                 <FiArrowUpRight
                     size={18}
-                    className={"text-neutral-500 -ml-[3px]"}
+                    className={"text-neutral-500 -ml-[3px] pointer-events-none noselect"}
                 />
                 <span
-                    className={clsx("hover:underline font-inter-medium")}
+                    className={clsx("hover:underline font-neue-haas-grotesk-medium")}
                 >
                     {label}
                 </span>

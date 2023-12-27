@@ -11,10 +11,10 @@ import { LiaDownloadSolid } from "react-icons/lia";
 
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div className="flex flex-col sticky top-0 lg:top-[75px] items-start justify-start w-full max-w-screen-3xl pt-[13px] sm:pt-4 pb-0 m-0 gap-3 sm:gap-4 sm:z-50 bg-black/90 backdrop-blur z-50">
+		<div className="flex flex-col sticky top-0 items-start justify-start w-full max-w-screen-3xl pt-[13px] sm:pt-4 pb-0 m-0 gap-3 sm:gap-4 sm:z-50 bg-black/90 backdrop-blur z-50">
 			<div className="flex flex-col sm:flex-row w-full max-w-screen-3xl items-start sm:items-center gap-3">
 				<div className="inline-flex flex-col sm:flex-row items-start justify-end gap-[3px] sm:gap-3 leading-[21px]">
-                    <span className="text-white font-inter-semibold text-[21px] whitespace-nowrap">
+                    <span className="text-white font-neue-haas-grotesk-medium text-[21px] whitespace-nowrap">
                         {entry.title}
                     </span>
                     <span className="font-ibmplex-sans-medium text-sm mt-[1px] text-neutral-500">
@@ -53,7 +53,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 								{item.count && item.count > 1 && (
                                     <div className="flex flex-row gap-1 absolute top-2 right-2 items-center justify-center bg-black/30 backdrop-blur-lg rounded-full m-0 z-20">
                                         <div className="inline-flex flex-row justify-center items-center gap-1 cursor-default border border-white/20 text-white/90 rounded-full px-2 py-[6px]">
-                                            <span className="text-[12px] leading-[12px] font-inter-semibold">
+                                            <span className="text-[12px] leading-[12px] font-neue-haas-grotesk-medium">
                                                 {item.count}
                                             </span>
                                             <MdOutlineLayers size={16} />
@@ -95,9 +95,9 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 									)}
 								>
 									<div className="flex flex-row w-full gap-x-2 items-start justify-start">
-										<div className="flex flex-col w-full justify-start items-start gap-y-0">
+										<div className="flex flex-col w-full justify-start items-start gap-y-1">
 											<div className="flex flex-row gap-2 items-center justify-start w-full">
-												<span className="text-white font-inter-semibold text-base truncate m-0">
+												<span className="text-white font-neue-haas-grotesk-medium text-base truncate m-0">
 													{item.title}
 												</span>
 
