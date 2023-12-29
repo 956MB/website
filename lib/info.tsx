@@ -11,16 +11,16 @@ export const email = {
 	url: "mailto:bays@956mb.com",
 };
 export const socials = [
-	{ serv: "x", name: "956MB", url: "https://x.com/956MB" },
-	{ serv: "github", name: "956MB", url: "https://github.com/956MB" },
-	{ serv: "reddit", name: "bauera5", url: "https://www.reddit.com/user/bauera5" },
-	{ serv: "ko-fi", name: "956MB", url: "https://ko-fi.com/956mb" },
-	{ serv: "email", name: "bays@956mb.com", url: "mailto:bays@956mb.com" },
+	{ idx: 0, serv: "x", name: "956MB", url: "https://x.com/956MB" },
+	{ idx: 1, serv: "github", name: "956MB", url: "https://github.com/956MB" },
+	{ idx: 2, serv: "reddit", name: "bauera5", url: "https://www.reddit.com/user/bauera5" },
+	{ idx: 3, serv: "ko-fi", name: "956MB", url: "https://ko-fi.com/956mb" },
+	{ idx: 4, serv: "email", name: "bays@956mb.com", url: "mailto:bays@956mb.com" },
 ];
 
 export const extras_explained = {
     "title": "Why this page?",
-    "description": "I love screen grabbing from things like movies/TV/games, and then using Photoshop or Topaz Photo AI to make them into wallpapers. I also feel a great urge to share them with others since I think they're so cool, and most things arent natively in 5K (yet). Hopefully this section comes across an a \"public repo\" of sorts for cool wallpapers and stuff, and not me trying to claim these as my own works. Enjoy.",
+    "description": "I love screen grabbing from things like movies/TV/games, and then using Photoshop or Topaz Photo AI to make them into wallpapers. I also feel a great urge to share them with others since I think they're so cool, and most things arent natively in 5K (yet). Hopefully this section comes across as a \"public repo\" of sorts for cool wallpapers and stuff, and not me trying to claim these as my own works (obviously except for the ones I actually did make myself). Enjoy.",
     "disclaimer": "Anything that is marked I DO NOT take credit for. I have NOT photographed, painted or rendered anything here unless specified. I am just trying to share things I've messed with or that I personally use for others to enjoy.",
 }
 

@@ -333,7 +333,7 @@ export const logo_d: IEntry = {
     date: "12.2.2023",
 	category: "photoshop",
 	summary: [
-		"I have NO ida what this is, I just started painting.",
+		"I have NO idea what this is, I just started painting.",
 	],
     useLinkPreview: { path: "/images/concepts/d/d-banner.png", width: 1764, height: 588, },
     thumbnail: { path: "/images/concepts/d/o-thumb-1000.png", width: 1000, height: 1000, },

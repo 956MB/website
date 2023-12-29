@@ -17,7 +17,9 @@ const navItems = {
 	"/extras": { name: "extras" },
 };
 
-function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
+const socialColors = ["redc", "greenc", "bluec", "yellowc", "orangec"];
+
+function Social ({idx, serv, name, url}: {idx: number, serv: string, name: string, url: string}) {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -27,22 +29,19 @@ function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
             href={url}
             className={clsx(
                 "flex text-center items-center justify-center no-underline whitespace-nowrap transition-all duration-75",
-                serv.includes("x") && "child:hover:text-redc",
-                serv.includes("github") && "child:hover:text-greenc",
-                serv.includes("reddit") && "child:hover:text-bluec",
-                serv.includes("ko-fi") && "child:hover:text-yellowc",
-                serv.includes("email") && "child:hover:text-orangec"
+                `child:hover:text-${socialColors[idx]}`
             )}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <span
                 className={clsx(
-                    "font-neue-haas-grotesk-medium uppercase !text-white"
+                    "font-neue-haas-grotesk-medium uppercase !text-white text-[13px] sm:text-[14px] leading-[14px]"
                 )}
             >
                 {isHovered ? (name || serv) : serv}
             </span>
+
             {
                 <FiArrowUpRight
                     size={18}
@@ -86,7 +85,7 @@ export default function Header() {
 				</div>
 
 				<div className="flex sm:inline-flex flex-row sm:gap-10 items-center justify-between sm:justify-center h-full w-full sm:w-auto overflow-hidden">
-					{Object.entries(navItems).map(([path, { name }]) => {
+					{Object.entries(navItems).map(([path, { name }], i) => {
 						const isActive = path === pathname;
 
 						return (
@@ -123,10 +122,7 @@ export default function Header() {
 											pathname == path) && (
 											<div className={clsx(
                                                 "absolute inset-x-0 bottom-0 h-[3px]",
-                                                path.includes("/projects") && "bg-redc",
-                                                path.includes("/designs") && "bg-greenc",
-                                                path.includes("/blog") && "bg-bluec",
-                                                path.includes("/extras") && "bg-yellowc"
+                                                `bg-${socialColors[i]}`
                                             )}></div>
 										)}
 									</Link>
@@ -138,7 +134,7 @@ export default function Header() {
 
 				<div className="hidden lg:inline-flex ml-auto flex-row justify-center gap-6 text-[14px] leading-[14px]">
                     {React.Children.toArray(
-                        socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
+                        socials.map(({idx, serv, name, url}) => <Social idx={idx} serv={serv} name={name} url={url} />)
                     )}
 				</div>
 			</div>
@@ -156,7 +152,7 @@ export function Footer() {
 			<div className="flex flex-col justify-center items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-6 lg:mx-7 flex-nowrap bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1">
 				<div className="flex flex-row lg:hidden w-full justify-between sm:justify-start items-center gap-3  text-[13px] leading-[13px]">
                     {React.Children.toArray(
-                        socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
+                        socials.map(({idx, serv, name, url}) => <Social idx={idx} serv={serv} name={name} url={url} />)
                     )}
 				</div>
 				<div className="flex flex-row w-full text-[13px] sm:text-[14px] leading-[14px] font-neue-haas-grotesk-medium text-left text-neutral-500">

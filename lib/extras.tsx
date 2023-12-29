@@ -115,6 +115,47 @@ export const icons_section: IEntryGroup = {
 
 // NOTE: wallpapers
 
+export const extra_d: IEntry = {
+	id: "extra_d",
+	title: "\"D\" / \"O\"",
+	date: "12.29.2023",
+	category: "wallpaper",
+	tags: ["6K", "paint"],
+	summary: [
+		"I have NO idea what this is, I just started painting. Made by me. <a href=\"https://www.956mb.com/designs/#logo_d\">\"D\" / \"O\"</a>.",
+	],
+	link: "https://drive.google.com/drive/folders/1mYTo3YpLKCwEOMqpEMnuSm0Sqar4z5qj?usp=sharing",
+    credit: false,
+	images: [
+		{
+			path: "/images/concepts/d/d-wallpaper-thumb.png",
+			width: 2304,
+			height: 1296,
+		},
+	],
+};
+
+export const extra_pLan: IEntry = {
+	id: "extra_pLan",
+	title: "pLan",
+	date: "12.29.2023",
+	category: "wallpaper",
+	tags: ["6K", "paint"],
+	summary: [
+		"Painting used as the banner/background of my fake programming language \"Brand\", <a href=\"https://www.956mb.com/designs/#logo_plan\">pLan</a>. Made by me.",
+	],
+    count: 2,
+	link: "https://drive.google.com/drive/folders/1HNcP5ZXG5qLHVh9LqCcKtsjbRhOXWd_s?usp=sharing",
+    credit: false,
+	images: [
+		{
+			path: "/images/concepts/pLan/pLan-thumb.png",
+			width: 2048,
+			height: 1152,
+		},
+	],
+};
+
 export const extra_polestar_synergy: IEntry = {
 	id: "extra_polestar_synergy",
 	title: "Polestar Synergy",
@@ -345,6 +386,8 @@ export const extra_cybertruck: IEntry = {
 };
 
 export const wallpapers = [
+    extra_d,
+    extra_pLan,
 	extra_polestar_synergy,
 	extra_maybe_tomorrow,
 	extra_ghibli_colors,

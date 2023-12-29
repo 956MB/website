@@ -11,7 +11,7 @@ import { LiaDownloadSolid } from "react-icons/lia";
 
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div className="flex flex-col sticky top-0 items-start justify-start w-full max-w-screen-3xl pt-[13px] sm:pt-4 pb-0 m-0 gap-3 sm:gap-4 sm:z-50 bg-black/90 backdrop-blur z-50">
+		<div className="flex flex-col sticky top-0 items-start justify-start w-full max-w-screen-3xl pt-[13px] sm:pt-4 pb-0 m-0 gap-3 sm:z-50 bg-black/90 backdrop-blur z-50">
 			<div className="flex flex-col sm:flex-row w-full max-w-screen-3xl items-start sm:items-center gap-3">
 				<div className="inline-flex flex-col sm:flex-row items-start justify-end gap-[3px] sm:gap-3 leading-[21px]">
                     <span className="text-white font-neue-haas-grotesk-medium text-[21px] whitespace-nowrap">
@@ -35,7 +35,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 			<ExtraHeader entry={entry} />
 			<div
 				className={clsx(
-					"grid justify-center items-start gap-5 lg:gap-3 w-full max-w-screen-3xl pt-5 sm:pt-3",
+					"grid justify-center items-start gap-2 lg:gap-3 w-full max-w-screen-3xl pt-4",
 					entry.category === "icons"
 						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
 						: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
@@ -64,9 +64,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 									className={clsx(
 										"relative flex flex-col justify-end group object-cover overflow-hidden rounded-lg bg-gradient-to-t from-white/10 to-transparent backdrop-blur-sm sm:backdrop-blur-none",
 										item.link && " cursor-pointer",
-										item.link &&
-											item.category === "wallpaper" &&
-											"child:hover:scale-105"
+										item.category === "wallpaper" && "child:hover:scale-105"
 									)}
 									rel="noopener noreferrer"
 									target="_blank"
@@ -88,7 +86,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 								</a>
 								<div
 									className={clsx(
-										"z-10 flex flex-col text-start justify-center w-full pb-[16px] pt-[16px] gap-y-2",
+										"z-10 flex flex-col text-start justify-center w-full pb-[16px] pt-[10px] gap-y-2",
 										item.summary &&
 											item.summary.length <= 0 &&
 											"h-[53px] min-h-[53px] max-h-[53px]"
