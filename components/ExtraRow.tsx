@@ -11,7 +11,7 @@ import { LiaDownloadSolid } from "react-icons/lia";
 
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div className="flex flex-col sticky top-0 items-start justify-start w-full max-w-screen-3xl pt-[13px] sm:pt-4 pb-0 m-0 gap-3 sm:z-50 bg-black/90 backdrop-blur z-50">
+		<div className="flex flex-col sticky top-0 items-start justify-start w-full max-w-screen-3xl pt-4 sm:pt-4 pb-0 m-0 gap-3 sm:z-50 bg-black/90 backdrop-blur z-50">
 			<div className="flex flex-col sm:flex-row w-full max-w-screen-3xl items-start sm:items-center gap-3">
 				<div className="inline-flex flex-col sm:flex-row items-start justify-end gap-[3px] sm:gap-3 leading-[21px]">
                     <span className="text-white font-neue-haas-grotesk-medium text-[21px] whitespace-nowrap">

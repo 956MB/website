@@ -119,7 +119,7 @@ export default function Gallery({
 }) {
 	return (
 		<div className="flex flex-col absolute top-0 justify-start items-center left-0 w-screen h-screen bg-black/90 pointer-events-all z-[99] backdrop-blur">
-			<div className="flex flex-col w-full justify-start items-center overflow-auto">
+			<div className="flex flex-col w-full justify-start items-center overflow-auto h-full">
 				<div className="flex flex-row sticky top-0 items-center w-full min-h-[55px] justify-center bg-black/90 backdrop-blur border-b border-neutral-800 px-2 sm:px-3">
 
                     <div className="flex flex-row items-center h-full w-full justify-left">
@@ -166,7 +166,7 @@ export default function Gallery({
 					)}
 				>
 					{item.summary && item.summary.length > 0 && (
-						<span className="text-neutral-400 font-neue-haas-grotesk-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-6 my-5 gallery-summary">
+						<span className="text-neutral-400 font-neue-haas-grotesk-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-5 my-3 sm:mx-6 sm:my-5 gallery-summary">
                             {parse(
                                 item.summary.join("")
                             )}
@@ -179,7 +179,7 @@ export default function Gallery({
 				</div>
 
 				<div className={clsx(
-                    "flex flex-col flex-grow items-center gap-3",
+                    "flex flex-col flex-grow items-center justify-center sm:justify-start gap-3 h-full sm:h-auto",
                     item.images.length <= 1 ? "max-w-screen-3xl" : "max-w-screen-xl"
                 )}>
 					{React.Children.toArray(

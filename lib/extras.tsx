@@ -122,7 +122,7 @@ export const extra_d: IEntry = {
 	category: "wallpaper",
 	tags: ["6K", "paint"],
 	summary: [
-		"I have NO idea what this is, I just started painting. Made by me. <a href=\"https://www.956mb.com/designs/#logo_d\">\"D\" / \"O\"</a>.",
+		"I have NO idea what this is, I just started painting. Made by me. <a href=\"https://www.956mb.com/designs/#logo_d\">\"D\" / \"O\"</a>. ",
 	],
 	link: "https://drive.google.com/drive/folders/1mYTo3YpLKCwEOMqpEMnuSm0Sqar4z5qj?usp=sharing",
     credit: false,

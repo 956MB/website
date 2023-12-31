@@ -207,7 +207,7 @@ export const redesign_cybertruck: IEntry = {
     date: "9.4.2023",
 	category: "photoshop",
 	summary: [
-		'My photo manipulation (all the white) of a Cybertruck concept from <a href="https://www.reddit.com/r/ghibli/comments/fo3mnu/thanks_to_ia_ive_made_a_collection_of_flawless_hq/?utm_source=share&utm_medium=web2x&context=3">u/Weenbell</a> on Reddit. Credit to him for the original modification of Cybertruck design.',
+		'My photo manipulation (all the white) of a Cybertruck concept from <a href="https://www.reddit.com/r/cybertruck/comments/mlshr8/what_are_your_thoughts_about_this_for_farming_or/">(IDK he deleted his account... but it wasn\'t me!)</a>. Credit to whoever the guy was for the original modification of Cybertruck design.',
 	],
     thumbnail: {
         path: "/images/drawings/cybertruck-redesign/cybertruck-redesign-thumb.png",

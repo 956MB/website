@@ -30,7 +30,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col flex-wrap w-full relative justify-center items-center max-w-screen-3xl">
 			<DesignHeader entry={entry} />
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 justify-center items-start gap-5 lg:gap-3 gap-y-4 sm:gap-y-3 w-full pt-4">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 justify-center items-start gap-5 lg:gap-3 gap-y-3 w-full pt-4">
 				{React.Children.toArray(
 					entry.items.map((item, i) => (
 						<PortalWithState closeOnOutsideClick closeOnEsc>
@@ -38,7 +38,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 								<React.Fragment>
 									<div
 										className={clsx(
-											"relative z-0 flex flex-col justify-start group box-content rounded-md overflow-hidden"
+											"relative z-0 flex flex-col justify-start group box-content rounded-lg overflow-hidden"
 										)}
                                         id={item.id}
 										onClick={
@@ -56,7 +56,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                         )}
 
 										<a
-											className="flex flex-col relative justify-end group rounded-md overflow-hidden"
+											className="flex flex-col relative justify-end group rounded-lg overflow-hidden"
 											href={
 												item.linkBlog
 													? item.linkBlog
