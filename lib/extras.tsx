@@ -2,6 +2,26 @@ import { IEntry, IEntryGroup, IEntryGroups } from "./interfaces";
 
 // NOTE: icons
 
+export const icon_photoshop: IEntry = {
+	id: "icon_photoshop",
+	title: "Photoshop 2024 (Rosetta)",
+	date: "1.1.2024",
+	category: "icon",
+    summary: [
+		"Special Rosetta (macOS) version of the Photoshop 2024 app icon. Made by me.",
+	],
+	link: "https://store.956mb.com/l/photoshop-rosetta-icon",
+	count: 5,
+    credit: false,
+	images: [
+		{
+			path: "/images/extras/icons/photoshop-1.png",
+			width: 1024,
+			height: 1024,
+		},
+	],
+};
+
 export const icon_vscodium: IEntry = {
 	id: "icon_vscodium",
 	title: "VSCodium",
@@ -15,7 +35,7 @@ export const icon_vscodium: IEntry = {
     credit: true,
 	images: [
 		{
-			path: "/images/extras/icons/vscodium.png",
+			path: "/images/extras/icons/vscodium-1.png",
 			width: 1024,
 			height: 1024,
 		},
@@ -34,7 +54,7 @@ export const icon_parallels: IEntry = {
     credit: true,
 	images: [
 		{
-			path: "/images/extras/icons/Parallels/parallels-angled.png",
+			path: "/images/extras/icons/parallels-1.png",
 			width: 1024,
 			height: 1024,
 		},
@@ -98,6 +118,7 @@ export const icon_mssnc: IEntry = {
 };
 
 export const icons = [
+    icon_photoshop,
 	icon_vscodium,
     icon_parallels,
     icon_tdb,

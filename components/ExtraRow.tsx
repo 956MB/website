@@ -52,11 +52,13 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 							>
 								{item.count && item.count > 1 && (
                                     <div className="flex flex-row gap-1 absolute top-2 right-2 items-center justify-center bg-black/30 backdrop-blur-lg rounded-full m-0 z-20">
-                                        <div className="inline-flex flex-row justify-center items-center gap-1 cursor-default border border-white/20 text-white/90 rounded-full px-2 py-[6px]">
+                                        <div className="inline-flex flex-row justify-center items-center gap-1 cursor-default border border-white/20 text-white/90 rounded-full px-2 py-[6px] min-w-[26px]">
                                             <span className="text-[12px] leading-[12px] font-neue-haas-grotesk-medium">
                                                 {item.count}
                                             </span>
-                                            <MdOutlineLayers size={16} />
+                                            <div className="relative hidden sm:block">
+                                                <MdOutlineLayers size={16} />
+                                            </div>
                                         </div>
                                     </div>
 								)}
@@ -75,8 +77,9 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 										className={clsx(
 											"block w-full h-full ease-linear delay-0 transition-transform duration-100`",
 											item.category === "icon"
-												? "aspect-square object-contain scale-75"
-												: "aspect-video sm:aspect-video object-cover"
+												? "aspect-square object-contain"
+												: "aspect-video sm:aspect-video object-cover",
+                                            (item.id === "icon_tdb" || item.id === "icon_mssnc" || item.id === "icon_2048we") && "scale-75"
 										)}
 										src={item.images[0].path}
 										width={item.images[0].width}
@@ -95,7 +98,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 									<div className="flex flex-row w-full gap-x-2 items-start justify-start">
 										<div className="flex flex-col w-full justify-start items-start gap-y-1">
 											<div className="flex flex-row gap-2 items-center justify-start w-full">
-												<span className="text-white font-neue-haas-grotesk-medium text-base truncate m-0">
+												<span className="text-white font-neue-haas-grotesk-medium text-base sm:truncate m-0">
 													{item.title}
 												</span>
 

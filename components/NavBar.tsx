@@ -53,6 +53,7 @@ function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
 
 export default function Header() {
 	let pathname = usePathname() || "/";
+    const [socialHovered, setSocialHovered] = useState<string>("");
 
 	return (
 		<div
@@ -130,7 +131,15 @@ export default function Header() {
 
 				<div className="hidden lg:inline-flex ml-auto flex-row justify-center gap-6 text-[14px] leading-[14px]">
                     {React.Children.toArray(
-                        socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
+                        socials.map(({serv, name, url}) =>
+                            <div
+                                className={(socialHovered !== "" && socialHovered !== serv) ? "opacity-50" : ""}
+                                onMouseEnter={() => setSocialHovered(serv)}
+                                onMouseLeave={() => setSocialHovered("")}
+                            >
+                                <Social serv={serv} name={name} url={url} />
+                            </div>
+                        )
                     )}
 				</div>
 			</div>
