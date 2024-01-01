@@ -356,11 +356,11 @@ export const icons_rosetta: IEntry = {
 	],
     thumbnail: { path: "/images/adobe-icons/rosetta-thumb.gif", width: 1024, height: 1024, },
 	images: [
-        { path: "/images/photoshop-icon/Photoshop.png", width: 4942, height: 2780 },
-        { path: "/images/photoshop-icon/Illustrator.png", width: 4942, height: 2780 },
-        { path: "/images/photoshop-icon/Bridge.png", width: 4942, height: 2780 },
-        { path: "/images/photoshop-icon/Audition.png", width: 4942, height: 2780 },
-        { path: "/images/photoshop-icon/InDesign.png", width: 4942, height: 2780 },
+        { path: "/images/adobe-icons/Photoshop.png", width: 4942, height: 2780 },
+        { path: "/images/adobe-icons/Illustrator.png", width: 4942, height: 2780 },
+        { path: "/images/adobe-icons/Bridge.png", width: 4942, height: 2780 },
+        { path: "/images/adobe-icons/Audition.png", width: 4942, height: 2780 },
+        { path: "/images/adobe-icons/InDesign.png", width: 4942, height: 2780 },
     ],
 };
 
