@@ -284,7 +284,7 @@ export const logo_tdb: IEntry = {
 	id: "logo_tdb",
 	title: "TDB App Icon / X",
     date: "9.28.2023",
-	category: "photoshop",
+	category: "illustrator",
 	summary: [
 		"App icon for my iOS/iPadOS/macOS Tesla database app, TDB. Two versions, the square being the initial iOS app icon, and the circle one for profile pictures and various other things. (Still in development, NOT on the App Store yet.)",
 	],
@@ -298,7 +298,7 @@ export const logo_tbab: IEntry = {
 	id: "logo_tbab",
 	title: "Personal \"logo\"",
     date: "7.19.2023",
-	category: "photoshop",
+	category: "illustrator",
 	summary: [
 		"The \"logo\" I made for myself in the process of drawing characters for my \"GYEA\" script. I noticed after the fact that two of the characters sort of looked like the letter combinations 'TB' and 'AB'. Both of course being initials in my name, Trevor Alexander Bays.",
 	],
@@ -346,7 +346,23 @@ export const logo_d: IEntry = {
     ],
 };
 
+export const logo_photoshop_rosetta: IEntry = {
+	id: "logo_photoshop_rosetta",
+	title: "Photoshop 2024 (Rosetta) Icon",
+    date: "1.1.2024",
+	category: "illustrator",
+	summary: [
+		"Rosetta (macOS) version of the Photoshop 2024 app icon. I use this for a duplicate \"Adobe Photoshop 2024 (Rosetta).app\" executable to differentiate my normal app and the \"Open in Rosetta\" one. You can download it on <a href=\"https://956mb.gumroad.com/l/photoshop-rosetta-icon\">Gumroad</a>.",
+	],
+    thumbnail: { path: "/images/photoshop-icon/rosetta-thumb.png", width: 826, height: 826, },
+	images: [
+        { path: "/images/photoshop-icon/rosetta-thumbnail-stones.png", width: 4942, height: 2780 },
+        { path: "/images/photoshop-icon/rosetta-thumbnail-normals.png", width: 4942, height: 2780 },
+    ],
+};
+
 export const logos = [
+    logo_photoshop_rosetta,
     logo_d,
     logo_plan,
 	logo_tdb,

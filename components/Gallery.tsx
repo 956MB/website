@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { IEntry } from "lib/interfaces";
 import { PiFigmaLogo } from "react-icons/pi";
-import { SiAdobephotoshop } from "react-icons/si";
+import { SiAdobephotoshop, SiAdobeillustrator } from "react-icons/si";
 import { HiMiniLanguage } from "react-icons/hi2";
 import { RiReactjsLine } from "react-icons/ri";
 import { XLg, ArrowRight, ArrowLeft } from "react-bootstrap-icons";
@@ -21,6 +21,8 @@ export function CategoryIcon({ category }: { category: string | undefined }) {
 								return <PiFigmaLogo size={21} />;
 							case "photoshop":
 								return <SiAdobephotoshop size={18} />;
+                            case "illustrator":
+								return <SiAdobeillustrator size={18} />;
 							case "react":
 								return <RiReactjsLine size={21} />;
 							case "script":

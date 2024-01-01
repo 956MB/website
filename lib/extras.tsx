@@ -11,7 +11,7 @@ export const icon_photoshop: IEntry = {
 		"Special Rosetta (macOS) version of the Photoshop 2024 app icon. Made by me.",
 	],
 	link: "https://store.956mb.com/l/photoshop-rosetta-icon",
-	count: 5,
+	count: 10,
     credit: false,
 	images: [
 		{
