@@ -346,23 +346,26 @@ export const logo_d: IEntry = {
     ],
 };
 
-export const logo_photoshop_rosetta: IEntry = {
-	id: "logo_photoshop_rosetta",
-	title: "Photoshop 2024 (Rosetta) Icon",
+export const icons_rosetta: IEntry = {
+	id: "icons_rosetta",
+	title: "Adobe 2024 Rosetta Icons",
     date: "1.1.2024",
 	category: "illustrator",
 	summary: [
-		"Rosetta (macOS) version of the Photoshop 2024 app icon. I use this for a duplicate \"Adobe Photoshop 2024 (Rosetta).app\" executable to differentiate my normal app and the \"Open in Rosetta\" one. You can download it on <a href=\"https://956mb.gumroad.com/l/photoshop-rosetta-icon\">Gumroad</a>.",
+		"Rosetta (macOS) versions of Adobe 2024 app iconc. I use this for a duplicate \"Adobe Photoshop 2024 (Rosetta).app\" executable to differentiate my normal app and the \"Open in Rosetta\" one. You can download it on <a href=\"https://store.956mb.com/l/adobe-rosetta-icons\">Gumroad</a>.",
 	],
-    thumbnail: { path: "/images/photoshop-icon/rosetta-thumb.png", width: 826, height: 826, },
+    thumbnail: { path: "/images/adobe-icons/rosetta-thumb.gif", width: 1024, height: 1024, },
 	images: [
-        { path: "/images/photoshop-icon/rosetta-thumbnail-stones.png", width: 4942, height: 2780 },
-        { path: "/images/photoshop-icon/rosetta-thumbnail-normals.png", width: 4942, height: 2780 },
+        { path: "/images/photoshop-icon/Photoshop.png", width: 4942, height: 2780 },
+        { path: "/images/photoshop-icon/Illustrator.png", width: 4942, height: 2780 },
+        { path: "/images/photoshop-icon/Bridge.png", width: 4942, height: 2780 },
+        { path: "/images/photoshop-icon/Audition.png", width: 4942, height: 2780 },
+        { path: "/images/photoshop-icon/InDesign.png", width: 4942, height: 2780 },
     ],
 };
 
 export const logos = [
-    logo_photoshop_rosetta,
+    icons_rosetta,
     logo_d,
     logo_plan,
 	logo_tdb,
