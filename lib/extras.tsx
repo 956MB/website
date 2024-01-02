@@ -4,7 +4,7 @@ import { IEntry, IEntryGroup, IEntryGroups } from "./interfaces";
 
 export const icon_adobe: IEntry = {
 	id: "icon_photoshop",
-	title: "Photoshop 2024 (Rosetta)",
+	title: "Adobe Rosetta Icons",
 	date: "1.1.2024",
 	category: "icon",
     summary: [
