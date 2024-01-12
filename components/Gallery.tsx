@@ -56,6 +56,7 @@ export function GalleryButton({
 			<Tooltip
 				content={dir === "left" ? "Back" : "Next"}
 				position={"bottom"}
+                warn={false}
 			>
 				{dir === "left" ? (
 					<ArrowLeft
@@ -129,7 +130,7 @@ export default function Gallery({
                             className="h-full px-1 group"
                             onClick={closeAction}
                         >
-                            <Tooltip content="Close" position={"bottom"}>
+                            <Tooltip content="Close" position={"bottom"} warn={false}>
                                 <XLg size={18} className="text-white" />
                             </Tooltip>
                         </button>
@@ -137,7 +138,7 @@ export default function Gallery({
 
 					<div className="inline-flex flex-row items-center justify-center gap-2 w-full sm:max-w-screen-lg mx-auto">
 
-						<Tooltip content={item.category} position={"bottom"}>
+						<Tooltip content={item.category} position={"bottom"} warn={false}>
 							<CategoryIcon category={item.category} />
 						</Tooltip>
 

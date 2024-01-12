@@ -464,6 +464,14 @@ table {
 	@apply text-white underline;
 }
 
+.warn-tooltip a {
+    @apply font-inter-bold;
+}
+.warn-tooltip a:hover
+{
+	@apply underline;
+}
+
 @keyframes spin-slow {
 	to {
 		transform: rotate(360deg);

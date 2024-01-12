@@ -7,19 +7,19 @@ import clsx from "clsx";
 import parse from "html-react-parser";
 import { MdOutlineLayers } from "react-icons/md";
 import { PiWarningCircleBold } from "react-icons/pi";
-import { LiaDownloadSolid } from "react-icons/lia";
+import Tooltip from "./Tooltip";
 
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col sticky top-0 items-start justify-start w-full max-w-screen-3xl pt-4 sm:pt-4 pb-0 m-0 gap-3 sm:z-50 bg-black/90 backdrop-blur z-50">
 			<div className="flex flex-col sm:flex-row w-full max-w-screen-3xl items-start sm:items-center gap-3">
 				<div className="inline-flex flex-col sm:flex-row items-start justify-end gap-[3px] sm:gap-3 leading-[21px]">
-                    <span className="text-white font-neue-haas-grotesk-medium text-[21px] whitespace-nowrap">
-                        {entry.title}
-                    </span>
-                    <span className="font-ibmplex-sans-medium text-sm mt-[1px] text-neutral-500">
-                        {entry.description}
-                    </span>
+					<span className="text-white font-neue-haas-grotesk-medium text-[21px] whitespace-nowrap">
+						{entry.title}
+					</span>
+					<span className="font-ibmplex-sans-medium text-sm mt-[1px] text-neutral-500">
+						{entry.description}
+					</span>
 				</div>
 			</div>
 			<div className="flex flex-row items-center justify-center w-full">
@@ -37,7 +37,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 				className={clsx(
 					"grid justify-center items-start gap-2 lg:gap-3 w-full max-w-screen-3xl pt-4",
 					entry.category === "icons"
-						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
 						: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
 				)}
 			>
@@ -48,25 +48,26 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 								className={clsx(
 									"relative z-0 flex flex-col justify-start group box-content"
 								)}
-                                id={item.id}
+								id={item.id}
 							>
 								{item.count && item.count > 1 && (
-                                    <div className="flex flex-row gap-1 absolute top-2 right-2 items-center justify-center bg-black/30 backdrop-blur-lg rounded-full m-0 z-20">
-                                        <div className="inline-flex flex-row justify-center items-center gap-1 cursor-default border border-white/20 text-white/90 rounded-full px-2 py-[6px] min-w-[26px]">
-                                            <span className="text-[12px] leading-[12px] font-neue-haas-grotesk-medium">
-                                                {item.count}
-                                            </span>
-                                            <div className="relative hidden sm:block">
-                                                <MdOutlineLayers size={16} />
-                                            </div>
-                                        </div>
-                                    </div>
+									<div className="flex flex-row gap-1 absolute top-2 right-2 items-center justify-center bg-black/30 backdrop-blur-lg rounded-full m-0 z-20">
+										<div className="inline-flex flex-row justify-center items-center gap-1 cursor-default border border-white/20 text-white/90 rounded-full px-2 py-[6px] min-w-[26px]">
+											<span className="text-[12px] leading-[12px] font-neue-haas-grotesk-medium">
+												{item.count}
+											</span>
+											<div className="relative hidden sm:block">
+												<MdOutlineLayers size={16} />
+											</div>
+										</div>
+									</div>
 								)}
 								<a
 									className={clsx(
 										"relative flex flex-col justify-end group object-cover overflow-hidden rounded-lg bg-gradient-to-t from-white/10 to-transparent backdrop-blur-sm sm:backdrop-blur-none",
 										item.link && " cursor-pointer",
-										item.category === "wallpaper" && "child:hover:scale-105"
+										item.category === "wallpaper" &&
+											"child:hover:scale-105"
 									)}
 									rel="noopener noreferrer"
 									target="_blank"
@@ -79,7 +80,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 											item.category === "icon"
 												? "aspect-square object-contain"
 												: "aspect-video sm:aspect-video object-cover",
-                                            (item.id === "icon_tdb" || item.id === "icon_mssnc" || item.id === "icon_2048we") && "scale-75"
+											(item.id === "icon_tdb" ||
+												item.id === "icon_mssnc" ||
+												item.id === "icon_2048we") &&
+												"scale-75"
 										)}
 										src={item.images[0].path}
 										width={item.images[0].width}
@@ -97,35 +101,36 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 								>
 									<div className="flex flex-row w-full gap-x-2 items-start justify-start">
 										<div className="flex flex-col w-full justify-start items-start gap-y-1">
-											<div className="flex flex-row gap-2 items-center justify-start w-full">
-												<span className="text-white font-neue-haas-grotesk-medium text-base sm:truncate m-0">
+											<div className="flex flex-row gap-1 items-center justify-start w-full">
+												<a
+													className={clsx(
+														"text-white font-neue-haas-grotesk-medium text-base whitespace-normal m-0",
+                                                        item.link && "hover:underline"
+													)}
+													rel="noopener noreferrer"
+													target="_blank"
+													href={
+														item.link
+															? item.link
+															: undefined
+													}
+												>
 													{item.title}
-												</span>
+												</a>
 
 												{item.credit && (
-													<a className="p-[2px] bg-yellow-500/20 rounded-full">
-														<PiWarningCircleBold
-															size={16}
-															className="text-yellow-500 min-w-[16px] min-h-[16px]"
-														/>
-													</a>
-												)}
-
-												{item.link && (
-													<a
-														rel="noopener noreferrer"
-														target="_blank"
-														href={
-															item.link
-																? item.link
-																: undefined
-														}
-														className="text-neutral-400 hover:text-neutral-100 cursor-pointer min-w-[23px] min-h-[23px]"
+													<Tooltip
+														content={item.credit}
+														position={"top"}
+														warn={true}
 													>
-														<LiaDownloadSolid
-															size={23}
-														/>
-													</a>
+														<a className="p-[2px] bg-yellow-500/20 rounded-full">
+															<PiWarningCircleBold
+																size={16}
+																className="text-yellow-500 min-w-[16px] min-h-[16px]"
+															/>
+														</a>
+													</Tooltip>
 												)}
 											</div>
 

@@ -88,6 +88,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 												<Tooltip
 													content={item.category}
 													position={"top"}
+                                                    warn={false}
 												>
 													<CategoryIcon
 														category={item.category}
@@ -98,6 +99,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                                     <Tooltip
                                                         content={item.date}
                                                         position={"top"}
+                                                        warn={false}
                                                     >
                                                         <span className="text-white font-neue-haas-grotesk-medium w-full text-md">
                                                             {item.title}

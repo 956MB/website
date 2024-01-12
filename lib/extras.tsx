@@ -12,7 +12,6 @@ export const icon_adobe: IEntry = {
 	],
 	link: "https://store.956mb.com/l/adobe-rosetta-icons",
 	count: 30,
-    credit: false,
 	images: [
 		{
 			path: "/images/adobe-icons/rosetta-thumb.gif",
@@ -32,7 +31,7 @@ export const icon_vscodium: IEntry = {
 	],
 	link: "https://store.956mb.com/l/vscodium-icon",
 	count: 2,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072\">@setanarut</a>",
 	images: [
 		{
 			path: "/images/extras/icons/vscodium-1.png",
@@ -51,7 +50,7 @@ export const icon_parallels: IEntry = {
 		"My edits to a custom Parallels icon by <a href=\"https://www.reddit.com/r/MacOS/comments/mucnsz/i_got_tired_of_the_parallels_desktop_icon_not/2\">u/JonMarksbury</a>, using the Windows 11 background. Credit to him for the original concept.",
 	],
 	link: "https://store.956mb.com/l/parallels-icon",
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/r/MacOS/comments/mucnsz/i_got_tired_of_the_parallels_desktop_icon_not/2\">u/JonMarksbury</a>",
 	images: [
 		{
 			path: "/images/extras/icons/parallels-1.png",
@@ -69,7 +68,6 @@ export const icon_tdb: IEntry = {
     summary: [
 		"App icon for my iOS/iPadOS/macOS app <a href=\"https://www.tdb.fyi/\">TDB</a>. Made by me.",
 	],
-    credit: false,
 	images: [
 		{
 			path: "/images/extras/icons/tdb.png",
@@ -89,7 +87,6 @@ export const icon_2048we: IEntry = {
 	],
 	link: "https://store.956mb.com/l/2048we-icon",
 	count: 4,
-    credit: false,
 	images: [
 		{
 			path: "/images/extras/icons/2048WE/2048WE.png",
@@ -99,31 +96,12 @@ export const icon_2048we: IEntry = {
 	],
 };
 
-export const icon_mssnc: IEntry = {
-	id: "icon_mssnc",
-	title: "MSSNC",
-	date: "06.22.2023",
-	category: "icon",
-    summary: [
-		"\"macOS version\" of the Microsoft Sticky Notes app icon, used in my unreleased app, \"MSSNC\".",
-	],
-    credit: true,
-	images: [
-		{
-			path: "/images/extras/icons/mssnc.png",
-			width: 1024,
-			height: 1024,
-		},
-	],
-};
-
 export const icons = [
     icon_adobe,
 	icon_vscodium,
     icon_parallels,
     icon_tdb,
-    icon_2048we,
-    icon_mssnc
+    icon_2048we
 ];
 export const icons_section: IEntryGroup = {
 	title: "Icons",
@@ -146,7 +124,6 @@ export const extra_d: IEntry = {
 		"I have NO idea what this is, I just started painting. Made by me. <a href=\"https://www.956mb.com/designs/#logo_d\">\"D\" / \"O\"</a>. ",
 	],
 	link: "https://drive.google.com/drive/folders/1mYTo3YpLKCwEOMqpEMnuSm0Sqar4z5qj?usp=sharing",
-    credit: false,
 	images: [
 		{
 			path: "/images/concepts/d/d-wallpaper-thumb.png",
@@ -163,11 +140,10 @@ export const extra_pLan: IEntry = {
 	category: "wallpaper",
 	tags: ["6K", "paint"],
 	summary: [
-		"Painting used as the banner/background of my fake programming language \"Brand\", <a href=\"https://www.956mb.com/designs/#logo_plan\">pLan</a>. Made by me.",
+		"Painting used as the banner/background of my fake programming language \"brand\", <a href=\"https://www.956mb.com/designs/#logo_plan\">pLan</a>. Made by me.",
 	],
     count: 2,
 	link: "https://drive.google.com/drive/folders/1HNcP5ZXG5qLHVh9LqCcKtsjbRhOXWd_s?usp=sharing",
-    credit: false,
 	images: [
 		{
 			path: "/images/concepts/pLan/pLan-thumb.png",
@@ -188,7 +164,7 @@ export const extra_polestar_synergy: IEntry = {
 	],
 	link: "https://drive.google.com/drive/folders/1-naPWu9jKup8hzA-rwvFCK-5hIV5vpP7?usp=sharing",
 	count: 5,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://about.polestar.com/polestar-design-contest/2022/\">Polestar</a>",
 	images: [
 		{
 			path: "/images/extras/wallpapers/Polestar-Synergy-Back.png",
@@ -209,7 +185,7 @@ export const extra_maybe_tomorrow: IEntry = {
 	],
 	link: "https://drive.google.com/drive/folders/1BuaV2bpohb--hNgEav1sElaX-LXYMP91?usp=sharing",
 	count: 4,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.lowroarmusic.com/\">RIP Ryan Karazija</a>",
 	images: [
 		{
 			path: "/images/extras/wallpapers/maybe-tomorrow-red.png",
@@ -230,7 +206,7 @@ export const extra_ghibli_colors: IEntry = {
 	],
 	link: "https://drive.google.com/drive/folders/1zuMZQfx7B_pTh7Y1vErBXOpoWqe6ik1k?usp=sharing",
 	count: 25,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.ghibli.jp/\">Studio Ghibli</a>",
 	images: [
 		{
 			path: "/images/extras/wallpapers/ghibli-colors-green3.png",
@@ -251,7 +227,7 @@ export const extra_ghibli_greens: IEntry = {
 	],
 	link: "https://drive.google.com/drive/folders/1hcvKaCeBN--SbUPbZbhA24J_2oyZE4Rt?usp=sharing",
 	count: 111,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.ghibli.jp/\">Studio Ghibli</a>",
 	images: [
 		{
 			path: "/images/extras/wallpapers/Ghibli-Greens-poppy-26.png",
@@ -272,7 +248,7 @@ export const extra_westworld_s3: IEntry = {
 	],
 	link: "https://drive.google.com/drive/folders/1S2GS2Dw7t_RnFX1U4yl_rjJ0-mOjkZWa?usp=sharing",
 	count: 26,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"http://elastic.tv/\">Elastic.tv</a>",
 	images: [
 		{
 			path: "/images/extras/wallpapers/WWF-deepred.png",
@@ -291,7 +267,7 @@ export const extra_dune: IEntry = {
 	summary: ["Nothing needs to be said, it's Dune."],
 	link: "https://drive.google.com/drive/folders/1YM573MPs-J3vYygf9N5B_NtzS2BH6PbI?usp=sharing",
 	count: 1,
-    credit: true,
+    credit: "???",
 	images: [
 		{
 			path: "/images/extras/wallpapers/dune.png",
@@ -312,7 +288,7 @@ export const extra_armored_core_vi: IEntry = {
 	],
 	link: "https://drive.google.com/drive/folders/1MMuairvZA4f0Gb8miA26VI1_ytuXxEyl?usp=sharing",
 	count: 9,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.fromsoftware.jp/ww/\">Bandai Namco</a>",
 	images: [
 		{
 			path: "/images/extras/wallpapers/ACVI-00027.png",
@@ -333,7 +309,7 @@ export const extra_colors_and_shapes: IEntry = {
 	],
 	link: "https://drive.google.com/drive/folders/15pwpAQRDgW4TadCb07zq2TUDR5GtgMLk?usp=sharing",
 	count: 15,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.stashmedia.tv/mac-miller-colors-and-shapes-by-sam-mason-and-hornet/\">Hornet/Sam Mason/Stash</a>. RIP Mac.",
 	images: [
 		{
 			path: "/images/extras/wallpapers/CASWF-00169.png",
@@ -354,7 +330,7 @@ export const extra_hassan_massoudy: IEntry = {
 	],
 	link: "https://drive.google.com/drive/folders/1i0Zf3II5JaSc4s6JnyORfPiu5Lnzm5gT?usp=sharing",
 	count: 172,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.massoudy.net/\">Hassan Massoudy</a>",
 	images: [
 		{
 			path: "/images/extras/wallpapers/_0010_HM326.png",
@@ -375,7 +351,7 @@ export const extra_oppenheimer: IEntry = {
     ],
 	link: "https://drive.google.com/drive/folders/1wZj5UQEBC6nW9DHeX3l1XZV31JuhIKlh?usp=sharing",
 	count: 1,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.instagram.com/syncopyofficial/?hl=en\">Syncopy Inc.</a>",
 	images: [
 		{
 			path: "/images/extras/wallpapers/oppenheimer.jpg",
@@ -392,11 +368,11 @@ export const extra_cybertruck: IEntry = {
 	category: "wallpaper",
 	tags: ["5K", "MANIPULATION"],
 	summary: [
-		'My photo manipulation and upscaling of a Cybertruck concept from <a href="https://www.reddit.com/r/ghibli/comments/fo3mnu/thanks_to_ia_ive_made_a_collection_of_flawless_hq/?utm_source=share&utm_medium=web2x&context=3">u/Weenbell</a> on Reddit. Credit to him for the original modification of Cybertruck design.',
+		'My photo manipulation and upscaling of a Cybertruck concept from <a href="https://www.reddit.com/r/cybertruck/comments/mlshr8/what_are_your_thoughts_about_this_for_farming_or/?utm_source=share&utm_medium=web2x&context=3">???</a> on Reddit. Credit to him for the original modification of Cybertruck design.',
 	],
 	link: "https://drive.google.com/drive/folders/1d2DtdnDqvSqY4KfGYtSjHVkodIIr9mjn?usp=sharing",
 	count: 1,
-    credit: true,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/r/cybertruck/comments/mlshr8/what_are_your_thoughts_about_this_for_farming_or/?utm_source=share&utm_medium=web2x&context=3\">???</a>",
 	images: [
 		{
 			path: "/images/extras/wallpapers/cybertruck-redesign.png",

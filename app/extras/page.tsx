@@ -18,7 +18,7 @@ export default function ExtraPage() {
 		<section>
 			<div className="flex w-full flex-col flex-wrap items-center justify-start sm:pt-7 gap-y-3 sm:gap-y-7 pb-6 px-6 sm:px-7">
 				
-                <div className="inline-flex flex-col gap-5">
+                <div className="inline-flex flex-col gap-4">
                     <div className="flex flex-col sm:flex-row w-full items-end justify-center sm:justify-end mt-6 sm:mt-0 max-w-screen-3xl gap-3">
                         
                         <div className="flex flex-col items-start justify-start w-full sm:pt-4 m-0 gap-5 sm:gap-4">

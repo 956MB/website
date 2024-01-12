@@ -15,7 +15,7 @@ export interface IEntry {
     category?: string;
     new?: boolean;
     useLinkPreview?: IEntryImage;
-    credit?: boolean;
+    credit?: string;
     aspectRatio?: boolean;
     groups?: string[];
     linkBlog?: string;

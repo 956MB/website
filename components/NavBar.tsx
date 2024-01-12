@@ -18,25 +18,21 @@ const navItems = {
 };
 
 function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
-    const [isHovered, setIsHovered] = useState(false);
-
     return (
         <a
             rel="noopener noreferrer"
             target="_blank"
             href={url}
             className={clsx(
-                "flex text-center items-center justify-center no-underline whitespace-nowrap transition-all duration-75 child:hover:text-white",
+                "flex text-center items-center justify-center no-underline whitespace-nowrap child:hover:text-white",
             )}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
         >
             <span
                 className={clsx(
                     "font-neue-haas-grotesk-medium uppercase !text-white text-[13px] sm:text-[14px] leading-[14px]"
                 )}
             >
-                {isHovered ? (name || serv) : serv}
+                {serv}
             </span>
 
             {
@@ -129,7 +125,7 @@ export default function Header() {
 					})}
 				</div>
 
-				<div className="hidden lg:inline-flex ml-auto flex-row justify-center gap-6 text-[14px] leading-[14px]">
+				<div className="hidden lg:inline-flex ml-auto flex-row justify-center gap-6 text-[14px] leading-[14px] transition-opacity duration-100">
                     {React.Children.toArray(
                         socials.map(({serv, name, url}) =>
                             <div
@@ -155,7 +151,7 @@ export function Footer() {
 			)}
 		>
 			<div className="flex flex-col justify-center items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-6 lg:mx-7 flex-nowrap bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1">
-				<div className="flex flex-row lg:hidden w-full justify-between sm:justify-start items-center gap-3  text-[13px] leading-[13px]">
+				<div className="flex flex-row lg:hidden w-full justify-between sm:justify-start items-center gap-3  text-[13px] leading-[13px] transition-all duration-75">
                     {React.Children.toArray(
                         socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
                     )}
