@@ -13,7 +13,6 @@ import React, { useState } from "react";
 const navItems = {
 	"/projects": { name: "projects" },
 	"/designs": { name: "designs" },
-	"/blog/circles-only-apparently": { name: "blog" },
 	"/extras": { name: "extras" },
 };
 

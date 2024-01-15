@@ -271,7 +271,7 @@ export const drawings = [
     redesign_cybertruck,
 ];
 export const drawings_section: IEntryGroup = {
-	title: "Paintings, Sketches and Photo Manipulations",
+	title: "Sketches, Paintings and Photo Manipulations",
     category: "drawings",
 	description:
 		"Everything I draw in Procreate or edit Photoshop that falls under photo manipulation or concept art",
@@ -364,7 +364,23 @@ export const icons_rosetta: IEntry = {
     ],
 };
 
+export const figma_tattoo: IEntry = {
+	id: "figma_tattoo",
+	title: "Figma Tattoo",
+    date: "1.14.2024",
+	category: "figma",
+	summary: [
+		"Idea I had for a wrist/forearm tattoo done off the top of my head, constructed in Figma. I easily could have done it in Illustrator or something else, but I was already using Figma... This sort of thing has probably been done a million times, guessing by how INCREDIBLY simple it was to make... but I like it. The thicker \'band\' with the gradients wraps around the wrist like a bracelet, and of course being me, the colors are likely to change at any time.",
+	],
+    thumbnail: { path: "/images/figma-tattoo/figma-tattoo-thumb.png", width: 1024, height: 1024, },
+	images: [
+        { path: "/images/figma-tattoo/figma-tattoo-horizontal.png", width: 2488, height: 1781 },
+        { path: "/images/figma-tattoo/figma-tattoo-mockup.png", width: 2160, height: 2700 }
+    ],
+};
+
 export const logos = [
+    figma_tattoo,
     icons_rosetta,
     logo_d,
     logo_plan,
@@ -372,7 +388,7 @@ export const logos = [
     logo_tbab
 ];
 export const logos_section: IEntryGroup = {
-	title: "Logos / Icons",
+	title: "Logos, Icons and Miscelaneous",
     category: "logo",
 	description:
 		"A few logos/icons I've made for projects or personal use",
