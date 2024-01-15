@@ -114,6 +114,48 @@ export const icons_section: IEntryGroup = {
 
 // NOTE: wallpapers
 
+export const extra_hongdae_variants: IEntry = {
+	id: "extra_hongdae_variants",
+	title: "Apple Store 홍대 Variants",
+	date: "1.15.2024",
+	category: "wallpaper",
+	tags: ["6K", "color"],
+	summary: [
+		"Eight color variations of the Apple Store Hongdae (홍대) wallpapers. The grey brought down to black, and several Lightroom changes to add some variety. I did not design these!",
+	],
+	link: "https://drive.google.com/drive/folders/1lJRSJZwxUlsaq0SXEuaK57L-cK8vq4sH?usp=sharing",
+    count: 8,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.apple.com/kr/retail/hongdae/\">Apple 홍대.</a>",
+	images: [
+		{
+			path: "/images/extras/wallpapers/hongdae-variants-thumb.png",
+			width: 1920,
+			height: 1080,
+		},
+	],
+};
+
+export const extra_graffiti_variants: IEntry = {
+	id: "extra_graffiti_variants",
+	title: "Graffiti Variants",
+	date: "12.29.2023",
+	category: "wallpaper",
+	tags: ["6K", "color"],
+	summary: [
+		"Several color variants of the great graffiti wallpaper by <a href=\"https://twitter.com/BasicAppleGuy\">@BasicAppleGuy</a>. I DID NOT DESIGN THIS, ONLY MODIFIED IT. Credit to him for the amazing art.",
+	],
+	link: "https://drive.google.com/drive/folders/1oI_40YXzpUyvsNE6RHtasf7fuyO_lcD8?usp=sharing",
+    count: 4,
+    credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://basicappleguy.com/haberdashery/graffiti\">@BasicAppleGuy</a>",
+	images: [
+		{
+			path: "/images/extras/wallpapers/graffiti-variant-thumb.png",
+			width: 1920,
+			height: 1245,
+		},
+	],
+};
+
 export const extra_d: IEntry = {
 	id: "extra_d",
 	title: "\"D\" / \"O\"",
@@ -383,6 +425,8 @@ export const extra_cybertruck: IEntry = {
 };
 
 export const wallpapers = [
+    extra_hongdae_variants,
+    extra_graffiti_variants,
     extra_d,
     extra_pLan,
 	extra_polestar_synergy,
@@ -401,7 +445,7 @@ export const wallpapers_section: IEntryGroup = {
 	title: "Wallpapers",
 	category: "wallpapers",
 	description:
-		"Collection of my favorite wallpapers that I've either upscaled to 5K or edited for my own use",
+		"Collection of my favorite wallpapers that I've upscaled to 6K and/or edited for my own use",
 	items: wallpapers,
     credit: true
 };

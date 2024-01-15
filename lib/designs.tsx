@@ -168,7 +168,7 @@ export const painting_cybertruck_texas: IEntry = {
 	category: "photoshop",
     aspectRatio: true,
 	summary: [
-		"My second Procreate painting of a Cybertruck, again original photograph by <a href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a>. Maybe this one is an improvement on the first, maybe not? I need to get more confident at drawing clean lines and work towards more photorealism.",
+		"My second Procreate painting of a Cybertruck, again original photograph by <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a>. Maybe this one is an improvement on the first, maybe not? I need to get more confident at drawing clean lines and work towards more photorealism.",
 	],
     thumbnail: {
         path: "/images/drawings/cybertruck-texas/cybertruck-texas-thumb.png", width: 1000, height: 1000
@@ -181,12 +181,12 @@ export const painting_cybertruck_texas: IEntry = {
 
 export const painting_cybertruck: IEntry = {
 	id: "painting_cybertruck",
-	title: "Cybertruck paining",
+	title: "Cybertruck \"painting\"",
     date: "11.29.2023",
 	category: "photoshop",
     aspectRatio: true,
 	summary: [
-		"My first ever painting / photo manipuation like this using Procreate (I literally just got my iPad 2 days ago to get into this stuff). I'm a huge Cybertruck fan, and I wanted my first attempt to be something related to it or another Tesla product. Credit to <a href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a> for the great photos, and thanks to him for letting me use it as a base layer.",
+		"My first ever painting / photo manipuation like this using Procreate (I literally just got my iPad 2 days ago to get into this stuff). I'm a huge Cybertruck fan, and I wanted my first attempt to be something related to it or another Tesla product. Credit to <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/user/PhotoKaz/\">u/PhotoKaz</a> for the great photos, and thanks to him for letting me use it as a base layer.",
 	],
     thumbnail: {
         path: "/images/drawings/cybertruck/cybertruck-thumb-red.png",
@@ -207,7 +207,7 @@ export const redesign_cybertruck: IEntry = {
     date: "9.4.2023",
 	category: "photoshop",
 	summary: [
-		'My photo manipulation (all the white) of a Cybertruck concept from <a href="https://www.reddit.com/r/cybertruck/comments/mlshr8/what_are_your_thoughts_about_this_for_farming_or/">(IDK he deleted his account... but it wasn\'t me!)</a>. Credit to whoever the guy was for the original modification of Cybertruck design.',
+		'My photo manipulation (all the white) of a Cybertruck concept from <a rel=\"noopener noreferrer\" target=\"_blank\" href="https://www.reddit.com/r/cybertruck/comments/mlshr8/what_are_your_thoughts_about_this_for_farming_or/">(IDK he deleted his account... but it wasn\'t me!)</a>. Credit to whoever the guy was for the original modification of Cybertruck design.',
 	],
     thumbnail: {
         path: "/images/drawings/cybertruck-redesign/cybertruck-redesign-thumb.png",
@@ -352,7 +352,7 @@ export const icons_rosetta: IEntry = {
     date: "1.1.2024",
 	category: "illustrator",
 	summary: [
-		"Rosetta (macOS) versions of Adobe 2024 app iconc. I use this for a duplicate \"Adobe Photoshop 2024 (Rosetta).app\" executable to differentiate my normal app and the \"Open in Rosetta\" one. You can download it on <a href=\"https://store.956mb.com/l/adobe-rosetta-icons\">Gumroad</a>.",
+		"Rosetta (macOS) versions of Adobe 2024 app iconc. I use this for a duplicate \"Adobe Photoshop 2024 (Rosetta).app\" executable to differentiate my normal app and the \"Open in Rosetta\" one. You can download it on <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://store.956mb.com/l/adobe-rosetta-icons\">Gumroad</a>.",
 	],
     thumbnail: { path: "/images/adobe-icons/rosetta-thumb.gif", width: 1024, height: 1024, },
 	images: [
@@ -372,6 +372,7 @@ export const figma_tattoo: IEntry = {
 	summary: [
 		"Idea I had for a wrist/forearm tattoo done off the top of my head, constructed in Figma. I easily could have done it in Illustrator or something else, but I was already using Figma... This sort of thing has probably been done a million times, guessing by how INCREDIBLY simple it was to make... but I like it. The thicker \'band\' with the gradients wraps around the wrist like a bracelet, and of course being me, the colors are likely to change at any time.",
 	],
+    useLinkPreview: { path: "/images/figma-tattoo/figma-tattoo-preview-flip.png", width: 1920, height: 384, },
     thumbnail: { path: "/images/figma-tattoo/figma-tattoo-thumb.png", width: 1024, height: 1024, },
 	images: [
         { path: "/images/figma-tattoo/figma-tattoo-horizontal.png", width: 2488, height: 1781 },
@@ -554,6 +555,6 @@ export const groups: IEntryGroups = [ui_section, logos_section, drawings_section
 export const recents_group: IEntryGroupLinks = {
 	title: "New stuff",
     category: "list",
-    links: ["designs/#painting_power_lines", "designs/#logo_d", "/designs#painting_cybertruck_texas"],
-	items: [painting_power_lines, logo_d, painting_cybertruck_texas],
+    links: ["designs/figma_tattoo", "designs/#painting_power_lines", "designs/#logo_d"],
+	items: [figma_tattoo, painting_power_lines, logo_d],
 };

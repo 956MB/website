@@ -58,7 +58,7 @@ export default function Header() {
 		>
 			<div
 				className={clsx(
-					"flex flex-row gap-6 sm:gap-10 m-auto items-center justify-start w-full h-full max-w-screen-3xl mx-6 sm:mx-7 bg-black/90 backdrop-blur"
+					"flex flex-row gap-10 sm:gap-10 m-auto items-center justify-center w-full h-full max-w-screen-3xl mx-6 sm:mx-7 bg-black/90 backdrop-blur"
 				)}
 			>
 				<div className="relative inline-flex justify-center items-center h-full">
@@ -77,7 +77,7 @@ export default function Header() {
 					)}
 				</div>
 
-				<div className="flex sm:inline-flex flex-row sm:gap-10 items-center justify-between sm:justify-center h-full w-full sm:w-auto overflow-hidden">
+				<div className="flex sm:inline-flex flex-row gap-12 sm:gap-10 items-center sm:justify-center h-full sm:w-auto overflow-hidden">
 					{Object.entries(navItems).map(([path, { name }], idx) => {
 						const isActive = path === pathname;
 
@@ -124,7 +124,7 @@ export default function Header() {
 					})}
 				</div>
 
-				<div className="hidden lg:inline-flex ml-auto flex-row justify-center gap-6 text-[14px] leading-[14px] transition-opacity duration-100">
+				<div className="hidden xl:inline-flex ml-auto flex-row justify-center gap-6 text-[14px] leading-[14px] transition-opacity duration-100">
                     {React.Children.toArray(
                         socials.map(({serv, name, url}) =>
                             <div
@@ -146,19 +146,16 @@ export function Footer() {
 	return (
 		<div
 			className={clsx(
-				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center"
+				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center max-w-4xl sm:max-w-none lg:mb-6 lg:mt-3"
 			)}
 		>
-			<div className="flex flex-col justify-center items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-6 lg:mx-7 flex-nowrap bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1">
-				<div className="flex flex-row lg:hidden w-full justify-between sm:justify-start items-center gap-3  text-[13px] leading-[13px] transition-all duration-75">
+			<div className="flex flex-col justify-center items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-7 lg:mx-7 bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1">
+				<div className="flex flex-row flex-wrap xl:hidden w-full justify-start items-center gap-6 gap-y-3 sm:gap-6 text-[13px] leading-[13px] transition-all duration-75">
                     {React.Children.toArray(
                         socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
                     )}
 				</div>
-				<div className="flex flex-row w-full text-[13px] sm:text-[14px] leading-[14px] font-neue-haas-grotesk-medium text-left text-neutral-500">
-					<div className="flex flex-col justify-center items-start w-full h-full uppercase pb-4 py-5 mr-auto">
-						<span>{copyright}</span>
-					</div>
+				<div className="flex w-full justify-end sm:justify-center items-center flex-row pb-3">
 					<a
 						rel="noopener noreferrer"
 						target="_blank"
@@ -167,7 +164,6 @@ export function Footer() {
 					>
 						<VercelIcon />
 					</a>
-					<div className="hidden sm:flex flex-col justify-center items-start w-full h-full"></div>
 				</div>
 			</div>
 		</div>

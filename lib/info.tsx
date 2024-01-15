@@ -26,6 +26,7 @@ export const extras_explained = {
 }
 
 export const about_p = `<span class='name-highlight'>${name}</span>, self-taught programmer, graphic designer and r/neography hobbyist from <span class='large-highlight'> Dallas, TX </span>.`;
+export const about_email = `( <a class="p-link" rel=\"noopener noreferrer\" target=\"_blank\" href=\"mailto:bays@956mb.com\">bays@956mb.com</a> )`;
 
 export const bio_p = `My main focus is in frontend design and functionality for desktop and mobile software. I typically start by prototyping in <span class='large-highlight'>Figma </span> and then bring functionality to my designs with code. I’ve created applications for <span class='large-highlight'>Windows</span>, <span class='large-highlight'>macOS</span>, <span class='large-highlight'>iPhone </span>, and <span class='large-highlight'>Apple Watch</span>. When I'm not working on code projects or new designs, I'm slowly learning languages like <span class='large-highlight'>Korean</span> or <span class='large-highlight'>Finnish</span>, and I'm thinking up and drawing new fictional language scripts on <span class='large-highlight'>r/neography</span>.`;
 

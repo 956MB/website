@@ -13,7 +13,7 @@ export default async function AboutPage() {
 						<Image
 							alt={"banner"}
 							className={"w-full h-full object-cover"}
-							src={"/banner-tattoo.png"}
+							src={"/banner-tattoo-crop.png"}
 							width={1920}
 							height={384}
 							loading="eager"

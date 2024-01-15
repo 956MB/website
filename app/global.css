@@ -237,6 +237,10 @@ hr {
 .p-calligraphr { color: #67499E !important; }
 
 
+.p-link { @apply text-neutral-200; }
+.p-link:hover { @apply text-white underline; }
+
+
 .cls-1 {
 	fill: #fff;
 }

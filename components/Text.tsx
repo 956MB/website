@@ -18,8 +18,16 @@ export function TextTitleSub({ children }: { children: string }) {
 
 export function TextParagraph({ children }: { children: string }) {
     return (
-        <a className="font-neue-haas-grotesk-medium text-[15px] leading-[1.7em  ] m-0 text-neutral-350 about-text-p text-left">
+        <span className="font-neue-haas-grotesk-medium text-[15px] tracking-wide leading-[1.7em] m-0 text-neutral-350 about-text-p text-left">
             {Parse(children)}
-        </a>
+        </span>
+    );
+}
+
+export function TextParagraphSub({ children }: { children: string }) {
+    return (
+        <span className="font-neue-haas-grotesk-medium text-[15px] leading-[1.7em] m-0 text-neutral-500 about-text-p text-left">
+            {Parse(children)}
+        </span>
     );
 }

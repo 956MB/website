@@ -63,7 +63,7 @@ export default function RootLayout({
 				<link rel="apple-touch-icon" href="/logo.png" />
 			</head>
 			<body className="antialiased flex flex-col md:flex-row overflow-auto">
-				<main className="min-w-0 flex flex-auto flex-col items-center h-fit">
+				<main className="min-w-0 flex flex-auto flex-col items-center h-fit w-full">
 					<Header />
 					{children}
 					<Analytics />

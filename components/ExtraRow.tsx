@@ -35,10 +35,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 			<ExtraHeader entry={entry} />
 			<div
 				className={clsx(
-					"grid justify-center items-start gap-2 lg:gap-3 w-full max-w-screen-3xl pt-4",
+					"grid justify-center items-start w-full max-w-screen-3xl pt-4",
 					entry.category === "icons"
-						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
-						: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2"
+						: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
 				)}
 			>
 				{React.Children.toArray(
@@ -64,7 +64,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 								)}
 								<a
 									className={clsx(
-										"relative flex flex-col justify-end group object-cover overflow-hidden rounded-lg bg-gradient-to-t from-white/10 to-transparent backdrop-blur-sm sm:backdrop-blur-none",
+										"relative flex flex-col justify-end group object-cover overflow-hidden rounded-md bg-gradient-to-t from-white/10 to-transparent backdrop-blur-sm sm:backdrop-blur-none",
 										item.link && " cursor-pointer",
 										item.category === "wallpaper" &&
 											"child:hover:scale-105"
