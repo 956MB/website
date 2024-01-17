@@ -203,7 +203,7 @@ export const painting_cybertruck: IEntry = {
 
 export const redesign_cybertruck: IEntry = {
 	id: "redesign_cybertruck",
-	title: "Cybertruck redesign by u/Wenbell",
+	title: "Cybertruck redesign by ???",
     date: "9.4.2023",
 	category: "photoshop",
 	summary: [
@@ -309,7 +309,7 @@ export const logo_tbab: IEntry = {
 
 export const logo_plan: IEntry = {
 	id: "logo_plan",
-	title: "pLan",
+	title: "\"pLan\"",
     date: "5.30.2020",
 	category: "photoshop",
 	summary: [
@@ -366,7 +366,7 @@ export const icons_rosetta: IEntry = {
 
 export const figma_tattoo: IEntry = {
 	id: "figma_tattoo",
-	title: "Figma Tattoo",
+	title: "\"Figma tattoo\"",
     date: "1.14.2024",
 	category: "figma",
 	summary: [

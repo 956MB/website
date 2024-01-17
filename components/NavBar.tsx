@@ -146,16 +146,16 @@ export function Footer() {
 	return (
 		<div
 			className={clsx(
-				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center max-w-4xl sm:max-w-none lg:mb-6 lg:mt-3"
+				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center max-w-4xl xl:max-w-none lg:mb-6 lg:mt-3"
 			)}
 		>
-			<div className="flex flex-col justify-center items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-7 lg:mx-7 bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1">
+			<div className="flex flex-col sm:flex-row justify-center sm:justify-between items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-7 lg:mx-7 bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1 sm:gap-4">
 				<div className="flex flex-row flex-wrap xl:hidden w-full justify-start items-center gap-6 gap-y-3 sm:gap-6 text-[13px] leading-[13px] transition-all duration-75">
                     {React.Children.toArray(
                         socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
                     )}
 				</div>
-				<div className="flex w-full justify-end sm:justify-center items-center flex-row pb-3">
+				<div className="flex xl:w-full justify-end sm:justify-center items-center flex-row pb-3">
 					<a
 						rel="noopener noreferrer"
 						target="_blank"

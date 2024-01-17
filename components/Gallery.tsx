@@ -145,16 +145,6 @@ export default function Gallery({
 						<a className="text-white text-center font-neue-haas-grotesk-medium text-lg sm:text-xl leading-5 py-2 whitespace-nowrap">
 							{item.title}
 						</a>
-
-						<div className="hidden sm:flex gap-x-2 items-center justify-start pl-2">
-							{item.date && (
-								<div className="flex flex-row gap-1 items-center justify-center bg-black/50 backdrop-blur-lg rounded-full m-0 z-20">
-                                    <span className="text-[12px] leading-[12px] font-neue-haas-grotesk-medium cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
-                                        {item.date}
-                                    </span>
-                                </div>
-							)}
-						</div>
 					</div>
 
 					<div className="flex h-full w-full justify-end"></div>
@@ -169,7 +159,7 @@ export default function Gallery({
 					)}
 				>
 					{item.summary && item.summary.length > 0 && (
-						<span className="text-neutral-400 font-neue-haas-grotesk-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-5 my-3 sm:mx-6 sm:my-5 gallery-summary">
+						<span className="text-neutral-400 font-neue-haas-grotesk-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-5 my-3 sm:mx-6 sm:my-4 gallery-summary">
                             {parse(
                                 item.summary.join("")
                             )}

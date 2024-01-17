@@ -11,7 +11,7 @@ import Tooltip from "./Tooltip";
 
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div className="flex flex-col sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
+		<div className="flex flex-col sm:sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
 			<div className="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-[3px] sm:gap-3 leading-[21px]">
                 <span className="text-white whitespace-normal font-neue-haas-grotesk-medium text-[21px] leading-7">
                     {entry.title}
@@ -33,10 +33,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 			<ExtraHeader entry={entry} />
 			<div
 				className={clsx(
-					"grid justify-center items-start w-full max-w-screen-3xl pt-4",
+					"grid justify-center items-start w-full max-w-screen-3xl",
 					entry.category === "icons"
-						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2"
-						: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 pt-2"
+						: "grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 pt-3"
 				)}
 			>
 				{React.Children.toArray(
@@ -62,7 +62,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 								)}
 								<a
 									className={clsx(
-										"relative flex flex-col justify-end group object-cover overflow-hidden rounded-md bg-gradient-to-t from-white/10 to-transparent backdrop-blur-sm sm:backdrop-blur-none",
+										"relative flex flex-col justify-end group object-cover overflow-hidden bg-gradient-to-t from-white/10 to-transparent backdrop-blur-sm sm:backdrop-blur-none",
 										item.link && " cursor-pointer",
 										item.category === "wallpaper" &&
 											"child:hover:scale-105"
@@ -102,8 +102,9 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 											<div className="flex flex-row gap-1 items-center justify-start w-full">
 												<a
 													className={clsx(
-														"text-white font-neue-haas-grotesk-medium text-base whitespace-normal m-0",
-                                                        item.link && "hover:underline"
+														"text-white font-neue-haas-grotesk-medium whitespace-normal m-0",
+                                                        item.link && "hover:underline",
+                                                        item.category === "wallpaper" ? "text-base sm:text-lg" : "text-base"
 													)}
 													rel="noopener noreferrer"
 													target="_blank"

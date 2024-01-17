@@ -10,7 +10,7 @@ import Tooltip from "./Tooltip";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
-		<div className="flex flex-col sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
+		<div className="flex flex-col sm:sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
 			<div className="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-[3px] sm:gap-3 leading-[21px]">
                 <span className="text-white whitespace-normal font-neue-haas-grotesk-medium text-[21px] leading-7">
                     {entry.title}
@@ -30,7 +30,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col flex-wrap w-full relative justify-center items-center max-w-screen-3xl">
 			<DesignHeader entry={entry} />
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 justify-center items-start gap-5 lg:gap-2 gap-y-3 w-full pt-4">
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center items-start gap-3 md:gap-2 w-full pt-2">
 				{React.Children.toArray(
 					entry.items.map((item, i) => (
 						<PortalWithState closeOnOutsideClick closeOnEsc>
@@ -38,7 +38,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 								<React.Fragment>
 									<div
 										className={clsx(
-											"relative z-0 flex flex-col justify-start group box-content rounded-md overflow-hidden"
+											"relative z-0 flex flex-col justify-start group box-content overflow-hidden"
 										)}
                                         id={item.id}
 										onClick={
@@ -56,7 +56,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                         )}
 
 										<a
-											className="flex flex-col relative justify-end group rounded-md overflow-hidden"
+											className="flex flex-col relative justify-end group overflow-hidden"
 											href={
 												item.linkBlog
 													? item.linkBlog
@@ -74,7 +74,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
 										</a>
 										<div
 											className={clsx(
-												"z-10 absolute bottom-0 sm:opacity-0 sm:transition-opacity sm:duration-200 group-hover:opacity-100 flex flex-col text-start justify-end w-full sm:h-full pt-[16px] sm:pt-0 sm:backdrop-blur-none pb-[16px] gap-y-2 bg-gradient-to-r sm:bg-gradient-to-t from-black sm:from-black/70 to-black/10 sm:to-transparent pl-3 pr-4 pointer-events-none",
+												"z-10 absolute bottom-0 sm:transition-opacity sm:duration-200 opacity-100 lg:opacity-0 group-hover:opacity-100 flex flex-col text-start justify-end w-full lg:h-full pt-[16px] sm:backdrop-blur-none pb-[16px] gap-y-2 bg-gradient-to-r lg:bg-gradient-to-t from-black/90 lg:from-black/60 to-black/10 sm:to-transparent pl-3 pr-4 pointer-events-none",
                                                 item.category == "photoshop" && "pl-4 pr-4",
 												item.summary &&
 													item.summary.length <= 0 &&
@@ -101,7 +101,7 @@ export default function DesignRow({ entry }: { entry: IEntryGroup }) {
                                                         position={"top"}
                                                         warn={false}
                                                     >
-                                                        <span className="text-white font-neue-haas-grotesk-medium w-full text-md">
+                                                        <span className={"text-white font-neue-haas-grotesk-medium w-full text-md"}>
                                                             {item.title}
                                                         </span>
                                                     </Tooltip>
