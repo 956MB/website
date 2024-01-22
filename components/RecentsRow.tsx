@@ -11,7 +11,7 @@ export function RecentHeader() {
 	return (
 		<div className="flex flex-col sticky top-0 items-start justify-start w-full m-0 gap-5 sm:gap-4 z-50 bg-black/90 backdrop-blur">
 			<div className="flex flex-row items-center justify-center w-full">
-				<hr className="h-px w-full max-w-2xl bg-neutral-800 my-auto" />
+				<hr className="h-px w-full bg-neutral-800 my-auto" />
 			</div>
 		</div>
 	);

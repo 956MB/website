@@ -458,12 +458,14 @@ table {
 }
 
 .entry-summary a,
-.gallery-summary a
+.gallery-summary a,
+.page-summary a
 {
 	@apply text-neutral-100;
 }
 .entry-summary a:hover,
-.gallery-summary a:hover
+.gallery-summary a:hover,
+.page-summary a:hover
 {
 	@apply text-white underline;
 }

@@ -8,11 +8,12 @@ import { logo_s, copyright } from "lib/info";
 import Image from "next/image";
 import { socials } from "lib/info";
 import { FiArrowUpRight } from "react-icons/fi";
-import React, { useState } from "react";
+import React from "react";
 
 const navItems = {
 	"/projects": { name: "projects" },
-	"/designs": { name: "designs" },
+	"/designs": { name: "designs / art" },
+	"/neography": { name: "neography" },
 	"/extras": { name: "extras" },
 };
 
@@ -48,17 +49,16 @@ function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
 
 export default function Header() {
 	let pathname = usePathname() || "/";
-    const [socialHovered, setSocialHovered] = useState<string>("");
 
 	return (
 		<div
 			className={clsx(
-				"relative z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full flex justify-center"
+				"relative z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full px-6 sm:px-7 flex justify-start sm:justify-center overflow-x-scroll no-scrollbar"
 			)}
 		>
 			<div
 				className={clsx(
-					"flex flex-row gap-10 sm:gap-10 m-auto items-center justify-center w-full h-full max-w-screen-3xl mx-6 sm:mx-7 bg-black/90 backdrop-blur"
+					"inline-flex flex-row gap-8 sm:gap-10 m-auto items-center justify-center h-full bg-black/90 backdrop-blur"
 				)}
 			>
 				<div className="relative inline-flex justify-center items-center h-full">
@@ -77,7 +77,7 @@ export default function Header() {
 					)}
 				</div>
 
-				<div className="flex sm:inline-flex flex-row gap-12 sm:gap-10 items-center sm:justify-center h-full sm:w-auto overflow-hidden">
+				<div className="inline-flex flex-row gap-9 sm:gap-10 items-center sm:justify-center h-full w-full sm:w-auto overflow-hidden">
 					{Object.entries(navItems).map(([path, { name }], idx) => {
 						const isActive = path === pathname;
 
@@ -86,12 +86,13 @@ export default function Header() {
 								key={path}
 								className={clsx(
 									"relative inline-flex flex-row justify-center items-center h-full",
-									path.includes("/extras") && "sm:pl-10"
+									path.includes("/projects") && "sm:pl-10"
 								)}
 							>
-								{path.includes("/extras") && (
+								{path.includes("/projects") && (
 									<div className="absolute inset-y-0 left-0 w-[1px] my-5 bg-transparent sm:bg-neutral-800"></div>
 								)}
+
 								<div className="relative flex align-middle text-center justify-center items-center h-full">
 									<Link
 										href={path}
@@ -111,6 +112,7 @@ export default function Header() {
 										>
 											{name}
 										</span>
+
 										{(pathname.includes(name) ||
 											pathname == path) && (
 											<div className={clsx(
@@ -123,39 +125,28 @@ export default function Header() {
 						);
 					})}
 				</div>
-
-				<div className="hidden xl:inline-flex ml-auto flex-row justify-center gap-6 text-[14px] leading-[14px] transition-opacity duration-100">
-                    {React.Children.toArray(
-                        socials.map(({serv, name, url}) =>
-                            <div
-                                className={(socialHovered !== "" && socialHovered !== serv) ? "opacity-50" : ""}
-                                onMouseEnter={() => setSocialHovered(serv)}
-                                onMouseLeave={() => setSocialHovered("")}
-                            >
-                                <Social serv={serv} name={name} url={url} />
-                            </div>
-                        )
-                    )}
-				</div>
 			</div>
 		</div>
 	);
 }
 
 export function Footer() {
+    let pathname = usePathname() || "/";
+
 	return (
 		<div
 			className={clsx(
-				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center max-w-4xl xl:max-w-none lg:mb-6 lg:mt-3"
+				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center lg:mb-6 lg:mt-3",
+                pathname === "/" ? "max-w-4xl" : "max-w-none"
 			)}
 		>
-			<div className="flex flex-col sm:flex-row justify-center sm:justify-between items-start sm:items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-3xl mx-7 lg:mx-7 bg-black/80 backdrop-blur mt-auto pt-6 pb-3 lg:pt-0 lg:pb-0 gap-1 sm:gap-4">
-				<div className="flex flex-row flex-wrap xl:hidden w-full justify-start items-center gap-6 gap-y-3 sm:gap-6 text-[13px] leading-[13px] transition-all duration-75">
+			<div className="flex flex-row justify-center sm:justify-between items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-2xl mx-7 lg:mx-7 bg-black/80 backdrop-blur mt-auto pt-6 pb-6 lg:pt-0 lg:pb-0 gap-1 sm:gap-4">
+				<div className="flex flex-row flex-wrap w-full justify-start items-center gap-6 gap-y-3 sm:gap-6 text-[13px] leading-[13px] transition-all duration-75">
                     {React.Children.toArray(
                         socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
                     )}
 				</div>
-				<div className="flex xl:w-full justify-end sm:justify-center items-center flex-row pb-3">
+				<div className="flex justify-end items-center flex-row">
 					<a
 						rel="noopener noreferrer"
 						target="_blank"

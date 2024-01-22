@@ -550,7 +550,9 @@ export const scripts_section: IEntryGroup = {
 
 // NOTE: sections
 
-export const groups: IEntryGroups = [ui_section, logos_section, drawings_section, scripts_section];
+export const designGroups: IEntryGroups = [ui_section, logos_section, drawings_section];
+
+export const neographyGroups: IEntryGroups = [scripts_section];
 
 export const recents_group: IEntryGroupLinks = {
 	title: "New stuff",

@@ -33,10 +33,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 			<ExtraHeader entry={entry} />
 			<div
 				className={clsx(
-					"grid justify-center items-start w-full max-w-screen-3xl",
+					"grid justify-center items-start w-full max-w-screen-2xl",
 					entry.category === "icons"
-						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 pt-2"
-						: "grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 pt-3"
+						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-2 pt-2"
+						: "grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-3 pt-3"
 				)}
 			>
 				{React.Children.toArray(

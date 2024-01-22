@@ -61,7 +61,7 @@ export default function BlogContainer({
 	selectedPost: Content;
 }) {
 	return (
-		<div className="flex flex-row flex-1 justify-center w-full max-h-full items-start mx-auto max-w-screen-3xl">
+		<div className="flex flex-row flex-1 justify-center w-full max-h-full items-start mx-auto max-w-screen-2xl">
 			<div className="hidden lg:flex flex-col shrink w-full max-w-[361px] sticky top-0 overflow-auto">
 
 				{selectedPost.links && (

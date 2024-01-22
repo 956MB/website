@@ -56,7 +56,7 @@ export default async function Blog({ params }) {
 
 	return (
 		<section className="w-full">
-			<div className="flex w-full flex-col flex-1 items-start relative px-6 sm:px-7">
+			<div className="flex w-full flex-col flex-1 items-start relative px-6 sm:px-8">
 				<BlogC selectedPost={post} />
 			</div>
 		</section>

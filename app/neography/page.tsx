@@ -1,30 +1,29 @@
 import type { Metadata } from "next";
 
+import { neographyGroups } from "lib/designs";
 import React from "react";
-import ExtraRow from "components/ExtraRow";
-import { groups } from "lib/extras";
-import clsx from "clsx";
-import { PiWarningCircleBold } from "react-icons/pi";
-import { extras_explained } from "lib/info";
+import DesignRow from "components/DesignRow";
+import parse from "html-react-parser";
+import { neography_d } from "lib/info";
 
 export const metadata: Metadata = {
-	title: "Extras",
+	title: "Scripts",
 	description:
-		"Collection of upscaled/edited wallpapers, and various other free stuff.",
+		"All of the language scripts (and eventually conlangs) I've created for the r/neography subreddit.",
 };
 
-export default function ExtraPage() {
+export default function DesignPage() {
 	return (
 		<section>
 			<div className="flex w-full flex-col flex-wrap items-center justify-start sm:pt-7 gap-y-3 sm:gap-y-7 pb-6 px-6 sm:px-8">
 				<div className="inline-flex flex-col gap-4 w-full max-w-screen-2xl">
 					<div className="flex flex-col items-start justify-center gap-2 pt-[13px] sm:pt-4">
 						<span className="text-white font-neue-haas-grotesk-medium text-[21px] leading-[18px]">
-							{extras_explained.title}
+							{"Scripts"}
 						</span>
 
 						<span className="font-ibmplex-sans-medium text-sm leading-5 text-neutral-500 page-summary">
-							{extras_explained.description}
+							{parse(neography_d)}
 						</span>
 					</div>
 
@@ -34,7 +33,9 @@ export default function ExtraPage() {
 				</div>
 
 				{React.Children.toArray(
-					groups.map((group, i) => <ExtraRow entry={group} />)
+					neographyGroups.map((group, i) => (
+						<DesignRow entry={group} noHeader />
+					))
 				)}
 			</div>
 		</section>

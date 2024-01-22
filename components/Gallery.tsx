@@ -173,7 +173,7 @@ export default function Gallery({
 
 				<div className={clsx(
                     "flex flex-col flex-grow items-center justify-center sm:justify-start gap-3 h-full sm:h-auto",
-                    item.images.length <= 1 ? "max-w-screen-3xl" : "max-w-screen-xl"
+                    item.images.length <= 1 ? "max-w-screen-2xl" : "max-w-screen-xl"
                 )}>
 					{React.Children.toArray(
 						item.images?.map((content) => {

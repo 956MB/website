@@ -22,7 +22,7 @@ export function AboutBody() {
                 <TextParagraph>{bio_p}</TextParagraph>
                 <TextParagraph>{background_p}</TextParagraph>
                 <div className="flex flex-row items-center justify-center w-full my-1 sm:my-2">
-                    <hr className="h-px w-full max-w-2xl bg-neutral-800 my-auto" />
+                    <hr className="h-px w-full bg-neutral-800 my-auto" />
                 </div>
                 <TextParagraph>{languages_p}</TextParagraph>
                 <TextParagraph>{tools_p}</TextParagraph>
