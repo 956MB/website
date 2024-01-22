@@ -1,7 +1,7 @@
 import "./global.css";
 import type { Metadata } from "next";
-import Particles from "../components/particles";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Header, { Footer } from "components/NavBar";
 
 export const metadata: Metadata = {
@@ -66,6 +66,7 @@ export default function RootLayout({
 				<main className="min-w-0 flex flex-auto flex-col items-center h-fit w-full">
 					<Header />
 					{children}
+					<SpeedInsights />
 					<Analytics />
 					<Footer />
 				</main>
