@@ -7,6 +7,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import Gallery, { CategoryIcon } from "./Gallery";
 import Tooltip from "./Tooltip";
+import { motion } from "framer-motion";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
@@ -33,23 +34,45 @@ export default function DesignRow({
 	entry: IEntryGroup;
 	noHeader?: boolean;
 }) {
+	const containerVariants = {
+		initial: {},
+		animate: {
+			transition: {
+				staggerChildren: 0.10,
+			},
+		},
+	};
+
+	const itemVariants = {
+		initial: { opacity: 0 },
+		animate: { opacity: 1 },
+	};
+
 	return (
 		<div className="flex flex-col flex-wrap w-full relative justify-center items-center max-w-screen-2xl">
 			{!noHeader && <DesignHeader entry={entry} />}
 
-			<div className={clsx(
-                "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center items-start gap-3 md:gap-2 w-full pt-2"
-            )}>
+			<motion.div
+				variants={containerVariants}
+				initial="initial"
+				animate="animate"
+				className={clsx(
+					"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center items-start gap-3 md:gap-2 w-full pt-2"
+				)}
+			>
 				{React.Children.toArray(
 					entry.items.map((item, i) => (
 						<PortalWithState closeOnOutsideClick closeOnEsc>
 							{({ openPortal, closePortal, portal }) => (
 								<React.Fragment>
-									<div
+									<motion.div
+										key={i}
+										variants={itemVariants}
+										transition={{ duration: 0.5 }}
+										id={item.id}
 										className={clsx(
 											"relative z-0 flex flex-col justify-start group box-content overflow-hidden"
 										)}
-										id={item.id}
 										onClick={
 											item.linkBlog
 												? undefined
@@ -75,8 +98,8 @@ export default function DesignRow({
 											<Image
 												alt={item.id}
 												className={clsx(
-                                                    "block object-cover w-full h-full aspect-square cursor-pointer ease-in-out transition-transform duration-75 hover:scale-105"
-                                                )}
+													"block object-cover w-full h-full aspect-square cursor-pointer ease-in-out transition-transform duration-75 hover:scale-105"
+												)}
 												src={
 													item.thumbnail
 														? item.thumbnail.path
@@ -97,7 +120,7 @@ export default function DesignRow({
 										</a>
 										<div
 											className={clsx(
-												"z-10 absolute bottom-0 sm:transition-opacity sm:duration-200 opacity-100 lg:opacity-0 group-hover:opacity-100 flex flex-col text-start justify-end w-full lg:h-full pt-[16px] sm:backdrop-blur-none pb-[16px] gap-y-2 bg-gradient-to-r lg:bg-gradient-to-t from-black/90 lg:from-black/60 to-black/10 sm:to-transparent pl-3 pr-4 pointer-events-none",
+												"z-10 absolute bottom-0 sm:transition-opacity sm:duration-200 opacity-100 lg:opacity-0 group-hover:opacity-100 flex flex-col text-start justify-end w-full lg:h-full pt-[16px] sm:backdrop-blur-none pb-[16px] gap-y-2 bg-gradient-to-r lg:bg-gradient-to-t from-black/80 to-black/10 sm:to-transparent pl-3 pr-4 pointer-events-none",
 												item.category == "photoshop" &&
 													"pl-4 pr-4",
 												item.summary &&
@@ -139,7 +162,7 @@ export default function DesignRow({
 												)}
 											</div>
 										</div>
-									</div>
+									</motion.div>
 									{portal(
 										<Gallery
 											item={item}
@@ -151,7 +174,7 @@ export default function DesignRow({
 						</PortalWithState>
 					))
 				)}
-			</div>
+			</motion.div>
 		</div>
 	);
 }

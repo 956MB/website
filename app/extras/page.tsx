@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import React from "react";
 import ExtraRow from "components/ExtraRow";
 import { groups } from "lib/extras";
-import clsx from "clsx";
-import { PiWarningCircleBold } from "react-icons/pi";
 import { extras_explained } from "lib/info";
 
 export const metadata: Metadata = {
@@ -23,7 +21,7 @@ export default function ExtraPage() {
 							{extras_explained.title}
 						</span>
 
-						<span className="font-ibmplex-sans-medium text-sm leading-5 text-neutral-500 page-summary">
+						<span className="font-ibmplex-sans-medium text-sm leading-5 text-neutral-500 page-summary max-w-3xl">
 							{extras_explained.description}
 						</span>
 					</div>

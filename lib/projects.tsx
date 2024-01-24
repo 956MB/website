@@ -1,5 +1,4 @@
-import { StaticImageData } from "next/image";
-import { IEntry, IEntryGroup } from "./interfaces";
+import { IEntry } from "./interfaces";
 
 const tdb_i = "/images/projects/tdb.png";
 export const project_tdb: IEntry = {

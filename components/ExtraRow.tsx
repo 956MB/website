@@ -1,21 +1,24 @@
 "use client";
 
 import { IEntryGroup } from "lib/interfaces";
-import React from "react";
+import React, { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import clsx from "clsx";
 import parse from "html-react-parser";
 import { MdOutlineLayers } from "react-icons/md";
 import { PiWarningCircleBold } from "react-icons/pi";
+// import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Tooltip from "./Tooltip";
+import { motion } from "framer-motion";
 
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col sm:sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
-			<div className="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-[3px] sm:gap-3 leading-[21px]">
-                <span className="text-white whitespace-normal font-neue-haas-grotesk-medium text-[21px] leading-7">
-                    {entry.title}
-                </span>
+			<div className="flex flex-col w-full sm:flex-row items-start sm:items-center justify-start gap-[3px] sm:gap-3 leading-[21px]">
+				<span className="text-white whitespace-normal font-neue-haas-grotesk-medium text-[21px] leading-7">
+					{entry.title}
+				</span>
 				<span className="font-ibmplex-sans-medium text-sm text-neutral-500">
 					{entry.description}
 				</span>
@@ -28,25 +31,46 @@ export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 }
 
 export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
+	const containerVariants = {
+		initial: {},
+		animate: {
+			transition: {
+				staggerChildren: 0.1,
+			},
+		},
+	};
+
+	const itemVariants = {
+		initial: { opacity: 0 },
+		animate: { opacity: 1 },
+	};
+
 	return (
 		<div className="flex flex-col flex-wrap w-full relative justify-center items-center">
 			<ExtraHeader entry={entry} />
-			<div
+
+			<motion.div
+				variants={containerVariants}
+				initial="initial"
+				animate="animate"
 				className={clsx(
 					"grid justify-center items-start w-full max-w-screen-2xl",
 					entry.category === "icons"
 						? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-2 pt-2"
-						: "grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-3 pt-3"
+						: "grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-3 pt-3"
 				)}
 			>
 				{React.Children.toArray(
 					entry.items.map((item, i) => {
 						return (
-							<div
+							<motion.div
+								key={i}
+								variants={itemVariants}
+								transition={{ duration: 0.5 }}
+								id={item.id}
 								className={clsx(
 									"relative z-0 flex flex-col justify-start group box-content"
 								)}
-								id={item.id}
 							>
 								{item.count && item.count > 1 && (
 									<div className="flex flex-row gap-1 absolute top-2 right-2 items-center justify-center bg-black/30 backdrop-blur-lg rounded-full m-0 z-20">
@@ -103,8 +127,12 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 												<a
 													className={clsx(
 														"text-white font-neue-haas-grotesk-medium whitespace-normal m-0",
-                                                        item.link && "hover:underline",
-                                                        item.category === "wallpaper" ? "text-base sm:text-lg" : "text-base"
+														item.link &&
+															"hover:underline",
+														item.category ===
+															"wallpaper"
+															? "text-base sm:text-lg"
+															: "text-base"
 													)}
 													rel="noopener noreferrer"
 													target="_blank"
@@ -143,11 +171,11 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 										</div>
 									</div>
 								</div>
-							</div>
+							</motion.div>
 						);
 					})
 				)}
-			</div>
+			</motion.div>
 		</div>
 	);
 }

@@ -159,7 +159,7 @@ export default function Gallery({
 					)}
 				>
 					{item.summary && item.summary.length > 0 && (
-						<span className="text-neutral-400 font-neue-haas-grotesk-medium text-center leading-[19px] text-[14px] sm:text-[15px] max-w-screen-lg mx-5 my-3 sm:mx-6 sm:my-4 gallery-summary">
+						<span className="text-neutral-400 font-neue-haas-grotesk-medium text-center leading-[19px] text-[14px] sm:text-[15px] tracking-wide max-w-screen-lg mx-5 my-3 sm:mx-6 sm:my-4 gallery-summary">
                             {parse(
                                 item.summary.join("")
                             )}

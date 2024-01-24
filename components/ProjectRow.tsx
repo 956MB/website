@@ -1,11 +1,11 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import React from "react";
 import clsx from "clsx";
 import Parse from "html-react-parser";
 import { PortalWithState } from "react-portal";
-import { Github, XLg } from "react-bootstrap-icons";
+import { XLg } from "react-bootstrap-icons";
 import { IEntry } from "lib/interfaces";
 import Tooltip from "./Tooltip";
 
