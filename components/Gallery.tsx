@@ -2,6 +2,7 @@ import Image from "next/image";
 import { IEntry } from "lib/interfaces";
 import { PiFigmaLogo } from "react-icons/pi";
 import { SiAdobephotoshop, SiAdobeillustrator } from "react-icons/si";
+import { FiArrowLeft } from "react-icons/fi";
 import { HiMiniLanguage } from "react-icons/hi2";
 import { RiReactjsLine } from "react-icons/ri";
 import { XLg, ArrowRight, ArrowLeft } from "react-bootstrap-icons";
@@ -144,11 +145,11 @@ export default function Gallery({
 							onClick={closeAction}
 						>
 							<Tooltip
-								content="Close"
+								content="Back"
 								position={"bottom"}
 								warn={false}
 							>
-								<XLg size={18} className="text-white" />
+								<FiArrowLeft size={22} className="text-white" />
 							</Tooltip>
 						</button>
 					</div>
@@ -175,14 +176,14 @@ export default function Gallery({
 
 				<div
 					className={clsx(
-						"flex flex-col flex-grow items-center w-full",
+						"flex flex-col items-center w-full",
 						item.items.length <= 1
 							? "justify-center"
 							: "justify-start"
 					)}
 				>
 					{item.summary && item.summary.length > 0 && (
-						<span className="text-neutral-400 font-ibmplex-sans-medium text-center leading-[19px] text-[14px] sm:text-[15px] tracking-wide max-w-screen-lg mx-5 my-3 sm:mx-6 sm:my-4 gallery-summary">
+						<span className="text-neutral-400 font-ibmplex-sans-medium text-center leading-[19px] text-[13px] lg:text-[15px] tracking-wide max-w-screen-lg mx-5 my-3 sm:mx-6 lg:my-4 gallery-summary">
 							{parse(item.summary.join(""))}
 						</span>
 					)}
@@ -194,7 +195,7 @@ export default function Gallery({
 
 				<div
 					className={clsx(
-						"flex flex-col flex-grow items-center justify-center sm:justify-start gap-3 h-full sm:h-auto",
+						"flex flex-col items-center justify-center sm:justify-start gap-3",
 						item.items.length <= 1
 							? "max-w-screen-2xl"
 							: "max-w-screen-xl"
@@ -232,11 +233,11 @@ export default function Gallery({
 								)}
 
 								{content.caption && (
-									<hr className="h-px w-full bg-neutral-800 m-0 mt-3 max-w-screen-lg" />
+									<hr className="h-px w-full bg-neutral-800 m-0 mt-1 sm:mt-3" />
 								)}
 
 								{content.caption && (
-									<span className="text-neutral-400 font-ibmplex-sans-regular text-center text-[13px] leading-[13px] tracking-wide max-w-screen-lg mx-3 gallery-summary mt-3 mb-6">
+									<span className="text-neutral-400 font-ibmplex-sans-regular text-center text-[13px] leading-[13px] tracking-wide max-w-screen-lg mx-3 gallery-summary mt-2 sm:mt-3 mb-4">
 										{parse(content.caption)}
 									</span>
 								)}

@@ -478,7 +478,7 @@ export const t_wear: IEntry = {
 	date: "1.26.2024",
 	category: "illustrator",
 	summary: [
-		"This is one of a few logo ideas for a clothing brand that popped into my head watching the Australian Open this year. I've always been interested in the idea of custom equipment / clothing, and what those things would look like if I designed them for myself. Whether it was hockey in my past, snowboarding or tennis. There's three because I can't make up my mind with this concept... but #1 is probably front runner. (Jannik is the absolute man.)",
+		"This Is one of a few logo ideas for a clothing brand that popped into my head watching the Australian Open this year. I've always been interested in the idea of custom equipment / clothing, and what those things would look like if I designed them for myself. Whether it was hockey in my past, snowboarding or tennis. There's three because I can't make up my mind with this concept... but #1 is probably front runner. (Jannik is the absolute man.)",
 	],
 	thumbnail: { path: "/images/t_wear/t!-thumb.gif", width: 857, height: 857 },
 	items: [
