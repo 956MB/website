@@ -15,11 +15,11 @@ import { motion } from "framer-motion";
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col sm:sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
-			<div className="flex flex-col w-full sm:flex-row items-start sm:items-center justify-start gap-[3px] sm:gap-3 leading-[21px]">
-				<span className="text-white whitespace-normal font-neue-haas-grotesk-medium text-[21px] leading-7">
+			<div className="flex flex-col items-start justify-end gap-2 leading-[21px]">
+				<span className="text-white whitespace-normal sm:whitespace-nowrap font-neue-haas-grotesk-medium text-[21px] leading-4">
 					{entry.title}
 				</span>
-				<span className="font-ibmplex-sans-medium text-sm text-neutral-500">
+				<span className="font-ibmplex-sans-medium text-sm leading-4 text-neutral-500">
 					{entry.description}
 				</span>
 			</div>
@@ -107,9 +107,9 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 												item.id === "icon_2048we") &&
 												"scale-75"
 										)}
-										src={item.images[0].path}
-										width={item.images[0].width}
-										height={item.images[0].height}
+										src={item.items[0].path}
+										width={item.items[0].width}
+										height={item.items[0].height}
 										loading="eager"
 									/>
 								</a>

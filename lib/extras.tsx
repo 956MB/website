@@ -12,7 +12,7 @@ export const icon_adobe: IEntry = {
 	],
 	link: "https://store.956mb.com/l/adobe-rosetta-icons",
 	count: 30,
-	images: [
+	items: [
 		{
 			path: "/images/adobe-icons/rosetta-thumb.gif",
 			width: 1024,
@@ -32,7 +32,7 @@ export const icon_vscodium: IEntry = {
 	link: "https://store.956mb.com/l/vscodium-icon",
 	count: 2,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072\">@setanarut</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/icons/vscodium-1.png",
 			width: 1024,
@@ -51,7 +51,7 @@ export const icon_parallels: IEntry = {
 	],
 	link: "https://store.956mb.com/l/parallels-icon",
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/r/MacOS/comments/mucnsz/i_got_tired_of_the_parallels_desktop_icon_not/2\">u/JonMarksbury</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/icons/parallels-1.png",
 			width: 1024,
@@ -68,7 +68,7 @@ export const icon_tdb: IEntry = {
     summary: [
 		"App icon for my iOS/iPadOS/macOS app <a href=\"https://www.tdb.fyi/\">TDB</a>. Made by me.",
 	],
-	images: [
+	items: [
 		{
 			path: "/images/extras/icons/tdb.png",
 			width: 1024,
@@ -87,7 +87,7 @@ export const icon_2048we: IEntry = {
 	],
 	link: "https://store.956mb.com/l/2048we-icon",
 	count: 4,
-	images: [
+	items: [
 		{
 			path: "/images/extras/icons/2048WE/2048WE.png",
 			width: 512,
@@ -126,7 +126,7 @@ export const extra_hongdae_variants: IEntry = {
 	link: "https://drive.google.com/drive/folders/1lJRSJZwxUlsaq0SXEuaK57L-cK8vq4sH?usp=sharing",
     count: 8,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.apple.com/kr/retail/hongdae/\">Apple 홍대.</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/hongdae-variants-thumb.png",
 			width: 1920,
@@ -147,7 +147,7 @@ export const extra_graffiti_variants: IEntry = {
 	link: "https://drive.google.com/drive/folders/1oI_40YXzpUyvsNE6RHtasf7fuyO_lcD8?usp=sharing",
     count: 4,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://basicappleguy.com/haberdashery/graffiti\">@BasicAppleGuy</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/graffiti-variant-thumb.png",
 			width: 1920,
@@ -166,7 +166,7 @@ export const extra_d: IEntry = {
 		"I have NO idea what this is, I just started painting. Made by me. <a href=\"https://www.956mb.com/designs/#logo_d\">\"D\" / \"O\"</a>. ",
 	],
 	link: "https://drive.google.com/drive/folders/1mYTo3YpLKCwEOMqpEMnuSm0Sqar4z5qj?usp=sharing",
-	images: [
+	items: [
 		{
 			path: "/images/concepts/d/d-wallpaper-thumb.png",
 			width: 2304,
@@ -186,7 +186,7 @@ export const extra_pLan: IEntry = {
 	],
     count: 2,
 	link: "https://drive.google.com/drive/folders/1HNcP5ZXG5qLHVh9LqCcKtsjbRhOXWd_s?usp=sharing",
-	images: [
+	items: [
 		{
 			path: "/images/concepts/pLan/pLan-thumb.png",
 			width: 2048,
@@ -207,7 +207,7 @@ export const extra_polestar_synergy: IEntry = {
 	link: "https://drive.google.com/drive/folders/1-naPWu9jKup8hzA-rwvFCK-5hIV5vpP7?usp=sharing",
 	count: 5,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://about.polestar.com/polestar-design-contest/2022/\">Polestar</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/Polestar-Synergy-Back.png",
 			width: 1920,
@@ -228,7 +228,7 @@ export const extra_maybe_tomorrow: IEntry = {
 	link: "https://drive.google.com/drive/folders/1BuaV2bpohb--hNgEav1sElaX-LXYMP91?usp=sharing",
 	count: 4,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.lowroarmusic.com/\">RIP Ryan Karazija</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/maybe-tomorrow-red.png",
 			width: 1920,
@@ -249,7 +249,7 @@ export const extra_ghibli_colors: IEntry = {
 	link: "https://drive.google.com/drive/folders/1zuMZQfx7B_pTh7Y1vErBXOpoWqe6ik1k?usp=sharing",
 	count: 25,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.ghibli.jp/\">Studio Ghibli</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/ghibli-colors-green3.png",
 			width: 1920,
@@ -270,7 +270,7 @@ export const extra_ghibli_greens: IEntry = {
 	link: "https://drive.google.com/drive/folders/1hcvKaCeBN--SbUPbZbhA24J_2oyZE4Rt?usp=sharing",
 	count: 111,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.ghibli.jp/\">Studio Ghibli</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/Ghibli-Greens-poppy-26.png",
 			width: 1920,
@@ -291,7 +291,7 @@ export const extra_westworld_s3: IEntry = {
 	link: "https://drive.google.com/drive/folders/1S2GS2Dw7t_RnFX1U4yl_rjJ0-mOjkZWa?usp=sharing",
 	count: 26,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"http://elastic.tv/\">Elastic.tv</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/WWF-deepred.png",
 			width: 1920,
@@ -310,7 +310,7 @@ export const extra_dune: IEntry = {
 	link: "https://drive.google.com/drive/folders/1YM573MPs-J3vYygf9N5B_NtzS2BH6PbI?usp=sharing",
 	count: 1,
     credit: "???",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/dune.png",
 			width: 1920,
@@ -331,7 +331,7 @@ export const extra_armored_core_vi: IEntry = {
 	link: "https://drive.google.com/drive/folders/1MMuairvZA4f0Gb8miA26VI1_ytuXxEyl?usp=sharing",
 	count: 9,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.fromsoftware.jp/ww/\">Bandai Namco</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/ACVI-00027.png",
 			width: 1920,
@@ -352,7 +352,7 @@ export const extra_colors_and_shapes: IEntry = {
 	link: "https://drive.google.com/drive/folders/15pwpAQRDgW4TadCb07zq2TUDR5GtgMLk?usp=sharing",
 	count: 15,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.stashmedia.tv/mac-miller-colors-and-shapes-by-sam-mason-and-hornet/\">Hornet/Sam Mason/Stash</a>. RIP Mac.",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/CASWF-00169.png",
 			width: 1920,
@@ -373,7 +373,7 @@ export const extra_hassan_massoudy: IEntry = {
 	link: "https://drive.google.com/drive/folders/1i0Zf3II5JaSc4s6JnyORfPiu5Lnzm5gT?usp=sharing",
 	count: 172,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.massoudy.net/\">Hassan Massoudy</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/_0010_HM326.png",
 			width: 1920,
@@ -394,7 +394,7 @@ export const extra_oppenheimer: IEntry = {
 	link: "https://drive.google.com/drive/folders/1wZj5UQEBC6nW9DHeX3l1XZV31JuhIKlh?usp=sharing",
 	count: 1,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.instagram.com/syncopyofficial/?hl=en\">Syncopy Inc.</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/oppenheimer.jpg",
 			width: 1920,
@@ -415,7 +415,7 @@ export const extra_cybertruck: IEntry = {
 	link: "https://drive.google.com/drive/folders/1d2DtdnDqvSqY4KfGYtSjHVkodIIr9mjn?usp=sharing",
 	count: 1,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/r/cybertruck/comments/mlshr8/what_are_your_thoughts_about_this_for_farming_or/?utm_source=share&utm_medium=web2x&context=3\">???</a>",
-	images: [
+	items: [
 		{
 			path: "/images/extras/wallpapers/cybertruck-redesign.png",
 			width: 1920,

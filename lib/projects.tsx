@@ -10,7 +10,7 @@ export const project_tdb: IEntry = {
 		"This app takes heavy inspiration = the very popular app MacTracker. <span class='highlight'>“A Tesla version of this would be awesome”</span>, we said. I also thought I could do a better job than MacTracker by implementing 3D and/or AR models into the app and one up their tiny PNGs.",
 	],
 	tags: ["iOS", "macOS", "Swift", "SwiftUI"],
-	images: [{ path: "/images/projects/tdb.png", width: 1163, height: 764 }],
+	items: [{ path: "/images/projects/tdb.png", width: 1163, height: 764 }],
 };
 
 export const project_pros: IEntry = {
@@ -23,7 +23,7 @@ export const project_pros: IEntry = {
 		"The app's design takes clear inspiration = my favorite LoL utilities, OP.GG and Blitz. This is intended though, as I want it to eventually look and feel like a professional desktop client that people would enjoy using.",
 	],
 	tags: ["Windows", "Tauri", "TypeScript", "React"],
-	images: [{ path: "/images/projects/pros.png", width: 893, height: 791 }],
+	items: [{ path: "/images/projects/pros.png", width: 893, height: 791 }],
 };
 
 export const project_2048: IEntry = {
@@ -35,7 +35,7 @@ export const project_2048: IEntry = {
 		"This was my first attempt at making a standalone WatchOS app with the new way of not requiring the Watch app to be thethered to an iOS app. You don’t see many games on Apple Watch, mainly because theres not much you can do with the small form factor, but I thought the <span class='highlight'>2048</span> concept would work perfectly for it.",
 	],
 	tags: ["WatchOS", "Swift", "SwiftUI"],
-	images: [{ path: "/images/projects/2048W.png", width: 1080, height: 874 }],
+	items: [{ path: "/images/projects/2048W.png", width: 1080, height: 874 }],
 };
 
 export const project_tx4: IEntry = {
@@ -47,7 +47,7 @@ export const project_tx4: IEntry = {
 		"The idea for this came = a computer engineer friend of mine who owns a Model 3, and spends a lot of time analyzing it and watching his clips back. Also the fact that I wanted to start another proper Qt project and see how far I could take it.",
 	],
 	tags: ["Windows", "C++", "Qt"],
-	images: [{ path: "/images/projects/TX4.png", width: 1038, height: 891 }],
+	items: [{ path: "/images/projects/TX4.png", width: 1038, height: 891 }],
 };
 
 export const project_mssnc: IEntry = {
@@ -59,7 +59,7 @@ export const project_mssnc: IEntry = {
 		"I really loved the look and functionality of Sticky Notes, and I thought its seperate and distinct colors design and overall simplicity would transfer over perfectly to macOS. Also, the idea of having an exact macOS clone of Sticky Notes and using both was very cool.",
 	],
 	tags: ["macOS", "Swift", "SwiftUI"],
-	images: [{ path: "/images/projects/mssnc.gif", width: 1532, height: 982 }],
+	items: [{ path: "/images/projects/mssnc.gif", width: 1532, height: 982 }],
 };
 
 export const project_some_aim_game: IEntry = {
@@ -71,7 +71,7 @@ export const project_some_aim_game: IEntry = {
 		"For this to be a proper 'aim game', it needed a few primary features if nothing else, which I believe I implemented fairly well. Various different game modes to choose from, general color customization to get the best feel for targets and the environment, and the abilty to create almost infinite crosshairs to use and share.",
 	],
 	tags: ["Windows", "C#", "Unity"],
-	images: [{ path: "/images/projects/sag.gif", width: 1408, height: 973 }],
+	items: [{ path: "/images/projects/sag.gif", width: 1408, height: 973 }],
 };
 
 export const project_twanslate: IEntry = {
@@ -83,7 +83,7 @@ export const project_twanslate: IEntry = {
 		"This app leverages the <span class='highlight'>Twitch API</span> and the <span class='highlight'>IRC</span> protocol they still use for chats, and uses multiple other APIs (<span class='highlight'>Google</span>, <span class='highlight'>Microsoft</span>, <span class='highlight'>NLP</span>) for translating incoming messages = one language to another. Say Finnish -> English, or vice versa, which is what I mainly use it for.",
 	],
 	tags: ["macOS", "Swift", "SwiftUI"],
-	images: [
+	items: [
 		{ path: "/images/projects/Twanslate.png", width: 1147, height: 886 },
 	],
 };
@@ -97,7 +97,7 @@ export const project_github_desktop_css: IEntry = {
 		"<span class='highlight'>Github Desktop</span> just didn’t have enough options for <span class='highlight'>light</span> and <span class='highlight'>dark</span> mode themes. Dark mode is the blue-ish ‘Monokai’ sort of dark, which I personally don’t like, and the light mode just doesn’t go far enough. I personally love when software or websites have multiple theme options for someone like me who likes things a bit different.",
 	],
 	tags: ["CSS", "Shell"],
-	images: [
+	items: [
 		{
 			path: "/images/projects/GithubDesktopCSS.gif",
 			width: 1374,
@@ -116,7 +116,7 @@ export const project_board_games_py: IEntry = {
 		"Also, with all of them being in Python and written in such a simple way, my intention was to work on some <span class='highlight'>Tensorflow</span>/<span class='highlight'>PyTorch</span> machine learning and implement it into some or all of the games.",
 	],
 	tags: ["Python"],
-	images: [{ path: "/images/projects/bgames.gif", width: 820, height: 544 }],
+	items: [{ path: "/images/projects/bgames.gif", width: 820, height: 544 }],
 };
 
 export const projects = [

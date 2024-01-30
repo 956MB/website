@@ -105,7 +105,7 @@ export default function Header() {
 									>
 										<span
 											className={clsx(
-												"relative font-neue-haas-grotesk-medium uppercase text-center",
+												"relative font-neue-haas-grotesk-medium uppercase text-center py-3",
 												(pathname.includes(name) ||
 													pathname == path) && "text-white"
 											)}

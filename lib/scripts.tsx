@@ -7,7 +7,7 @@ export const script_circles_only: IEntry = {
 	category: "script",
 	tags: ["Circles"],
 	linkBlog: "https://www.956mb.com/blog/circles-only-apparently",
-	images: [
+	items: [
 		{
 			path: "/images/circles-only-apparently/circles_only_1.png",
 			width: 1038,
@@ -37,7 +37,7 @@ export const script_eggers_posters_gyea: IEntry = {
 	date: "7.19.2023",
 	category: "script",
 	tags: ["GYEA"],
-	images: [
+	items: [
 		{
 			path: "/images/poster-edits/the-northman.png",
 			width: 1500,
@@ -64,7 +64,7 @@ export const script_gyea: IEntry = {
 	category: "script",
 	tags: ["GYEA"],
 	linkBlog: "https://www.956mb.com/blog/is-this-anything",
-	images: [{ path: "/images/concepts/gyea.png", width: 1745, height: 789 }],
+	items: [{ path: "/images/concepts/gyea.png", width: 1745, height: 789 }],
 };
 
 export const script_brands: IEntry = {
@@ -73,7 +73,7 @@ export const script_brands: IEntry = {
 	date: "5.25.2023",
 	category: "script",
 	tags: ["Tab"],
-	images: [
+	items: [
 		{
 			path: "/images/brand-logos-scripts/IMG_V678.png",
 			width: 1920,
@@ -104,7 +104,7 @@ export const script_tab: IEntry = {
 	category: "script",
 	tags: ["Tab"],
 	linkBlog: "https://www.956mb.com/blog/very-different-look-now",
-	images: [{ path: "/images/concepts/tab.png", width: 1358, height: 929 }],
+	items: [{ path: "/images/concepts/tab.png", width: 1358, height: 929 }],
 };
 
 export const script_before_tab: IEntry = {
@@ -114,7 +114,7 @@ export const script_before_tab: IEntry = {
 	category: "script",
 	tags: ["Tab"],
 	linkBlog: "https://www.956mb.com/blog/something-new",
-	images: [
+	items: [
 		{
 			path: "/images/something-new/IMG_54322.jpg",
 			width: 1358,
@@ -130,7 +130,7 @@ export const script_hokj: IEntry = {
 	category: "script",
 	tags: ["Hokj"],
 	linkBlog: "https://www.956mb.com/blog/continuation-variation",
-	images: [{ path: "/images/concepts/hokj.png", width: 1362, height: 720 }],
+	items: [{ path: "/images/concepts/hokj.png", width: 1362, height: 720 }],
 };
 
 export const script_pLang: IEntry = {
@@ -147,7 +147,7 @@ export const script_pLang: IEntry = {
 		width: 1647,
 		height: 1647,
 	},
-	images: [
+	items: [
 		{ path: "/images/pLang/pLang.gif", width: 2368, height: 2368 },
 		{ path: "/images/pLang/pLang-layout.png", width: 1835, height: 1202 },
 	],

@@ -1,4 +1,6 @@
-export interface IEntryImage {
+export interface IEntryItem {
+    type: 'image' | 'caption';
+    caption?: string;
     path: string;
     width: number;
     height: number;
@@ -14,13 +16,13 @@ export interface IEntry {
 	tags?: string[];
     category?: string;
     new?: boolean;
-    useLinkPreview?: IEntryImage;
+    useLinkPreview?: IEntryItem;
     credit?: string;
     aspectRatio?: boolean;
     groups?: string[];
     linkBlog?: string;
-    thumbnail?: IEntryImage;
-	images: IEntryImage[];
+    thumbnail?: IEntryItem;
+	items: IEntryItem[];
 }
 
 export interface IEntryGroups extends Array<IEntryGroup>{}
