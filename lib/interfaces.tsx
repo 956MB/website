@@ -1,5 +1,4 @@
 export interface IEntryItem {
-    type: 'image' | 'caption';
     caption?: string;
     path: string;
     width: number;
