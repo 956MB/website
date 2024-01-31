@@ -12,7 +12,7 @@ export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col sm:sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
 			<div className="flex flex-col items-start justify-end gap-2 leading-[21px]">
-				<span className="text-white whitespace-normal sm:whitespace-nowrap font-neue-haas-grotesk-medium text-[21px] leading-4">
+				<span className="text-white whitespace-normal sm:whitespace-nowrap font-neue-haas-grotesk-medium text-[21px] leading-[22px]">
 					{entry.title}
 				</span>
 				<span className="font-ibmplex-sans-medium text-sm leading-4 text-neutral-500">
@@ -119,7 +119,7 @@ export default function DesignRow({
 										</a>
 										<div
 											className={clsx(
-												"z-10 absolute bottom-0 sm:transition-opacity sm:duration-200 opacity-100 lg:opacity-0 group-hover:opacity-100 flex flex-col text-start justify-end sm:justify-center w-full lg:h-full pt-[16px] backdrop-blur-md sm:backdrop-blur-none pb-[16px] gap-y-2 bg-gradient-to-r lg:bg-gradient-to-t from-black/70 to-black/10 sm:to-black/50 pl-3 pr-4 pointer-events-none",
+												"z-10 absolute bottom-0 sm:transition-opacity sm:duration-200 opacity-100 lg:opacity-0 group-hover:opacity-100 flex flex-col text-start justify-end sm:justify-center w-full lg:h-full pt-[16px] pb-[16px] gap-y-2 bg-gradient-to-r lg:bg-gradient-to-t from-black/90 sm:from-black/70 to-black/60 sm:to-black/50 pl-3 pr-4 pointer-events-none",
 												item.category == "photoshop" &&
 													"pl-4 pr-4",
 												item.summary &&
