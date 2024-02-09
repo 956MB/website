@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col sm:sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
-			<div className="flex flex-col items-start justify-end gap-2 leading-[21px]">
+			<div className="flex flex-col items-start justify-end gap-1 leading-[21px]">
 				<span className="text-white whitespace-normal sm:whitespace-nowrap font-neue-haas-grotesk-medium text-[21px] leading-[22px]">
 					{entry.title}
 				</span>
@@ -56,7 +56,7 @@ export default function DesignRow({
 				initial="initial"
 				animate="animate"
 				className={clsx(
-					"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center items-start gap-3 md:gap-2 w-full pt-2"
+					"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center items-start gap-2 w-full pt-2"
 				)}
 			>
 				{React.Children.toArray(

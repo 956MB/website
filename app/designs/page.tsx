@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function DesignPage() {
     return (
         <section>
-            <div className="flex w-full flex-col flex-wrap items-center justify-start sm:pt-7 gap-y-3 sm:gap-y-7 pb-6 px-6 sm:px-8">
+            <div className="flex w-full flex-col flex-wrap items-center justify-start sm:pt-5 gap-y-3 sm:gap-y-7 pb-6 px-6 sm:px-8">
                 {React.Children.toArray(
                     designGroups.map((group, i) => (
                         <DesignRow entry={group} />

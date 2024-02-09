@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ExtraPage() {
 	return (
 		<section>
-			<div className="flex w-full flex-col flex-wrap items-center justify-start sm:pt-7 gap-y-3 sm:gap-y-7 pb-6 px-6 sm:px-8">
+			<div className="flex w-full flex-col flex-wrap items-center justify-start sm:pt-5 gap-y-3 sm:gap-y-7 pb-6 px-6 sm:px-8">
 				<div className="inline-flex flex-col gap-4 w-full max-w-screen-2xl">
 					<div className="flex flex-col items-start justify-center gap-2 pt-[13px] sm:pt-4">
 						<span className="text-white font-neue-haas-grotesk-medium text-[21px] leading-[18px]">

@@ -310,7 +310,40 @@ export const sketch_box: IEntry = {
 	],
 };
 
+export const figma_tattoo: IEntry = {
+	id: "figma_tattoo",
+	title: '"Figma tattoo"',
+	date: "1.14.2024",
+	category: "figma",
+	summary: [
+		"Idea I had for a wrist/forearm tattoo done off the top of my head, constructed in Figma. I easily could have done it in Illustrator or something else, but I was already using Figma... This sort of thing has probably been done a million times, guessing by how INCREDIBLY simple it was to make... but I like it. The thicker 'band' with the gradients wraps around the wrist like a bracelet, and of course being me, the colors are likely to change at any time.",
+	],
+	useLinkPreview: {
+		path: "/images/figma-tattoo/figma-tattoo-preview-flip.png",
+		width: 1920,
+		height: 384,
+	},
+	thumbnail: {
+		path: "/images/figma-tattoo/figma-tattoo-thumb.png",
+		width: 1024,
+		height: 1024,
+	},
+	items: [
+		{
+			path: "/images/figma-tattoo/figma-tattoo-horizontal.png",
+			width: 2488,
+			height: 1781,
+		},
+		{
+			path: "/images/figma-tattoo/figma-tattoo-mockup.png",
+			width: 2160,
+			height: 2700,
+		},
+	],
+};
+
 export const drawings = [
+    figma_tattoo,
 	sketch_box,
 	painting_power_lines,
 	painting_cybertruck_texas,
@@ -318,7 +351,7 @@ export const drawings = [
 	redesign_cybertruck,
 ];
 export const drawings_section: IEntryGroup = {
-	title: "Sketches, Paintings and Photo Manipulations",
+	title: "Sketches, Photo Manipulations and Misc art",
 	category: "drawings",
 	description:
 		"Everything I draw in Procreate or edit Photoshop that falls under photo manipulation or concept art",
@@ -440,38 +473,6 @@ export const icons_rosetta: IEntry = {
 	],
 };
 
-export const figma_tattoo: IEntry = {
-	id: "figma_tattoo",
-	title: '"Figma tattoo"',
-	date: "1.14.2024",
-	category: "figma",
-	summary: [
-		"Idea I had for a wrist/forearm tattoo done off the top of my head, constructed in Figma. I easily could have done it in Illustrator or something else, but I was already using Figma... This sort of thing has probably been done a million times, guessing by how INCREDIBLY simple it was to make... but I like it. The thicker 'band' with the gradients wraps around the wrist like a bracelet, and of course being me, the colors are likely to change at any time.",
-	],
-	useLinkPreview: {
-		path: "/images/figma-tattoo/figma-tattoo-preview-flip.png",
-		width: 1920,
-		height: 384,
-	},
-	thumbnail: {
-		path: "/images/figma-tattoo/figma-tattoo-thumb.png",
-		width: 1024,
-		height: 1024,
-	},
-	items: [
-		{
-			path: "/images/figma-tattoo/figma-tattoo-horizontal.png",
-			width: 2488,
-			height: 1781,
-		},
-		{
-			path: "/images/figma-tattoo/figma-tattoo-mockup.png",
-			width: 2160,
-			height: 2700,
-		},
-	],
-};
-
 export const t_wear: IEntry = {
 	id: "t_wear",
 	title: "E! / T! / !T (v1)",
@@ -480,6 +481,11 @@ export const t_wear: IEntry = {
 	summary: [
 		"This Is one of a few logo ideas for a clothing brand that popped into my head watching the Australian Open this year. I've always been interested in the idea of custom equipment / clothing, and what those things would look like if I designed them for myself. Whether it was hockey in my past, snowboarding or tennis. There's three because I can't make up my mind with this concept... but #1 is probably front runner. (Jannik is the absolute man.)",
 	],
+    useLinkPreview: {
+		path: "/images/t_wear/t-wear-preview-6.png",
+		width: 1797,
+		height: 384,
+	},
 	thumbnail: { path: "/images/t_wear/t!-thumb.gif", width: 857, height: 857 },
 	items: [
 		{
@@ -505,7 +511,6 @@ export const t_wear: IEntry = {
 
 export const logos = [
 	t_wear,
-	figma_tattoo,
 	icons_rosetta,
 	logo_d,
 	logo_plan,
@@ -531,9 +536,9 @@ export const recents_group: IEntryGroupLinks = {
 	title: "New stuff",
 	category: "list",
 	links: [
-		"designs/figma_tattoo",
+		"designs/#t_wear",
 		"designs/#painting_power_lines",
 		"designs/#logo_d",
 	],
-	items: [figma_tattoo, painting_power_lines, logo_d],
+	items: [t_wear, painting_power_lines, logo_d],
 };

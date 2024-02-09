@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col sm:sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
-			<div className="flex flex-col items-start justify-end gap-2 leading-[21px]">
+			<div className="flex flex-col items-start justify-end gap-1 leading-[21px]">
 				<span className="text-white whitespace-normal sm:whitespace-nowrap font-neue-haas-grotesk-medium text-[21px] leading-4">
 					{entry.title}
 				</span>

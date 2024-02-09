@@ -245,15 +245,6 @@ hr {
 	fill: #fff;
 }
 
-::selection {
-	background: rgb(255, 255, 255); /* WebKit/Blink Browsers */
-	color: black !important;
-}
-::-moz-selection {
-	background: rgb(255, 255, 255); /* Gecko Browsers */
-	color: black !important;
-}
-
 .prose .anchor {
 	@apply absolute invisible no-underline;
 
