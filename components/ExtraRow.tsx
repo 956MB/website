@@ -107,9 +107,9 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 												item.id === "icon_2048we") &&
 												"scale-75"
 										)}
-										src={item.items[0].path}
-										width={item.items[0].width}
-										height={item.items[0].height}
+										src={item.items ? item.items[0].path : ""}
+										width={item.items ? item.items[0].width : 0}
+										height={item.items ? item.items[0].height : 0}
 										loading="eager"
 									/>
 								</a>

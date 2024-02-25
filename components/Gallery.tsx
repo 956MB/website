@@ -169,6 +169,16 @@ export default function Gallery({
 						<a className="text-white text-center font-neue-haas-grotesk-medium text-lg sm:text-xl sm:leading-5 mt-[1px] whitespace-nowrap">
 							{item.title}
 						</a>
+
+						{item.date && (
+							<span
+								className={
+									"text-white/70 font-neue-haas-grotesk-medium text-sm sm:leading-5 text-center"
+								}
+							>
+								{item.date}
+							</span>
+						)}
 					</div>
 
 					<div className="flex h-full w-full justify-end"></div>
@@ -177,7 +187,7 @@ export default function Gallery({
 				<div
 					className={clsx(
 						"flex flex-col items-center w-full",
-						item.items.length <= 1
+						(item.items && item.items.length <= 1)
 							? "justify-center"
 							: "justify-start"
 					)}
@@ -196,7 +206,7 @@ export default function Gallery({
 				<div
 					className={clsx(
 						"flex flex-col items-center justify-center sm:justify-start gap-3",
-						item.items.length <= 1
+						(item.items && item.items.length <= 1)
 							? "max-w-screen-2xl"
 							: "max-w-screen-xl"
 					)}

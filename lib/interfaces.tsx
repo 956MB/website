@@ -21,7 +21,7 @@ export interface IEntry {
     groups?: string[];
     linkBlog?: string;
     thumbnail?: IEntryItem;
-	items: IEntryItem[];
+	items?: IEntryItem[];
 }
 
 export interface IEntryGroups extends Array<IEntryGroup>{}

@@ -133,7 +133,7 @@ export const ui_intros: IEntry = {
 
 export const ui_opgg_spectate: IEntry = {
 	id: "opgg-spectate",
-	title: 'OP.GG "Spectate pro matches" / "Pros"',
+	title: 'OP.GG "Spectate pros"',
 	date: "8.21.2021",
 	category: "figma",
 	summary: [
@@ -268,7 +268,7 @@ export const redesign_cybertruck: IEntry = {
 
 export const painting_power_lines: IEntry = {
 	id: "painting_power_lines",
-	title: "Power lines in a random town",
+	title: "Power lines in random town",
 	date: "12.9.2023",
 	category: "photoshop",
 	aspectRatio: true,
@@ -342,7 +342,30 @@ export const figma_tattoo: IEntry = {
 	],
 };
 
+export const still_nothing: IEntry = {
+	id: "still_nothing",
+	title: "I still don't know how",
+	date: "2.24.2024",
+	category: "photoshop",
+	thumbnail: { path: "/images/drawings/sketches/still-nothing.png", width: 1024, height: 1024 },
+	items: [
+        {
+			caption: "Not nearly as impressive when they're separated... I don't know what this first thing is, a gem or something maybe?",
+			path: "/images/drawings/sketches/gem-or-something.png",
+			width: 2642,
+			height: 2642,
+		},
+        {
+			caption: "Trying to understand and practice folds. I need waayyyy more of these.",
+			path: "/images/drawings/sketches/hoodie-folds.png",
+			width: 2642,
+			height: 2642,
+		},
+    ],
+};
+
 export const drawings = [
+    still_nothing,
     figma_tattoo,
 	sketch_box,
 	painting_power_lines,
@@ -354,7 +377,7 @@ export const drawings_section: IEntryGroup = {
 	title: "Sketches, Photo Manipulations and Misc art",
 	category: "drawings",
 	description:
-		"Everything I draw in Procreate or edit Photoshop that falls under photo manipulation or concept art",
+		"Everything I draw in Procreate or edit in Photoshop",
 	items: drawings,
 };
 
@@ -387,7 +410,7 @@ export const logo_tbab: IEntry = {
 	summary: [
 		"The \"logo\" I made for myself in the process of drawing characters for my \"GYEA\" script. I noticed after the fact that two of the characters sort of looked like the letter combinations 'TB' and 'AB'. Both of course being initials in my name, Trevor Alexander Bays.",
 	],
-	items: [{ path: "/thumbnails/tbab-thumb.png", width: 1024, height: 1024 }],
+	thumbnail: { path: "/thumbnails/tbab-thumb.png", width: 1024, height: 1024 },
 };
 
 export const logo_plan: IEntry = {
@@ -509,13 +532,46 @@ export const t_wear: IEntry = {
 	],
 };
 
+export const n_wear: IEntry = {
+	id: "n_wear",
+	title: "T! / N! Variation (v2)",
+	date: "2.24.2024",
+	category: "illustrator",
+	thumbnail: { path: "/images/t_wear/n-wear-thumb-2.png", width: 1024, height: 1024 },
+	items: [
+        {
+			path: "/images/t_wear/n!-preview.png",
+			width: 3325,
+			height: 2318,
+		},
+        {
+			path: "/images/t_wear/t!-preview.png",
+			width: 3325,
+			height: 2318,
+		},
+    ],
+};
+
+export const x_logo_2013: IEntry = {
+	id: "x_logo_2013",
+	title: "\"X\" Logo concept (Old)",
+	date: "2013~2016",
+	category: "illustrator",
+    summary: [
+		"This is a logo concept I made of the letter \"X\" a VERY long time ago. Somewhere around 2013~2016, I think. I sold this logo to some random person on Shopify for around $10 I believe, and I'm not even sure if it was ever used. Not that bad for being so early in my Illustrator skills from back then.",
+	],
+	thumbnail: { path: "/images/concepts/x-logo-2013.png", width: 1024, height: 1024 },
+};
+
 export const logos = [
+    n_wear,
 	t_wear,
 	icons_rosetta,
 	logo_d,
 	logo_plan,
 	logo_tdb,
 	logo_tbab,
+    x_logo_2013
 ];
 export const logos_section: IEntryGroup = {
 	title: "Logos, Icons and Miscelaneous",

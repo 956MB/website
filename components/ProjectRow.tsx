@@ -69,9 +69,9 @@ export default function ProjectRow({ entry }: { entry: IEntry }) {
 							<Image
 								alt="project-img"
 								className="block max-h-[700px] max-w-full object-contain cursor-pointer"
-								src={entry.items[0].path}
-								width={entry.items[0].width}
-								height={entry.items[0].height}
+								src={entry.items ? entry.items[0].path : ""}
+                                width={entry.items ? entry.items[0].width : 0}
+                                height={entry.items ? entry.items[0].height : 0}
 								loading="eager"
                                 unoptimized={true}
 							/>
@@ -100,9 +100,9 @@ export default function ProjectRow({ entry }: { entry: IEntry }) {
 								<Image
 									alt="project-img-modal"
 									className="block max-h-full max-w-full object-contain overflow-hidden"
-									src={entry.items[0].path}
-									width={entry.items[0].width}
-									height={entry.items[0].height}
+									src={entry.items ? entry.items[0].path : ""}
+                                    width={entry.items ? entry.items[0].width : 0}
+                                    height={entry.items ? entry.items[0].height : 0}
 									loading="eager"
                                     unoptimized={true}
 								/>

@@ -12,7 +12,7 @@ export function DesignHeader({ entry }: { entry: IEntryGroup }) {
 	return (
 		<div className="flex flex-col sm:sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
 			<div className="flex flex-col items-start justify-end gap-1 leading-[21px]">
-				<span className="text-white whitespace-normal sm:whitespace-nowrap font-neue-haas-grotesk-medium text-[21px] leading-[22px]">
+				<span className="text-white whitespace-normal sm:whitespace-nowrap font-neue-haas-grotesk-medium text-[21px] leading-4">
 					{entry.title}
 				</span>
 				<span className="font-ibmplex-sans-medium text-sm leading-4 text-neutral-500">
@@ -73,7 +73,7 @@ export default function DesignRow({
 											"relative z-0 flex flex-col justify-start group box-content overflow-hidden"
 										)}
 										onClick={
-											item.linkBlog
+											item.linkBlog || !item.items
 												? undefined
 												: openPortal
 										}
@@ -97,29 +97,30 @@ export default function DesignRow({
 											<Image
 												alt={item.id}
 												className={clsx(
-													"block object-cover w-full h-full aspect-square cursor-pointer ease-in-out transition-transform duration-75 hover:scale-105"
+													"block object-cover w-full h-full aspect-square ease-in-out transition-transform duration-75 hover:scale-105",
+                                                    (item.items || item.linkBlog) && "cursor-pointer"
 												)}
 												src={
 													item.thumbnail
 														? item.thumbnail.path
-														: item.items[0].path
+														: (item.items ? item.items[0].path : "")
 												}
 												width={
 													item.thumbnail
 														? item.thumbnail.width
-														: item.items[0].width
+														: (item.items ? item.items[0].width : 0)
 												}
 												height={
 													item.thumbnail
 														? item.thumbnail.height
-														: item.items[0].height
+														: (item.items ? item.items[0].height : 0)
 												}
 												loading="eager"
 											/>
 										</a>
 										<div
 											className={clsx(
-												"z-10 absolute bottom-0 sm:transition-opacity sm:duration-200 opacity-100 lg:opacity-0 group-hover:opacity-100 flex flex-col text-start justify-end sm:justify-center w-full lg:h-full pt-[16px] pb-[16px] gap-y-2 bg-gradient-to-r lg:bg-gradient-to-t from-black/90 sm:from-black/70 to-black/60 sm:to-black/50 pl-3 pr-4 pointer-events-none",
+												"z-10 absolute bottom-0 sm:transition-opacity sm:duration-200 opacity-100 lg:opacity-0 group-hover:opacity-100 flex flex-col text-start justify-end sm:justify-center w-full lg:h-full py-3 lg:py-4 gap-y-2 bg-gradient-to-t from-black/90 sm:from-black/80 to-black/50 sm:to-black/50 px-2 pointer-events-none",
 												item.category == "photoshop" &&
 													"pl-4 pr-4",
 												item.summary &&
@@ -129,35 +130,36 @@ export default function DesignRow({
 										>
 											<div
 												className={clsx(
-													"flex flex-row sm:flex-col gap-2 items-center justify-start sm:justify-center overflow-hidden sm:mx-4",
+													"flex flex-row sm:flex-col gap-[3px] lg:gap-1 items-center justify-start sm:justify-center overflow-hidden",
 													item.category ==
 														"photoshop" && "gap-x-3"
 												)}
 											>
-												<div className="block sm:hidden">
+                                                <div className="hidden sm:block">
 													<CategoryIcon
 														large={false}
 														category={item.category}
 													/>
 												</div>
 
-												<div className="hidden sm:block">
-													<CategoryIcon
-														large={true}
-														category={item.category}
-													/>
-												</div>
+                                                <span
+                                                    className={
+                                                        clsx("text-white font-neue-haas-grotesk-medium sm:w-full text-base sm:text-xl sm:leading-5 text-center sm:mt-[6px] whitespace-nowrap lg:whitespace-normal",
+                                                        !item.date && "sm:mb-[34px]")
+                                                    }
+                                                >
+                                                    {item.title}
+                                                </span>
 
 												{item.date && (
 													<span
 														className={
-															"text-white font-neue-haas-grotesk-medium sm:w-full text-md sm:text-xl sm:leading-5 text-center sm:mb-8"
+															"text-white/70 font-neue-haas-grotesk-medium sm:w-full text-sm sm:leading-5 text-center lg:mb-2"
 														}
 													>
-														{item.title}
+														{item.date}
 													</span>
 												)}
-
 											</div>
 										</div>
 									</motion.div>

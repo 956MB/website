@@ -129,7 +129,7 @@ export function Footer() {
 	return (
 		<div
 			className={clsx(
-				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center lg:mb-6 lg:mt-3",
+				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center lg:mb-6 lg:mt-8",
                 pathname === "/" ? "max-w-4xl" : "max-w-none"
 			)}
 		>

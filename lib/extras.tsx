@@ -145,7 +145,7 @@ export const extra_graffiti_variants: IEntry = {
 		"Several color variants of the great graffiti wallpaper by <a href=\"https://twitter.com/BasicAppleGuy\">@BasicAppleGuy</a>. I DID NOT DESIGN THIS, ONLY MODIFIED IT. Credit to him for the amazing art.",
 	],
 	link: "https://drive.google.com/drive/folders/1oI_40YXzpUyvsNE6RHtasf7fuyO_lcD8?usp=sharing",
-    count: 4,
+    count: 5,
     credit: "<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://basicappleguy.com/haberdashery/graffiti\">@BasicAppleGuy</a>",
 	items: [
 		{

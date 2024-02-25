@@ -36,17 +36,17 @@ export default function RecentRow({ entry }: { entry: IEntryGroupLinks }) {
 								src={
 									item.useLinkPreview?.path ||
                                     item.thumbnail?.path ||
-                                    item.items[0].path
+                                    (item.items ? item.items[0].path : "")
 								}
 								width={
 									item.useLinkPreview?.width ||
                                     item.thumbnail?.width ||
-                                    item.items[0].width
+                                    (item.items ? item.items[0].width : 0)
 								}
 								height={
 									item.useLinkPreview?.height ||
                                     item.thumbnail?.height ||
-                                    item.items[0].height
+                                    (item.items ? item.items[0].height : 0)
 								}
 								loading="eager"
 							/>
