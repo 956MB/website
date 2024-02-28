@@ -549,6 +549,11 @@ export const n_wear: IEntry = {
 			width: 3325,
 			height: 2318,
 		},
+        {
+			path: "/images/t_wear/x-concept-shohei.png",
+			width: 1797,
+			height: 1785,
+		},
     ],
 };
 
