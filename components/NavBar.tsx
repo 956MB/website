@@ -1,35 +1,42 @@
 "use client";
 
 import clsx from "clsx";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import { VercelIcon } from "./Icons";
-import { logo_s, copyright } from "lib/info";
+import { copyright, logo_s, socials } from "lib/info";
 import Image from "next/image";
-import { socials } from "lib/info";
-import { FiArrowUpRight } from "react-icons/fi";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
+import { FiArrowUpRight } from "react-icons/fi";
+import { VercelIcon } from "./Icons";
 
 const navItems = {
-	"/projects": { name: "projects" },
-	"/designs": { name: "designs / art" },
-	"/neography": { name: "neography" },
-	"/extras": { name: "extras" },
+    "/projects": { name: "projects" },
+    "/designs": { name: "designs / art" },
+    "/neography": { name: "neography" },
+    "/extras": { name: "extras" },
 };
 
-function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
+function Social({
+    serv,
+    name,
+    url,
+}: {
+    serv: string;
+    name: string;
+    url: string;
+}) {
     return (
         <a
             rel="noopener noreferrer"
             target="_blank"
             href={url}
             className={clsx(
-                "flex text-center items-center justify-center no-underline whitespace-nowrap child:hover:text-white",
+                "flex items-center justify-center whitespace-nowrap text-center no-underline child:hover:text-white",
             )}
         >
             <span
                 className={clsx(
-                    "font-neue-haas-grotesk-medium uppercase !text-white text-[13px] sm:text-[14px] leading-[14px]"
+                    "font-neue-haas-grotesk-medium text-[13px] uppercase leading-[14px] !text-white sm:text-[14px]",
                 )}
             >
                 {serv}
@@ -38,118 +45,139 @@ function Social ({serv, name, url}: {serv: string, name: string, url: string}) {
             {
                 <FiArrowUpRight
                     size={18}
-                    className={clsx(
-                        "text-neutral-500 ml-1"
-                    )}
+                    className={clsx("ml-1 text-neutral-500")}
                 />
             }
         </a>
-    )
+    );
 }
 
 export default function Header() {
-	let pathname = usePathname() || "/";
+    let pathname = usePathname() || "/";
 
-	return (
-		<div
-			className={clsx(
-				"relative z-[55] h-[75px] min-h-[75px] max-h-[75px] w-full px-6 sm:px-7 flex justify-start sm:justify-center overflow-x-scroll no-scrollbar"
-			)}
-		>
-			<div
-				className={clsx(
-					"inline-flex flex-row gap-8 sm:gap-10 m-auto items-center justify-center h-full bg-black/90 backdrop-blur"
-				)}
-			>
-				<div className="relative inline-flex justify-center items-center h-full">
-					<Link key={"home"} href={"/"}>
-						<Image
-							alt="logo"
-							className="w-6 h-6 min-w-[24px] min-h-[24px] object-contain cursor-pointer ml-[2px]"
-							src={logo_s}
-							placeholder="blur"
-							priority
-						/>
-					</Link>
+    return (
+        <div
+            className={clsx(
+                "no-scrollbar relative z-[55] flex h-[75px] max-h-[75px] min-h-[75px] w-full justify-start overflow-x-scroll px-6 sm:justify-center sm:px-7",
+            )}
+        >
+            <div
+                className={clsx(
+                    "m-auto inline-flex h-full flex-row items-center justify-center gap-8 bg-black/90 backdrop-blur sm:gap-10",
+                )}
+            >
+                <div className="relative inline-flex h-full items-center justify-center">
+                    <Link key={"home"} href={"/"}>
+                        <Image
+                            alt="logo"
+                            className="ml-[2px] h-6 min-h-[24px] w-6 min-w-[24px] cursor-pointer object-contain"
+                            src={logo_s}
+                            placeholder="blur"
+                            priority
+                        />
+                    </Link>
 
-					{pathname === "/" && (
-						<div className="absolute inset-x-0 bottom-0 h-[3px] bg-white"></div>
-					)}
-				</div>
+                    {pathname === "/" && (
+                        <div className="absolute inset-x-0 bottom-0 h-[3px] bg-white"></div>
+                    )}
+                </div>
 
-				<div className="inline-flex flex-row gap-9 sm:gap-10 items-center sm:justify-center h-full w-full sm:w-auto overflow-hidden">
-					{Object.entries(navItems).map(([path, { name }], idx) => {
-						const isActive = path === pathname;
+                <div className="inline-flex h-full w-full flex-row items-center gap-9 overflow-hidden sm:w-auto sm:justify-center">
+                    {Object.entries(navItems).map(([path, { name }], idx) => {
+                        const isActive = path === pathname;
 
-						return (
-							<div
-								key={path}
-								className={clsx(
-									"relative inline-flex flex-row justify-center items-center h-full",
-									path.includes("/projects") && "sm:pl-10"
-								)}
-							>
-								{path.includes("/projects") && (
-									<div className="absolute inset-y-0 left-0 w-[1px] my-5 bg-transparent sm:bg-neutral-800"></div>
-								)}
+                        return (
+                            <div
+                                key={path}
+                                className={clsx(
+                                    "relative inline-flex h-full flex-row items-center justify-center",
+                                    path.includes("/projects") && "sm:pl-10",
+                                )}
+                            >
+                                {path.includes("/projects") && (
+                                    <div className="absolute inset-y-0 left-0 my-5 w-[1px] bg-transparent sm:bg-neutral-800"></div>
+                                )}
 
-								<div className="relative flex align-middle text-center justify-center items-center h-full">
-									<Link
-										href={path}
-										className={clsx(
-											"text-[13px] sm:text-[14px] leading-[14px] no-underline whitespace-nowrap hover:text-white",
-											{
-												"text-neutral-500": !isActive,
-											}
-										)}
-									>
-										<span
-											className={clsx(
-												"relative font-neue-haas-grotesk-medium uppercase text-center py-3",
-												(pathname.includes(name) ||
-													pathname == path) && "text-white"
-											)}
-										>
-											{name}
-										</span>
-									</Link>
-								</div>
-							</div>
-						);
-					})}
-				</div>
-			</div>
-		</div>
-	);
+                                <div className="relative flex h-full items-center justify-center py-3 text-center align-middle">
+                                    <span
+                                        className={clsx(
+                                            "noselect mb-[2px] mr-1 whitespace-nowrap text-[13px] leading-[14px] text-neutral-400 no-underline sm:text-[14px]",
+                                            isActive
+                                                ? "opacity-100"
+                                                : "opacity-0",
+                                        )}
+                                    >
+                                        {"["}
+                                    </span>
+                                    <Link
+                                        href={path}
+                                        className={clsx(
+                                            "whitespace-nowrap text-[13px] leading-[14px] no-underline hover:text-white sm:text-[14px]",
+                                            {
+                                                "text-neutral-500": !isActive,
+                                            },
+                                        )}
+                                    >
+                                        <span
+                                            className={clsx(
+                                                "font-neue-haas-grotesk-medium relative text-center uppercase",
+                                                (pathname.includes(name) ||
+                                                    pathname == path) &&
+                                                    "text-white",
+                                            )}
+                                        >
+                                            {name}
+                                        </span>
+                                    </Link>
+                                    <span
+                                        className={clsx(
+                                            "noselect mb-[2px] ml-1 whitespace-nowrap text-[13px] leading-[14px] text-neutral-400 no-underline sm:text-[14px]",
+                                            isActive
+                                                ? "opacity-100"
+                                                : "opacity-0",
+                                        )}
+                                    >
+                                        {"]"}
+                                    </span>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export function Footer() {
     let pathname = usePathname() || "/";
 
-	return (
-		<div
-			className={clsx(
-				"flex flex-row flex-1 z-[55] min-h-[75px] lg:max-h-[75px] w-full justify-center lg:mb-6 lg:mt-8",
-                pathname === "/" ? "max-w-4xl" : "max-w-none"
-			)}
-		>
-			<div className="flex flex-row justify-center sm:justify-between items-center flex-1 min-h-[75px] lg:max-h-[75px] w-full max-w-screen-2xl mx-7 lg:mx-7 bg-black/80 backdrop-blur mt-auto pt-6 pb-6 lg:pt-0 lg:pb-0 gap-1 sm:gap-4">
-				<div className="flex flex-row flex-wrap w-full justify-start items-center gap-6 gap-y-3 sm:gap-6 text-[13px] leading-[13px] transition-all duration-75">
+    return (
+        <div
+            className={clsx(
+                "z-[55] flex min-h-[75px] w-full flex-1 flex-row justify-center lg:mb-6 lg:mt-8 lg:max-h-[75px]",
+                pathname === "/" ? "max-w-4xl" : "max-w-none",
+            )}
+        >
+            <div className="mx-7 mt-auto flex min-h-[75px] w-full max-w-screen-2xl flex-1 flex-row items-center justify-center gap-1 bg-black/80 pb-6 pt-6 backdrop-blur sm:justify-between sm:gap-4 lg:mx-7 lg:max-h-[75px] lg:pb-0 lg:pt-0">
+                <div className="flex w-full flex-row flex-wrap items-center justify-start gap-6 gap-y-3 text-[13px] leading-[13px] transition-all duration-75 sm:gap-6">
                     {React.Children.toArray(
-                        socials.map(({serv, name, url}) => <Social serv={serv} name={name} url={url} />)
+                        socials.map(({ serv, name, url }) => (
+                            <Social serv={serv} name={name} url={url} />
+                        )),
                     )}
-				</div>
-				<div className="flex justify-end items-center flex-row">
-					<a
-						rel="noopener noreferrer"
-						target="_blank"
-						href={"https://vercel.com/"}
-						className="flex items-center text-white transition-all duration-100"
-					>
-						<VercelIcon />
-					</a>
-				</div>
-			</div>
-		</div>
-	);
+                </div>
+                <div className="flex flex-row items-center justify-end">
+                    <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={"https://vercel.com/"}
+                        className="flex items-center text-white transition-all duration-100"
+                    >
+                        <VercelIcon />
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
 }

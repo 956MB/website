@@ -3,477 +3,381 @@
 @tailwind utilities;
 
 :root {
-	color-scheme: dark;
+    color-scheme: dark;
 }
 
 html,
 body {
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: var(--background);
-	overscroll-behavior-y: contain;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--background);
+    overscroll-behavior-y: contain;
 }
 
 hr {
-	height: 1px;
-	width: 100%;
-	border: 0 none;
-	margin: 30px 0 30px 0;
-	@apply bg-neutral-800;
+    height: 1px;
+    width: 100%;
+    border: 0 none;
+    margin: 30px 0 30px 0;
+    @apply bg-neutral-800;
 }
 .prose :where(hr):not(:where([class~="not-prose"] *)) {
-	margin: 30px 0 30px 0 !important;
+    margin: 30px 0 30px 0 !important;
 }
 
 .noselect {
-	-webkit-user-select: none; /* Safari */
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* IE10+/Edge */
-	user-select: none; /* Standard */
-	cursor: default;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    cursor: default;
 }
 
 .clamp-3 {
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
 }
 
 .nav-fade {
-	--mask: linear-gradient(
-			to left,
-			rgba(0, 0, 0, 1) 0,
-			rgba(0, 0, 0, 1) 60%,
-			rgba(0, 0, 0, 0) 95%,
-			rgba(0, 0, 0, 0) 0
-		)
-		100% 50% / 100% 100% repeat-x;
-	-webkit-mask: var(--mask);
-	mask: var(--mask);
+    --mask: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 1) 0,
+            rgba(0, 0, 0, 1) 60%,
+            rgba(0, 0, 0, 0) 95%,
+            rgba(0, 0, 0, 0) 0
+        )
+        100% 50% / 100% 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
-	display: none !important;
+    display: none !important;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-	-ms-overflow-style: none !important; /* IE and Edge */
-	scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
 }
 
 @font-face {
-	font-family: "RobotoMono_Regular";
-	src: url("../public/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf");
-	font-weight: 400;
+    font-family: "IBMPlex_Sans_Light";
+    src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Light.ttf");
+    font-weight: 300;
 }
 @font-face {
-	font-family: "RobotoMono_Medium";
-	src: url("../public/fonts/Roboto_Mono/static/RobotoMono-Medium.ttf");
-	font-weight: 500;
+    font-family: "IBMPlex_Sans_Regular";
+    src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Regular.ttf");
+    font-weight: 300;
 }
 @font-face {
-	font-family: "RobotoMono_SemiBold";
-	src: url("../public/fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf");
-	font-weight: 600;
+    font-family: "IBMPlex_Sans_Medium";
+    src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Medium.ttf");
+    font-weight: 500;
 }
 @font-face {
-	font-family: "RobotoMono_Bold";
-	src: url("../public/fonts/Roboto_Mono/static/RobotoMono-Bold.ttf");
-	font-weight: 700;
+    font-family: "IBMPlex_Sans_SemiBold";
+    src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-SemiBold.ttf");
+    font-weight: 600;
+}
+@font-face {
+    font-family: "Neue_Haas_Grotesk_Roman";
+    src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayRoman.ttf");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Neue_Haas_Grotesk_Medium";
+    src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayMedium.ttf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Neue_Haas_Grotesk_Bold";
+    src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayBold.ttf");
+    font-weight: 700;
 }
 
-@font-face {
-	font-family: "Inter_Light";
-	src: url("../public/fonts/Inter_Desktop/Inter-Light.ttf");
-	font-weight: 300;
-}
-@font-face {
-	font-family: "Inter_Regular";
-	src: url("../public/fonts/Inter_Desktop/Inter-Regular.ttf");
-	font-weight: 400;
-}
-@font-face {
-	font-family: "Inter_Medium";
-	src: url("../public/fonts/Inter_Desktop/Inter-Medium.ttf");
-	font-weight: 500;
-}
-@font-face {
-	font-family: "Inter_SemiBold";
-	src: url("../public/fonts/Inter_Desktop/Inter-SemiBold.ttf");
-	font-weight: 600;
-}
-@font-face {
-	font-family: "Inter_Bold";
-	src: url("../public/fonts/Inter_Desktop/Inter-Bold.ttf");
-	font-weight: 700;
-}
-@font-face {
-	font-family: "IBMPlex_Sans_Light";
-	src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Light.ttf");
-	font-weight: 300;
-}
-@font-face {
-	font-family: "IBMPlex_Sans_Regular";
-	src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Regular.ttf");
-	font-weight: 300;
-}
-@font-face {
-	font-family: "IBMPlex_Sans_Medium";
-	src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Medium.ttf");
-	font-weight: 500;
-}
-@font-face {
-	font-family: "IBMPlex_Sans_SemiBold";
-	src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-SemiBold.ttf");
-	font-weight: 600;
-}
-@font-face {
-	font-family: "Neue_Haas_Grotesk_Roman";
-	src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayRoman.ttf");
-	font-weight: 300;
-}
-@font-face {
-	font-family: "Neue_Haas_Grotesk_Medium";
-	src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayMedium.ttf");
-	font-weight: 500;
-}
-@font-face {
-	font-family: "Neue_Haas_Grotesk_Bold";
-	src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayBold.ttf");
-	font-weight: 700;
-}
-
-.font-gyea-bold {
-	font-family: "GYEA_Bold";
-}
-.font-inter-light {
-	font-family: "Inter_Light";
-}
-.font-inter-regular {
-	font-family: "Inter_Regular";
-}
-.font-inter-medium {
-	font-family: "Inter_Medium";
-}
-.font-inter-semibold {
-	font-family: "Inter_SemiBold";
-}
-.font-inter-bold {
-	font-family: "Inter_Bold";
-}
-.font-roboto-mono-regular {
-	font-family: "RobotoMono_Regular";
-}
-.font-roboto-mono-medium {
-	font-family: "RobotoMono_Medium";
-}
-.font-roboto-mono-semibold {
-	font-family: "RobotoMono_SemiBold";
-}
-.font-roboto-mono-bold {
-	font-family: "RobotoMono_Bold";
-}
 .font-ibmplex-sans-light {
-	font-family: "IBMPlex_Sans_Light";
+    font-family: "IBMPlex_Sans_Light";
 }
 .font-ibmplex-sans-regular {
-	font-family: "IBMPlex_Sans_Regular";
+    font-family: "IBMPlex_Sans_Regular";
 }
 .font-ibmplex-sans-medium {
-	font-family: "IBMPlex_Sans_Medium";
+    font-family: "IBMPlex_Sans_Medium";
 }
 .font-ibmplex-sans-semibold {
-	font-family: "IBMPlex_Sans_SemiBold";
+    font-family: "IBMPlex_Sans_SemiBold";
 }
 .font-neue-haas-grotesk-regular {
-	font-family: "Neue_Haas_Grotesk_Roman";
+    font-family: "Neue_Haas_Grotesk_Roman";
 }
 .font-neue-haas-grotesk-medium {
-	font-family: "Neue_Haas_Grotesk_Medium";
+    font-family: "Neue_Haas_Grotesk_Medium";
 }
 .font-neue-haas-grotesk-bold {
-	font-family: "Neue_Haas_Grotesk_Bold";
+    font-family: "Neue_Haas_Grotesk_Bold";
 }
 
 .highlight {
-	font-family: "Neue_Haas_Grotesk_Bold" !important;
-	color: white !important;
+    font-family: "Neue_Haas_Grotesk_Bold" !important;
+    color: white !important;
 }
 .large-highlight {
-	font-family: "Neue_Haas_Grotesk_Bold" !important;
-	color: white !important;
-	font-size: 1.2rem !important;
+    font-family: "Neue_Haas_Grotesk_Bold" !important;
+    color: white !important;
+    /* font-size: 1.2rem !important; */
 }
 .name-highlight {
     font-family: "Neue_Haas_Grotesk_Bold" !important;
     color: white !important;
-	font-size: 1.5rem !important;
+    font-size: 1.5rem !important;
 }
 
-.p-swift { color: #F83325 !important; }
-.p-swiftui { color: #186FFD !important; }
-.p-qt { color: #42CD52 !important; }
-.p-javascript { color: #EFD81A !important; }
-.p-typescript { color: #2F73C0 !important; }
-.p-react { color: #169ECA !important; }
-.p-cpp { color: #004488 !important; }
-.p-tauri { color: #FFC132 !important; }
-.p-electron { color: #9FEAF9 !important; }
-.p-rust { color: #7E4124 !important; }
-.p-python { color: #FED741 !important; }
-.p-codewars { color: #B0361E !important; }
-.p-aoc { color: #00CC00 !important; }
-.p-figma { color: #A359FF !important; }
-.p-photoshop { color: #31A8FF !important; }
-.p-illustrator { color: #FF9A01 !important; }
-.p-fontlab { color: #F75105 !important; }
-.p-calligraphr { color: #67499E !important; }
-
-
-.p-link { @apply text-neutral-200; }
-.p-link:hover { @apply text-white underline; }
-
+.p-link {
+    @apply text-neutral-200;
+}
+.p-link:hover {
+    @apply text-white underline;
+}
 
 .cls-1 {
-	fill: #fff;
+    fill: #fff;
 }
 
 .prose .anchor {
-	@apply absolute invisible no-underline;
+    @apply invisible absolute no-underline;
 
-	margin-left: -1em;
-	padding-right: 0.5em;
-	width: 80%;
-	max-width: 800px;
-	cursor: pointer;
+    margin-left: -1em;
+    padding-right: 0.5em;
+    width: 80%;
+    max-width: 800px;
+    cursor: pointer;
 }
 .project-h .anchor {
-	@apply absolute opacity-0 no-underline;
+    @apply absolute no-underline opacity-0;
 
-	display: block;
+    display: block;
 
-	padding-right: 0.5em;
-	width: 100%;
-	cursor: pointer;
+    padding-right: 0.5em;
+    width: 100%;
+    cursor: pointer;
 }
 
 .anchor:hover {
-	@apply visible;
+    @apply visible;
 }
 .project-h .anchor:hover {
-	@apply opacity-100;
-	margin-left: -1em;
+    @apply opacity-100;
+    margin-left: -1em;
 }
 
 .prose a {
-	@apply transition-all duration-100 text-white decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-inter-bold;
+    @apply font-neue-haas-grotesk-bold text-white decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all duration-100 dark:decoration-neutral-600;
 }
 .project-h h3 a {
-	@apply transition-all text-white decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-inter-bold;
+    @apply font-neue-haas-grotesk-bold text-white decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all dark:decoration-neutral-600;
 }
 .prose a:hover {
-	font-size: 15px !important;
+    font-size: 15px !important;
 }
 
 .prose .anchor:after {
-	@apply text-neutral-300 dark:text-neutral-700;
-	content: "#";
+    @apply text-neutral-300 dark:text-neutral-700;
+    content: "#";
 }
 .project-h .anchor:after {
-	@apply text-neutral-300 dark:text-neutral-700;
-	content: "#";
+    @apply text-neutral-300 dark:text-neutral-700;
+    content: "#";
 }
 
 .prose *:hover > .anchor {
-	@apply visible;
+    @apply visible;
 }
 .project-h *:hover > .anchor {
-	@apply opacity-100;
+    @apply opacity-100;
 }
 
 .prose pre {
-	@apply border border-neutral-300 bg-neutral-900;
+    @apply border border-neutral-300 bg-neutral-900;
 }
 
 .prose code {
-	@apply text-neutral-300 dark:text-neutral-200 px-1 py-0.5 border border-neutral-100 dark:border-neutral-300 rounded-lg bg-neutral-100 dark:bg-neutral-900;
+    @apply rounded-lg border border-neutral-100 bg-neutral-100 px-1 py-0.5 text-neutral-300 dark:border-neutral-300 dark:bg-neutral-900 dark:text-neutral-200;
 }
 
 .prose pre code {
-	@apply text-neutral-300 dark:text-neutral-200 p-0;
-	border: initial;
+    @apply p-0 text-neutral-300 dark:text-neutral-200;
+    border: initial;
 }
 
 .prose img {
-	/* Don't apply styles to next/image */
-	@apply mb-1 sm:mb-2 h-full object-contain rounded-lg;
+    /* Don't apply styles to next/image */
+    @apply mb-1 h-full rounded-lg object-contain sm:mb-2;
 }
 .prose img:first-child {
-	@apply mt-0;
+    @apply mt-0;
 }
 
 .prose > :first-child {
-	/* Override removing top margin, causing layout shift */
-	/* margin-bottom: 1.25em !important; */
+    /* Override removing top margin, causing layout shift */
+    /* margin-bottom: 1.25em !important; */
 }
 
 code[class*="language-"],
 pre[class*="language-"] {
-	@apply text-neutral-50;
+    @apply text-neutral-50;
 }
 
 pre::-webkit-scrollbar {
-	display: none;
+    display: none;
 }
 
 pre {
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 /* Remove Safari input shadow on mobile */
 input[type="text"],
 input[type="email"] {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .prose .tweet a {
-	text-decoration: inherit;
-	font-weight: inherit;
+    text-decoration: inherit;
+    font-weight: inherit;
 }
 
 table {
-	display: block;
-	max-width: fit-content;
-	overflow-x: auto;
-	white-space: nowrap;
+    display: block;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .prose .callout > p {
-	margin: 0 !important;
+    margin: 0 !important;
 }
 
 .prose {
-	max-width: 100% !important;
+    max-width: 100% !important;
 }
 
 [data-rehype-pretty-code-fragment] code {
-	@apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-white;
-	counter-reset: line;
-	box-decoration-break: clone;
+    @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-white;
+    counter-reset: line;
+    box-decoration-break: clone;
 }
 [data-rehype-pretty-code-fragment] .line {
-	@apply py-1;
+    @apply py-1;
 }
 [data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
-	counter-increment: line;
-	content: counter(line);
-	display: inline-block;
-	width: 1rem;
-	margin-right: 1rem;
-	text-align: right;
-	color: gray;
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    width: 1rem;
+    margin-right: 1rem;
+    text-align: right;
+    color: gray;
 }
 [data-rehype-pretty-code-fragment] .line--highlighted {
-	@apply bg-slate-500 bg-opacity-10;
+    @apply bg-slate-500 bg-opacity-10;
 }
 [data-rehype-pretty-code-fragment] .line-highlighted span {
-	@apply relative;
+    @apply relative;
 }
 [data-rehype-pretty-code-fragment] .word--highlighted {
-	@apply rounded-md bg-slate-500 bg-opacity-10 p-1;
+    @apply rounded-md bg-slate-500 bg-opacity-10 p-1;
 }
 [data-rehype-pretty-code-title] {
-	@apply px-4 py-3 font-mono text-xs font-medium border rounded-t-lg text-neutral-200 border-[#333333] bg-[#1c1c1c];
+    @apply rounded-t-lg border border-[#333333] bg-[#1c1c1c] px-4 py-3 font-mono text-xs font-medium text-neutral-200;
 }
 [data-rehype-pretty-code-title] + pre {
-	@apply mt-0 rounded-t-none border-t-0;
+    @apply mt-0 rounded-t-none border-t-0;
 }
 
 .prose p {
-	@apply text-neutral-300 font-neue-haas-grotesk-medium text-sm leading-5 mb-6 tracking-wide;
+    @apply font-neue-haas-grotesk-medium mb-6 text-sm leading-5 tracking-wide text-neutral-300;
 }
 .prose li {
-	@apply text-neutral-300 font-neue-haas-grotesk-medium text-sm;
+    @apply font-neue-haas-grotesk-medium text-sm text-neutral-300;
 }
 .prose li::marker {
-	@apply text-white font-neue-haas-grotesk-bold text-sm;
+    @apply font-neue-haas-grotesk-bold text-sm text-white;
 }
 .prose strong {
-	@apply text-white font-neue-haas-grotesk-medium text-sm transition-all duration-100;
+    @apply font-neue-haas-grotesk-medium text-sm text-white transition-all duration-100;
 }
 .prose h2 {
-	@apply text-white font-neue-haas-grotesk-medium mb-6;
+    @apply font-neue-haas-grotesk-medium mb-6 text-white;
 }
 .prose h3 {
-	@apply text-white font-neue-haas-grotesk-medium mb-6;
+    @apply font-neue-haas-grotesk-medium mb-6 text-white;
 }
 .prose h4 {
-	@apply text-white font-neue-haas-grotesk-bold mb-6;
+    @apply font-neue-haas-grotesk-bold mb-6 text-white;
 }
 .project-h h3 {
-	@apply relative text-white font-neue-haas-grotesk-bold text-[28px] leading-7 whitespace-nowrap cursor-pointer;
+    @apply font-neue-haas-grotesk-bold relative cursor-pointer whitespace-nowrap text-[28px] leading-7 text-white;
 }
 #projects-container :last-child {
-	@apply border-b-0;
+    @apply border-b-0;
 }
 
 .callout p {
-	@apply text-neutral-100 font-inter-medium text-sm;
+    @apply font-neue-haas-grotesk-medium text-sm text-neutral-100;
 }
 .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
-	@apply border-l-2 border-neutral-300 dark:border-neutral-300 pl-4;
+    @apply border-l-2 border-neutral-300 pl-4 dark:border-neutral-300;
 }
 
 .prose pre {
-	@apply rounded-none;
+    @apply rounded-none;
 }
 
 .prose :where(h2):not(:where([class~="not-prose"] *)) {
-	margin-top: 0;
+    margin-top: 0;
 }
 .prose :where(h3):not(:where([class~="not-prose"] *)) {
-	margin-top: 0;
+    margin-top: 0;
 }
 .prose :where(h4):not(:where([class~="not-prose"] *)) {
-	margin-top: 0;
+    margin-top: 0;
 }
 
 .entry-summary a,
 .gallery-summary a,
-.page-summary a
-{
-	@apply text-neutral-100;
+.page-summary a {
+    @apply text-neutral-100;
 }
 .entry-summary a:hover,
 .gallery-summary a:hover,
-.page-summary a:hover
-{
-	@apply text-white underline;
+.page-summary a:hover {
+    @apply text-white underline;
 }
 
 .warn-tooltip a {
-    @apply font-inter-bold;
+    @apply font-neue-haas-grotesk-bold;
 }
-.warn-tooltip a:hover
-{
-	@apply underline;
+.warn-tooltip a:hover {
+    @apply underline;
 }
 
 @keyframes spin-slow {
-	to {
-		transform: rotate(360deg);
-	}
+    to {
+        transform: rotate(360deg);
+    }
 }
 .animate-spin-slow {
-	animation: spin-slow 10s linear infinite;
+    animation: spin-slow 10s linear infinite;
 }

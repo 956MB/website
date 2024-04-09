@@ -2,7 +2,7 @@ import Parse from "html-react-parser";
 
 export function TextTitle({ children }: { children: string }) {
     return (
-        <a className="font-neue-haas-grotesk-bold text-[28px] mb-[10px] text-white leading-5">
+        <a className="font-neue-haas-grotesk-bold mb-[10px] text-[28px] leading-5 text-white">
             {Parse(children)}
         </a>
     );
@@ -10,7 +10,7 @@ export function TextTitle({ children }: { children: string }) {
 
 export function TextTitleSub({ children }: { children: string }) {
     return (
-        <a className="font-neue-haas-grotesk-bold text-base m-0 text-white text-left">
+        <a className="font-neue-haas-grotesk-bold m-0 text-center text-base text-white">
             {Parse(children)}
         </a>
     );
@@ -18,7 +18,7 @@ export function TextTitleSub({ children }: { children: string }) {
 
 export function TextParagraph({ children }: { children: string }) {
     return (
-        <span className="font-neue-haas-grotesk-medium text-[16px] tracking-wide leading-[1.5em] m-0 text-neutral-350 about-text-p text-left">
+        <span className="font-ibmplex-sans-medium about-text-p m-0 text-center text-[16px] leading-[1.5em] tracking-wide text-neutral-400">
             {Parse(children)}
         </span>
     );
@@ -26,7 +26,7 @@ export function TextParagraph({ children }: { children: string }) {
 
 export function TextParagraphSub({ children }: { children: string }) {
     return (
-        <span className="font-neue-haas-grotesk-medium text-[16px] leading-[1.5em] m-0 text-neutral-500 about-text-p text-left">
+        <span className="font-neue-haas-grotesk-medium about-text-p m-0 ml-3 text-center text-[16px] leading-[1.5em] text-neutral-500">
             {Parse(children)}
         </span>
     );

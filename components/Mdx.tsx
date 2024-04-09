@@ -1,11 +1,11 @@
-import * as React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { useMDXComponent } from "next-contentlayer/hooks";
-import { PortalWithState } from "react-portal";
 import clsx from "clsx";
-import Tooltip from "./Tooltip";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import Image from "next/image";
+import Link from "next/link";
+import * as React from "react";
 import { XLg } from "react-bootstrap-icons";
+import { PortalWithState } from "react-portal";
+import Tooltip from "./Tooltip";
 
 const CustomLink = (props) => {
     const href = props.href;
@@ -39,10 +39,7 @@ function MdxImage(props) {
     const { alt, ...rest } = props;
 
     return (
-        <PortalWithState
-            closeOnOutsideClick
-            closeOnEsc
-        >
+        <PortalWithState closeOnOutsideClick closeOnEsc>
             {({ openPortal, closePortal, portal }) => (
                 <React.Fragment>
                     <button onClick={openPortal}>
@@ -54,41 +51,45 @@ function MdxImage(props) {
                         />
                     </button>
                     {portal(
-                        <div className="flex flex-col absolute top-0 left-0 w-screen h-screen bg-black/90 pointer-events-all z-[99] backdrop-blur">
-                            <div className="flex-shrink-0 flex-grow-0 flex flex-col items-center justify-start">
+                        <div className="pointer-events-all absolute left-0 top-0 z-[99] flex h-screen w-screen flex-col bg-black/90 backdrop-blur">
+                            <div className="flex flex-shrink-0 flex-grow-0 flex-col items-center justify-start">
                                 <div
                                     className={clsx(
-                                        "flex flex-col flex-nowrap w-full items-center justify-center sm:border-b border-neutral-800"
+                                        "flex w-full flex-col flex-nowrap items-center justify-center border-neutral-800 sm:border-b",
                                     )}
                                 >
-                                    <div className="flex flex-row items-center w-full min-h-[55px] justify-center px-2 sm:px-4">
-                                        <div className="flex flex-row items-center h-full w-full justify-left sm:min-w-[100px]">
+                                    <div className="flex min-h-[55px] w-full flex-row items-center justify-center px-2 sm:px-4">
+                                        <div className="justify-left flex h-full w-full flex-row items-center sm:min-w-[100px]">
                                             <button
-                                                className="h-full px-1 group"
+                                                className="group h-full px-1"
                                                 onClick={closePortal}
                                             >
-                                                <Tooltip content="Close" position={"bottom"}>
-                                                    <XLg size={18} className="text-white" />
+                                                <Tooltip
+                                                    content="Close"
+                                                    position={"bottom"}
+                                                >
+                                                    <XLg
+                                                        size={18}
+                                                        className="text-white"
+                                                    />
                                                 </Tooltip>
                                             </button>
                                         </div>
                                     </div>
-                                    <hr className="flex sm:hidden h-px w-full bg-neutral-800 mb-[1px] mt-0" />
+                                    <hr className="mb-[1px] mt-0 flex h-px w-full bg-neutral-800 sm:hidden" />
                                 </div>
                             </div>
 
-                            <div
-                                className="flex flex-grow items-center justify-center overflow-hidden gap-0"
-                            >
+                            <div className="flex flex-grow items-center justify-center gap-0 overflow-hidden">
                                 <Image
                                     alt={alt}
-                                    className="block max-h-full max-w-full object-contain m-0"
+                                    className="m-0 block max-h-full max-w-full object-contain"
                                     loading="eager"
                                     unoptimized={true}
                                     {...rest}
                                 />
                             </div>
-                        </div>
+                        </div>,
                     )}
                 </React.Fragment>
             )}
@@ -110,7 +111,7 @@ export function Mdx({ code }: MdxProps) {
     const Component = useMDXComponent(code);
 
     return (
-        <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+        <article className="prose prose-neutral prose-quoteless dark:prose-invert">
             <Component components={{ ...components }} />
         </article>
     );

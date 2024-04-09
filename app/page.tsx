@@ -1,42 +1,30 @@
 import { AboutBody } from "components/AboutBody";
-import Image from "next/image";
-import { recents_group } from "lib/designs";
 import RecentRow from "components/RecentsRow";
-import { name } from "lib/info";
+import { recents_group } from "lib/designs";
+import Image from "next/image";
 
 export default async function AboutPage() {
-	return (
-		<section>
-			<div className="relative flex flex-col sm:justify-start mx-auto items-start px-6 sm:px-7 sm:max-w-4xl gap-y-8 lg:gap-y-0 pt-16 sm:pt-20 pb-12">
-				<div className="flex w-full relative justify-start items-center mb-3 sm:mb-11">
-					<div className="flex w-full h-full justify-center items-center max-h-28 rounded-lg border border-neutral-800 bg-black overflow-hidden">
-						<Image
-							alt={"banner"}
-							className={"w-full h-full object-cover"}
-							src={"/sketch-banner.png"}
-							width={1920}
-							height={384}
-							loading="eager"
-							unoptimized={true}
-						/>
-					</div>
-					<Image
-						alt={"avatar"}
-						className={
-							"absolute object-cover z-50 w-32 sm:w-40 ml-24 sm:ml-20"
-						}
-						src={"/avatar.png"}
-						width={380}
-						height={487}
-						loading="eager"
-						unoptimized={true}
-					/>
-				</div>
+    return (
+        <section>
+            <div className="relative mx-auto flex flex-col items-start gap-y-2 px-6 pb-12 pt-10 sm:max-w-4xl sm:justify-start sm:gap-y-8 sm:px-7 sm:pt-16 lg:gap-y-0">
+                <div className="relative mb-3 flex w-full items-center justify-start sm:mb-11">
+                    <div className="flex h-full max-h-28 w-full items-center justify-center overflow-hidden rounded-lg border border-neutral-800 bg-black">
+                        <Image
+                            alt={"banner"}
+                            className={"h-full w-full object-cover"}
+                            src={"/sketch-banner.png"}
+                            width={1920}
+                            height={384}
+                            loading="eager"
+                            unoptimized={true}
+                        />
+                    </div>
+                </div>
 
-				<AboutBody />
+                <AboutBody />
 
-				<RecentRow entry={recents_group} />
-			</div>
-		</section>
-	);
+                <RecentRow entry={recents_group} />
+            </div>
+        </section>
+    );
 }

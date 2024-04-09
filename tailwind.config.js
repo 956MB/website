@@ -28,9 +28,6 @@ module.exports = {
 				80: "0.8",
 				175: "1.75",
 			},
-			fontFamily: {
-				interbold: ["var(--font-inter-bold)"],
-			},
 			typography: {
 				quoteless: {
 					css: {

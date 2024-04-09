@@ -1,180 +1,204 @@
 "use client";
 
+import clsx from "clsx";
+import { motion } from "framer-motion";
 import { IEntryGroup } from "lib/interfaces";
+import Image from "next/image";
 import React from "react";
 import { PortalWithState } from "react-portal";
-import Image from "next/image";
-import clsx from "clsx";
 import Gallery, { CategoryIcon } from "./Gallery";
-import { motion } from "framer-motion";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
-	return (
-		<div className="flex flex-col sm:sticky top-0 items-start justify-start w-full pt-[13px] sm:pt-4 m-0 gap-3 z-50 bg-black/90 backdrop-blur">
-			<div className="flex flex-col items-start justify-end gap-1 leading-[21px]">
-				<span className="text-white whitespace-normal sm:whitespace-nowrap font-neue-haas-grotesk-medium text-[21px] leading-4">
-					{entry.title}
-				</span>
-				<span className="font-ibmplex-sans-medium text-sm leading-4 text-neutral-500">
-					{entry.description}
-				</span>
-			</div>
-			<div className="flex flex-row items-center justify-center w-full">
-				<hr className="h-px w-full bg-neutral-800 my-auto" />
-			</div>
-		</div>
-	);
+    return (
+        <div className="top-0 z-50 m-0 flex w-full flex-col items-start justify-center bg-black/90 pb-4 pt-5 backdrop-blur sm:sticky">
+            <div className="flex flex-col items-start justify-center gap-[7px] leading-[21px]">
+                <span className="font-neue-haas-grotesk-medium whitespace-normal text-[21px] leading-4 text-white sm:whitespace-nowrap">
+                    {entry.title}
+                </span>
+                <span className="font-ibmplex-sans-medium text-sm leading-4 text-neutral-500">
+                    {entry.description}
+                </span>
+            </div>
+        </div>
+    );
 }
 
 export default function DesignRow({
-	entry,
-	noHeader,
+    entry,
+    noHeader,
 }: {
-	entry: IEntryGroup;
-	noHeader?: boolean;
+    entry: IEntryGroup;
+    noHeader?: boolean;
 }) {
-	const containerVariants = {
-		initial: {},
-		animate: {
-			transition: {
-				staggerChildren: 0.1,
-			},
-		},
-	};
+    const containerVariants = {
+        initial: {},
+        animate: {
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    };
 
-	const itemVariants = {
-		initial: { opacity: 0 },
-		animate: { opacity: 1 },
-	};
+    const itemVariants = {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+    };
 
-	return (
-		<div className="flex flex-col flex-wrap w-full relative justify-center items-center max-w-screen-2xl">
-			{!noHeader && <DesignHeader entry={entry} />}
+    return (
+        <div className="relative flex w-full max-w-screen-2xl flex-col flex-wrap items-center justify-center gap-y-0">
+            {!noHeader && <DesignHeader entry={entry} />}
 
-			<motion.div
-				variants={containerVariants}
-				initial="initial"
-				animate="animate"
-				className={clsx(
-					"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center items-start gap-2 w-full pt-2"
-				)}
-			>
-				{React.Children.toArray(
-					entry.items.map((item, i) => (
-						<PortalWithState closeOnOutsideClick closeOnEsc>
-							{({ openPortal, closePortal, portal }) => (
-								<React.Fragment>
-									<motion.div
-										key={i}
-										variants={itemVariants}
-										transition={{ duration: 0.5 }}
-										id={item.id}
-										className={clsx(
-											"relative z-0 flex flex-col justify-start group box-content overflow-hidden"
-										)}
-										onClick={
-											item.linkBlog || !item.items
-												? undefined
-												: openPortal
-										}
-									>
-										{item.new == true && (
-											<div className="flex flex-row gap-1 absolute top-2 right-2 items-center justify-center bg-black/50 backdrop-blur-lg rounded-full m-0 z-20">
-												<span className="text-[12px] leading-[12px] font-neue-haas-grotesk-medium cursor-default border border-white/20 text-white/90 rounded-full px-[7px] pt-[6px] pb-[5px]">
-													{"NEW"}
-												</span>
-											</div>
-										)}
+            <div className="flex flex-col gap-y-2">
+                <div className="flex w-full flex-row items-center justify-center">
+                    <hr className="my-auto h-px w-full bg-neutral-800" />
+                </div>
 
-										<a
-											className="flex flex-col relative justify-end group overflow-hidden"
-											href={
-												item.linkBlog
-													? item.linkBlog
-													: undefined
-											}
-										>
-											<Image
-												alt={item.id}
-												className={clsx(
-													"block object-cover w-full h-full aspect-square ease-in-out transition-transform duration-75 hover:scale-105",
-                                                    (item.items || item.linkBlog) && "cursor-pointer"
-												)}
-												src={
-													item.thumbnail
-														? item.thumbnail.path
-														: (item.items ? item.items[0].path : "")
-												}
-												width={
-													item.thumbnail
-														? item.thumbnail.width
-														: (item.items ? item.items[0].width : 0)
-												}
-												height={
-													item.thumbnail
-														? item.thumbnail.height
-														: (item.items ? item.items[0].height : 0)
-												}
-												loading="eager"
-											/>
-										</a>
-										<div
-											className={clsx(
-												"z-10 absolute bottom-0 sm:transition-opacity sm:duration-200 opacity-100 lg:opacity-0 group-hover:opacity-100 flex flex-col text-start justify-end sm:justify-center w-full lg:h-full py-3 lg:py-4 gap-y-2 bg-gradient-to-t from-black/90 sm:from-black/80 to-black/50 sm:to-black/50 px-2 pointer-events-none",
-												item.category == "photoshop" &&
-													"pl-4 pr-4",
-												item.summary &&
-													item.summary.length <= 0 &&
-													"h-[53px] min-h-[53px] max-h-[53px]"
-											)}
-										>
-											<div
-												className={clsx(
-													"flex flex-row sm:flex-col gap-[3px] lg:gap-1 items-center justify-start sm:justify-center overflow-hidden",
-													item.category ==
-														"photoshop" && "gap-x-3"
-												)}
-											>
-                                                <div className="hidden sm:block">
-													<CategoryIcon
-														large={false}
-														category={item.category}
-													/>
-												</div>
+                <motion.div
+                    variants={containerVariants}
+                    initial="initial"
+                    animate="animate"
+                    className={clsx(
+                        "grid w-full grid-cols-1 items-start justify-center gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+                    )}
+                >
+                    {React.Children.toArray(
+                        entry.items.map((item, i) => (
+                            <PortalWithState closeOnOutsideClick closeOnEsc>
+                                {({ openPortal, closePortal, portal }) => (
+                                    <React.Fragment>
+                                        <motion.div
+                                            key={i}
+                                            variants={itemVariants}
+                                            transition={{ duration: 0.5 }}
+                                            id={item.id}
+                                            className={clsx(
+                                                "group relative z-0 box-content flex flex-col justify-start overflow-hidden rounded saturate-100 hover:saturate-0",
+                                            )}
+                                            onClick={
+                                                item.linkBlog || !item.items
+                                                    ? undefined
+                                                    : openPortal
+                                            }
+                                        >
+                                            {item.new == true && (
+                                                <div className="absolute right-2 top-2 z-20 m-0 flex flex-row items-center justify-center gap-1 rounded-full bg-black/50 backdrop-blur-lg">
+                                                    <span className="font-neue-haas-grotesk-medium cursor-default rounded-full border border-white/20 px-[7px] pb-[5px] pt-[6px] text-[12px] leading-[12px] text-white/90">
+                                                        {"NEW"}
+                                                    </span>
+                                                </div>
+                                            )}
 
-                                                <span
-                                                    className={
-                                                        clsx("text-white font-neue-haas-grotesk-medium sm:w-full text-base sm:text-xl sm:leading-5 text-center sm:mt-[6px] whitespace-nowrap lg:whitespace-normal",
-                                                        !item.date && "sm:mb-[34px]")
+                                            <a
+                                                className="group relative flex flex-col justify-end overflow-hidden"
+                                                href={
+                                                    item.linkBlog
+                                                        ? item.linkBlog
+                                                        : undefined
+                                                }
+                                            >
+                                                <Image
+                                                    alt={item.id}
+                                                    className={clsx(
+                                                        "block aspect-square h-full w-full object-cover transition-transform duration-75 ease-in-out hover:scale-105",
+                                                        (item.items ||
+                                                            item.linkBlog) &&
+                                                            "cursor-pointer",
+                                                    )}
+                                                    src={
+                                                        item.thumbnail
+                                                            ? item.thumbnail
+                                                                  .path
+                                                            : item.items
+                                                              ? item.items[0]
+                                                                    .path
+                                                              : ""
                                                     }
+                                                    width={
+                                                        item.thumbnail
+                                                            ? item.thumbnail
+                                                                  .width
+                                                            : item.items
+                                                              ? item.items[0]
+                                                                    .width
+                                                              : 0
+                                                    }
+                                                    height={
+                                                        item.thumbnail
+                                                            ? item.thumbnail
+                                                                  .height
+                                                            : item.items
+                                                              ? item.items[0]
+                                                                    .height
+                                                              : 0
+                                                    }
+                                                    loading="eager"
+                                                    unoptimized={true}
+                                                />
+                                            </a>
+                                            <div
+                                                className={clsx(
+                                                    "pointer-events-none absolute bottom-0 z-10 flex w-full flex-col justify-end gap-y-2 bg-gradient-to-t from-black/90 to-black/50 px-2 py-3 text-start opacity-100 group-hover:opacity-100 sm:justify-center sm:from-black/80 sm:to-black/50 sm:transition-opacity sm:duration-200 lg:h-full lg:py-4 lg:opacity-0",
+                                                    item.category ==
+                                                        "photoshop" &&
+                                                        "pl-4 pr-4",
+                                                    item.summary &&
+                                                        item.summary.length <=
+                                                            0 &&
+                                                        "h-[53px] max-h-[53px] min-h-[53px]",
+                                                )}
+                                            >
+                                                <div
+                                                    className={clsx(
+                                                        "flex flex-row items-center justify-start gap-[3px] overflow-hidden sm:flex-col sm:justify-center lg:gap-1",
+                                                        item.category ==
+                                                            "photoshop" &&
+                                                            "gap-x-3",
+                                                    )}
                                                 >
-                                                    {item.title}
-                                                </span>
+                                                    <div className="hidden sm:block">
+                                                        <CategoryIcon
+                                                            large={false}
+                                                            category={
+                                                                item.category
+                                                            }
+                                                        />
+                                                    </div>
 
-												{item.date && (
-													<span
-														className={
-															"text-white/70 font-neue-haas-grotesk-medium sm:w-full text-sm sm:leading-5 text-center lg:mb-2"
-														}
-													>
-														{item.date}
-													</span>
-												)}
-											</div>
-										</div>
-									</motion.div>
-									{portal(
-										<Gallery
-											item={item}
-											closeAction={closePortal}
-										/>
-									)}
-								</React.Fragment>
-							)}
-						</PortalWithState>
-					))
-				)}
-			</motion.div>
-		</div>
-	);
+                                                    <span
+                                                        className={clsx(
+                                                            "font-neue-haas-grotesk-medium whitespace-nowrap text-center text-base text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
+                                                            !item.date &&
+                                                                "sm:mb-[34px]",
+                                                        )}
+                                                    >
+                                                        {item.title}
+                                                    </span>
+
+                                                    {item.date && (
+                                                        <span
+                                                            className={
+                                                                "font-neue-haas-grotesk-medium text-center text-sm text-white/70 sm:w-full sm:leading-5 lg:mb-2"
+                                                            }
+                                                        >
+                                                            {item.date}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                        {portal(
+                                            <Gallery
+                                                item={item}
+                                                closeAction={closePortal}
+                                            />,
+                                        )}
+                                    </React.Fragment>
+                                )}
+                            </PortalWithState>
+                        )),
+                    )}
+                </motion.div>
+            </div>
+        </div>
+    );
 }
