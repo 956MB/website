@@ -24,7 +24,7 @@ export default function RecentRow({ entry }: { entry: IEntryGroupLinks }) {
                 {React.Children.toArray(
                     entry.items.map((item, i) => (
                         <a
-                            className="group group relative z-0 box-content flex h-full max-h-28 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-neutral-800 bg-black hover:border-neutral-700"
+                            className="group group relative z-0 box-content flex h-full max-h-28 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-neutral-800 bg-black saturate-0 hover:border-neutral-700 hover:saturate-100"
                             id={item.id}
                             href={entry.links[i]}
                         >
