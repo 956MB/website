@@ -13,7 +13,7 @@ const navItems = {
     "/projects": { name: "projects" },
     "/designs": { name: "designs / art" },
     "/neography": { name: "neography" },
-    "/extras": { name: "extras" },
+    "/extras": { name: "other stuff" },
 };
 
 function Social({

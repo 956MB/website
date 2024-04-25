@@ -72,7 +72,7 @@ export default function DesignRow({
                                             transition={{ duration: 0.5 }}
                                             id={item.id}
                                             className={clsx(
-                                                "group relative z-0 box-content flex flex-col justify-start overflow-hidden rounded saturate-100 hover:saturate-0",
+                                                "group relative z-0 box-content flex flex-col justify-start overflow-hidden rounded saturate-0 hover:saturate-100",
                                             )}
                                             onClick={
                                                 item.linkBlog || !item.items
