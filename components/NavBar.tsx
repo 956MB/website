@@ -76,10 +76,6 @@ export default function Header() {
                             priority
                         />
                     </Link>
-
-                    {pathname === "/" && (
-                        <div className="absolute inset-x-0 bottom-0 h-[3px] bg-white"></div>
-                    )}
                 </div>
 
                 <div className="inline-flex h-full w-full flex-row items-center gap-9 overflow-hidden sm:w-auto sm:justify-center">
