@@ -2,6 +2,25 @@ import { IEntry, IEntryGroup, IEntryGroups } from "./interfaces";
 
 // NOTE: icons
 
+export const icon_flipper: IEntry = {
+    id: "icon_flipper",
+    title: "Flipper Icon Recolor",
+    date: "12.4.2024",
+    category: "icon",
+    summary: [
+        'Recolor and resize of the <a href="https://flipperzero.one/">Flipper</a> app icons, by me. (iOS, macOS, Windows)',
+    ],
+    link: "https://store.956mb.com/l/flipper-icons",
+    count: 3,
+    items: [
+        {
+            path: "/images/extras/icons/flipper-1.png",
+            width: 1024,
+            height: 1024,
+        },
+    ],
+};
+
 export const icon_adobe: IEntry = {
     id: "icon_photoshop",
     title: "Adobe Rosetta Icons",
@@ -89,25 +108,11 @@ export const icon_2048we: IEntry = {
     count: 4,
     items: [
         {
-            path: "/images/extras/icons/2048WE/2048WE.png",
-            width: 512,
-            height: 512,
+            path: "/images/extras/icons/2048we-1.png",
+            width: 704,
+            height: 704,
         },
     ],
-};
-
-export const icons = [
-    icon_adobe,
-    icon_vscodium,
-    icon_parallels,
-    icon_2048we,
-];
-export const icons_section: IEntryGroup = {
-    title: "App icons",
-    category: "icons",
-    description: "Icons I have personally created or just slightly modified",
-    items: icons,
-    credit: false,
 };
 
 // NOTE: wallpapers
@@ -389,7 +394,45 @@ export const extra_model_3_performance: IEntry = {
     ],
 };
 
+export const extra_nord_monster: IEntry = {
+    id: "extra_nord_monster",
+    title: "Nord Monster (Invert, HEIC)",
+    date: "12.01.2024",
+    category: "wallpaper",
+    summary: [
+        'Existing wallpaper of nord monster I found on <a href="https://www.reddit.com/r/wallpaper/comments/s8cvai/nord_monster_1920_x_1080/">Reddit</a> I upscaled to 6K, as well as applied a color correct and invert. I also merge the inverts into a dark/light HEIC for macOS. All credit to the original creator <a href="https://www.reddit.com/user/StyLeadz/">u/StyLeadz</a> I think, but I\'m not sure.',
+    ],
+    link: "https://drive.google.com/drive/folders/1uNQ8AGsyLr9E2KWc_JWM674buIVsIl5w?usp=sharing",
+    count: 1,
+    credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/r/wallpaper/comments/s8cvai/nord_monster_1920_x_1080/">u/StyLeadz</a>',
+    items: [
+        {
+            path: "/images/extras/wallpapers/nord-monster-1.png",
+            width: 1920,
+            height: 1080,
+        },
+    ],
+};
+
+// NOTE: groups
+
+export const icons = [
+    icon_flipper,
+    icon_adobe,
+    icon_vscodium,
+    icon_parallels,
+    icon_2048we,
+];
+export const icons_section: IEntryGroup = {
+    title: "App Icons",
+    category: "icons",
+    description: "Icons I have personally created or just slightly changed",
+    items: icons,
+    credit: false,
+};
+
 export const wallpapers = [
+    extra_nord_monster,
     extra_model_3_performance,
     extra_hongdae_variants,
     extra_graffiti_variants,
@@ -406,10 +449,10 @@ export const wallpapers = [
     extra_cybertruck,
 ];
 export const wallpapers_section: IEntryGroup = {
-    title: "Wallpapers & Screenshot collections",
+    title: "Wallpapers & Screenshots",
     category: "wallpapers",
     description:
-        "Collection, Video of my favorite wallpapers that I've upscaled to 6K and/or edited for my own use",
+        "Collection of wallpapers I like, have slightly modified, or are my own creations",
     items: wallpapers,
     credit: true,
 };

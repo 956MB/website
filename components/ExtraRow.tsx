@@ -14,11 +14,11 @@ import Tooltip from "./Tooltip";
 export function ExtraHeader({ entry }: { entry: IEntryGroup }) {
     return (
         <div className="top-0 z-50 m-0 flex w-full flex-col items-start justify-center bg-black/90 pb-4 pt-5 backdrop-blur sm:sticky">
-            <div className="flex flex-col items-start justify-center gap-[7px] leading-[21px]">
-                <span className="font-neue-haas-grotesk-medium whitespace-normal text-[21px] leading-4 text-white sm:whitespace-nowrap">
+            <div className="flex flex-col items-start justify-center gap-3 leading-[21px]">
+                <span className="font-neue-haas-grotesk-medium whitespace-normal text-[22px] leading-4 text-white sm:whitespace-nowrap">
                     {entry.title}
                 </span>
-                <span className="font-ibmplex-sans-medium text-sm leading-4 text-neutral-500">
+                <span className="font-ibmplex-sans-medium text-sm leading-4 text-neutral-300">
                     {entry.description}
                 </span>
             </div>
@@ -89,10 +89,8 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                     )}
                                     <a
                                         className={clsx(
-                                            "group relative flex flex-col justify-end overflow-hidden rounded bg-gradient-to-t from-white/10 to-transparent object-cover backdrop-blur-sm sm:backdrop-blur-none",
+                                            "group relative flex flex-col justify-end overflow-hidden rounded bg-gradient-to-t from-white/10 to-transparent object-cover backdrop-blur-sm child:hover:scale-105 sm:backdrop-blur-none",
                                             item.link && " cursor-pointer",
-                                            item.category === "wallpaper" &&
-                                                "child:hover:scale-105",
                                         )}
                                         rel="noopener noreferrer"
                                         target="_blank"
@@ -105,11 +103,6 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 item.category === "icon"
                                                     ? "aspect-square object-contain"
                                                     : "aspect-video object-cover sm:aspect-video",
-                                                (item.id === "icon_tdb" ||
-                                                    item.id === "icon_mssnc" ||
-                                                    item.id ===
-                                                        "icon_2048we") &&
-                                                    "scale-75",
                                             )}
                                             src={
                                                 item.items
@@ -181,7 +174,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 </div>
 
                                                 {item.summary && (
-                                                    <span className="font-ibmplex-sans-medium entry-summary w-full text-sm text-neutral-400">
+                                                    <span className="font-ibmplex-sans-medium entry-summary w-full text-sm text-neutral-300">
                                                         {parse(
                                                             item.summary.join(
                                                                 "",

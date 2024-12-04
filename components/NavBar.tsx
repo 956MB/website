@@ -10,6 +10,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 import { VercelIcon } from "./Icons";
 
 const navItems = {
+    "/": { name: "about" },
     "/projects": { name: "projects" },
     "/designs": { name: "designs / art" },
     "/neography": { name: "neography" },
@@ -66,18 +67,6 @@ export default function Header() {
                     "m-auto inline-flex h-full flex-row items-center justify-center gap-8 bg-black/90 backdrop-blur sm:gap-10",
                 )}
             >
-                <div className="relative inline-flex h-full items-center justify-center">
-                    <Link key={"home"} href={"/"}>
-                        <Image
-                            alt="logo"
-                            className="ml-[2px] h-6 min-h-[24px] w-6 min-w-[24px] cursor-pointer object-contain"
-                            src={logo_s}
-                            placeholder="blur"
-                            priority
-                        />
-                    </Link>
-                </div>
-
                 <div className="inline-flex h-full w-full flex-row items-center gap-9 overflow-hidden sm:w-auto sm:justify-center">
                     {Object.entries(navItems).map(([path, { name }], idx) => {
                         const isActive = path === pathname;
@@ -87,13 +76,8 @@ export default function Header() {
                                 key={path}
                                 className={clsx(
                                     "relative inline-flex h-full flex-row items-center justify-center",
-                                    path.includes("/projects") && "sm:pl-10",
                                 )}
                             >
-                                {path.includes("/projects") && (
-                                    <div className="absolute inset-y-0 left-0 my-5 w-[1px] bg-transparent sm:bg-neutral-800"></div>
-                                )}
-
                                 <div className="relative flex h-full items-center justify-center py-3 text-center align-middle">
                                     <span
                                         className={clsx(
@@ -110,7 +94,7 @@ export default function Header() {
                                         className={clsx(
                                             "whitespace-nowrap text-[13px] leading-[14px] no-underline hover:text-white sm:text-[14px]",
                                             {
-                                                "text-neutral-500": !isActive,
+                                                "text-neutral-400": !isActive,
                                             },
                                         )}
                                     >

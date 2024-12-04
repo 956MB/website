@@ -46,7 +46,7 @@ export function ProjectInfo({ entry }: { entry: IEntry }) {
 
                 {React.Children.toArray(
                     entry.summary?.map((summary_p, i) => (
-                        <a className="font-ibmplex-sans-medium m-0 text-[15px] leading-[20px] text-neutral-400">
+                        <a className="font-ibmplex-sans-medium m-0 text-[15px] leading-[1.7em] text-neutral-300">
                             {Parse(summary_p)}
                         </a>
                     )),

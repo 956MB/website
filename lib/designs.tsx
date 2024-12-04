@@ -176,7 +176,7 @@ export const ui_section: IEntryGroup = {
     title: "UI / UX",
     category: "concept",
     description:
-        "Collection of UI prototypes and ideas for past and future projects",
+        "Collection of UI prototypes and ideas for past / future projects",
     items: ui,
 };
 
@@ -382,7 +382,7 @@ export const drawings = [
 export const drawings_section: IEntryGroup = {
     title: "Sketches, Photo Manipulations and Misc art",
     category: "drawings",
-    description: "Everything I draw in Procreate or edit in Photoshop",
+    description: "Stuff I draw in Procreate or edit in Photoshop / Illustrator",
     items: drawings,
 };
 
