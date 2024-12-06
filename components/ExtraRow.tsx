@@ -57,8 +57,8 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                     className={clsx(
                         "grid w-full max-w-screen-2xl items-start justify-center",
                         entry.category === "icons"
-                            ? "grid-cols-2 gap-2 pt-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5"
-                            : "grid-cols-1 gap-3 pt-3 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2",
+                            ? "grid-cols-2 gap-2 pt-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+                            : "grid-cols-1 gap-3 pt-3 lg:grid-cols-2",
                     )}
                 >
                     {React.Children.toArray(
@@ -73,20 +73,6 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                         "group relative z-0 box-content flex flex-col justify-start",
                                     )}
                                 >
-                                    {item.count && item.count > 1 && (
-                                        <div className="absolute right-2 top-2 z-20 m-0 flex flex-row items-center justify-center gap-1 rounded-full bg-black/30 backdrop-blur-lg">
-                                            <div className="inline-flex min-w-[26px] cursor-default flex-row items-center justify-center gap-1 rounded-full border border-white/20 px-2 py-[6px] text-white/90">
-                                                <span className="font-neue-haas-grotesk-medium text-[12px] leading-[12px]">
-                                                    {item.count}
-                                                </span>
-                                                <div className="relative hidden sm:block">
-                                                    <MdOutlineLayers
-                                                        size={16}
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
                                     <a
                                         className={clsx(
                                             "group relative flex flex-col justify-end overflow-hidden rounded bg-gradient-to-t from-white/10 to-transparent object-cover backdrop-blur-sm child:hover:scale-105 sm:backdrop-blur-none",

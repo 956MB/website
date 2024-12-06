@@ -15,12 +15,12 @@ export default function ExtraPage() {
         <section>
             <div className="flex w-full flex-col flex-wrap items-center justify-start gap-y-3 px-6 pb-6 sm:gap-y-10 sm:px-8 sm:pt-5">
                 <div className="inline-flex w-full max-w-screen-2xl flex-col items-center justify-center gap-8">
-                    <div className="flex flex-col items-center justify-center gap-4 pt-[13px] text-center sm:pt-4">
+                    <div className="flex flex-col items-start justify-center gap-4 pt-6 text-center sm:items-center sm:pt-4">
                         <span className="font-neue-haas-grotesk-medium text-[22px] leading-[18px] text-white">
                             {extras_explained.title}
                         </span>
 
-                        <span className="font-ibmplex-sans-medium page-summary max-w-5xl text-sm leading-[1.7em] text-neutral-300">
+                        <span className="font-ibmplex-sans-medium page-summary max-w-5xl text-start text-sm leading-[1.7em] text-neutral-300 sm:text-center">
                             {extras_explained.description}
                         </span>
                     </div>

@@ -24,20 +24,60 @@ export interface IEntry {
     items?: IEntryItem[];
 }
 
-export interface IEntryGroups extends Array<IEntryGroup> {}
 export interface IEntryGroup {
     title: string;
     category: string;
     description?: string;
     items: IEntry[];
     credit?: boolean;
-}
-export interface IEntryGroupLinks extends IEntryGroup {
-    title: string;
-    category: string;
-    description?: string;
-    items: IEntry[];
-    credit?: boolean;
-    links: string[];
+    links?: string[];
     useFirsts?: number[];
 }
+
+export type IEntryGroups = IEntryGroup[];
+
+export const item = (
+    path: string,
+    width: number,
+    height: number,
+    caption?: string,
+): IEntryItem => ({
+    path,
+    width,
+    height,
+    ...(caption && { caption }),
+});
+
+export const entry = (
+    id: string,
+    title: string,
+    date: string,
+    category: string,
+    items: IEntryItem[],
+    options: Partial<
+        Omit<IEntry, "id" | "title" | "date" | "category" | "items">
+    > = {},
+): IEntry => ({
+    id,
+    title,
+    date,
+    category,
+    items,
+    ...options,
+});
+
+export const group = (
+    title: string,
+    category: string,
+    description: string,
+    items: IEntry[],
+    options: Partial<
+        Omit<IEntryGroup, "title" | "category" | "description" | "items">
+    > = {},
+): IEntryGroup => ({
+    title,
+    category,
+    description,
+    items,
+    ...options,
+});

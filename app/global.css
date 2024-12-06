@@ -142,7 +142,7 @@ hr {
 }
 
 .p-link {
-    @apply text-neutral-200;
+    @apply font-bold text-neutral-200 underline;
 }
 .p-link:hover {
     @apply text-white underline;

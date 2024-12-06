@@ -3,16 +3,18 @@
 import { about_email, about_p, bio_p, languages_p, tools_p } from "lib/info";
 import Image from "next/image";
 import React from "react";
+import Socials from "./Socials";
 import { TextParagraph, TextParagraphSub } from "./Text";
 
 export function AboutBody() {
     return (
-        <div className="mr-0 mt-6 flex-row items-start justify-start text-left lg:mb-5 lg:mt-4">
+        <div className="justify-cenitems-center mr-0 mt-6 flex-row items-center text-left lg:mb-5 lg:mt-4">
             <div className="m-0 mb-2 flex max-w-4xl flex-col flex-wrap items-start justify-center gap-y-6 overflow-hidden pr-0 text-left sm:mb-5">
                 <div className="inline-flex flex-col items-start justify-center">
                     <TextParagraph>{about_p}</TextParagraph>
                     <TextParagraphSub>{about_email}</TextParagraphSub>
                 </div>
+                <Socials />
                 <TextParagraph>{bio_p}</TextParagraph>
                 <TextParagraph>{languages_p}</TextParagraph>
                 <TextParagraph>{tools_p}</TextParagraph>

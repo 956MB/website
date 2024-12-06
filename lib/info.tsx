@@ -11,11 +11,6 @@ export const email = {
 export const socials = [
     { serv: "x", name: "${highlight('956MB')}", url: "https://x.com/956MB" },
     {
-        serv: "bluesky",
-        name: "${highlight('@956mb.com')}",
-        url: "https://bsky.app/profile/956mb.com",
-    },
-    {
         serv: "github",
         name: "${highlight('956MB')}",
         url: "https://github.com/956MB",

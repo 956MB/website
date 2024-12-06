@@ -137,7 +137,7 @@ export default function DesignRow({
                                             </a>
                                             <div
                                                 className={clsx(
-                                                    "pointer-events-none absolute bottom-0 z-10 flex w-full flex-col justify-end gap-y-2 bg-gradient-to-t from-black/90 to-black/50 px-2 py-3 text-start opacity-100 group-hover:opacity-100 sm:justify-center sm:from-black/80 sm:to-black/50 sm:transition-opacity sm:duration-200 lg:h-full lg:py-4 lg:opacity-0",
+                                                    "pointer-events-none absolute bottom-0 z-10 flex h-1/2 w-full flex-col justify-end gap-y-2 bg-gradient-to-t from-black/80 to-black/0 px-2 py-3 text-start opacity-100 group-hover:opacity-100 sm:h-full sm:justify-center sm:from-black/80 sm:to-black/20 sm:transition-opacity sm:duration-200 lg:py-4 lg:opacity-0",
                                                     item.category ==
                                                         "photoshop" &&
                                                         "pl-4 pr-4",
