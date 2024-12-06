@@ -1,9 +1,4 @@
-import {
-    IEntry,
-    IEntryGroup,
-    IEntryGroupLinks,
-    IEntryGroups,
-} from "./interfaces";
+import { IEntry, IEntryGroup, IEntryGroups } from "./interfaces";
 
 // NOTE: ui
 
@@ -609,14 +604,3 @@ export const designGroups: IEntryGroups = [
     logos_section,
     drawings_section,
 ];
-
-export const recents_group: IEntryGroupLinks = {
-    title: "New stuff",
-    category: "list",
-    links: [
-        "designs/#t_wear",
-        "designs/#painting_power_lines",
-        "designs/#logo_d",
-    ],
-    items: [t_wear, painting_power_lines, logo_d],
-};
