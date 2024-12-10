@@ -2,120 +2,106 @@
 
 import clsx from "clsx";
 import Parse from "html-react-parser";
-import { IEntry } from "lib/interfaces";
+import { IEntry, IEntryGroup } from "lib/interfaces";
 import Image from "next/image";
 import React from "react";
 import { XLg } from "react-bootstrap-icons";
 import { PortalWithState } from "react-portal";
 import Tooltip from "./Tooltip";
+import { motion } from "framer-motion";
+import GroupHeader from "./GroupHeader";
+import { FiArrowUpRight } from "react-icons/fi";
 
-export function ProjectInfo({ entry }: { entry: IEntry }) {
+export function ProjectItem({ entry, section }: { entry: IEntry, section: string }) {
+    const langColors: { [key: string]: string } = {
+        JavaScript: "bg-[#F1E05A]",
+        TypeScript: "bg-[#3078C6]",
+        Python: "bg-[#3572A5]",
+        Lua: "bg-[#000080]",
+        "C++": "bg-[#F34B7D]",
+        "C#": "bg-[#188601]",
+        Rust: "bg-[#DEA584]",
+        Swift: "bg-[#F05137]",
+        CSS: "bg-[#663399]",
+    };
+
     return (
-        <div
-            className={clsx(
-                "flex h-full w-full flex-1 flex-col items-start pt-6 sm:max-w-[800px] sm:pt-[40px]",
-            )}
+        <div 
+            className="flex flex-col lg:flex-row items-start justify-between w-full max-w-screen-lg gap-y-2 gap-x-3"
         >
-            <div className="project-h m-0 flex flex-col flex-wrap gap-y-[12px] text-left">
-                <div className="mb-3 inline-flex flex-col flex-wrap items-start justify-start gap-x-3 gap-y-3 sm:flex-row sm:items-center">
-                    <div className="inline-flex flex-row gap-x-3">
-                        <a
-                            id={entry.id}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            href={entry.link}
-                        >
-                            <span className="font-neue-haas-grotesk-medium text-3xl leading-[30px] text-white hover:underline">
-                                {entry.title}
-                            </span>
-                        </a>
-                    </div>
-
-                    <div className="items-left flex flex-row flex-wrap gap-x-[10px] sm:ml-auto">
-                        {React.Children.toArray(
-                            entry.tags?.map((tag, i) => (
-                                <div className="pointer-events-none z-20 m-0 flex flex-row items-center justify-center gap-1 rounded-full bg-black/40 backdrop-blur-lg">
-                                    <span className="font-neue-haas-grotesk-medium cursor-default rounded-full border border-white/20 px-[8px] pb-[7px] pt-[8px] text-[12px] leading-[12px] text-white/90">
-                                        {tag}
-                                    </span>
-                                </div>
-                            )),
+            <div className={clsx(
+                "flex items-center lg:w-20 lg:flex-shrink-0",
+                section === "Misc" && "lg:w-64",
+                section === "Neostuff" && "lg:w-44", 
+                section === "Personal" && "lg:w-24",
+            )}>
+                {entry.date && (
+                    <span className="font-ibmplex-sans-medium text-sm leading-4 mr-3 text-neutral-400 font-mono noselect">
+                        {entry.date}
+                    </span>
+                )}
+                {(entry.lang && entry.lang !== 'none') && (
+                    <div
+                        className={clsx(
+                            "w-[10px] h-[10px] rounded-full border border-white/10 mr-2",
+                            langColors[entry.lang] || "bg-gray-400"
+                        )}
+                        title={entry.lang}
+                    />
+                )}
+                <div className="flex flex-row items-center gap-x-[5px] justify-center group">
+                    <a
+                        href={entry.link || '#'}
+                        className={clsx(
+                            "font-neue-haas-grotesk-medium max-w-[200px] text-base leading-4 text-white transition-colors",
+                            entry.link ? "hover:underline hover:text-neutral-300" : "no-underline noselect"
+                        )}
+                    >
+                        {entry.title}
+                    </a>
+                    <div className="block lg:hidden">
+                        { entry.link && (
+                            <FiArrowUpRight
+                                size={18}
+                                className="text-neutral-500"
+                            />
                         )}
                     </div>
                 </div>
-
-                {React.Children.toArray(
-                    entry.summary?.map((summary_p, i) => (
-                        <a className="font-ibmplex-sans-medium m-0 text-[15px] leading-[1.7em] text-neutral-300">
-                            {Parse(summary_p)}
-                        </a>
-                    )),
-                )}
             </div>
+            <span className="font-ibmplex-sans-medium flex-1 text-sm lg:text-[15px] leading-0 text-neutral-300">
+                <span className="hidden lg:inline tracking-[-0.2em] mr-[9px]">--</span> {Parse((entry.summary || '').toString())}
+            </span>
         </div>
     );
 }
 
-export default function ProjectRow({ entry }: { entry: IEntry }) {
+export default function ProjectRow({
+    entry,
+    noHeader,
+}: {
+    entry: IEntryGroup;
+    noHeader?: boolean;
+}) {
     return (
-        <div
-            id={entry.id}
-            className="relative flex w-full flex-col flex-wrap items-center justify-center sm:max-w-[85%] sm:py-5"
-        >
-            <PortalWithState closeOnOutsideClick closeOnEsc>
-                {({ openPortal, closePortal, portal }) => (
-                    <React.Fragment>
-                        <button onClick={openPortal}>
-                            <Image
-                                alt="project-img"
-                                className="block max-h-[700px] max-w-full cursor-pointer object-contain"
-                                src={entry.items ? entry.items[0].path : ""}
-                                width={entry.items ? entry.items[0].width : 0}
-                                height={entry.items ? entry.items[0].height : 0}
-                                loading="eager"
-                                unoptimized={true}
-                            />
-                        </button>
-                        {portal(
-                            <div
-                                className="pointer-events-all absolute left-0 top-0 z-[99] flex h-full w-full flex-row flex-wrap items-center justify-center bg-black/75 px-[10%] py-[55px] backdrop-blur-sm"
-                                onClick={closePortal}
-                            >
-                                <div className="absolute left-7 top-7 z-50 flex flex-row">
-                                    <button
-                                        className="group h-full px-1"
-                                        onClick={closePortal}
-                                    >
-                                        <Tooltip
-                                            content="Close"
-                                            position={"bottom"}
-                                        >
-                                            <XLg
-                                                size={18}
-                                                className="text-white"
-                                            />
-                                        </Tooltip>
-                                    </button>
-                                </div>
-                                <Image
-                                    alt="project-img-modal"
-                                    className="block max-h-full max-w-full overflow-hidden object-contain"
-                                    src={entry.items ? entry.items[0].path : ""}
-                                    width={
-                                        entry.items ? entry.items[0].width : 0
-                                    }
-                                    height={
-                                        entry.items ? entry.items[0].height : 0
-                                    }
-                                    loading="eager"
-                                    unoptimized={true}
-                                />
-                            </div>,
-                        )}
-                    </React.Fragment>
-                )}
-            </PortalWithState>
-            <ProjectInfo entry={entry} />
+        <div className="relative flex w-full max-w-screen-2xl flex-col flex-wrap items-center justify-center gap-y-0">
+            {!noHeader && 
+                <div className="flex flex-col items-start justify-center w-full top-0 z-50 m-0 sm:sticky">
+                    <GroupHeader entry={entry} noDescription={true} noBorder={true} />
+
+                    <div className="flex w-full flex-row items-center justify-center">
+                        <hr className="my-auto h-px w-full bg-neutral-800" />
+                    </div>
+                </div>
+            }
+
+            <div 
+                className="flex flex-col justify-center items-center py-3 gap-y-6 lg:gap-y-2 w-full"
+            >
+                {entry.items.map((item, i) => (
+                    <ProjectItem key={i} entry={item} section={entry.title} />
+                ))}
+            </div>
         </div>
     );
 }

@@ -13,7 +13,7 @@ const navItems = {
     "/projects": { name: "projects" },
     "/designs": { name: "designs / art" },
     "/neography": { name: "neography" },
-    "/extras": { name: "other stuff" },
+    "/extras": { name: "misc" },
 };
 
 const COPYRIGHT = (
@@ -45,44 +45,52 @@ const Brackets = ({ children, show }: { children: string; show: boolean }) => (
 
 export default function Header() {
     let pathname = usePathname() || "/";
+    const isHome = pathname === "/";
 
     return (
-        <div className="no-scrollbar relative z-[55] flex w-full justify-center overflow-x-scroll px-6 pt-4 sm:justify-center sm:px-7">
-            <div className="m-auto inline-flex flex-row items-center justify-center gap-8 bg-black/90 backdrop-blur sm:gap-10">
-                <div className="inline-flex w-full flex-row flex-wrap items-center gap-x-16 overflow-hidden sm:w-auto sm:justify-center sm:gap-x-10 sm:py-3">
-                    {Object.entries(navItems).map(([path, { name }]) => {
-                        const isActive = path === pathname;
+        <div
+            className={clsx(
+                "z-[55] flex w-full flex-1 flex-row justify-center",
+                isHome ? "max-w-4xl" : "max-w-none",
+            )}
+        >
+            <div className="no-scrollbar relative z-[55] flex w-full justify-center overflow-x-scroll py-4 sm:justify-center sm:px-7 sm:border-b border-neutral-800 mx-6 sm:mx-8">
+                <div className="m-auto inline-flex flex-row items-center justify-center gap-8 bg-black/90 backdrop-blur sm:gap-10">
+                    <div className="inline-flex w-full flex-row flex-wrap items-center gap-x-16 sm:gap-y-6 overflow-hidden sm:w-auto sm:justify-center sm:gap-x-10 sm:py-3">
+                        {Object.entries(navItems).map(([path, { name }]) => {
+                            const isActive = path === pathname;
 
-                        return (
-                            <div
-                                key={path}
-                                className="group relative inline-flex h-full flex-row items-center justify-center"
-                            >
-                                <div className="relative flex h-full cursor-pointer items-center justify-center py-3 text-center align-middle sm:py-0">
-                                    <Brackets show={isActive}>{"["}</Brackets>
-                                    <Link
-                                        href={path}
-                                        className={clsx(
-                                            "whitespace-nowrap text-[14px] leading-[14px] no-underline hover:text-white",
-                                            { "text-neutral-400": !isActive },
-                                        )}
-                                    >
-                                        <span
+                            return (
+                                <div
+                                    key={path}
+                                    className="group relative inline-flex h-full flex-row items-center justify-center"
+                                >
+                                    <div className="relative flex h-full cursor-pointer items-center justify-center py-3 text-center align-middle sm:py-0">
+                                        <Brackets show={isActive}>{"["}</Brackets>
+                                        <Link
+                                            href={path}
                                             className={clsx(
-                                                "font-neue-haas-grotesk-medium relative text-center uppercase",
-                                                (pathname.includes(name) ||
-                                                    pathname == path) &&
-                                                    "text-white",
+                                                "whitespace-nowrap text-[14px] leading-[14px] no-underline hover:text-white",
+                                                { "text-neutral-400": !isActive },
                                             )}
                                         >
-                                            {name}
-                                        </span>
-                                    </Link>
-                                    <Brackets show={isActive}>{"]"}</Brackets>
+                                            <span
+                                                className={clsx(
+                                                    "font-neue-haas-grotesk-medium relative text-center uppercase",
+                                                    (pathname.includes(name) ||
+                                                        pathname == path) &&
+                                                        "text-white",
+                                                )}
+                                            >
+                                                {name}
+                                            </span>
+                                        </Link>
+                                        <Brackets show={isActive}>{"]"}</Brackets>
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </div>

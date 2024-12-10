@@ -7,6 +7,7 @@ import Image from "next/image";
 import React from "react";
 import { PortalWithState } from "react-portal";
 import Gallery, { CategoryIcon } from "./Gallery";
+import GroupHeader from "./GroupHeader";
 
 export function DesignHeader({ entry }: { entry: IEntryGroup }) {
     return (
@@ -46,7 +47,7 @@ export default function DesignRow({
 
     return (
         <div className="relative flex w-full max-w-screen-2xl flex-col flex-wrap items-center justify-center gap-y-0">
-            {!noHeader && <DesignHeader entry={entry} />}
+            {!noHeader && <GroupHeader entry={entry} />}
 
             <div className="flex flex-col gap-y-2">
                 <div className="flex w-full flex-row items-center justify-center">

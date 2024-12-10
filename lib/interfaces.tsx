@@ -9,6 +9,7 @@ export interface IEntry {
     id: string;
     title: string;
     date?: string;
+    lang?: string;
     link?: string;
     count?: number;
     summary?: string[];

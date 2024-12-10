@@ -9,7 +9,7 @@ import {
 
 // NOTE: icons
 
-export const icons = [
+const icons = [
     entry(
         "icon_flipper",
         "Flipper Icon Recolor",
@@ -92,7 +92,7 @@ export const icons = [
 ];
 
 // NOTE: wallpapers
-export const wallpapers = [
+const wallpapers = [
     entry(
         "extra_nord_monster",
         "Nord Monster (Invert, HEIC)",
