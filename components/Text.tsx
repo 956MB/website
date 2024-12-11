@@ -18,7 +18,7 @@ export function TextTitleSub({ children }: { children: string }) {
 
 export function TextParagraph({ children }: { children: string }) {
     return (
-        <span className="font-ibmplex-sans-medium about-text-p m-0 text-start text-[16px] leading-[1.7em] tracking-wide text-neutral-300">
+        <span className="font-ibmplex-sans-medium about-text-p m-0 text-start text-[15px] sm:text-[16px] leading-[1.7em] tracking-wide text-neutral-300">
             {Parse(children)}
         </span>
     );

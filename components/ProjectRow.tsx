@@ -27,7 +27,7 @@ export function ProjectItem({ entry, section }: { entry: IEntry, section: string
 
     return (
         <div 
-            className="flex flex-col lg:flex-row items-start justify-between w-full max-w-screen-lg gap-y-2 gap-x-3"
+            className="flex flex-col lg:flex-row items-start justify-between w-full max-w-screen-lg gap-y-[6px] sm:gap-y-2 gap-x-3"
         >
             <div className={clsx(
                 "flex items-center lg:w-20 lg:flex-shrink-0",
