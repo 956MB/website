@@ -294,7 +294,7 @@ const p_wallpapers: IEntry = {
 export const projectsGroup: IEntryGroup = {
     title: "Mixed",
     category: "Projects",
-    description: "Collection of programs and on-going projects of all types.",
+    description: "Collection of programs and on-going projects of all types",
     items: [
         p_flipper_chess,
         p_reddit_download_buttons,
@@ -314,7 +314,7 @@ export const projectsGroup: IEntryGroup = {
 export const neovimGroup: IEntryGroup = {
     title: "Neostuff",
     category: "Projects",
-    description: "My Neovim plugins and changes to others.",
+    description: "My Neovim plugins and changes to others",
     items: [
         p_vscode_yazi,
         p_ncks_nvim,
@@ -328,7 +328,7 @@ export const neovimGroup: IEntryGroup = {
 export const personalGroup: IEntryGroup = {
     title: "Personal",
     category: "Projects",
-    description: "The \"workspace\".",
+    description: "The \"workspace\"",
     items: [
         p_dotfiles,
         p_website,
