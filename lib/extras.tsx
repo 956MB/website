@@ -15,12 +15,12 @@ const icons = [
         "Sketch Dark Glow",
         "12.10.2024",
         "icon",
-        [item("/images/extras/icons/sketch-1.png", 1024, 1024)],
+        [item("/images/extras/icons/sketch-3.png", 1024, 1024)],
         {
             summary: [
                 'Dark mode version of the <a href="https://www.sketch.com/">Sketch</a> app icon, with a bit more glow.',
             ],
-            link: "https://macosicons.com/#/u/956mb",
+            link: "https://macosicons.com/#/sketch",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.sketch.com/home/">Sketch</a>',
         },
     ),
@@ -29,12 +29,12 @@ const icons = [
         "Flipper Icon Recolor",
         "12.4.2024",
         "icon",
-        [item("/images/extras/icons/flipper-1.png", 1024, 1024)],
+        [item("/images/extras/icons/flipper-4.png", 1024, 1024)],
         {
             summary: [
                 'Recolor and resize of the <a href="https://flipperzero.one/">Flipper</a> app icons, by me. (iOS, macOS, Windows)',
             ],
-            link: "https://macosicons.com/#/u/956mb",
+            link: "https://macosicons.com/#/flipper",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://flipperzero.one/design-guide#!/tab/282742113-4">Flipper</a>',
         },
     ),
@@ -43,7 +43,7 @@ const icons = [
         "Adobe Rosetta Icons",
         "1.1.2024",
         "icon",
-        [item("/images/extras/icons/adobe-icons.gif", 1024, 1024)],
+        [item("/images/extras/icons/adobe-ps-1.png", 1024, 1024)],
         {
             summary: [
                 "Variant Rosetta style icons for various Adobe applications (Photoshop, Illustrator, Bridge, InDesign, Audition). Made by me.",
@@ -52,16 +52,30 @@ const icons = [
         },
     ),
     entry(
+        "icon_claude",
+        "Claude",
+        "5.15.2024",
+        "icon",
+        [item("/images/extras/icons/claude-1.gif", 1024, 1024)],
+        {
+            summary: [
+                "<a href=\"https://www.anthropic.com/claude\">Anthropic's Claude</a> app icon in black, white and #E77350. I did NOT create the logo, only creating replacement options for the iOS app icon.",
+            ],
+            link: "https://macosicons.com/#/claude",
+            credit: '<a rel="noopener noreferrer" target="_blank" href="https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072">@setanarut</a>',
+        },
+    ),
+    entry(
         "icon_vscodium",
         "VSCodium",
         "10.28.2023",
         "icon",
-        [item("/images/extras/icons/vscodium-1.png", 1024, 1024)],
+        [item("/images/extras/icons/vscodium-v3.png", 1024, 1024)],
         {
             summary: [
                 "B/W versions of an unofficial VSCodium icon. Credit to <a href=\"https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072\">@setanarut</a> for the original variation of the 'C' logo.",
             ],
-            link: "https://macosicons.com/#/u/956mb",
+            link: "https://macosicons.com/#/?icon=7iAvJibMA8",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072">@setanarut</a>',
         },
     ),
@@ -70,12 +84,12 @@ const icons = [
         "Parallels",
         "09.08.2023",
         "icon",
-        [item("/images/extras/icons/parallels-1.png", 1024, 1024)],
+        [item("/images/extras/icons/parallels-3.png", 1024, 1024)],
         {
             summary: [
                 'My edits to a custom Parallels icon by <a href="https://www.reddit.com/r/MacOS/comments/mucnsz/i_got_tired_of_the_parallels_desktop_icon_not/2">u/JonMarksbury</a>, using the Windows 11 background. Credit to him for the original concept.',
             ],
-            link: "https://macosicons.com/#/u/956mb",
+            link: "https://macosicons.com/#/?icon=sGnVq3YW8Y",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/r/MacOS/comments/mucnsz/i_got_tired_of_the_parallels_desktop_icon_not/2">u/JonMarksbury</a>',
         },
     ),
@@ -84,7 +98,7 @@ const icons = [
         "TDB",
         "09.03.2023",
         "icon",
-        [item("/images/extras/icons/tdb.png", 1024, 1024)],
+        [item("/images/extras/icons/tdb-1.png", 1024, 1024)],
         {
             summary: [
                 'App icon for my iOS/iPadOS/macOS app <a href="https://www.tdb.fyi/">TDB</a>. Made by me.',
@@ -96,7 +110,7 @@ const icons = [
         "2048WE",
         "06.22.2023",
         "icon",
-        [item("/images/extras/icons/2048we-1.png", 704, 704)],
+        [item("/images/extras/icons/2048we-3.png", 704, 704)],
         {
             summary: [
                 "The custom app icon for my Apple Watch app, 2048WE (Apple Watch Edition). Made by me.",
@@ -325,14 +339,15 @@ const wallpapers = [
 export const icons_section = group(
     "App Icons",
     "icons",
-    "Icons I have personally created or just slightly changed",
+    "Mostly slight changes to existing icons, but some of my own as well",
     icons,
 );
 
 export const wallpapers_section = group(
     "Wallpapers & Screenshots",
     "wallpapers",
-    "Collection of wallpapers I like, have slightly modified, or are my own creations",
+    // "Collection of wallpapers I like, have slightly modified, or are my own creations",
+    "Collection of wallpapers I've created, modified/upscaled, or that I just like",
     wallpapers,
 );
 

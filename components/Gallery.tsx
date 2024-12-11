@@ -169,7 +169,7 @@ export default function Gallery({
                         {item.date && (
                             <span
                                 className={
-                                    "font-neue-haas-grotesk-medium text-center text-sm text-white/70 sm:leading-5"
+                                    "font-neue-haas-grotesk-medium text-center text-sm text-white/70 sm:leading-5 mt-[2px]"
                                 }
                             >
                                 {item.date}
@@ -189,7 +189,7 @@ export default function Gallery({
                     )}
                 >
                     {item.summary && item.summary.length > 0 && (
-                        <span className="font-ibmplex-sans-medium gallery-summary mx-5 my-3 max-w-screen-lg text-center text-[13px] leading-[19px] tracking-wide text-neutral-400 sm:mx-6 lg:my-4 lg:text-[15px]">
+                        <span className="font-ibmplex-sans-medium gallery-summary mx-5 my-3 max-w-screen-lg text-center text-[13px] tracking-wide text-neutral-300 sm:mx-6 lg:my-4 lg:text-[14px] leading-[1.7em]">
                             {parse(item.summary.join(""))}
                         </span>
                     )}
