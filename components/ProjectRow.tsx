@@ -31,7 +31,7 @@ export function ProjectItem({ entry, section }: { entry: IEntry, section: string
         >
             <div className={clsx(
                 "flex items-center lg:w-20 lg:flex-shrink-0",
-                section === "Misc" && "lg:w-64",
+                section === "Mixed" && "lg:w-64",
                 section === "Neostuff" && "lg:w-44", 
                 section === "Personal" && "lg:w-24",
             )}>
@@ -87,7 +87,7 @@ export default function ProjectRow({
         <div className="relative flex w-full max-w-screen-2xl flex-col flex-wrap items-center justify-center gap-y-0">
             {!noHeader && 
                 <div className="flex flex-col items-start justify-center w-full top-0 z-50 m-0 sm:sticky">
-                    <GroupHeader entry={entry} noDescription={true} noBorder={true} />
+                    <GroupHeader entry={entry} noDescription={false} noBorder={true} />
 
                     <div className="flex w-full flex-row items-center justify-center">
                         <hr className="my-auto h-px w-full bg-neutral-800" />

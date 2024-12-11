@@ -11,6 +11,20 @@ import {
 
 const icons = [
     entry(
+        "icon_sketch",
+        "Sketch Dark Glow",
+        "12.10.2024",
+        "icon",
+        [item("/images/extras/icons/sketch-1.png", 1024, 1024)],
+        {
+            summary: [
+                'Dark mode version of the <a href="https://www.sketch.com/">Sketch</a> app icon, with a bit more glow.',
+            ],
+            link: "https://macosicons.com/#/u/956mb",
+            credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.sketch.com/home/">Sketch</a>',
+        },
+    ),
+    entry(
         "icon_flipper",
         "Flipper Icon Recolor",
         "12.4.2024",
@@ -20,7 +34,8 @@ const icons = [
             summary: [
                 'Recolor and resize of the <a href="https://flipperzero.one/">Flipper</a> app icons, by me. (iOS, macOS, Windows)',
             ],
-            link: "https://store.956mb.com/l/flipper-icons",
+            link: "https://macosicons.com/#/u/956mb",
+            credit: '<a rel="noopener noreferrer" target="_blank" href="https://flipperzero.one/design-guide#!/tab/282742113-4">Flipper</a>',
         },
     ),
     entry(
@@ -46,7 +61,7 @@ const icons = [
             summary: [
                 "B/W versions of an unofficial VSCodium icon. Credit to <a href=\"https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072\">@setanarut</a> for the original variation of the 'C' logo.",
             ],
-            link: "https://store.956mb.com/l/vscodium-icon",
+            link: "https://macosicons.com/#/u/956mb",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072">@setanarut</a>',
         },
     ),
@@ -60,7 +75,7 @@ const icons = [
             summary: [
                 'My edits to a custom Parallels icon by <a href="https://www.reddit.com/r/MacOS/comments/mucnsz/i_got_tired_of_the_parallels_desktop_icon_not/2">u/JonMarksbury</a>, using the Windows 11 background. Credit to him for the original concept.',
             ],
-            link: "https://store.956mb.com/l/parallels-icon",
+            link: "https://macosicons.com/#/u/956mb",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/r/MacOS/comments/mucnsz/i_got_tired_of_the_parallels_desktop_icon_not/2">u/JonMarksbury</a>',
         },
     ),

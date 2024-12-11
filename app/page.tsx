@@ -22,7 +22,7 @@ export default async function AboutPage() {
     return (
         <section>
             <div className="relative mx-auto flex flex-col items-center gap-y-2 px-6 pb-2 sm:max-w-screen-lg sm:justify-start sm:gap-y-0 sm:px-7 sm:pt-16 md:max-w-4xl lg:gap-y-0">
-                <div className="mb-6 hidden w-full flex-row items-center justify-items-center align-middle md:flex">
+                <div className="mb-6 hidden w-full flex-row items-center justify-center justify-items-center align-middle md:flex">
                     <Markdown
                         className="text-right text-[11px] leading-4 saturate-0 lg:text-[12px]"
                         children={markdown}

@@ -55,7 +55,7 @@ export default function Header() {
             )}
         >
             <div className="no-scrollbar relative z-[55] flex w-full justify-center overflow-x-scroll py-4 sm:justify-center sm:px-7 sm:border-b border-neutral-800 mx-6 sm:mx-8">
-                <div className="m-auto inline-flex flex-row items-center justify-center gap-8 bg-black/90 backdrop-blur sm:gap-10">
+                <div className="m-auto inline-flex flex-row items-center justify-center gap-8 sm:gap-10">
                     <div className="inline-flex w-full flex-row flex-wrap items-center gap-x-12 sm:gap-y-6 overflow-hidden sm:w-auto sm:justify-center sm:gap-x-10 sm:py-3">
                         {Object.entries(navItems).map(([path, { name }]) => {
                             const isActive = path === pathname;
@@ -108,7 +108,7 @@ export function Footer() {
                 isHome ? "max-w-4xl" : "max-w-none",
             )}
         >
-            <div className="mx-6 sm:mx-8 mt-auto flex min-h-[75px] w-full max-w-screen-2xl flex-1 flex-row items-center border-t border-neutral-800 bg-black/80 pb-6 pt-6 backdrop-blur sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0 gap-x-3">
+            <div className="mx-6 sm:mx-8 mt-auto flex min-h-[75px] w-full max-w-screen-2xl flex-1 flex-row items-center border-t border-neutral-800 pb-6 pt-6 sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0 gap-x-3">
                 {!isHome ? (
                     <>
                         <div className="flex-1">
