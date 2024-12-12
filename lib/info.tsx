@@ -44,7 +44,7 @@ const hl = function (text) {
     return `<span class='large-highlight'>${text}</span>`;
 };
 
-export const about_p = `<span class='name-highlight'>${name}</span>, self-taught ${hl("programmer")}, ${hl("designer")} and <a class="p-link large-highlight" rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/user/bauera5/\">r/neography</a> hobbyist from ${hl(" Dallas, TX ")}`;
+export const about_p = `<span class='name-highlight'>${name}</span>, self-taught ${hl("programmer")}, ${hl("designer")} and <a class="p-link large-highlight" rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/user/bauera5/\">r/neography</a> hobbyist from ${hl(" Dallas, TX")}.`;
 export const about_email = `[ <a class="p-link" rel=\"noopener noreferrer\" target=\"_blank\" href=\"mailto:bays@956mb.com\">${hl("bays@956mb.com")}</a> ] <<<`;
 
 export const bio_p = `My self-taught skills journey started around 2010, initially focusing on graphic design and mastering ${hl("Photoshop")}, doing mostly sub-par freelance work as a teenager. In 2018, a computer engineer friend introduced me to programming, and it quickly became my passion. I've created applications for both ${hl("Windows")} / ${hl("macOS")} and ${hl("iPhone")} / ${hl("Apple Watch")}. When I'm not working on code projects or new designs, I'm slowly learning languages like ${hl("한국어")} or ${hl("Finnish")}, and I'm thinking up and drawing new fictional language scripts on ${hl("r/neography")}.`;

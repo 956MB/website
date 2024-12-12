@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header, { Footer } from "components/NavBar";
 import type { Metadata } from "next";
+import Particles from "components/particles";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://956mb.com"),
@@ -69,6 +70,10 @@ export default function RootLayout({
                     <SpeedInsights />
                     <Analytics />
                     <Footer />
+                    <Particles
+                        className="animate-fade-in absolute inset-0 -z-10 hidden sm:block"
+                        quantity={50}
+                    />
                 </main>
             </body>
         </html>

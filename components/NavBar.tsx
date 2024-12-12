@@ -11,7 +11,7 @@ import Socials from "./Socials";
 const navItems = {
     "/": { name: "home" },
     "/projects": { name: "projects" },
-    "/designs": { name: "designs / art" },
+    "/designs": { name: "design" },
     "/neography": { name: "neography" },
     "/extras": { name: "misc" },
 };
@@ -22,18 +22,18 @@ const COPYRIGHT = (
     </span>
 );
 
-const Brackets = ({ children, show }: { children: string; show: boolean }) => (
+const Deco = ({ children, show }: { children: string; show: boolean }) => (
     <span
         className={clsx(
-            "mb-[2px] text-[14px] leading-[14px] text-neutral-400 no-underline transition-all duration-150",
+            "mb-[2px] text-[14px] leading-[14px] text-neutral-400 no-underline transition-all duration-150 font-ibmplex-sans-semibold",
             show
-                ? children === "["
+                ? children === "/"
                     ? "mr-[6px]"
                     : "ml-[6px]"
                 : clsx(
                       "hidden opacity-0 sm:block",
                       "group-hover:opacity-50",
-                      children === "["
+                      children === "/"
                           ? "mr-0 group-hover:mr-[6px]"
                           : "ml-0 group-hover:ml-[6px]",
                   ),
@@ -50,13 +50,12 @@ export default function Header() {
     return (
         <div
             className={clsx(
-                "z-[55] flex w-full flex-1 flex-row justify-center",
-                isHome ? "max-w-4xl" : "max-w-none",
+                "z-[55] lg:max-h-[75px] flex w-full flex-1 flex-row justify-start sm:border-b border-neutral-800 items-center backdrop-blur-sm",
             )}
         >
-            <div className="no-scrollbar relative z-[55] flex w-full justify-center overflow-x-scroll py-4 sm:justify-center sm:px-7 sm:border-b border-neutral-800 mx-6 sm:mx-8">
-                <div className="m-auto inline-flex flex-row items-center justify-center gap-8 sm:gap-10">
-                    <div className="inline-flex w-full flex-row flex-wrap items-center gap-x-12 sm:gap-y-6 overflow-hidden sm:w-auto sm:justify-center sm:gap-x-10 sm:py-3">
+            <div className="no-scrollbar relative z-[55] flex items-center justify-start overflow-x-scroll px-6 py-4 sm:justify-center sm:px-7">
+                <div className="inline-flex flex-row items-start justify-center gap-8 sm:gap-10">
+                    <div className="mr-auto inline-flex flex-row flex-wrap items-center gap-x-10 overflow-hidden sm:w-auto sm:justify-center sm:gap-x-9 sm:gap-y-6 sm:py-3">
                         {Object.entries(navItems).map(([path, { name }]) => {
                             const isActive = path === pathname;
 
@@ -66,17 +65,17 @@ export default function Header() {
                                     className="group relative inline-flex h-full flex-row items-center justify-center"
                                 >
                                     <div className="relative flex h-full cursor-pointer items-center justify-center py-3 text-center align-middle sm:py-0">
-                                        <Brackets show={isActive}>{"["}</Brackets>
+                                        <Deco show={isActive}>{"/"}</Deco>
                                         <Link
                                             href={path}
                                             className={clsx(
-                                                "whitespace-nowrap text-[13px] lg:text-[14px] leading-[14px] no-underline hover:text-white",
+                                                "whitespace-nowrap text-[15px] lg:text-[16px] leading-[14px] no-underline hover:text-white",
                                                 { "text-neutral-400": !isActive },
                                             )}
                                         >
                                             <span
                                                 className={clsx(
-                                                    "font-neue-haas-grotesk-medium relative text-center uppercase",
+                                                    "font-neue-haas-grotesk-medium relative text-center capitalize",
                                                     (pathname.includes(name) ||
                                                         pathname == path) &&
                                                         "text-white",
@@ -85,7 +84,6 @@ export default function Header() {
                                                 {name}
                                             </span>
                                         </Link>
-                                        <Brackets show={isActive}>{"]"}</Brackets>
                                     </div>
                                 </div>
                             );
@@ -104,17 +102,16 @@ export function Footer() {
     return (
         <div
             className={clsx(
-                "z-[55] flex min-h-[75px] w-full flex-1 flex-row justify-center lg:mb-6 lg:mt-8 lg:max-h-[75px]",
-                isHome ? "max-w-4xl" : "max-w-none",
+                "z-[55] flex min-h-[75px] w-full flex-1 flex-row justify-center lg:mt-8 lg:max-h-[75px]"
             )}
         >
-            <div className="mx-6 sm:mx-8 mt-auto flex min-h-[75px] w-full max-w-screen-2xl flex-1 flex-row items-center border-t border-neutral-800 pb-6 pt-6 sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0 gap-x-3">
+            <div className="mx-6 mt-auto flex min-h-[75px] w-full max-w-screen-2xl flex-1 flex-row items-center gap-x-3 border-t border-neutral-800 pb-6 pt-6 sm:mx-8 sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">
                 {!isHome ? (
                     <>
                         <div className="flex-1">
                             <Socials />
                         </div>
-                        <div className="flex flex-col-reverse sm:flex-row items-end justify-center gap-4">
+                        <div className="flex flex-col-reverse items-end justify-center gap-4 sm:flex-row">
                             {COPYRIGHT}
                             <a
                                 rel="noopener noreferrer"

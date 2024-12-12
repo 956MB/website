@@ -7,7 +7,7 @@ import {
     item,
 } from "./interfaces";
 
-export const scripts = [
+const scripts = [
     entry(
         "script_pLang",
         '"pLang"',
@@ -54,7 +54,6 @@ export const scripts = [
         ],
         {
             tags: ["Circles"],
-            linkBlog: "https://www.956mb.com/blog/circles-only-apparently",
         },
     ),
     entry(
@@ -80,7 +79,6 @@ export const scripts = [
         [item("/images/concepts/gyea.png", 1745, 789)],
         {
             tags: ["GYEA"],
-            linkBlog: "https://www.956mb.com/blog/is-this-anything",
         },
     ),
     entry(
@@ -106,7 +104,6 @@ export const scripts = [
         [item("/images/concepts/tab.png", 1358, 929)],
         {
             tags: ["Tab"],
-            linkBlog: "https://www.956mb.com/blog/very-different-look-now",
         },
     ),
     entry(
@@ -117,7 +114,6 @@ export const scripts = [
         [item("/images/something-new/IMG_54322.jpg", 1358, 929)],
         {
             tags: ["Tab"],
-            linkBlog: "https://www.956mb.com/blog/something-new",
         },
     ),
     entry(
@@ -128,7 +124,6 @@ export const scripts = [
         [item("/images/concepts/hokj.png", 1362, 720)],
         {
             tags: ["Hokj"],
-            linkBlog: "https://www.956mb.com/blog/continuation-variation",
         },
     ),
 ];

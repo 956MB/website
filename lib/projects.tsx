@@ -29,7 +29,6 @@ const p_vscode_yazi: IEntry = {
     id: "p-vscode-yazi",
     title: "vscode.yazi",
     link: "https://github.com/956MB/vscode.yazi",
-    lang: "TOML",
     date: "2024",
     summary: [
         `${li("https://github.com/yazi-rs/yazi", "Yazi")} flavors inspired by the default themes (dark/light) in Visual Studio Code, and ${li("https://github.com/Mofiqul/vscode.nvim", "Mofiqul/vscode.nvim")}.`,
@@ -234,28 +233,9 @@ const p_dotfiles: IEntry = {
     title: "dotfiles",
     link: "https://github.com/956MB/dotfiles",
     lang: "Lua",
+    date: "2024",
     summary: [
         "The... files. (<span class='highlight'>ghostty</span>, <span class='highlight'>nvim</span>, <span class='highlight'>zsh</span>, <span class='highlight'>yabai</span>, <span class='highlight'>lazygit</span>...)",
-    ],
-};
-
-const p_kata: IEntry = {
-    id: "p-kata",
-    title: "Kata",
-    link: "https://github.com/956MB/Kata",
-    lang: "Python",
-    summary: [
-        `Most of my ${li("https://www.codewars.com/users/956MB", "Codewars")} katas. Majority in <span class='highlight'>Python</span>. Gotta do more in <span class='highlight'>Go</span> / <span class='highlight'>Rust</span> / <span class='highlight'>Zig</span> (eventually). Please don't laugh.`,
-    ],
-};
-
-const p_aoc: IEntry = {
-    id: "p-aoc",
-    title: "AoC",
-    link: "https://github.com/956MB/AoC",
-    lang: "Python",
-    summary: [
-        `All of my ${li("https://adventofcode.com", "Advent of Code")} solutions. (${li("https://github.com/956MB/AoC/tree/master/18", "18")}, ${li("https://github.com/956MB/AoC/tree/master/20", "20")}, ${li("https://github.com/956MB/AoC/tree/master/21", "21")}, ${li("https://github.com/956MB/AoC/tree/master/22", "22")})`,
     ],
 };
 
@@ -264,8 +244,42 @@ const p_website: IEntry = {
     title: "website",
     link: "https://github.com/956MB/website",
     lang: "JavaScript",
+    date: "2023",
     summary: [
         "This website. My portfolio. Made in React.",
+    ],
+};
+
+const p_boosts: IEntry = {
+    id: "p-boosts",
+    title: "boosts",
+    link: "https://github.com/956MB/boosts",
+    lang: "CSS",
+    date: "2024",
+    summary: [
+        `Some ${li("https://arc.net", "Arc")} boosts for my own tastes (<span class='highlight'>Github</span>, <span class='highlight'>Claude</span>, <span class='highlight'>Hugging Face</span>, <span class='highlight'>F1TV</span>, ...)`,
+    ],
+};
+
+const p_kata: IEntry = {
+    id: "p-kata",
+    title: "Kata",
+    link: "https://github.com/956MB/Kata",
+    lang: "Python",
+    date: "2020",
+    summary: [
+        `Most of my ${li("https://www.codewars.com/users/956MB", "Codewars")} katas. Majority in <span class='highlight'>Python</span>. Gotta do more in <span class='highlight'>Go</span> / <span class='highlight'>Rust</span> / <span class='highlight'>Zig</span> (eventually).`,
+    ],
+};
+
+const p_aoc: IEntry = {
+    id: "p-aoc",
+    title: "AoC",
+    link: "https://github.com/956MB/AoC",
+    lang: "Python",
+    date: "2018",
+    summary: [
+        `All of my ${li("https://adventofcode.com", "Advent of Code")} solutions. (${li("https://github.com/956MB/AoC/tree/master/18", "18")}, ${li("https://github.com/956MB/AoC/tree/master/20", "20")}, ${li("https://github.com/956MB/AoC/tree/master/21", "21")}, ${li("https://github.com/956MB/AoC/tree/master/22", "22")})`,
     ],
 };
 
@@ -274,6 +288,7 @@ const p_banner: IEntry = {
     title: "banner",
     link: "https://github.com/956MB/banner",
     lang: "none",
+    date: "2024",
     summary: [
         "Wow, that's interesting. Rendering of my ASCII banner in Github's markdown code block.",
     ],
@@ -284,6 +299,7 @@ const p_wallpapers: IEntry = {
     title: "wallpapers",
     link: "https://github.com/956MB/wallpapers",
     lang: "none",
+    date: "2024",
     summary: [
         "Collection of wallpapers made or modified by me. Or just stuff I think is cool. WIP.",
     ],
@@ -314,6 +330,7 @@ export const projectsGroup: IEntryGroup = {
 export const neovimGroup: IEntryGroup = {
     title: "Neostuff",
     category: "Projects",
+    titleLink: "https://github.com/956MB/neostuff",
     description: "My Neovim plugins and changes to others",
     items: [
         p_vscode_yazi,
@@ -332,6 +349,7 @@ export const personalGroup: IEntryGroup = {
     items: [
         p_dotfiles,
         p_website,
+        p_boosts,
         p_aoc,
         p_kata,
         p_banner,

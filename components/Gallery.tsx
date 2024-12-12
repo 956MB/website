@@ -189,7 +189,7 @@ export default function Gallery({
                     )}
                 >
                     {item.summary && item.summary.length > 0 && (
-                        <span className="font-ibmplex-sans-medium gallery-summary mx-5 my-3 max-w-screen-lg text-center text-[13px] tracking-wide text-neutral-300 sm:mx-6 lg:my-4 lg:text-[14px] leading-[1.7em]">
+                        <span className="font-ibmplex-sans-medium gallery-summary mx-5 my-3 max-w-screen-lg text-center text-[13px] leading-[1.7em] tracking-wide text-neutral-300 sm:mx-6 lg:my-4 lg:text-[14px]">
                             {parse(item.summary.join(""))}
                         </span>
                     )}

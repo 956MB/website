@@ -19,7 +19,7 @@ function Social({
             href={url}
             className="group flex items-center justify-center whitespace-nowrap text-center no-underline"
         >
-            <span className="font-neue-haas-grotesk-medium text-[13px] lg:text-[14px] uppercase leading-[14px] !text-white group-hover:text-white">
+            <span className="font-ibmplex-sans-semibold text-[13px] capitalize leading-[14px] !text-white group-hover:text-white lg:text-[15px]">
                 {serv}
             </span>
             <FiArrowUpRight

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function NeographyPage() {
     return (
         <section>
-            <div className="flex w-full flex-col flex-wrap items-center justify-start gap-8 px-6 pb-2 sm:px-8 sm:pt-5">
+            <div className="flex w-full flex-col flex-wrap items-center justify-start gap-4 px-6 pb-2 sm:px-8 sm:pt-5">
                 <div className="inline-flex w-full max-w-screen-2xl flex-col gap-4">
                     <div className="flex flex-col items-start justify-center gap-4 pt-6 text-center sm:items-center sm:pt-4">
                         <span className="font-neue-haas-grotesk-medium text-[22px] leading-[18px] text-white">

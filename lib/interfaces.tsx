@@ -27,6 +27,7 @@ export interface IEntry {
 
 export interface IEntryGroup {
     title: string;
+    titleLink?: string;
     category: string;
     description?: string;
     items: IEntry[];
