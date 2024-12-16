@@ -19,7 +19,7 @@ function Social({
             href={url}
             className="group flex items-center justify-center whitespace-nowrap text-center no-underline"
         >
-            <span className="font-ibmplex-sans-semibold text-[13px] capitalize leading-[14px] !text-white group-hover:text-white lg:text-[15px]">
+            <span className="font-semibold text-[14px] capitalize leading-[14px] !text-white group-hover:text-white lg:text-[15px]">
                 {serv}
             </span>
             <FiArrowUpRight
@@ -34,7 +34,7 @@ export default function Socials({ className = "" }: { className?: string }) {
     return (
         <div
             className={clsx(
-                "flex w-full flex-row flex-wrap items-center justify-start gap-6 gap-y-3 text-[13px] leading-[13px] transition-all duration-75 sm:gap-6",
+                "flex w-full flex-row flex-wrap items-center justify-start gap-6 gap-y-3 text-[13px] leading-[13px] transition-all duration-75 sm:gap-5",
                 className,
             )}
         >

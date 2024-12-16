@@ -9,7 +9,7 @@ export const email = {
     url: "mailto:bays@956mb.com",
 };
 export const socials = [
-    { serv: "x", name: "${highlight('956MB')}", url: "https://x.com/956MB" },
+    { serv: "twitter", name: "${highlight('956MB')}", url: "https://x.com/956MB" },
     {
         serv: "github",
         name: "${highlight('956MB')}",
@@ -44,10 +44,11 @@ const hl = function (text) {
     return `<span class='large-highlight'>${text}</span>`;
 };
 
-export const about_p = `<span class='name-highlight'>${name}</span>, self-taught ${hl("programmer")}, ${hl("designer")} and <a class="p-link large-highlight" rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/user/bauera5/\">r/neography</a> hobbyist from ${hl(" Dallas, TX")}.`;
-export const about_email = `[ <a class="p-link" rel=\"noopener noreferrer\" target=\"_blank\" href=\"mailto:bays@956mb.com\">${hl("bays@956mb.com")}</a> ] <<<`;
+export const about_n = `<span class='name-highlight'>${name}</span>`;
+export const about_p = `Self-taught* ${hl("programmer")}, ${hl("designer")} and <a class="p-link large-highlight" rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/user/bauera5/\">r/neography</a> hobbyist from ${hl(" Dallas, TX")}.`;
+export const about_email = `<a class="p-link" rel=\"noopener noreferrer\" target=\"_blank\" href=\"mailto:bays@956mb.com\">${hl("bays@956mb.com")}</a>`;
 
-export const bio_p = `My self-taught skills journey started around 2010, initially focusing on graphic design and mastering ${hl("Photoshop")}, doing mostly sub-par freelance work as a teenager. In 2018, a computer engineer friend introduced me to programming, and it quickly became my passion. I've created applications for both ${hl("Windows")} / ${hl("macOS")} and ${hl("iPhone")} / ${hl("Apple Watch")}. When I'm not working on code projects or new designs, I'm slowly learning languages like ${hl("한국어")} or ${hl("Finnish")}, and I'm thinking up and drawing new fictional language scripts on ${hl("r/neography")}.`;
+export const bio_p = `My self-taught skills journey started around 2010, initially focusing on graphic design and learning ${hl("Photoshop")}, doing mostly sub-par freelance work as a teenager. In 2018, a computer engineer friend introduced me to programming, and it quickly became my passion. When I'm not working on code or new designs, I'm slowly learning languages like ${hl("한국어")} or ${hl("Finnish")}, and I'm thinking up and drawing new fictional \"languages\" on ${hl("r/neography")}.`;
 
 export const languages_p = `In addition to loving ${hl("Swift")} (and ${hl("SwiftUI")}) for Apple products, I've worked a lot with both ${hl("JavaScript")} / ${hl("TypeScript")} to make desktop apps and websites in & ${hl("React")} (this website), and I'm most recently exploring languages like ${hl("Go")} and ${hl("Lua")} for things like ${hl("Neovim")} development. Outside of these languages, learning and working with ${hl("Rust")} in more and more complicated projects remains a long term goal of mine.`;
 

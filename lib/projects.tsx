@@ -308,7 +308,7 @@ const p_wallpapers: IEntry = {
 // NOTE: Groups
 
 export const projectsGroup: IEntryGroup = {
-    title: "Mixed",
+    title: "Misc",
     category: "Projects",
     description: "Collection of programs and on-going projects of all types",
     items: [

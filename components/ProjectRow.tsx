@@ -27,9 +27,9 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
             className="flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[6px] sm:gap-y-[7px] lg:flex-row"
         >
             <div className={clsx(
-                "flex items-center lg:items-start lg:w-[276px] lg:flex-shrink-0 min-h-full relative group"
+                "flex items-center lg:items-start lg:w-[290px] lg:flex-shrink-0 min-h-full relative group"
             )}>
-                <span className="font-ibmplex-sans-medium noselect mr-3 font-mono text-sm leading-4 text-neutral-400 lg:mt-[6px] lg:w-10 lg:flex-shrink-0">
+                <span className="font-medium noselect mr-3 text-sm leading-4 text-neutral-400 lg:mt-[6px] lg:w-10 lg:flex-shrink-0">
                     {entry.date}
                 </span>
                 <div
@@ -51,7 +51,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "font-neue-haas-grotesk-medium max-w-[200px] text-base leading-4 text-white transition-colors lg:mt-[6px]",
+                            "font-semibold max-w-[210px] text-base leading-4 text-white transition-colors lg:mt-[6px]",
                             entry.link ? "hover:underline hover:text-neutral-300" : "no-underline noselect"
                         )}
                     >
@@ -67,8 +67,8 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                     </div>
                 </div>
             </div>
-            <span className="font-ibmplex-sans-medium leading-0 flex-1 text-sm text-neutral-300 lg:pb-2 lg:pt-[1px] lg:text-[15px]">
-                <span className="mr-[9px] hidden tracking-[-0.2em] text-neutral-500 lg:inline">--</span> {Parse((entry.summary || '').toString())}
+            <span className="font-normal sm:font-medium leading-0 flex-1 text-sm text-neutral-300 lg:pb-2 lg:pt-[1px] lg:text-[15px]">
+                {Parse((entry.summary || '').toString())}
             </span>
         </div>
     );

@@ -110,7 +110,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 <div className="flex w-full flex-row items-center justify-start gap-1">
                                                     <a
                                                         className={clsx(
-                                                            "font-neue-haas-grotesk-medium m-0 whitespace-normal text-white",
+                                                            "font-bold m-0 whitespace-normal text-white",
                                                             item.link &&
                                                                 "hover:underline",
                                                             item.category ===
@@ -148,7 +148,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 </div>
 
                                                 {item.summary && (
-                                                    <span className="font-ibmplex-sans-medium entry-summary w-full text-sm text-neutral-300">
+                                                    <span className="font-medium entry-summary w-full text-sm text-neutral-300">
                                                         {parse(
                                                             item.summary.join(
                                                                 "",

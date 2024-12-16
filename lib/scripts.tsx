@@ -11,7 +11,7 @@ const scripts = [
     entry(
         "script_pLang",
         '"pLang"',
-        "1.23.2024",
+        "2024",
         "script",
         [
             item("/images/pLang/pLang.gif", 2368, 2368),
@@ -28,7 +28,7 @@ const scripts = [
     entry(
         "script_circles_only",
         "Circles only, apparently",
-        "11.12.2023",
+        "2023",
         "script",
         [
             item(
@@ -59,7 +59,7 @@ const scripts = [
     entry(
         "script_eggers_gyea",
         "Movie Posters",
-        "7.19.2023",
+        "2023",
         "script",
         [
             item("/images/poster-edits/the-northman.png", 1500, 2202),
@@ -74,7 +74,7 @@ const scripts = [
     entry(
         "script_gyea",
         '"GYEA"',
-        "6.21.2023",
+        "2023",
         "script",
         [item("/images/concepts/gyea.png", 1745, 789)],
         {
@@ -84,7 +84,7 @@ const scripts = [
     entry(
         "script_brands_tab_hokj",
         "Brand logos",
-        "5.25.2023",
+        "2023",
         "script",
         [
             item("/images/brand-logos-scripts/IMG_V678.png", 1920, 1080),
@@ -99,7 +99,7 @@ const scripts = [
     entry(
         "script_tab",
         '"Tab"',
-        "5.18.2023",
+        "2023",
         "script",
         [item("/images/concepts/tab.png", 1358, 929)],
         {
@@ -109,7 +109,7 @@ const scripts = [
     entry(
         "script_before_tab",
         "Before Tab",
-        "4.23.2023",
+        "2023",
         "script",
         [item("/images/something-new/IMG_54322.jpg", 1358, 929)],
         {
@@ -119,7 +119,7 @@ const scripts = [
     entry(
         "script_hokj",
         '"Hokj"',
-        "3.30.2023",
+        "2023",
         "script",
         [item("/images/concepts/hokj.png", 1362, 720)],
         {

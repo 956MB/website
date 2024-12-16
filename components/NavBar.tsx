@@ -13,11 +13,11 @@ const navItems = {
     "/projects": { name: "projects" },
     "/designs": { name: "design" },
     "/neography": { name: "neography" },
-    "/extras": { name: "misc" },
+    "/extras": { name: "extras" },
 };
 
 const COPYRIGHT = (
-    <span className="font-neue-haas-grotesk-medium whitespace-nowrap text-sm text-neutral-300">
+    <span className="font-medium whitespace-nowrap text-sm text-neutral-300">
         Alexander Bays © 2025
     </span>
 );
@@ -25,7 +25,7 @@ const COPYRIGHT = (
 const Deco = ({ children, show }: { children: string; show: boolean }) => (
     <span
         className={clsx(
-            "mb-[2px] text-[14px] leading-[14px] text-neutral-400 no-underline transition-all duration-150 font-ibmplex-sans-semibold",
+            "mb-[2px] text-[14px] leading-[14px] text-neutral-400 no-underline transition-all duration-150 font-medium",
             show
                 ? children === "/"
                     ? "mr-[6px]"
@@ -50,12 +50,12 @@ export default function Header() {
     return (
         <div
             className={clsx(
-                "z-[55] lg:max-h-[75px] flex w-full flex-1 flex-row justify-start sm:border-b border-neutral-800 items-center backdrop-blur-sm",
+                "z-[55] sm:max-h-[75px] flex w-full flex-1 flex-row justify-start items-center backdrop-blur-sm px-6 sm:px-8",
             )}
         >
-            <div className="no-scrollbar relative z-[55] flex items-center justify-start overflow-x-scroll px-6 py-4 sm:justify-center sm:px-7">
+            <div className="no-scrollbar w-full relative z-[55] flex items-start justify-start overflow-x-scroll py-4 sm:border-b border-neutral-800">
                 <div className="inline-flex flex-row items-start justify-center gap-8 sm:gap-10">
-                    <div className="mr-auto inline-flex flex-row flex-wrap items-center gap-x-10 overflow-hidden sm:w-auto sm:justify-center sm:gap-x-9 sm:gap-y-6 sm:py-3">
+                    <div className="mr-auto inline-flex flex-row flex-wrap items-center gap-x-8 lg:gap-x-7 overflow-hidden sm:w-auto sm:justify-center sm:gap-y-6 sm:py-3">
                         {Object.entries(navItems).map(([path, { name }]) => {
                             const isActive = path === pathname;
 
@@ -75,10 +75,10 @@ export default function Header() {
                                         >
                                             <span
                                                 className={clsx(
-                                                    "font-neue-haas-grotesk-medium relative text-center capitalize",
+                                                    "font-medium hover:font-semibold relative text-center capitalize",
                                                     (pathname.includes(name) ||
                                                         pathname == path) &&
-                                                        "text-white",
+                                                        "text-white font-semibold",
                                                 )}
                                             >
                                                 {name}

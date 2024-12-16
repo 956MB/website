@@ -76,7 +76,7 @@ export default function DesignRow({
                                         >
                                             {item.new == true && (
                                                 <div className="absolute right-2 top-2 z-20 m-0 flex flex-row items-center justify-center gap-1 rounded-full bg-black/50 backdrop-blur-lg">
-                                                    <span className="font-neue-haas-grotesk-medium cursor-default rounded-full border border-white/20 px-[7px] pb-[5px] pt-[6px] text-[12px] leading-[12px] text-white/90">
+                                                    <span className="font-medium cursor-default rounded-full border border-white/20 px-[7px] pb-[5px] pt-[6px] text-[12px] leading-[12px] text-white/90">
                                                         {"NEW"}
                                                     </span>
                                                 </div>
@@ -143,7 +143,7 @@ export default function DesignRow({
                                             >
                                                 <div
                                                     className={clsx(
-                                                        "flex flex-row items-center justify-start gap-[3px] overflow-hidden sm:flex-col sm:justify-center lg:gap-1",
+                                                        "flex flex-row items-center justify-start gap-2 overflow-hidden sm:flex-col sm:justify-center lg:gap-1",
                                                         item.category ==
                                                             "photoshop" &&
                                                             "gap-x-3",
@@ -160,7 +160,7 @@ export default function DesignRow({
 
                                                     <span
                                                         className={clsx(
-                                                            "font-neue-haas-grotesk-medium whitespace-nowrap text-center text-base text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
+                                                            "font-bold text-center text-base text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
                                                             !item.date &&
                                                                 "sm:mb-[34px]",
                                                         )}
@@ -171,7 +171,7 @@ export default function DesignRow({
                                                     {item.date && (
                                                         <span
                                                             className={
-                                                                "font-neue-haas-grotesk-medium text-center text-sm text-white/70 sm:w-full sm:leading-5 lg:mb-2"
+                                                                "font-medium text-center text-sm text-white/70 sm:w-full sm:leading-5 lg:mb-2"
                                                             }
                                                         >
                                                             {item.date}

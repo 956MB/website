@@ -68,77 +68,18 @@ hr {
     scrollbar-width: none !important; /* Firefox */
 }
 
-@font-face {
-    font-family: "IBMPlex_Sans_Light";
-    src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Light.ttf");
-    font-weight: 300;
-}
-@font-face {
-    font-family: "IBMPlex_Sans_Regular";
-    src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Regular.ttf");
-    font-weight: 300;
-}
-@font-face {
-    font-family: "IBMPlex_Sans_Medium";
-    src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-Medium.ttf");
-    font-weight: 500;
-}
-@font-face {
-    font-family: "IBMPlex_Sans_SemiBold";
-    src: url("../public/fonts/IBM_Plex/IBM-Plex-Sans/IBMPlexSans-SemiBold.ttf");
-    font-weight: 600;
-}
-@font-face {
-    font-family: "Neue_Haas_Grotesk_Roman";
-    src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayRoman.ttf");
-    font-weight: 300;
-}
-@font-face {
-    font-family: "Neue_Haas_Grotesk_Medium";
-    src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayMedium.ttf");
-    font-weight: 500;
-}
-@font-face {
-    font-family: "Neue_Haas_Grotesk_Bold";
-    src: url("../public/fonts/Neue_Haas_Grotesk/NeueHaasDisplayBold.ttf");
-    font-weight: 700;
-}
-
-.font-ibmplex-sans-light {
-    font-family: "IBMPlex_Sans_Light";
-}
-.font-ibmplex-sans-regular {
-    font-family: "IBMPlex_Sans_Regular";
-}
-.font-ibmplex-sans-medium {
-    font-family: "IBMPlex_Sans_Medium";
-}
-.font-ibmplex-sans-semibold {
-    font-family: "IBMPlex_Sans_SemiBold";
-}
-.font-neue-haas-grotesk-regular {
-    font-family: "Neue_Haas_Grotesk_Roman";
-}
-.font-neue-haas-grotesk-medium {
-    font-family: "Neue_Haas_Grotesk_Medium";
-}
-.font-neue-haas-grotesk-bold {
-    font-family: "Neue_Haas_Grotesk_Bold";
-}
-
 .highlight {
-    font-family: "Neue_Haas_Grotesk_Bold" !important;
+    font-weight: 700 !important;
     color: white !important;
 }
 .large-highlight {
-    font-family: "Neue_Haas_Grotesk_Bold" !important;
     color: white !important;
-    /* font-size: 1.2rem !important; */
+    font-weight: 700 !important;
 }
 .name-highlight {
-    font-family: "Neue_Haas_Grotesk_Bold" !important;
+    font-weight: 800 !important;
     color: white !important;
-    font-size: 1.5rem !important;
+    font-size: 1.6rem !important;
 }
 
 .p-link {
@@ -180,10 +121,10 @@ hr {
 }
 
 .prose a {
-    @apply font-neue-haas-grotesk-bold text-white decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all duration-100 dark:decoration-neutral-600;
+    @apply font-bold text-white decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all duration-100 dark:decoration-neutral-600;
 }
 .project-h h3 a {
-    @apply font-neue-haas-grotesk-bold text-white decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all dark:decoration-neutral-600;
+    @apply font-bold text-white decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all dark:decoration-neutral-600;
 }
 .prose a:hover {
     font-size: 15px !important;
@@ -307,35 +248,35 @@ table {
 }
 
 .prose p {
-    @apply font-neue-haas-grotesk-medium mb-6 text-sm leading-5 tracking-wide text-neutral-300;
+    @apply font-medium mb-6 text-sm leading-5 tracking-wide text-neutral-300;
 }
 .prose li {
-    @apply font-neue-haas-grotesk-medium text-sm text-neutral-300;
+    @apply font-medium text-sm text-neutral-300;
 }
 .prose li::marker {
-    @apply font-neue-haas-grotesk-bold text-sm text-white;
+    @apply font-bold text-sm text-white;
 }
 .prose strong {
-    @apply font-neue-haas-grotesk-medium text-sm text-white transition-all duration-100;
+    @apply font-medium text-sm text-white transition-all duration-100;
 }
 .prose h2 {
-    @apply font-neue-haas-grotesk-medium mb-6 text-white;
+    @apply font-medium mb-6 text-white;
 }
 .prose h3 {
-    @apply font-neue-haas-grotesk-medium mb-6 text-white;
+    @apply font-medium mb-6 text-white;
 }
 .prose h4 {
-    @apply font-neue-haas-grotesk-bold mb-6 text-white;
+    @apply font-bold mb-6 text-white;
 }
 .project-h h3 {
-    @apply font-neue-haas-grotesk-bold relative cursor-pointer whitespace-nowrap text-[28px] leading-7 text-white;
+    @apply font-bold relative cursor-pointer whitespace-nowrap text-[28px] leading-7 text-white;
 }
 #projects-container :last-child {
     @apply border-b-0;
 }
 
 .callout p {
-    @apply font-neue-haas-grotesk-medium text-sm text-neutral-100;
+    @apply font-medium text-sm text-neutral-100;
 }
 .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
     @apply border-l-2 border-neutral-300 pl-4 dark:border-neutral-300;
@@ -367,7 +308,7 @@ table {
 }
 
 .warn-tooltip a {
-    @apply font-neue-haas-grotesk-bold;
+    @apply font-bold;
 }
 .warn-tooltip a:hover {
     @apply underline;

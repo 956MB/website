@@ -21,7 +21,7 @@ export default function Tooltip({ content, position, warn = false, children }) {
             {isTooltipVisible && (
                 <span
                     className={clsx(
-                        "font-neue-haas-grotesk-medium tooltip:transition-all tooltip:delay-300 rounded py-1 text-xs opacity-100 delay-0",
+                        "font-medium tooltip:transition-all tooltip:delay-300 rounded py-1 text-xs opacity-100 delay-0",
                         position === "top" ? "bottom-7" : "",
                         position === "bottom" ? "top-7" : "",
                         position === "bottom2" ? "top-10" : "",

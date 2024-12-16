@@ -104,7 +104,7 @@ export function GalleryButtons({
                 "sm:justify-right flex h-full w-full flex-row items-center justify-center sm:ml-4 sm:w-auto sm:min-w-[100px]",
             )}
         >
-            <span className="font-neue-haas-grotesk-medium mr-3 hidden text-right text-xs text-neutral-500 sm:block">{`${
+            <span className="font-medium mr-3 hidden text-right text-xs text-neutral-500 sm:block">{`${
                 selectedIdx + 1
             } of ${imagesCount}`}</span>
             <GalleryButton
@@ -112,7 +112,7 @@ export function GalleryButtons({
                 isDisabled={selectedIdx == 0}
                 clickAction={() => updateIdx(-1)}
             />
-            <span className="font-neue-haas-grotesk-medium mx-3 block text-right text-xs text-neutral-500 sm:hidden">{`${
+            <span className="font-medium mx-3 block text-right text-xs text-neutral-500 sm:hidden">{`${
                 selectedIdx + 1
             } of ${imagesCount}`}</span>
             <GalleryButton
@@ -162,14 +162,14 @@ export default function Gallery({
                             />
                         </Tooltip>
 
-                        <a className="font-neue-haas-grotesk-medium mt-[1px] whitespace-nowrap text-center text-lg text-white sm:text-xl sm:leading-5">
+                        <a className="font-bold mt-[1px] whitespace-nowrap text-center text-lg text-white sm:text-xl sm:leading-5">
                             {item.title}
                         </a>
 
                         {item.date && (
                             <span
                                 className={
-                                    "font-neue-haas-grotesk-medium text-center text-sm text-white/70 sm:leading-5 mt-[2px]"
+                                    "font-medium text-center text-sm text-white/70 sm:leading-5 mt-[2px]"
                                 }
                             >
                                 {item.date}
@@ -189,7 +189,7 @@ export default function Gallery({
                     )}
                 >
                     {item.summary && item.summary.length > 0 && (
-                        <span className="font-ibmplex-sans-medium gallery-summary mx-5 my-3 max-w-screen-lg text-center text-[13px] leading-[1.7em] tracking-wide text-neutral-300 sm:mx-6 lg:my-4 lg:text-[14px]">
+                        <span className="font-medium gallery-summary mx-5 my-3 max-w-screen-lg text-center text-[13px] leading-[1.56em] tracking-wide text-neutral-300 sm:mx-6 lg:my-4 lg:text-[14px]">
                             {parse(item.summary.join(""))}
                         </span>
                     )}
@@ -243,7 +243,7 @@ export default function Gallery({
                                 )}
 
                                 {content.caption && (
-                                    <span className="font-ibmplex-sans-regular gallery-summary mx-3 mb-4 mt-2 max-w-screen-lg text-center text-[13px] leading-[13px] tracking-wide text-neutral-400 sm:mt-3">
+                                    <span className="font-medium gallery-summary mx-3 mb-4 mt-2 max-w-screen-lg text-center text-[13px] leading-[13px] tracking-wide text-neutral-400 sm:mt-3">
                                         {parse(content.caption)}
                                     </span>
                                 )}
