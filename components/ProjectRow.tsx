@@ -3,12 +3,7 @@
 import clsx from "clsx";
 import Parse from "html-react-parser";
 import { IEntry, IEntryGroup } from "lib/interfaces";
-import Image from "next/image";
 import React from "react";
-import { XLg } from "react-bootstrap-icons";
-import { PortalWithState } from "react-portal";
-import Tooltip from "./Tooltip";
-import { motion } from "framer-motion";
 import GroupHeader from "./GroupHeader";
 import { FiArrowUpRight } from "react-icons/fi";
 
@@ -18,6 +13,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
         TypeScript: "bg-[#3078C6]",
         Python: "bg-[#3572A5]",
         Lua: "bg-[#000080]",
+        C: "bg-[#555555]",
         "C++": "bg-[#F34B7D]",
         "C#": "bg-[#188601]",
         Rust: "bg-[#DEA584]",
@@ -31,21 +27,25 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
             className="flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[6px] sm:gap-y-[7px] lg:flex-row"
         >
             <div className={clsx(
-                "flex items-center lg:items-start lg:w-[262px] lg:flex-shrink-0 min-h-full relative"
+                "flex items-center lg:items-start lg:w-[276px] lg:flex-shrink-0 min-h-full relative group"
             )}>
                 <span className="font-ibmplex-sans-medium noselect mr-3 font-mono text-sm leading-4 text-neutral-400 lg:mt-[6px] lg:w-10 lg:flex-shrink-0">
                     {entry.date}
                 </span>
                 <div
-                    className={clsx(
-                        "w-[10px] h-[10px] lg:top-0 lg:bottom-0 lg:h-full mr-3 lg:w-[4px] rounded-full lg:rounded-none border lg:border-none border-white/[15%]",
-                        langColors[entry.lang || 'none'],
-                        index === 0 && "lg:rounded-tl-full lg:rounded-tr-full",
-                        index === itemsLength - 1 && "lg:rounded-bl-full lg:rounded-br-full"
-                    )}
+                    className="relative mr-3 flex h-full items-center justify-center"
                     title={entry.lang}
-                />
-                <div className="group relative flex flex-row items-center justify-center gap-x-[5px]">
+                >
+                    <div
+                        className={clsx(
+                            "w-[10px] h-[10px] lg:absolute lg:top-0 lg:bottom-0 lg:h-full lg:w-[4px] rounded-full lg:rounded-none border lg:border-none border-white/[15%] group-hover:w-[6px] transition-all ease-in-out",
+                            langColors[entry.lang || 'none'],
+                            index === 0 && "lg:rounded-tl-full lg:rounded-tr-full",
+                            index === itemsLength - 1 && "lg:rounded-bl-full lg:rounded-br-full"
+                        )}
+                    />
+                </div>
+                <div className="relative flex flex-row items-center justify-center gap-x-[5px]">
                     <a
                         href={entry.link || '#'}
                         rel="noopener noreferrer"
@@ -68,7 +68,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                 </div>
             </div>
             <span className="font-ibmplex-sans-medium leading-0 flex-1 text-sm text-neutral-300 lg:pb-2 lg:pt-[1px] lg:text-[15px]">
-                <span className="mr-[9px] hidden tracking-[-0.2em] lg:inline">--</span> {Parse((entry.summary || '').toString())}
+                <span className="mr-[9px] hidden tracking-[-0.2em] text-neutral-500 lg:inline">--</span> {Parse((entry.summary || '').toString())}
             </span>
         </div>
     );

@@ -72,7 +72,7 @@ export default function RootLayout({
                     <Footer />
                     <Particles
                         className="animate-fade-in absolute inset-0 -z-10 hidden sm:block"
-                        quantity={50}
+                        quantity={56}
                     />
                 </main>
             </body>

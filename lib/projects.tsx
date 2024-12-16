@@ -5,7 +5,7 @@ const li = (href: string, text: string) =>
 
 const p_flipper_chess: IEntry = {
     id: "p-flipper-chess",
-    title: "flipper-chess (changes)",
+    title: "flipper-chess (fix)",
     link: "https://github.com/956MB/flipper-chess",
     lang: "C++",
     date: "fork/+",
@@ -102,7 +102,7 @@ const p_mssnc: IEntry = {
     link: "https://github.com/956MB/MSSNC",
     lang: "Swift",
     summary: [
-        "This idea came directly = myself using the Windows app <span class='highlight'>'Sticky Notes'</span>, and wanting the same thing on Mac. Notes are easily identified with their unique colors, and windows maintain their position and size on the desktop before and after application restarts.",
+        "This idea came directly from myself using the Windows app <span class='highlight'>'Sticky Notes'</span>, and wanting the same thing on Mac. Notes are easily identified with their unique colors, and windows maintain their position and size on the desktop before and after application restarts.",
     ],
     tags: ["macOS", "Swift", "SwiftUI"],
     items: [{ path: "/images/projects/mssnc.gif", width: 1532, height: 982 }],
@@ -246,7 +246,7 @@ const p_website: IEntry = {
     lang: "JavaScript",
     date: "2023",
     summary: [
-        "This website. My portfolio. Made in React.",
+        "This website. My portfolio. Made in <span class='highlight'>React</span>.",
     ],
 };
 
@@ -350,10 +350,10 @@ export const personalGroup: IEntryGroup = {
         p_dotfiles,
         p_website,
         p_boosts,
-        p_aoc,
-        p_kata,
         p_banner,
         p_wallpapers,
+        p_aoc,
+        p_kata,
     ]
 };
 
