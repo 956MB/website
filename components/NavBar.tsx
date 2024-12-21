@@ -69,7 +69,7 @@ export default function Header() {
                                         <Link
                                             href={path}
                                             className={clsx(
-                                                "whitespace-nowrap text-[15px] lg:text-[16px] leading-[14px] no-underline hover:text-white",
+                                                "whitespace-nowrap text-[15px] lg:text-[16px] leading-[14px] no-underline hover:text-lime-400",
                                                 { "text-neutral-400": !isActive },
                                             )}
                                         >

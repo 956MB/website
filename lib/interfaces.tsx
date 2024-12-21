@@ -16,6 +16,7 @@ export interface IEntry {
     tags?: string[];
     category?: string;
     new?: boolean;
+    nested?: boolean;
     useLinkPreview?: IEntryItem;
     credit?: string;
     aspectRatio?: boolean;

@@ -28,6 +28,14 @@ hr {
     margin: 30px 0 30px 0 !important;
 }
 
+::selection {
+    @apply bg-lime-400/80 text-black;
+}
+::-moz-selection {
+    @apply bg-lime-400/80 text-black;
+}
+
+
 .noselect {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -73,8 +81,7 @@ hr {
     color: white !important;
 }
 .large-highlight {
-    color: white !important;
-    font-weight: 700 !important;
+    @apply text-white hover:text-lime-400 cursor-pointer font-bold;
 }
 .name-highlight {
     font-weight: 800 !important;
@@ -83,10 +90,7 @@ hr {
 }
 
 .p-link {
-    @apply font-bold text-neutral-200 underline;
-}
-.p-link:hover {
-    @apply text-white underline;
+    @apply font-bold text-neutral-200 hover:text-lime-400 underline;
 }
 
 .cls-1 {

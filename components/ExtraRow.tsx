@@ -110,7 +110,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 <div className="flex w-full flex-row items-center justify-start gap-1">
                                                     <a
                                                         className={clsx(
-                                                            "font-bold m-0 whitespace-normal text-white",
+                                                            "font-bold m-0 whitespace-normal text-white hover:text-lime-400",
                                                             item.link &&
                                                                 "hover:underline",
                                                             item.category ===

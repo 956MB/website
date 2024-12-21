@@ -3,9 +3,44 @@ import { IEntry, IEntryGroup, IEntryGroups } from "./interfaces";
 const li = (href: string, text: string) => 
     `<a class="p-link large-highlight" rel="noopener noreferrer" target="_blank" href="${href}">${text}</a>`;
 
+const p_momentum_firmware: IEntry = {
+    id: "p-momentum-firmware",
+    title: "Next-Flip/Momentum-Firmware",
+    link: "https://github.com/Next-Flip/Momentum-Firmware",
+    lang: "C",
+    date: "fork/+",
+    summary: [
+        `My contributions to the ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum-Firmware")} firmware repo, for the ${li("https://flipper.net", "Flipper Zero")}.`,
+    ],
+};
+
+const p_feat_archive_dynamic_tabs: IEntry = {
+    id: "p-feat-archive-dynamic-tabs",
+    title: "feat/archive-dynamic-tabs",
+    link: "https://github.com/Next-Flip/Momentum-Firmware/pull/322",
+    lang: "C",
+    date: "fork/+",
+    nested: true,
+    summary: [
+        `Interface option to show dynamic paths in the Archive app (file browser).`,
+    ],
+};
+
+const p_feat_archive_select_multiple: IEntry = {
+    id: "p-feat-archive-select-multiple",
+    title: "feat/archive-select-multiple",
+    link: "https://github.com/Next-Flip/Momentum-Firmware/pull/327",
+    lang: "C",
+    date: "fork/+",
+    nested: true,
+    summary: [
+        `Implemented multiple file selection in Archive app. Issue ${li("https://github.com/Next-Flip/Momentum-Firmware/issues/327", "#327")}: "Archive: Allow selecting multiple files".`,
+    ],
+};
+
 const p_flipper_chess: IEntry = {
     id: "p-flipper-chess",
-    title: "flipper-chess (fix)",
+    title: "xtruan/flipper-chess (fix)",
     link: "https://github.com/956MB/flipper-chess",
     lang: "C++",
     date: "fork/+",
@@ -128,7 +163,7 @@ const p_twanslate: IEntry = {
     link: "https://github.com/956MB/Twanslate",
     lang: "Swift",
     summary: [
-        "Leverages <span class='highlight'>Twitch API</span> and the <span class='highlight'>IRC</span> protocol used for chats, and uses multiple other APIs (<span class='highlight'>Google</span>, <span class='highlight'>Microsoft</span>, <span class='highlight'>NLP</span>) for translating incoming messages. Say Finnish -> English, or vice versa, which is what I mainly use it for.",
+        "Translating messages in <span class='highlight'>Twitch</span> chat in real-time. Leverages <span class='highlight'>Twitch API</span> and the <span class='highlight'>IRC</span> protocol used for chats, and uses multiple other APIs (<span class='highlight'>Google</span>, <span class='highlight'>Microsoft</span>, <span class='highlight'>NLP</span>). Finnish -> English, or vice versa.",
     ],
     tags: ["macOS", "Swift", "SwiftUI"],
     items: [
@@ -235,7 +270,7 @@ const p_dotfiles: IEntry = {
     lang: "Lua",
     date: "2024",
     summary: [
-        "The... files. (<span class='highlight'>ghostty</span>, <span class='highlight'>nvim</span>, <span class='highlight'>zsh</span>, <span class='highlight'>yabai</span>, <span class='highlight'>lazygit</span>...)",
+        `The... files. (${li("https://github.com/956MB/dotfiles/tree/main/ghostty", "ghostty")}, ${li("https://github.com/956MB/dotfiles/tree/main/nvim", "nvim")}, ${li("https://github.com/956MB/dotfiles/tree/main/zsh", "zsh")}, ${li("https://github.com/956MB/dotfiles/tree/main/yabai", "yabai")}, ${li("https://github.com/956MB/dotfiles/tree/main/lazygit", "lazygit")}...)`,
     ],
 };
 
@@ -310,8 +345,11 @@ const p_wallpapers: IEntry = {
 export const projectsGroup: IEntryGroup = {
     title: "Misc",
     category: "Projects",
-    description: "Collection of programs and on-going projects of all types",
+    description: "Code projects and contributions",
     items: [
+        p_momentum_firmware,
+        p_feat_archive_dynamic_tabs,
+        p_feat_archive_select_multiple,
         p_flipper_chess,
         p_reddit_download_buttons,
         p_tis_term,
