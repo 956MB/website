@@ -1,10 +1,8 @@
 "use client";
 
 import clsx from "clsx";
-import { socials } from "lib/info";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiArrowUpRight } from "react-icons/fi";
 import { VercelIcon } from "./Icons";
 import Socials from "./Socials";
 
@@ -45,7 +43,6 @@ const Deco = ({ children, show }: { children: string; show: boolean }) => (
 
 export default function Header() {
     let pathname = usePathname() || "/";
-    const isHome = pathname === "/";
 
     return (
         <div
@@ -69,7 +66,7 @@ export default function Header() {
                                         <Link
                                             href={path}
                                             className={clsx(
-                                                "whitespace-nowrap text-[15px] lg:text-[16px] leading-[14px] no-underline hover:text-lime-400",
+                                                "whitespace-nowrap text-[14px] lg:text-[16px] leading-[14px] no-underline hover:text-lime-400",
                                                 { "text-neutral-400": !isActive },
                                             )}
                                         >

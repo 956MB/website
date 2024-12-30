@@ -20,7 +20,7 @@ const icons = [
             summary: [
                 'Dark mode version of the <a href="https://www.sketch.com/">Sketch</a> app icon, with a bit more glow.',
             ],
-            link: "https://macosicons.com/#/sketch",
+            link: "https://macosicons.com/#/?icon=coH1yycbca",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.sketch.com/home/">Sketch</a>',
         },
     ),
@@ -34,7 +34,7 @@ const icons = [
             summary: [
                 'Recolor and resize of the <a href="https://flipperzero.one/">Flipper</a> app icons, by me. (iOS, macOS, Windows)',
             ],
-            link: "https://macosicons.com/#/flipper",
+            link: "https://macosicons.com/#/?icon=3KGMA5wWih",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://flipperzero.one/design-guide#!/tab/282742113-4">Flipper</a>',
         },
     ),
@@ -61,7 +61,7 @@ const icons = [
             summary: [
                 "<a href=\"https://www.anthropic.com/claude\">Anthropic's Claude</a> app icon in black, white and #E77350. I did NOT create the logo, only creating replacement options for the iOS app icon.",
             ],
-            link: "https://macosicons.com/#/claude",
+            link: "https://macosicons.com/#/?icon=mbaJDK7YBC",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072">@setanarut</a>',
         },
     ),

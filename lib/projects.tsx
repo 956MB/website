@@ -14,6 +14,18 @@ const p_momentum_firmware: IEntry = {
     ],
 };
 
+const p_feat_directory_keybind_support: IEntry = {
+    id: "p-feat-directory-keybind-support",
+    title: "feat/directory-keybind-support",
+        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/331",
+    lang: "C",
+    date: "fork/+",
+    nested: true,
+    summary: [
+        `Allows selection of file/directories in desktop keybinds and the main menu. ${li("https://github.com/Next-Flip/Momentum-Firmware/issues/331", "#331")}`,
+    ],
+};
+
 const p_feat_archive_dynamic_tabs: IEntry = {
     id: "p-feat-archive-dynamic-tabs",
     title: "feat/archive-dynamic-tabs",
@@ -322,7 +334,7 @@ const p_banner: IEntry = {
     id: "p-banner",
     title: "banner",
     link: "https://github.com/956MB/banner",
-    lang: "none",
+    lang: "Python",
     date: "2024",
     summary: [
         "Wow, that's interesting. Rendering of my ASCII banner in Github's markdown code block.",
@@ -348,6 +360,7 @@ export const projectsGroup: IEntryGroup = {
     description: "Code projects and contributions",
     items: [
         p_momentum_firmware,
+        p_feat_directory_keybind_support,
         p_feat_archive_dynamic_tabs,
         p_feat_archive_select_multiple,
         p_flipper_chess,

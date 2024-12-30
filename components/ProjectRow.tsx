@@ -23,7 +23,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
     };
 
     const noChevronItems = [
-        { section: "Misc", indexes: [0, 1, 5], defaultExpanded: [3, 4, 8] },
+        { section: "Misc", indexes: [0, 1, 2, 6], defaultExpanded: [4, 5, 9] },
         { section: "Neostuff", indexes: [2], defaultExpanded: [0] },
         { section: "Personal", indexes: [0, 1, 2, 3, 4, 5], defaultExpanded: [] },
     ];
