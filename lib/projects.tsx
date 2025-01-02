@@ -70,7 +70,7 @@ const p_flipper_chess: IEntry = {
     lang: "C++",
     date: "fork/+",
     summary: [
-        `My changes to the Flipper Zero app ${li("https://github.com/xtruan/flipper-chess", "xtruan/flipper-chess")} "Chess". Adding an optional eval bar for game evaluation, and fixing the ${li("https://github.com/xtruan/flipper-chess/issues/3", "illegal move \"suicide\"issue")}.`,
+        `My changes to the Flipper Zero app ${li("https://github.com/xtruan/flipper-chess", "xtruan/flipper-chess")} "Chess". Adding an optional eval bar for game evaluation, and fixing the ${li("https://github.com/xtruan/flipper-chess/issues/3", "illegal move issue")}.`,
     ],
 };
 

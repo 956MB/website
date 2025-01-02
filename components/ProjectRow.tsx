@@ -51,14 +51,14 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
     return (
         <div 
             className={clsx(
-                "flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[6px] sm:gap-y-[7px] lg:flex-row",
+                "flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[4px] sm:gap-y-[7px] lg:flex-row",
             )}
         >
             <div className={clsx(
                 "flex items-center lg:items-start lg:w-[320px] lg:flex-shrink-0 min-h-full relative group mb-[1px]"
             )}>
                 {entry.date &&
-                    <span className={clsx("noselect font-medium mr-3 text-sm leading-4 lg:mt-[6px] lg:w-10 lg:flex-shrink-0", entry.nested ? "text-transparent hidden lg:block" : "text-neutral-200")}>
+                    <span className={clsx("noselect text-neutral-200 font-medium mr-3 text-sm leading-4 lg:mt-[6px] lg:w-10 lg:flex-shrink-0", entry.nested && "lg:text-transparent")}>
                         {entry.date}
                     </span>
                 }
@@ -81,7 +81,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "font-semibold lg:max-w-[256px] text-[15px] leading-4 hover:text-lime-400 text-white lg:mt-[6px] pl-2 lg:pl-4",
+                            "font-semibold lg:max-w-[256px] text-[15px] leading-4 hover:text-lime-400 text-white lg:mt-[6px] pl-3 lg:pl-4",
                             entry.link ? "hover:underline hover:text-lime-400" : "no-underline",
                         )}
                     >
@@ -97,14 +97,14 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                     className={clsx(
                         "font-normal sm:font-medium leading-0 flex-1 text-sm text-neutral-300 lg:pb-2 lg:pt-[1px] lg:text-[15px] lg:mt-[3px]",
                         "min-w-0",
-                        !isExpanded && "truncate",
+                        !isExpanded && "xl:truncate",
                     )}
                 >
                     {Parse((entry.summary || '').toString())}
                 </span>
                 {showChevron && (
                     <div
-                        className="px-2 py-1 text-neutral-300 cursor-pointer hover:text-lime-400 rounded-full"
+                        className="px-2 py-1 text-neutral-300 cursor-pointer hover:text-lime-400 rounded-full hidden xl:block"
                         onClick={() => setIsExpanded(!isExpanded)}
                     >
                         <FiChevronDown

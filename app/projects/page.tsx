@@ -11,11 +11,13 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
     return (
-        <section>
-            <div className="flex w-full flex-col flex-wrap items-center justify-start gap-y-3 px-6 pb-6 sm:px-8 sm:pt-5">
-                {React.Children.toArray(
-                    projectGroups.map((group, i) => <ProjectRow entry={group} />),
-                )}
+        <section className="w-full max-w-[100vw] overflow-hidden">
+            <div className="flex w-full flex-col flex-1 flex-wrap items-center justify-start gap-y-3 px-6 sm:px-8 lg:pt-6 lg:pb-3">
+                <div className="flex flex-col gap-y-4 w-full max-w-screen-lg mx-auto">
+                    {React.Children.toArray(
+                        projectGroups.map((group, i) => <ProjectRow entry={group} />),
+                    )}
+                </div>
             </div>
         </section>
     );

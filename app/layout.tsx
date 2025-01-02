@@ -3,7 +3,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header, { Footer } from "components/NavBar";
 import type { Metadata } from "next";
-import Particles from "components/particles";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://956mb.com"),
@@ -12,11 +11,11 @@ export const metadata: Metadata = {
         template: "%s - Alexander Bays",
     },
     description:
-        "Self-taught programmer, graphic designer and r/neography hobbyist.",
+        "Self-taught generalist... unfortunately.",
     openGraph: {
         title: "Alexander Bays",
         description:
-            "Self-taught programmer, graphic designer and r/neography hobbyist.",
+            "Self-taught generalist... unfortunately.",
         url: "https://956mb.com",
         siteName: "Alexander Bays",
         images: [
@@ -43,7 +42,7 @@ export const metadata: Metadata = {
     twitter: {
         title: "Alexander Bays",
         description:
-            "Self-taught programmer, graphic designer and r/neography hobbyist.",
+            "Self-taught generalist... unfortunately.",
         card: "summary_large_image",
         images: "https://956mb.com/og.png",
     },
@@ -70,10 +69,6 @@ export default function RootLayout({
                     <SpeedInsights />
                     <Analytics />
                     <Footer />
-                    <Particles
-                        className="animate-fade-in absolute inset-0 -z-10 hidden sm:block"
-                        quantity={66}
-                    />
                 </main>
             </body>
         </html>
