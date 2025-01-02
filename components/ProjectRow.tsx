@@ -3,49 +3,62 @@
 import clsx from "clsx";
 import Parse from "html-react-parser";
 import { IEntry, IEntryGroup } from "lib/interfaces";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import GroupHeader from "./GroupHeader";
 import { FiArrowUpRight, FiChevronDown } from "react-icons/fi";
+import { defaultExpandedIds } from "lib/projects";
+
+const langColors: { [key: string]: string } = {
+    JavaScript: "bg-[#F1E05A]",
+    TypeScript: "bg-[#3078C6]",
+    Python: "bg-[#3572A5]",
+    Lua: "bg-[#000080]",
+    C: "bg-[#555555]",
+    "C++": "bg-[#F34B7D]",
+    "C#": "bg-[#188601]",
+    Rust: "bg-[#DEA584]",
+    Swift: "bg-[#F05137]",
+    CSS: "bg-[#663399]",
+    "none": "bg-white/[10%]",
+};
 
 export function ProjectItem({ index, itemsLength, entry, section }: { index: number, itemsLength: number, entry: IEntry, section: string }) {
-    const langColors: { [key: string]: string } = {
-        JavaScript: "bg-[#F1E05A]",
-        TypeScript: "bg-[#3078C6]",
-        Python: "bg-[#3572A5]",
-        Lua: "bg-[#000080]",
-        C: "bg-[#555555]",
-        "C++": "bg-[#F34B7D]",
-        "C#": "bg-[#188601]",
-        Rust: "bg-[#DEA584]",
-        Swift: "bg-[#F05137]",
-        CSS: "bg-[#663399]",
-        "none": "bg-white/[10%]",
-    };
-
-    const noChevronItems = [
-        { section: "Misc", indexes: [0, 1, 2, 6], defaultExpanded: [4, 5, 9] },
-        { section: "Neostuff", indexes: [2], defaultExpanded: [0] },
-        { section: "Personal", indexes: [0, 1, 2, 3, 4, 5], defaultExpanded: [] },
-    ];
-
-    const shouldExpand = noChevronItems.some(item => 
-        item.section === section && 
-        item.defaultExpanded?.includes(index)
+    const [isExpanded, setIsExpanded] = useState(
+        defaultExpandedIds.includes(entry.id)
     );
-    const [isExpanded, setIsExpanded] = useState(shouldExpand);
+    const summaryRef = useRef<HTMLSpanElement | null>(null);
+    const [showChevron, setShowChevron] = useState(false);
+
+    useEffect(() => {
+        const checkMultiline = () => {
+            if (summaryRef.current) {
+                summaryRef.current.style.whiteSpace = 'normal';
+                summaryRef.current.style.overflow = 'visible';
+                
+                const lineHeight = parseInt(window.getComputedStyle(summaryRef.current).lineHeight);
+                const height = summaryRef.current.offsetHeight;
+                summaryRef.current.style.whiteSpace = '';
+                summaryRef.current.style.overflow = '';
+
+                setShowChevron(height > lineHeight * 1.5);
+            }
+        };
+
+        const timer = setTimeout(checkMultiline, 0);
+        return () => clearTimeout(timer);
+    }, [entry.summary]);
 
     return (
         <div 
             className={clsx(
                 "flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[6px] sm:gap-y-[7px] lg:flex-row",
-                "overflow-hidden",
             )}
         >
             <div className={clsx(
                 "flex items-center lg:items-start lg:w-[320px] lg:flex-shrink-0 min-h-full relative group mb-[1px]"
             )}>
                 {entry.date &&
-                    <span className={clsx("font-medium mr-3 text-sm leading-4 lg:mt-[6px] lg:w-10 lg:flex-shrink-0", entry.nested ? "text-transparent hidden lg:block" : "text-neutral-200")}>
+                    <span className={clsx("noselect font-medium mr-3 text-sm leading-4 lg:mt-[6px] lg:w-10 lg:flex-shrink-0", entry.nested ? "text-transparent hidden lg:block" : "text-neutral-200")}>
                         {entry.date}
                     </span>
                 }
@@ -79,28 +92,30 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
             <div className={clsx(
                 "flex w-full min-w-0 items-start justify-start gap-x-2",
             )}>
-                <span className={clsx(
-                    "font-normal sm:font-medium leading-[1.46em] flex-1 text-sm text-neutral-200 lg:pb-2 lg:pt-[1px] lg:text-[15px] lg:mt-[3px]",
-                    "min-w-0",
-                    !isExpanded && "lg:truncate",
-                    isExpanded ? "lg:break-words" : "lg:break-normal",
-                    "break-words"
-                )}>
+                <span
+                    ref={summaryRef}
+                    className={clsx(
+                        "font-normal sm:font-medium leading-0 flex-1 text-sm text-neutral-300 lg:pb-2 lg:pt-[1px] lg:text-[15px] lg:mt-[3px]",
+                        "min-w-0",
+                        !isExpanded && "truncate",
+                    )}
+                >
                     {Parse((entry.summary || '').toString())}
                 </span>
-                <div className="p-1 rounded-full -mr-[6px] hidden lg:block cursor-pointer text-neutral-200 hover:text-lime-400" onClick={() => setIsExpanded(!isExpanded)}>
-                    <FiChevronDown
-                        className={clsx(
-                            "flex flex-shrink-0 transition-transform duration-200 mt-[2px]",
-                            isExpanded ? "rotate-180" : "rotate-0",
-                            noChevronItems.some(item => 
-                                item.section === section && 
-                                item.indexes.includes(index)
-                            ) && "hidden"
-                        )}
-                        size={17}
-                    />
-                </div>
+                {showChevron && (
+                    <div
+                        className="px-2 py-1 text-neutral-300 cursor-pointer hover:text-lime-400 rounded-full"
+                        onClick={() => setIsExpanded(!isExpanded)}
+                    >
+                        <FiChevronDown
+                            className={clsx(
+                                "flex flex-shrink-0 transition-transform duration-200 mt-[5px]",
+                                isExpanded ? "rotate-180" : "rotate-0"
+                            )}
+                            size={17}
+                        />
+                    </div>
+                )}
             </div>
         </div>
     );

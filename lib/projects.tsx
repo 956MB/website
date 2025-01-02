@@ -14,7 +14,20 @@ const p_momentum_firmware: IEntry = {
     ],
 };
 
+const p_feat_clock_midnight_format: IEntry = {
+    id: "p-feat-clock-midnight-format",
+    title: "feat/clock-midnight-format",
+    link: "https://github.com/Next-Flip/Momentum-Firmware/pull/341",
+    lang: "C",
+    date: "fork/+",
+    nested: true,
+    summary: [
+        `Added new <span class='highlight'>Midnight Format</span> option to show users preferred format of <span class='highlight'>12:XX</span> or <span class='highlight'>00:XX</span> for 12AM-1AM on all clocks. ${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")}`,
+    ],
+};
+
 const p_feat_directory_keybind_support: IEntry = {
+    
     id: "p-feat-directory-keybind-support",
     title: "feat/directory-keybind-support",
         link: "https://github.com/Next-Flip/Momentum-Firmware/pull/331",
@@ -34,7 +47,7 @@ const p_feat_archive_dynamic_tabs: IEntry = {
     date: "fork/+",
     nested: true,
     summary: [
-        `Interface option to show dynamic paths in the Archive app (file browser).`,
+        `Interface option to show dynamic paths in the Archive app (file browser). ${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")}`,
     ],
 };
 
@@ -360,9 +373,10 @@ export const projectsGroup: IEntryGroup = {
     description: "Code projects and contributions",
     items: [
         p_momentum_firmware,
+        p_feat_clock_midnight_format,
         p_feat_directory_keybind_support,
-        p_feat_archive_dynamic_tabs,
         p_feat_archive_select_multiple,
+        p_feat_archive_dynamic_tabs,
         p_flipper_chess,
         p_reddit_download_buttons,
         p_tis_term,
@@ -407,5 +421,12 @@ export const personalGroup: IEntryGroup = {
         p_kata,
     ]
 };
+
+export const defaultExpandedIds = [
+    "p-flipper-chess",
+    "p-reddit-download-buttons",
+    "p-2048",
+    "p-vscode-yazi",
+];
 
 export const projectGroups: IEntryGroups = [projectsGroup, neovimGroup, personalGroup];
