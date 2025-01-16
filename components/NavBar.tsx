@@ -15,7 +15,7 @@ const navItems = {
 };
 
 const COPYRIGHT = (
-    <span className="font-medium whitespace-nowrap text-sm text-neutral-300">
+    <span className="font-medium whitespace-nowrap text-[15px] text-neutral-300">
         Alexander Bays © 2025
     </span>
 );
@@ -66,7 +66,7 @@ export default function Header() {
                                         <Link
                                             href={path}
                                             className={clsx(
-                                                "whitespace-nowrap text-[14px] lg:text-[16px] leading-[14px] no-underline hover:text-lime-400",
+                                                "whitespace-nowrap text-[14px] lg:text-[15px] leading-[14px] no-underline hover:text-[#FF8200]",
                                                 { "text-neutral-400": !isActive },
                                             )}
                                         >

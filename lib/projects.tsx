@@ -6,11 +6,35 @@ const li = (href: string, text: string) =>
 const p_momentum_firmware: IEntry = {
     id: "p-momentum-firmware",
     title: "Next-Flip/Momentum-Firmware",
-    link: "https://github.com/Next-Flip/Momentum-Firmware",
+    link: "https://github.com/Next-Flip/Momentum-Firmware/pulls?q=is%3Apr+author%3A956MB+",
+    lang: "C",
+    date: "2025",
+    summary: [
+        `My contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum-Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. As well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. Thanks ${li("https://github.com/Willy-JL", "@Willy-JL")}.`,
+    ],
+};
+
+const p_feat_menu_more_info: IEntry = {
+    id: "p-feat-menu-more-info",
+    title: "feat/menu-more-info",
+    link: "https://github.com/Next-Flip/Momentum-Firmware/pull/354",
     lang: "C",
     date: "fork/+",
+    nested: true,
     summary: [
-        `My contributions to the ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum-Firmware")} firmware repo, for the ${li("https://flipper.net", "Flipper Zero")}.`,
+        `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/340", "#354")} (Open). Adds more info and optional toggles to PS4/Vertical/MNTM menu styles.` ,
+    ],
+};
+
+const p_feat_asset_packs_ram_warning: IEntry = {
+    id: "p-feat-asset-packs-ram-warning",
+    title: "feat/asset-packs-ram-warning",
+    link: "https://github.com/Next-Flip/Momentum-Firmware/pull/344",
+    lang: "C",
+    date: "fork/+",
+    nested: true,
+    summary: [
+        `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/344", "#344")} (Open). Checks asset packs for Fonts/Icons and adds "Size Warning" screen.` ,
     ],
 };
 
@@ -22,7 +46,7 @@ const p_feat_clock_midnight_format: IEntry = {
     date: "fork/+",
     nested: true,
     summary: [
-        `Added new <span class='highlight'>Midnight Format</span> option to show users preferred format of <span class='highlight'>12:XX</span> or <span class='highlight'>00:XX</span> for 12AM-1AM on all clocks. ${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")}`,
+        `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")} (Open). Added new <span class='highlight'>Midnight Format</span> option to show users preferred format of <span class='highlight'>12:XX</span> or <span class='highlight'>00:XX</span> for 12AM-1AM on all clocks.`,
     ],
 };
 
@@ -30,24 +54,12 @@ const p_feat_directory_keybind_support: IEntry = {
     
     id: "p-feat-directory-keybind-support",
     title: "feat/directory-keybind-support",
-        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/331",
+    link: "https://github.com/Next-Flip/Momentum-Firmware/pull/331",
     lang: "C",
     date: "fork/+",
     nested: true,
     summary: [
-        `Allows selection of file/directories in desktop keybinds and the main menu. ${li("https://github.com/Next-Flip/Momentum-Firmware/issues/331", "#331")}`,
-    ],
-};
-
-const p_feat_archive_dynamic_tabs: IEntry = {
-    id: "p-feat-archive-dynamic-tabs",
-    title: "feat/archive-dynamic-tabs",
-    link: "https://github.com/Next-Flip/Momentum-Firmware/pull/322",
-    lang: "C",
-    date: "fork/+",
-    nested: true,
-    summary: [
-        `Interface option to show dynamic paths in the Archive app (file browser). ${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")}`,
+        `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/331", "#331")} (Open). Allows selection of file/directories in desktop keybinds and the main menu.`,
     ],
 };
 
@@ -59,7 +71,30 @@ const p_feat_archive_select_multiple: IEntry = {
     date: "fork/+",
     nested: true,
     summary: [
-        `Implemented multiple file selection in Archive app. Issue ${li("https://github.com/Next-Flip/Momentum-Firmware/issues/327", "#327")}: "Archive: Allow selecting multiple files".`,
+        `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/327", "#327")} (Open). Implemented multiple file selection in Archive app.`,
+    ],
+};
+
+const p_feat_archive_dynamic_tabs: IEntry = {
+    id: "p-feat-archive-dynamic-tabs",
+    title: "feat/archive-dynamic-tabs",
+    link: "https://github.com/Next-Flip/Momentum-Firmware/pull/322",
+    lang: "C",
+    date: "fork/+",
+    nested: true,
+    summary: [
+        `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")} (Open). Interface option to show dynamic paths in the Archive app (file browser).`,
+    ],
+};
+
+const p_momentum_apps: IEntry = {
+    id: "p-momentum-apps",
+    title: "Next-Flip/Momentum-Apps",
+    link: "https://github.com/Next-Flip/Momentum-Apps/pulls?q=is%3Apr+author%3A956MB+",
+    lang: "C",
+    date: "2025",
+    summary: [
+        `My tiny changes to the ${li("https://github.com/Next-Flip/Momentum-Apps", "Momentum-Apps")} repo. Mostly fixes. ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/39", "#39")}, ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/41", "#41")}, ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/42", "#42")}`,
     ],
 };
 
@@ -81,7 +116,7 @@ const p_reddit_download_buttons: IEntry = {
     lang: "JavaScript",
     date: "2024",
     summary: [
-        `The browser extension that I've always wanted for <span class='highlight'>Reddit</span>... Adds buttons to more easily hoard images/videos. v1.3.2 of the extension is also on ${li("https://greasyfork.org/en/scripts/501718-reddit-download-buttons", "Greasy Fork")}.`,
+        `The browser extension that I've always wanted for <span class='highlight'>Reddit</span>... Adds buttons to more easily hoard images/videos. v1.3.4 of the extension is also on ${li("https://greasyfork.org/en/scripts/501718-reddit-download-buttons", "Greasy Fork")}.`,
     ],
 };
 
@@ -367,17 +402,28 @@ const p_wallpapers: IEntry = {
 
 // NOTE: Groups
 
-export const projectsGroup: IEntryGroup = {
-    title: "Misc",
+export const flipperGroup: IEntryGroup = {
+    title: "Flipper",
     category: "Projects",
-    description: "Code projects and contributions",
+    description: "Flipper Zero firmware and apps",
     items: [
         p_momentum_firmware,
+        p_feat_menu_more_info,
+        p_feat_asset_packs_ram_warning,
         p_feat_clock_midnight_format,
         p_feat_directory_keybind_support,
         p_feat_archive_select_multiple,
         p_feat_archive_dynamic_tabs,
+        p_momentum_apps,
         p_flipper_chess,
+    ]
+};
+
+export const miscGroup: IEntryGroup = {
+    title: "Misc",
+    category: "Projects",
+    description: "Code projects and contributions",
+    items: [
         p_reddit_download_buttons,
         p_tis_term,
         p_pros,
@@ -423,10 +469,11 @@ export const personalGroup: IEntryGroup = {
 };
 
 export const defaultExpandedIds = [
+    "p-momentum-firmware",
     "p-flipper-chess",
     "p-reddit-download-buttons",
     "p-2048",
     "p-vscode-yazi",
 ];
 
-export const projectGroups: IEntryGroups = [projectsGroup, neovimGroup, personalGroup];
+export const projectGroups: IEntryGroups = [flipperGroup, miscGroup, neovimGroup, personalGroup];

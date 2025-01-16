@@ -51,7 +51,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
     return (
         <div 
             className={clsx(
-                "flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[4px] sm:gap-y-[7px] lg:flex-row",
+                "flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[4px] sm:gap-y-[6px] lg:flex-row",
             )}
         >
             <div className={clsx(
@@ -81,8 +81,8 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "font-semibold lg:max-w-[256px] text-[15px] leading-4 hover:text-lime-400 text-white lg:mt-[6px] pl-3 lg:pl-4",
-                            entry.link ? "hover:underline hover:text-lime-400" : "no-underline",
+                            "font-semibold lg:max-w-[256px] text-[15px] leading-4 hover:text-[#FF8200] text-white lg:mt-[6px] pl-3 lg:pl-4",
+                            entry.link ? "hover:underline hover:text-[#FF8200]" : "no-underline",
                         )}
                     >
                         {entry.title}
@@ -104,7 +104,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                 </span>
                 {showChevron && (
                     <div
-                        className="px-2 py-1 text-neutral-300 cursor-pointer hover:text-lime-400 rounded-full hidden xl:block"
+                        className="px-2 py-1 text-neutral-300 cursor-pointer hover:text-[#FF8200] rounded-full hidden xl:block"
                         onClick={() => setIsExpanded(!isExpanded)}
                     >
                         <FiChevronDown

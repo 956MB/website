@@ -29,10 +29,10 @@ hr {
 }
 
 ::selection {
-    @apply bg-lime-400/80 text-black;
+    @apply bg-[#FF8200] text-black;
 }
 ::-moz-selection {
-    @apply bg-lime-400/80 text-black;
+    @apply bg-[#FF8200] text-black;
 }
 
 
@@ -81,7 +81,7 @@ hr {
     color: white !important;
 }
 .large-highlight {
-    @apply text-white hover:text-lime-400 cursor-pointer font-bold;
+    @apply text-white hover:text-[#FF8200] cursor-pointer font-bold;
 }
 .name-highlight {
     font-weight: 800 !important;
@@ -90,7 +90,7 @@ hr {
 }
 
 .p-link {
-    @apply font-bold text-neutral-200 hover:text-lime-400 underline;
+    @apply font-bold text-neutral-200 hover:text-[#FF8200] underline;
 }
 
 .cls-1 {
