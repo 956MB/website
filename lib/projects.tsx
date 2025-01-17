@@ -83,7 +83,7 @@ const p_feat_archive_dynamic_tabs: IEntry = {
     date: "fork/+",
     nested: true,
     summary: [
-        `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")} (Open). Interface option to show dynamic paths in the Archive app (file browser).`,
+        `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")}. Interface option to show dynamic paths in the Archive app (file browser).`,
     ],
 };
 
