@@ -12,7 +12,7 @@ export default function Tooltip({ content, position, warn = false, children }) {
             className={clsx(
                 "group/tooltip relative z-50 flex",
                 warn && "items-center justify-center gap-x-[6px] pl-[2px]",
-                warn && isTooltipVisible && "rounded-full bg-yellow-500/10",
+                warn && isTooltipVisible && "rounded-full bg-[#FF8200]/10",
             )}
             onMouseEnter={() => setTooltipVisible(true)}
             onMouseLeave={() => setTooltipVisible(false)}
@@ -26,7 +26,7 @@ export default function Tooltip({ content, position, warn = false, children }) {
                         position === "bottom" ? "top-7" : "",
                         position === "bottom2" ? "top-10" : "",
                         warn
-                            ? "warn-tooltip pr-2 text-left text-yellow-500"
+                            ? "warn-tooltip pr-2 text-left text-[#FF8200]"
                             : "absolute bg-neutral-800/90 px-2 text-center capitalize text-white",
                     )}
                 >

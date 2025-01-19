@@ -11,6 +11,20 @@ import {
 
 const icons = [
     entry(
+        "icon_yapper",
+        "Yapper Icon",
+        "1.19.2025",
+        "icon",
+        [item("/images/extras/icons/yapper-1.png", 1024, 1024)],
+        {
+            summary: [
+                'Rendition of the <a href="https://github.com/Next-Flip/qFlipper">qFlipper</a> app icon, but using the Yapper from <a href="https://github.com/Next-Flip">Momentum Firmware</a>. Shoutout to Lucky for the :yapsip: emote.',
+            ],
+            link: "https://macosicons.com/#/Flipper",
+            credit: '<a rel="noopener noreferrer" target="_blank" href="https://discord.gg/momentum">Lucky</a>',
+        },
+    ),
+    entry(
         "icon_sketch",
         "Sketch Dark Glow",
         "12.10.2024",
@@ -346,7 +360,6 @@ export const icons_section = group(
 export const wallpapers_section = group(
     "Wallpapers & Screenshots",
     "wallpapers",
-    // "Collection of wallpapers I like, have slightly modified, or are my own creations",
     "Collection of wallpapers I've created, modified/upscaled, or that I just like",
     wallpapers,
 );

@@ -30,12 +30,12 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
     return (
         <div className="relative flex w-full flex-col flex-wrap items-center justify-center">
             <div className="top-0 z-50 m-0 flex w-full flex-col items-start justify-center sm:sticky">
-                    <GroupHeader entry={entry} noDescription={false} noBorder={true} titleLink={entry.titleLink} />
+                <GroupHeader entry={entry} noDescription={false} noBorder={true} titleLink={entry.titleLink} />
 
-                    <div className="flex w-full flex-row items-center justify-center">
-                        <hr className="my-auto h-px w-full bg-neutral-800" />
-                    </div>
+                <div className="flex w-full flex-row items-center justify-center">
+                    <hr className="my-auto h-px w-full bg-neutral-800" />
                 </div>
+            </div>
 
             <div className="flex flex-col">
                 <motion.div
@@ -63,7 +63,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                 >
                                     <a
                                         className={clsx(
-                                            "group relative flex flex-col justify-end overflow-hidden rounded bg-gradient-to-t from-white/10 to-transparent object-cover backdrop-blur-sm child:hover:scale-105 sm:backdrop-blur-none",
+                                            "group relative flex flex-col justify-end overflow-hidden rounded bg-gradient-to-t from-white/10 to-transparent object-cover backdrop-blur-sm child:hover:scale-105 sm:backdrop-blur-none saturate-0 hover:saturate-100",
                                             item.link && " cursor-pointer",
                                         )}
                                         rel="noopener noreferrer"
@@ -101,8 +101,8 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                         className={clsx(
                                             "z-10 flex w-full flex-col justify-center gap-y-2 pb-[16px] pt-[10px] text-start",
                                             item.summary &&
-                                                item.summary.length <= 0 &&
-                                                "h-[53px] max-h-[53px] min-h-[53px]",
+                                            item.summary.length <= 0 &&
+                                            "h-[53px] max-h-[53px] min-h-[53px]",
                                         )}
                                     >
                                         <div className="flex w-full flex-row items-start justify-start gap-x-2">
@@ -112,7 +112,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                         className={clsx(
                                                             "font-bold m-0 whitespace-normal text-white hover:text-[#FF8200]",
                                                             item.link &&
-                                                                "hover:underline",
+                                                            "hover:underline",
                                                             item.category ===
                                                                 "wallpaper"
                                                                 ? "text-base sm:text-lg"
@@ -137,10 +137,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                             position={"top"}
                                                             warn={true}
                                                         >
-                                                            <a className="rounded-full bg-yellow-500/20 p-[2px]">
+                                                            <a className="rounded-full bg-[#FF8200]/20 p-[2px]">
                                                                 <PiWarningCircleBold
                                                                     size={16}
-                                                                    className="min-h-[16px] min-w-[16px] text-yellow-500"
+                                                                    className="min-h-[16px] min-w-[16px] text-[#FF8200]"
                                                                 />
                                                             </a>
                                                         </Tooltip>
