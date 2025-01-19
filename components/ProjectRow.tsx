@@ -34,7 +34,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
             if (summaryRef.current) {
                 summaryRef.current.style.whiteSpace = 'normal';
                 summaryRef.current.style.overflow = 'visible';
-                
+
                 const lineHeight = parseInt(window.getComputedStyle(summaryRef.current).lineHeight);
                 const height = summaryRef.current.offsetHeight;
                 summaryRef.current.style.whiteSpace = '';
@@ -49,7 +49,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
     }, [entry.summary]);
 
     return (
-        <div 
+        <div
             className={clsx(
                 "flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[4px] sm:gap-y-[6px] lg:flex-row",
             )}
@@ -130,7 +130,7 @@ export default function ProjectRow({
 }) {
     return (
         <div className="relative flex w-full max-w-screen-2xl flex-col flex-wrap items-center justify-center gap-y-0">
-            {!noHeader && 
+            {!noHeader &&
                 <div className="top-0 z-50 m-0 flex w-full flex-col items-start justify-center sm:sticky">
                     <GroupHeader entry={entry} noDescription={false} noBorder={true} titleLink={entry.titleLink} />
 
@@ -140,7 +140,7 @@ export default function ProjectRow({
                 </div>
             }
 
-            <div 
+            <div
                 className="flex w-full flex-col items-center justify-center gap-y-6 py-3 lg:gap-y-0 lg:py-2"
             >
                 {entry.items.map((item, i) => (
