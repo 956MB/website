@@ -11,6 +11,7 @@ const navItems = {
     "/projects": { name: "projects" },
     "/designs": { name: "design" },
     "/neography": { name: "neography" },
+    "/blog": { name: "blog" },
     "/extras": { name: "extras" },
 };
 
@@ -29,12 +30,12 @@ const Deco = ({ children, show }: { children: string; show: boolean }) => (
                     ? "mr-[6px]"
                     : "ml-[6px]"
                 : clsx(
-                      "hidden opacity-0 sm:block",
-                      "group-hover:opacity-50",
-                      children === "/"
-                          ? "mr-0 group-hover:mr-[6px]"
-                          : "ml-0 group-hover:ml-[6px]",
-                  ),
+                    "hidden opacity-0 sm:block",
+                    "group-hover:opacity-50",
+                    children === "/"
+                        ? "mr-0 group-hover:mr-[6px]"
+                        : "ml-0 group-hover:ml-[6px]",
+                ),
         )}
     >
         {children}
@@ -47,7 +48,7 @@ export default function Header() {
     return (
         <div
             className={clsx(
-                "z-[55] sm:max-h-[75px] flex w-full flex-1 flex-row justify-start items-center backdrop-blur-sm px-6 sm:px-8",
+                "z-[55] sm:max-h-[75px] max-w-screen-2xl flex w-full flex-1 flex-row justify-start items-center backdrop-blur-sm mx-6 sm:mx-8",
             )}
         >
             <div className="no-scrollbar w-full relative z-[55] flex items-start justify-start overflow-x-scroll py-4 sm:border-b border-neutral-800">
@@ -75,7 +76,7 @@ export default function Header() {
                                                     "font-medium hover:font-semibold relative text-center capitalize",
                                                     (pathname.includes(name) ||
                                                         pathname == path) &&
-                                                        "text-white font-semibold",
+                                                    "text-white font-semibold",
                                                 )}
                                             >
                                                 {name}

@@ -7,7 +7,7 @@ export default function GroupHeader({ entry, noBorder, noDescription, titleLink 
     return (
         <div className="top-0 z-50 m-0 flex w-full flex-col items-start justify-center bg-black/75 pb-3 pt-4 backdrop-blur sm:sticky">
             <div className="flex flex-col items-start justify-center gap-3 leading-[21px]">
-                <span className="font-bold whitespace-normal align-baseline text-[23px] leading-4 text-white sm:whitespace-nowrap">
+                <span className="font-bold whitespace-normal align-baseline text-[23px] leading-6 text-white sm:whitespace-nowrap">
                     {titleLink ? (
                         <a
                             href={titleLink}
