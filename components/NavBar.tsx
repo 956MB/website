@@ -48,44 +48,46 @@ export default function Header() {
     return (
         <div
             className={clsx(
-                "z-[55] sm:max-h-[75px] max-w-screen-2xl flex w-full flex-1 flex-row justify-start items-center backdrop-blur-sm mx-6 sm:mx-8",
+                "z-[55] flex min-h-[75px] w-full flex-1 flex-row justify-center sm:max-h-[75px]"
             )}
         >
-            <div className="no-scrollbar w-full relative z-[55] flex items-start justify-start overflow-x-scroll py-4 sm:border-b border-neutral-800">
-                <div className="inline-flex flex-row items-start justify-center gap-8 sm:gap-10">
-                    <div className="mr-auto inline-flex flex-row flex-wrap items-center gap-x-8 lg:gap-x-7 overflow-hidden sm:w-auto sm:justify-center sm:gap-y-6 sm:py-3">
-                        {Object.entries(navItems).map(([path, { name }]) => {
-                            const isActive = path === pathname;
+            <div className="mx-6 flex w-full max-w-screen-2xl flex-1 flex-row items-center sm:mx-8">
+                <div className="no-scrollbar w-full relative z-[55] flex items-start justify-start overflow-x-scroll py-4 sm:border-b border-neutral-800">
+                    <div className="inline-flex flex-row items-start justify-center gap-8 sm:gap-10">
+                        <div className="mr-auto inline-flex flex-row flex-wrap items-center gap-x-8 lg:gap-x-7 overflow-hidden sm:w-auto sm:justify-center sm:gap-y-6 sm:py-3">
+                            {Object.entries(navItems).map(([path, { name }]) => {
+                                const isActive = path === pathname;
 
-                            return (
-                                <div
-                                    key={path}
-                                    className="group relative inline-flex h-full flex-row items-center justify-center"
-                                >
-                                    <div className="relative flex h-full cursor-pointer items-center justify-center py-3 text-center align-middle sm:py-0">
-                                        <Deco show={isActive}>{"/"}</Deco>
-                                        <Link
-                                            href={path}
-                                            className={clsx(
-                                                "whitespace-nowrap text-[14px] lg:text-[15px] leading-[14px] no-underline hover:text-[#FF8200]",
-                                                { "text-neutral-400": !isActive },
-                                            )}
-                                        >
-                                            <span
+                                return (
+                                    <div
+                                        key={path}
+                                        className="group relative inline-flex h-full flex-row items-center justify-center"
+                                    >
+                                        <div className="relative flex h-full cursor-pointer items-center justify-center py-3 text-center align-middle sm:py-0">
+                                            <Deco show={isActive}>{"/"}</Deco>
+                                            <Link
+                                                href={path}
                                                 className={clsx(
-                                                    "font-medium hover:font-semibold relative text-center capitalize",
-                                                    (pathname.includes(name) ||
-                                                        pathname == path) &&
-                                                    "text-white font-semibold",
+                                                    "whitespace-nowrap text-[14px] lg:text-[15px] leading-[14px] no-underline hover:text-[#FF8200]",
+                                                    { "text-neutral-400": !isActive },
                                                 )}
                                             >
-                                                {name}
-                                            </span>
-                                        </Link>
+                                                <span
+                                                    className={clsx(
+                                                        "font-medium hover:font-semibold relative text-center capitalize",
+                                                        (pathname.includes(name) ||
+                                                            pathname == path) &&
+                                                        "text-white font-semibold",
+                                                    )}
+                                                >
+                                                    {name}
+                                                </span>
+                                            </Link>
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>
