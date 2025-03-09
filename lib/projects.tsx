@@ -3,6 +3,8 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 const li = (href: string, text: string) =>
     `<a class="p-link large-highlight" rel="noopener noreferrer" target="_blank" href="${href}">${text}</a>`;
 
+// NOTE: Flipper
+
 const flipper = [
     entry(
         "p-momentum-firmware",
@@ -29,7 +31,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/340", "#354")} (Open). Adds more info and optional toggles to PS4/Vertical/MNTM menu styles.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/340", "#354")} Adds more info and optional toggles to PS4/Vertical/MNTM menu styles.`,
             ],
         }
     ),
@@ -44,7 +46,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/344", "#344")} (Open). Checks asset packs for Fonts/Icons and adds "Size Warning" screen.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/344", "#344")} Checks asset packs for Fonts/Icons and adds "Size Warning" screen.`,
             ],
         }
     ),
@@ -59,7 +61,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")} (Open). Added new <span class='highlight'>Midnight Format</span> option to show users preferred format of <span class='highlight'>12:XX</span> or <span class='highlight'>00:XX</span> for 12AM-1AM on all clocks.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")} Added new <span class='highlight'>Midnight Format</span> option to show users preferred format of <span class='highlight'>12:XX</span> or <span class='highlight'>00:XX</span> for 12AM-1AM on all clocks.`,
             ],
         }
     ),
@@ -74,7 +76,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/331", "#331")} (Open). Allows selection of file/directories in desktop keybinds and the main menu.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/331", "#331")} Allows selection of file/directories in desktop keybinds and the main menu.`,
             ],
         }
     ),
@@ -89,7 +91,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/327", "#327")} (Open). Implemented multiple file selection in Archive app.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/327", "#327")} Implemented multiple file selection in Archive app.`,
             ],
         }
     ),
@@ -104,7 +106,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")}. Interface option to show dynamic paths in the Archive app (file browser).`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")} Interface option to show dynamic paths in the Archive app (file browser).`,
             ],
         }
     ),
@@ -218,7 +220,7 @@ const misc = [
             link: "https://github.com/956MB/2048WE",
             lang: "Swift",
             summary: [
-                "Full functionaly of the iOS app <span class='highlight'>2048</span>, right on your Apple Watch. High scores saved on device, end of game stats, and current game progress is never lost between app resets and Watch being turned off. My first attempt making a standalone WatchOS app with the new method. ",
+                "Full functionality of the iOS app <span class='highlight'>2048</span>, right on your Apple Watch. High scores saved on device, end of game stats, and current game progress is never lost between app resets and Watch being turned off. My first attempt making a standalone WatchOS app with the new method. ",
             ],
             tags: ["WatchOS", "Swift", "SwiftUI"],
         }
@@ -315,6 +317,8 @@ const misc = [
     )
 ];
 
+// NOTE: Neostuff
+
 const neostuff = [
     entry(
         "p-ncks-nvim",
@@ -387,6 +391,8 @@ const neostuff = [
         }
     )
 ];
+
+// NOTE: Personal
 
 const personal = [
     entry(
