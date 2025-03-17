@@ -6,21 +6,7 @@ import { IEntry, IEntryGroup } from "lib/interfaces";
 import React, { useState, useEffect, useRef } from "react";
 import GroupHeader from "./GroupHeader";
 import { FiArrowUpRight, FiChevronDown } from "react-icons/fi";
-import { defaultExpandedIds } from "lib/projects";
-
-const langColors: { [key: string]: string } = {
-    JavaScript: "bg-[#F1E05A]",
-    TypeScript: "bg-[#3078C6]",
-    Python: "bg-[#3572A5]",
-    Lua: "bg-[#000080]",
-    C: "bg-[#555555]",
-    "C++": "bg-[#F34B7D]",
-    "C#": "bg-[#188601]",
-    Rust: "bg-[#DEA584]",
-    Swift: "bg-[#F05137]",
-    CSS: "bg-[#663399]",
-    "none": "bg-white/[10%]",
-};
+import { defaultExpandedIds, langColors } from "lib/projects"
 
 export function ProjectItem({ index, itemsLength, entry, section }: { index: number, itemsLength: number, entry: IEntry, section: string }) {
     const [isExpanded, setIsExpanded] = useState(

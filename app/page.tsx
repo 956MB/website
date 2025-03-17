@@ -4,10 +4,13 @@ import { AboutBody } from "components/AboutBody";
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { 
-    dark, funky, okaidia, tomorrow, twilight, a11yDark, 
-    atomDark, cb, coldarkDark, dracula, holiTheme 
+import {
+    dark, funky, okaidia, tomorrow, twilight, a11yDark,
+    atomDark, cb, coldarkDark, dracula, holiTheme
 } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { projectGroups, langColors } from "lib/projects";
+import { IEntry } from "lib/interfaces";
+import clsx from "clsx";
 
 const languages = [
     'abnf',
@@ -30,14 +33,29 @@ const languages = [
     'stylus',
     'xojo',
 ];
+
 const styles = [
-    dark, funky, okaidia, tomorrow, twilight, a11yDark, 
+    dark, funky, okaidia, tomorrow, twilight, a11yDark,
     atomDark, cb, coldarkDark, dracula, holiTheme
 ];
 
 export default function AboutPage() {
     const [currentLangIndex, setCurrentLangIndex] = useState(0);
     const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
+
+    const allProjects: IEntry[] = projectGroups.flatMap(group => group.items);
+
+    const langCounts: { [key: string]: number } = {};
+    allProjects.forEach(project => {
+        const lang = project.lang || 'none';
+        langCounts[lang] = (langCounts[lang] || 0) + 1;
+    });
+
+    const langStats = Object.entries(langCounts).map(([lang, count]) => ({
+        lang,
+        count,
+        percentage: (count / allProjects.length) * 100
+    })).sort((a, b) => b.count - a.count);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -68,7 +86,7 @@ export default function AboutPage() {
     return (
         <section>
             <div className="flex w-full flex-col items-center gap-y-2 px-6 pb-2 sm:justify-start sm:gap-y-0 sm:px-7 md:pt-16 lg:gap-y-0">
-                <div className="mb-6 hidden w-full flex-row items-center justify-start align-middle md:flex">
+                <div className="mb-3 hidden w-full flex-row items-center justify-start align-middle md:flex">
                     <div className="flex flex-col items-center">
                         <Markdown
                             className="text-right text-[11px] leading-4 saturate-0 hover:saturate-100 noselect"
@@ -119,6 +137,37 @@ export default function AboutPage() {
                 </div>
 
                 <AboutBody />
+
+                <div className="flex flex-col items-center w-full mt-3 pr-4">
+                    <div className="flex w-full h-6 overflow-hidden items-center gap-x-[1px]">
+                        {langStats.map((stat, index) => (
+                            <div
+                                key={index}
+                                className="relative h-full flex items-center justify-center group"
+                                style={{
+                                    width: `${stat.percentage}%`,
+                                }}
+                                title={`${stat.lang}: ${stat.percentage.toFixed(1)}%`}
+                            >
+                                <div
+                                    className={clsx(
+                                        "absolute h-1 transition-all duration-200 ease-in-out",
+                                        langColors[stat.lang] || langColors['none'],
+                                        "group-hover:h-[6px]",
+                                        index === 0 && "rounded-l-full",
+                                        index === langStats.length - 1 && "rounded-r-full"
+                                    )}
+                                    style={{
+                                        width: '100%',
+                                        left: 0,
+                                        right: 0
+                                    }}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </section>
     );

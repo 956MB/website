@@ -1,5 +1,19 @@
 import { entry, group, IEntryGroups, item } from "./interfaces";
 
+export const langColors: { [key: string]: string } = {
+    JavaScript: "bg-[#F1E05A]",
+    TypeScript: "bg-[#3078C6]",
+    Python: "bg-[#3572A5]",
+    Lua: "bg-[#000080]",
+    C: "bg-[#555555]",
+    "C++": "bg-[#F34B7D]",
+    "C#": "bg-[#188601]",
+    Rust: "bg-[#DEA584]",
+    Swift: "bg-[#F05137]",
+    CSS: "bg-[#663399]",
+    "none": "bg-white/[10%]",
+};
+
 const li = (href: string, text: string) =>
     `<a class="p-link large-highlight" rel="noopener noreferrer" target="_blank" href="${href}">${text}</a>`;
 
@@ -17,6 +31,21 @@ const flipper = [
             lang: "C",
             summary: [
                 `My contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum-Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. As well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. Thanks ${li("https://github.com/Willy-JL", "@Willy-JL")}.`,
+            ],
+        }
+    ),
+    entry(
+        "p-fix-custom-font-bubble-ascent",
+        "fix/custom-font-bubble-ascent",
+        "fork/+",
+        "Projects",
+        [],
+        {
+            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/385",
+            lang: "C",
+            nested: true,
+            summary: [
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/385", "#385")} Fixes the misaligned speech bubble text (lockscreen/desktop) when using a custom font from an asset pack.`,
             ],
         }
     ),
@@ -140,7 +169,23 @@ const flipper = [
     )
 ];
 
+// NOTE: Misc
+
 const misc = [
+    entry(
+        "p-change-server-icon",
+        "ChangeServerIcon (WIP)",
+        "2025",
+        "Projects",
+        [],
+        {
+            link: "https://github.com/956MB/Vencord/tree/plugin/change-server-icon",
+            lang: "TypeScript",
+            summary: [
+                `My first plugin for ${li("https://vencord.dev", "Vencord")}, a Discord client mod. Adds option to change server icons with custom images.`,
+            ],
+        }
+    ),
     entry(
         "p-reddit-download-buttons",
         "Reddit Download Buttons",
@@ -170,7 +215,7 @@ const misc = [
     ),
     entry(
         "p-tis-term",
-        "TIS-TERM",
+        "TIS-TERM (WIP)",
         "2024",
         "Projects",
         [],
@@ -405,7 +450,7 @@ const personal = [
             link: "https://github.com/956MB/dotfiles",
             lang: "Lua",
             summary: [
-                `The... files. (${li("https://github.com/956MB/dotfiles/tree/main/ghostty", "ghostty")}, ${li("https://github.com/956MB/dotfiles/tree/main/nvim", "nvim")}, ${li("https://github.com/956MB/dotfiles/tree/main/zsh", "zsh")}, ${li("https://github.com/956MB/dotfiles/tree/main/yabai", "yabai")}, ${li("https://github.com/956MB/dotfiles/tree/main/lazygit", "lazygit")}...)`,
+                `The... files. (${li("https://github.com/956MB/dotfiles/tree/main/ghostty", "ghostty")}, ${li("https://github.com/956MB/dotfiles/tree/main/nvim", "nvim")}, ${li("https://github.com/956MB/dotfiles/tree/main/fish", "fish")}, ${li("https://github.com/956MB/dotfiles/tree/main/yabai", "yabai")}, ${li("https://github.com/956MB/dotfiles/tree/main/lazygit", "lazygit")}...)`,
             ],
         }
     ),
