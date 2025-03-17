@@ -52,4 +52,17 @@ module.exports = {
 			addVariant("child-hover", "& > *:hover");
 		},
 	],
+	safelist: [
+		'bg-[#F1E05A]',
+		'bg-[#3078C6]',
+		'bg-[#3572A5]',
+		'bg-[#000080]',
+		'bg-[#555555]',
+		'bg-[#F34B7D]',
+		'bg-[#188601]',
+		'bg-[#DEA584]',
+		'bg-[#F05137]',
+		'bg-[#663399]',
+		'bg-white/[10%]',
+	],
 };

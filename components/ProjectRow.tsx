@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef } from "react";
 import GroupHeader from "./GroupHeader";
 import { FiArrowUpRight, FiChevronDown } from "react-icons/fi";
 import { defaultExpandedIds, langColors } from "lib/projects"
+import { getLangColor } from "lib/util";
 
 export function ProjectItem({ index, itemsLength, entry, section }: { index: number, itemsLength: number, entry: IEntry, section: string }) {
     const [isExpanded, setIsExpanded] = useState(
@@ -55,7 +56,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                     <div
                         className={clsx(
                             "w-[10px] h-[10px] lg:absolute lg:top-0 lg:bottom-0 lg:h-full lg:w-[4px] rounded-full lg:rounded-none border lg:border-none border-white/[15%] group-hover:w-[6px] transition-all ease-in-out",
-                            langColors[entry.lang || 'none'],
+                            getLangColor(entry.lang),
                             index === 0 && "lg:rounded-tl-full lg:rounded-tr-full",
                             index === itemsLength - 1 && "lg:rounded-bl-full lg:rounded-br-full",
                         )}

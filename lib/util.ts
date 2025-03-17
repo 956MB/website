@@ -35,6 +35,24 @@ export function rsplitPath(path: string) {
     return result;
 }
 
+export function getLangColor(lang: string | undefined): string {
+    const langColors: { [key: string]: string } = {
+        JavaScript: "bg-[#F1E05A]",
+        TypeScript: "bg-[#3078C6]",
+        Python: "bg-[#3572A5]",
+        Lua: "bg-[#000080]",
+        C: "bg-[#555555]",
+        "C++": "bg-[#F34B7D]",
+        "C#": "bg-[#188601]",
+        Rust: "bg-[#DEA584]",
+        Swift: "bg-[#F05137]",
+        CSS: "bg-[#663399]",
+        "none": "bg-white/[10%]",
+    };
+    
+    return langColors[lang || 'none'] || langColors['none'];
+}
+
 export function filterContentTags(blogs: Content[], tag: string): Content[] {
     return blogs.filter((blog): blog is Content => {
         return blog && blog.tags !== undefined && blog.tags?.includes(tag);

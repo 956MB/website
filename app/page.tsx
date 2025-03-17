@@ -11,6 +11,7 @@ import {
 import { projectGroups, langColors } from "lib/projects";
 import { IEntry } from "lib/interfaces";
 import clsx from "clsx";
+import { getLangColor } from "lib/util";
 
 const languages = [
     'abnf',
@@ -152,7 +153,7 @@ export default function AboutPage() {
                                 <div
                                     className={clsx(
                                         "absolute h-1 transition-all duration-200 ease-in-out",
-                                        langColors[stat.lang] || langColors['none'],
+                                        getLangColor(stat.lang),
                                         "group-hover:h-[6px]",
                                         index === 0 && "rounded-l-full",
                                         index === langStats.length - 1 && "rounded-r-full"
