@@ -19,17 +19,6 @@ export function AboutBody() {
                 <TextParagraph>{bio_p}</TextParagraph>
                 <TextParagraph>{languages_p}</TextParagraph>
                 <TextParagraph>{tools_p}</TextParagraph>
-                <div className="my-1 flex w-full flex-row items-start justify-center sm:mt-4 sm:pr-6">
-                    <Image
-                        alt={"icons"}
-                        className={"h-full w-full object-cover"}
-                        src={"/icons-black.svg"}
-                        width={1520}
-                        height={384}
-                        loading="eager"
-                        unoptimized={true}
-                    />
-                </div>
             </div>
         </div>
     );

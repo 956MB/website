@@ -87,13 +87,13 @@ hr {
 }
 
 .large-highlight {
-    @apply text-white hover:text-[#FF8200] cursor-pointer font-bold;
+    @apply text-white hover:text-[#FF8200] font-bold;
 }
 
 .name-highlight {
     font-weight: 800 !important;
     color: white !important;
-    font-size: 1.6rem !important;
+    font-size: 1.65rem !important;
 }
 
 .p-link {

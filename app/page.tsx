@@ -86,11 +86,11 @@ export default function AboutPage() {
 
     return (
         <section>
-            <div className="flex w-full flex-col items-center gap-y-2 px-6 pb-2 sm:justify-start sm:gap-y-0 sm:px-7 md:pt-16 lg:gap-y-0">
+            <div className="flex w-full flex-col items-center gap-y-2 px-6 pb-2 sm:justify-start sm:gap-y-0 sm:px-7 pt-0 sm:pt-10 lg:pt-16 lg:gap-y-0">
                 <div className="mb-3 hidden w-full flex-row items-center justify-start align-middle md:flex">
                     <div className="flex flex-col items-center">
                         <Markdown
-                            className="text-right text-[11px] leading-4 saturate-0 hover:saturate-100 noselect"
+                            className="text-right text-[11px] leading-4 saturate-0 hover:saturate-100"
                             children={markdown}
                             components={{
                                 code(props) {
@@ -139,8 +139,8 @@ export default function AboutPage() {
 
                 <AboutBody />
 
-                <div className="flex flex-col items-center w-full mt-3 pr-4">
-                    <div className="flex w-full h-6 overflow-hidden items-center gap-x-[1px]">
+                <div className="flex flex-col items-center w-full mb-2 sm:mb-4 md:mb-6 lg:mb-4 mt-3 lg:pr-4">
+                    <div className="flex w-full h-6 overflow-hidden items-center gap-x-[2px]">
                         {langStats.map((stat, index) => (
                             <div
                                 key={index}
@@ -155,8 +155,6 @@ export default function AboutPage() {
                                         "absolute h-1 transition-all duration-200 ease-in-out",
                                         getLangColor(stat.lang),
                                         "group-hover:h-[6px]",
-                                        index === 0 && "rounded-l-full",
-                                        index === langStats.length - 1 && "rounded-r-full"
                                     )}
                                     style={{
                                         width: '100%',

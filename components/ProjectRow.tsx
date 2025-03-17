@@ -42,7 +42,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
             )}
         >
             <div className={clsx(
-                "flex items-center lg:items-start lg:w-[320px] lg:flex-shrink-0 min-h-full relative group mb-[1px]"
+                "flex items-center lg:items-start lg:w-[320px] lg:flex-shrink-0 min-h-full relative group mb-[2px]"
             )}>
                 {entry.date &&
                     <span className={clsx("noselect text-neutral-200 font-medium mr-3 text-sm leading-4 lg:mt-[6px] lg:w-10 lg:flex-shrink-0", entry.nested && "lg:text-transparent")}>
@@ -57,8 +57,6 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                         className={clsx(
                             "w-[10px] h-[10px] lg:absolute lg:top-0 lg:bottom-0 lg:h-full lg:w-[4px] rounded-full lg:rounded-none border lg:border-none border-white/[15%] group-hover:w-[6px] transition-all ease-in-out",
                             getLangColor(entry.lang),
-                            index === 0 && "lg:rounded-tl-full lg:rounded-tr-full",
-                            index === itemsLength - 1 && "lg:rounded-bl-full lg:rounded-br-full",
                         )}
                     />
                 </div>
