@@ -63,7 +63,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                 >
                                     <a
                                         className={clsx(
-                                            "group relative flex flex-col justify-end overflow-hidden rounded bg-gradient-to-t from-white/10 to-transparent object-cover backdrop-blur-sm child:hover:scale-105 sm:backdrop-blur-none saturate-0 hover:saturate-100",
+                                            "group relative flex flex-col justify-end overflow-hidden bg-gradient-to-t from-white/10 to-transparent object-cover backdrop-blur-sm child:hover:scale-105 sm:backdrop-blur-none saturate-0 hover:saturate-100",
                                             item.link && " cursor-pointer",
                                         )}
                                         rel="noopener noreferrer"

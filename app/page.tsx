@@ -8,7 +8,7 @@ import {
     dark, funky, okaidia, tomorrow, twilight, a11yDark,
     atomDark, cb, coldarkDark, dracula, holiTheme
 } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { projectGroups, langColors } from "lib/projects";
+import { projectGroups } from "lib/projects";
 import { IEntry } from "lib/interfaces";
 import clsx from "clsx";
 import { getLangColor } from "lib/util";
@@ -85,10 +85,10 @@ export default function AboutPage() {
 `;
 
     return (
-        <section>
+        <section className="flex flex-col items-center justify-center w-full flex-1">
             <div className="flex w-full flex-col items-center gap-y-2 px-6 pb-2 sm:justify-start sm:gap-y-0 sm:px-7 pt-0 sm:pt-10 lg:pt-16 lg:gap-y-0">
-                <div className="mb-3 hidden w-full flex-row items-center justify-start align-middle md:flex">
-                    <div className="flex flex-col items-center">
+                <div className="mb-3 hidden w-full flex-row items-center justify-center align-middle md:flex">
+                    <div className="flex flex-col items-center overflow-x-auto">
                         <Markdown
                             className="text-right text-[11px] leading-4 saturate-0 hover:saturate-100"
                             children={markdown}
@@ -139,7 +139,7 @@ export default function AboutPage() {
 
                 <AboutBody />
 
-                <div className="flex flex-col items-center w-full mb-2 sm:mb-4 md:mb-6 lg:mb-4 mt-3 lg:pr-4">
+                <div className="flex flex-col items-center w-full max-w-2xl mb-2 sm:mb-4 md:mb-6 lg:mb-4 mt-3">
                     <div className="flex w-full h-6 overflow-hidden items-center gap-x-[2px]">
                         {langStats.map((stat, index) => (
                             <div
@@ -166,7 +166,6 @@ export default function AboutPage() {
                         ))}
                     </div>
                 </div>
-
             </div>
         </section>
     );

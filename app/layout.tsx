@@ -57,15 +57,17 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className="bg-black text-black">
+        <html lang="en" className="bg-black text-black h-full">
             <head>
                 <link rel="icon" href="/favicon.ico" sizes="any" />
                 <link rel="apple-touch-icon" href="/logo.png" />
             </head>
-            <body className="flex flex-col overflow-auto antialiased md:flex-row">
-                <main className="flex h-fit w-full min-w-0 flex-auto flex-col items-center">
+            <body className="flex flex-col overflow-auto antialiased md:flex-row min-h-screen">
+                <main className="flex w-full min-w-0 flex-col items-center flex-1 flex-grow">
                     <Header />
-                    {children}
+                    <div className="flex flex-1 w-full">
+                        {children}
+                    </div>
                     <SpeedInsights />
                     <Analytics />
                     <Footer />

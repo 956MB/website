@@ -237,26 +237,6 @@ const wallpapers = [
         },
     ),
     entry(
-        "extra_polestar_synergy",
-        "Polestar Synergy (Collection)",
-        "09.14.2023",
-        "wallpaper",
-        [
-            item(
-                "/images/extras/wallpapers/Polestar-Synergy-Back.png",
-                1920,
-                2242,
-            ),
-        ],
-        {
-            summary: [
-                'Photos of the Polestar Synergy prototype from the Polestar Design Contest 2022/23. All credit to <a href="hhttps://about.polestar.com/polestar-design-contest/2022/">Polestar</a> for the photogrpahs.',
-            ],
-            link: "https://drive.google.com/drive/folders/1-naPWu9jKup8hzA-rwvFCK-5hIV5vpP7?usp=sharing",
-            credit: '<a rel="noopener noreferrer" target="_blank" href="https://about.polestar.com/polestar-design-contest/2022/">Polestar</a>',
-        },
-    ),
-    entry(
         "extra_ghibli_colors",
         "スタジオジブリ作品: Colors",
         "09.12.2023",

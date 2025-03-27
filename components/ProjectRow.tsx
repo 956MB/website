@@ -5,8 +5,8 @@ import Parse from "html-react-parser";
 import { IEntry, IEntryGroup } from "lib/interfaces";
 import React, { useState, useEffect, useRef } from "react";
 import GroupHeader from "./GroupHeader";
-import { FiArrowUpRight, FiChevronDown } from "react-icons/fi";
-import { defaultExpandedIds, langColors } from "lib/projects"
+import { FiChevronDown } from "react-icons/fi";
+import { defaultExpandedIds } from "lib/projects"
 import { getLangColor } from "lib/util";
 
 export function ProjectItem({ index, itemsLength, entry, section }: { index: number, itemsLength: number, entry: IEntry, section: string }) {
@@ -42,7 +42,8 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
             )}
         >
             <div className={clsx(
-                "flex items-center lg:items-start lg:w-[320px] lg:flex-shrink-0 min-h-full relative group mb-[2px]"
+                "flex items-center lg:items-start lg:w-[320px] lg:flex-shrink-0 min-h-full relative group",
+                !entry.nested && "mt-[2px]",
             )}>
                 {entry.date &&
                     <span className={clsx("noselect text-neutral-200 font-medium mr-3 text-sm leading-4 lg:mt-[6px] lg:w-10 lg:flex-shrink-0", entry.nested && "lg:text-transparent")}>
