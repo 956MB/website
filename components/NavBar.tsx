@@ -7,7 +7,6 @@ import { VercelIcon } from "./Icons";
 import Socials from "./Socials";
 
 const navItems = {
-    "/": { name: "home" },
     "/projects": { name: "projects" },
     "/designs": { name: "design" },
     "/neography": { name: "neography" },
@@ -53,7 +52,17 @@ export default function Header() {
         >
             <div className="mx-6 flex w-full max-w-screen-2xl flex-1 flex-row items-center sm:mx-8">
                 <div className="no-scrollbar w-full relative z-[55] flex items-start justify-start overflow-x-scroll py-4 sm:border-b border-neutral-800">
-                    <div className="inline-flex flex-row items-start justify-center gap-8 sm:gap-10">
+                    <div className="inline-flex flex-row items-center justify-center gap-8 sm:gap-x-7">
+                        <div className="hidden sm:flex items-center justify-center h-full">
+                            <Link href="/">
+                                <img
+                                    src="/logo-small.png"
+                                    alt="Home"
+                                    className="h-[20px] sm:h-[20px] object-contain translate-y-[1px]"
+                                />
+                            </Link>
+                        </div>
+                        <div className="hidden sm:block h-[22px] border-r border-neutral-800 self-center"></div>
                         <div className="mr-auto inline-flex flex-row flex-wrap items-center gap-x-8 lg:gap-x-7 overflow-hidden sm:w-auto sm:justify-center sm:gap-y-6 sm:py-3">
                             {Object.entries(navItems).map(([path, { name }]) => {
                                 const isActive = path === pathname;
