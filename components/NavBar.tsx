@@ -6,7 +6,10 @@ import { usePathname } from "next/navigation";
 import { VercelIcon } from "./Icons";
 import Socials from "./Socials";
 
-const navItems = {
+const navItems: {
+    [path: string]: { name: string; className?: string };
+} = {
+    "/": { name: "home", className: "sm:hidden" },
     "/projects": { name: "projects" },
     "/designs": { name: "design" },
     "/neography": { name: "neography" },
@@ -16,7 +19,7 @@ const navItems = {
 
 const COPYRIGHT = (
     <span className="font-medium whitespace-nowrap text-[15px] text-neutral-300">
-        Alexander Bays © 2025
+        <a href="/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-100 transition-colors">Alexander Bays © 2025</a>
     </span>
 );
 
@@ -47,7 +50,7 @@ export default function Header() {
     return (
         <div
             className={clsx(
-                "z-[55] flex min-h-[75px] w-full flex-1 flex-row justify-center sm:max-h-[75px]"
+                "z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center"
             )}
         >
             <div className="mx-6 flex w-full max-w-screen-2xl flex-1 flex-row items-center sm:mx-8">
@@ -64,13 +67,16 @@ export default function Header() {
                         </div>
                         <div className="hidden sm:block h-[22px] border-r border-neutral-800 self-center"></div>
                         <div className="mr-auto inline-flex flex-row flex-wrap items-center gap-x-8 lg:gap-x-7 overflow-hidden sm:w-auto sm:justify-center sm:gap-y-6 sm:py-3">
-                            {Object.entries(navItems).map(([path, { name }]) => {
+                            {Object.entries(navItems).map(([path, { name, className }]) => {
                                 const isActive = path === pathname;
 
                                 return (
                                     <div
                                         key={path}
-                                        className="group relative inline-flex h-full flex-row items-center justify-center"
+                                        className={clsx(
+                                            "group relative inline-flex h-full flex-row items-center justify-center",
+                                            className
+                                        )}
                                     >
                                         <div className="relative flex h-full cursor-pointer items-center justify-center py-3 text-center align-middle sm:py-0">
                                             <Deco show={isActive}>{"/"}</Deco>
@@ -111,7 +117,7 @@ export function Footer() {
     return (
         <div
             className={clsx(
-                "z-[55] flex min-h-[75px] w-full flex-1 flex-row justify-center lg:mt-8 lg:max-h-[75px]"
+                "z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center lg:mt-8"
             )}
         >
             <div className="mx-6 mt-auto flex min-h-[75px] w-full max-w-screen-2xl flex-1 flex-row items-center justify-center gap-x-3 border-t border-neutral-800 pb-6 pt-6 sm:mx-8 sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">

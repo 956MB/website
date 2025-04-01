@@ -1,2 +1,3 @@
+# Robots.txt for 956mb.com
 User-agent: *
 Sitemap: https://956mb.com/sitemap.xml

@@ -12,8 +12,22 @@ export const metadata: Metadata = {
     },
     description:
         "Self-taught generalist... unfortunately.",
+    viewport: {
+        width: 'device-width',
+        initialScale: 1,
+        maximumScale: 5,
+    },
+    applicationName: "Alexander Bays Portfolio",
+    creator: "Alexander Bays",
+    publisher: "Alexander Bays",
+    alternates: {
+        canonical: 'https://956mb.com',
+    },
+    keywords: ['developer', 'programmer', 'designer', 'neography', 'portfolio', 'Dallas'],
+    verification: {
+    },
     openGraph: {
-        title: "Alexander Bays",
+        title: "Alexander Bays (956MB)",
         description:
             "Self-taught generalist... unfortunately.",
         url: "https://956mb.com",
@@ -40,7 +54,7 @@ export const metadata: Metadata = {
         },
     },
     twitter: {
-        title: "Alexander Bays",
+        title: "Alexander Bays (956MB)",
         description:
             "Self-taught generalist... unfortunately.",
         card: "summary_large_image",
@@ -61,6 +75,7 @@ export default function RootLayout({
             <head>
                 <link rel="icon" href="/favicon.ico" sizes="any" />
                 <link rel="apple-touch-icon" href="/logo.png" />
+                <link rel="manifest" href="/manifest.json" />
             </head>
             <body className="flex flex-col overflow-auto antialiased md:flex-row min-h-screen">
                 <main className="flex w-full min-w-0 flex-col items-center flex-1 flex-grow">
