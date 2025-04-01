@@ -19,7 +19,7 @@ const navItems: {
 
 const COPYRIGHT = (
     <span className="font-medium whitespace-nowrap text-[15px] text-neutral-300">
-        <a href="/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-100 transition-colors">Alexander Bays © 2025</a>
+        <a href="/LICENSE.md" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-100 transition-colors">Alexander Bays © 2025</a>
     </span>
 );
 
