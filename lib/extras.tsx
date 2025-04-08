@@ -295,7 +295,7 @@ const wallpapers = [
                 'Frames from <a href="https://www.macmillerswebsite.com/">Mac Miller</a>\'s (RIP) music video for \'Colors and Shapes\'. All credit to <a href="https://www.stashmedia.tv/mac-miller-colors-and-shapes-by-sam-mason-and-hornet/">Hornet/Sam Mason/Stash</a> for creation of the video.',
             ],
             link: "https://drive.google.com/drive/folders/15pwpAQRDgW4TadCb07zq2TUDR5GtgMLk?usp=sharing",
-            credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.stashmedia.tv/mac-miller-colors-and-shapes-by-sam-mason-and-hornet/">Hornet/Sam Mason/Stash</a>. RIP Mac.',
+            credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.stashmedia.tv/mac-miller-colors-and-shapes-by-sam-mason-and-hornet/">Hornet/Sam Mason/Stash</a>',
         },
     ),
     entry(

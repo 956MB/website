@@ -5,6 +5,7 @@ module.exports = {
 		"./components/**/*.{ts,tsx}",
 		"./content/**/*.mdx",
 	],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
@@ -17,6 +18,24 @@ module.exports = {
                 'greenc': '#CCFF00',
                 'bluec': '#002EFF',
                 'pinkc': '#FF00B6',
+			},
+			textColor: {
+				skin: {
+					base: 'var(--text-primary)',
+					secondary: 'var(--text-secondary)',
+					accent: 'var(--accent)',
+				},
+			},
+			backgroundColor: {
+				skin: {
+					base: 'var(--background)',
+					card: 'var(--card-bg)',
+				},
+			},
+			borderColor: {
+				skin: {
+					base: 'var(--border)',
+				},
 			},
 			backdropBlur: {
 				smallest: "1px",
@@ -64,5 +83,7 @@ module.exports = {
 		'bg-[#F05137]',
 		'bg-[#663399]',
 		'bg-white/[10%]',
+		'light',
+		'dark',
 	],
 };

@@ -3,7 +3,7 @@ import parse from "html-react-parser";
 import { IEntry } from "lib/interfaces";
 import Image from "next/image";
 import React from "react";
-import { ArrowLeft, ArrowRight, XLg } from "react-bootstrap-icons";
+import { ArrowLeft, ArrowRight } from "react-bootstrap-icons";
 import { FiArrowLeft } from "react-icons/fi";
 import { HiMiniLanguage } from "react-icons/hi2";
 import { PiFigmaLogo } from "react-icons/pi";
@@ -23,25 +23,21 @@ export function CategoryIcon({
             {!category
                 ? null
                 : (() => {
-                      switch (category) {
-                          case "figma":
-                              return <PiFigmaLogo size={large ? 24 : 21} />;
-                          case "photoshop":
-                              return (
-                                  <SiAdobephotoshop size={large ? 21 : 18} />
-                              );
-                          case "illustrator":
-                              return (
-                                  <SiAdobeillustrator size={large ? 21 : 18} />
-                              );
-                          case "react":
-                              return <RiReactjsLine size={large ? 24 : 21} />;
-                          case "script":
-                              return <HiMiniLanguage size={large ? 24 : 21} />;
-                          default:
-                              return null;
-                      }
-                  })()}
+                    switch (category) {
+                        case "figma":
+                            return <PiFigmaLogo size={large ? 24 : 21} />;
+                        case "photoshop":
+                            return <SiAdobephotoshop size={large ? 21 : 18} />;
+                        case "illustrator":
+                            return <SiAdobeillustrator size={large ? 21 : 18} />;
+                        case "react":
+                            return <RiReactjsLine size={large ? 24 : 21} />;
+                        case "script":
+                            return <HiMiniLanguage size={large ? 24 : 21} />;
+                        default:
+                            return null;
+                    }
+                })()}
         </div>
     );
 }
@@ -104,17 +100,15 @@ export function GalleryButtons({
                 "sm:justify-right flex h-full w-full flex-row items-center justify-center sm:ml-4 sm:w-auto sm:min-w-[100px]",
             )}
         >
-            <span className="font-medium mr-3 hidden text-right text-xs text-neutral-500 sm:block">{`${
-                selectedIdx + 1
-            } of ${imagesCount}`}</span>
+            <span className="font-medium mr-3 hidden text-right text-xs text-neutral-500 sm:block">{`${selectedIdx + 1
+                } of ${imagesCount}`}</span>
             <GalleryButton
                 dir="left"
                 isDisabled={selectedIdx == 0}
                 clickAction={() => updateIdx(-1)}
             />
-            <span className="font-medium mx-3 block text-right text-xs text-neutral-500 sm:hidden">{`${
-                selectedIdx + 1
-            } of ${imagesCount}`}</span>
+            <span className="font-medium mx-3 block text-right text-xs text-neutral-500 sm:hidden">{`${selectedIdx + 1
+                } of ${imagesCount}`}</span>
             <GalleryButton
                 dir="right"
                 isDisabled={selectedIdx == imagesCount - 1}
@@ -132,12 +126,12 @@ export default function Gallery({
     closeAction: () => void;
 }) {
     return (
-        <div className="pointer-events-all absolute left-0 top-0 z-[99] flex h-screen w-screen flex-col items-center justify-start bg-black/90 backdrop-blur">
+        <div className="pointer-events-all absolute left-0 top-0 z-[99] flex h-screen w-screen flex-col items-center justify-start bg-white/90 dark:bg-black/90 backdrop-blur">
             <div className="flex h-full w-full flex-col items-center justify-start overflow-auto">
-                <div className="sticky top-0 flex min-h-[55px] w-full flex-row items-center justify-center border-b border-neutral-800 bg-black/90 px-2 backdrop-blur sm:px-3">
+                <div className="sticky top-0 flex min-h-[55px] w-full flex-row items-center justify-center border-b border-neutral-200 dark:border-neutral-800 bg-white/90 dark:bg-black/90 px-2 backdrop-blur sm:px-3">
                     <div className="justify-left flex h-full w-full flex-row items-center">
                         <button
-                            className="group h-full px-1"
+                            className="group h-full px-1 "
                             onClick={closeAction}
                         >
                             <Tooltip
@@ -145,7 +139,7 @@ export default function Gallery({
                                 position={"bottom"}
                                 warn={false}
                             >
-                                <FiArrowLeft size={22} className="text-white" />
+                                <FiArrowLeft size={22} className="text-black dark:text-white" />
                             </Tooltip>
                         </button>
                     </div>
@@ -156,20 +150,22 @@ export default function Gallery({
                             position={"bottom"}
                             warn={false}
                         >
-                            <CategoryIcon
-                                large={false}
-                                category={item.category}
-                            />
+                            <div className="invert dark:invert-0">
+                                <CategoryIcon
+                                    large={false}
+                                    category={item.category}
+                                />
+                            </div>
                         </Tooltip>
 
-                        <a className="font-bold mt-[1px] whitespace-nowrap text-center text-lg text-white sm:text-xl sm:leading-5">
+                        <a className="font-bold mt-[1px] whitespace-nowrap text-center text-lg text-black dark:text-white sm:text-xl sm:leading-5">
                             {item.title}
                         </a>
 
                         {item.date && (
                             <span
                                 className={
-                                    "font-medium text-center text-sm text-white/70 sm:leading-5 mt-[2px]"
+                                    "font-semibold dark:font-medium text-center text-sm text-black dark:text-white/70 sm:leading-5 mt-[2px]"
                                 }
                             >
                                 {item.date}
@@ -189,13 +185,9 @@ export default function Gallery({
                     )}
                 >
                     {item.summary && item.summary.length > 0 && (
-                        <span className="font-medium gallery-summary mx-5 my-3 max-w-screen-lg text-center text-[13px] leading-[1.56em] tracking-wide text-neutral-300 sm:mx-6 lg:my-4 lg:text-[14px]">
+                        <span className="font-medium gallery-summary mx-5 my-3 max-w-screen-lg text-center text-[13px] leading-[1.56em] tracking-wide text-neutral-800 dark:text-neutral-300 sm:mx-6 lg:my-4 lg:text-[14px]">
                             {parse(item.summary.join(""))}
                         </span>
-                    )}
-
-                    {item.summary && item.summary.length > 0 && (
-                        <hr className="m-0 h-px w-full bg-neutral-800" />
                     )}
                 </div>
 
@@ -228,7 +220,7 @@ export default function Gallery({
                                     <Image
                                         alt="project-img-modal"
                                         className={clsx(
-                                            "m-0 block max-h-full max-w-full object-contain",
+                                            "m-0 block max-h-full max-w-full object-contain bg-white dark:bg-black",
                                         )}
                                         src={content.path}
                                         width={content.width}

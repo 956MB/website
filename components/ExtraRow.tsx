@@ -8,7 +8,6 @@ import Image from "next/image";
 import React from "react";
 import { MdOutlineLayers } from "react-icons/md";
 import { PiWarningCircleBold } from "react-icons/pi";
-// import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Tooltip from "./Tooltip";
 import GroupHeader from "./GroupHeader";
 
@@ -33,7 +32,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                 <GroupHeader entry={entry} noDescription={false} noBorder={true} titleLink={entry.titleLink} />
 
                 <div className="flex w-full flex-row items-center justify-center">
-                    <hr className="my-auto h-px w-full bg-neutral-800" />
+                    <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
                 </div>
             </div>
 
@@ -110,9 +109,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 <div className="flex w-full flex-row items-center justify-start gap-1">
                                                     <a
                                                         className={clsx(
-                                                            "font-bold m-0 whitespace-normal text-white hover:text-[#FF8200]",
+                                                            "font-bold m-0 overflow-hidden text-ellipsis whitespace-nowrap text-black dark:text-white hover:text-[#9759AE] dark:hover:text-[#FF8200]",
+                                                            "block max-w-full",
                                                             item.link &&
-                                                            "hover:underline",
+                                                            "hover:underline hover:text-[#9759AE] dark:hover:text-[#FF8200]",
                                                             item.category ===
                                                                 "wallpaper"
                                                                 ? "text-base sm:text-lg"
@@ -137,10 +137,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                             position={"top"}
                                                             warn={true}
                                                         >
-                                                            <a className="rounded-full bg-[#FF8200]/20 p-[2px]">
+                                                            <a className="rounded-full bg-[#9759AE]/20 dark:bg-[#FF8200]/20 p-[2px]">
                                                                 <PiWarningCircleBold
                                                                     size={16}
-                                                                    className="min-h-[16px] min-w-[16px] text-[#FF8200]"
+                                                                    className="min-h-[16px] min-w-[16px] text-[#9759AE] dark:text-[#FF8200]"
                                                                 />
                                                             </a>
                                                         </Tooltip>
@@ -148,7 +148,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 </div>
 
                                                 {item.summary && (
-                                                    <span className="font-medium entry-summary w-full text-sm text-neutral-300">
+                                                    <span className="font-medium entry-summary w-full text-sm text-neutral-800 dark:text-neutral-300">
                                                         {parse(
                                                             item.summary.join(
                                                                 "",

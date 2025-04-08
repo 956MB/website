@@ -46,7 +46,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                 !entry.nested && "mt-[2px]",
             )}>
                 {entry.date &&
-                    <span className={clsx("noselect text-neutral-200 font-medium mr-3 text-sm leading-4 lg:mt-[6px] lg:w-10 lg:flex-shrink-0", entry.nested && "lg:text-transparent")}>
+                    <span className={clsx("noselect text-neutral-800 dark:text-neutral-200 font-semibold dark:font-medium mr-3 text-sm leading-4 lg:mt-[6px] lg:w-10 lg:flex-shrink-0", entry.nested && "lg:text-transparent dark:lg:text-transparent")}>
                         {entry.date}
                     </span>
                 }
@@ -67,8 +67,8 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "font-semibold lg:max-w-[256px] text-[15px] leading-4 hover:text-[#FF8200] text-white lg:mt-[6px] pl-3 lg:pl-4",
-                            entry.link ? "hover:underline hover:text-[#FF8200]" : "no-underline",
+                            "font-semibold lg:max-w-[256px] text-[15px] leading-4 hover:text-[#9759AE] dark:hover:text-[#FF8200] text-black dark:text-white lg:mt-[6px] pl-3 lg:pl-4",
+                            entry.link ? "hover:underline hover:text-[#9759AE] dark:hover:text-[#FF8200]" : "no-underline",
                         )}
                     >
                         {entry.title}
@@ -81,7 +81,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                 <span
                     ref={summaryRef}
                     className={clsx(
-                        "font-normal sm:font-medium leading-0 flex-1 text-sm text-neutral-300 lg:pb-2 lg:pt-[1px] lg:text-[15px] lg:mt-[3px]",
+                        "font-normal sm:font-medium leading-0 flex-1 text-sm text-neutral-800 dark:text-neutral-300 lg:pb-2 lg:pt-[1px] lg:text-[15px] lg:mt-[3px]",
                         "min-w-0",
                         !isExpanded && "xl:truncate",
                     )}
@@ -90,7 +90,7 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                 </span>
                 {showChevron && (
                     <div
-                        className="px-2 py-1 text-neutral-300 cursor-pointer hover:text-[#FF8200] rounded-full hidden xl:block"
+                        className="px-2 py-1 text-neutral-600 dark:text-neutral-300 cursor-pointer hover:text-[#9759AE] dark:hover:text-[#FF8200] rounded-full hidden xl:block"
                         onClick={() => setIsExpanded(!isExpanded)}
                     >
                         <FiChevronDown
@@ -121,7 +121,7 @@ export default function ProjectRow({
                     <GroupHeader entry={entry} noDescription={false} noBorder={true} titleLink={entry.titleLink} />
 
                     <div className="flex w-full flex-row items-center justify-center">
-                        <hr className="my-auto h-px w-full bg-neutral-800" />
+                        <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
                     </div>
                 </div>
             }

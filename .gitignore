@@ -48,3 +48,4 @@ videos/*
 !videos/*.js
 !videos/*.ts
 public/_next-video
+components/ThemeTooltip.tsx

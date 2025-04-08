@@ -2,6 +2,7 @@ import "./global.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header, { Footer } from "components/NavBar";
+import { ThemeProvider } from "components/ThemeProvider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -71,22 +72,24 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className="bg-black text-black h-full">
+        <html lang="en" className="h-full">
             <head>
                 <link rel="icon" href="/favicon.ico" sizes="any" />
                 <link rel="apple-touch-icon" href="/logo.png" />
                 <link rel="manifest" href="/manifest.json" />
             </head>
-            <body className="flex flex-col overflow-auto antialiased md:flex-row min-h-screen">
-                <main className="flex w-full min-w-0 flex-col items-center flex-1 flex-grow">
-                    <Header />
-                    <div className="flex flex-1 w-full">
-                        {children}
-                    </div>
-                    <SpeedInsights />
-                    <Analytics />
-                    <Footer />
-                </main>
+            <body className="flex flex-col overflow-auto antialiased md:flex-row min-h-screen bg-skin-base text-skin-base">
+                <ThemeProvider>
+                    <main className="flex w-full min-w-0 flex-col items-center flex-1 flex-grow">
+                        <Header />
+                        <div className="flex flex-1 w-full">
+                            {children}
+                        </div>
+                        <SpeedInsights />
+                        <Analytics />
+                        <Footer />
+                    </main>
+                </ThemeProvider>
             </body>
         </html>
     );

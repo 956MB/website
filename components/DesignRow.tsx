@@ -37,14 +37,14 @@ export default function DesignRow({
                     <GroupHeader entry={entry} noDescription={false} noBorder={true} titleLink={entry.titleLink} />
 
                     <div className="flex w-full flex-row items-center justify-center">
-                        <hr className="my-auto h-px w-full bg-neutral-800" />
+                        <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
                     </div>
                 </div>
             }
 
             <div className="flex flex-col gap-y-2">
                 <div className="flex w-full flex-row items-center justify-center">
-                    <hr className="my-auto h-px w-full bg-neutral-800" />
+                    <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
                 </div>
 
                 <motion.div
