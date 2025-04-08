@@ -16,7 +16,21 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         setMounted(true);
         const storedTheme = localStorage.getItem("theme") as "dark" | "light" | null;
-        setTheme(storedTheme || "dark");
+
+        if (storedTheme) {
+            setTheme(storedTheme);
+        } else {
+            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            setTheme(systemPrefersDark ? "dark" : "light");
+
+            const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+            const handleChange = () => {
+                setTheme(mediaQuery.matches ? "dark" : "light");
+            };
+
+            mediaQuery.addEventListener("change", handleChange);
+            return () => mediaQuery.removeEventListener("change", handleChange);
+        }
     }, []);
 
     useEffect(() => {

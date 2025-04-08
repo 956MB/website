@@ -1,9 +1,9 @@
-import "./global.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header, { Footer } from "components/NavBar";
 import { ThemeProvider } from "components/ThemeProvider";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import "./global.css";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://956mb.com"),
@@ -13,11 +13,6 @@ export const metadata: Metadata = {
     },
     description:
         "Self-taught generalist... unfortunately.",
-    viewport: {
-        width: 'device-width',
-        initialScale: 1,
-        maximumScale: 5,
-    },
     applicationName: "Alexander Bays Portfolio",
     creator: "Alexander Bays",
     publisher: "Alexander Bays",
@@ -64,6 +59,12 @@ export const metadata: Metadata = {
     icons: {
         shortcut: "/favicon.ico",
     },
+};
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
 };
 
 export default function RootLayout({
