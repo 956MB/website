@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import parse from "html-react-parser";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Tooltip({ content, position, warn = false, children }) {
     const [isTooltipVisible, setTooltipVisible] = useState<boolean>(false);
@@ -24,27 +24,28 @@ export default function Tooltip({ content, position, warn = false, children }) {
             className={clsx(
                 "group/tooltip relative z-50 flex",
                 warn && "items-center justify-center gap-x-[6px] pl-[2px]",
-                warn && (isTooltipVisible || isMobile) && "rounded-full bg-[#9759AE]/10 dark:bg-[#FF8200]/10",
+                warn && (isTooltipVisible || isMobile) && "rounded-full bg-[#9759AE]/10 dark:bg-[#FF8200]/10 transition-all duration-100 ease-out",
             )}
             onMouseEnter={() => !isMobile && setTooltipVisible(true)}
             onMouseLeave={() => !isMobile && setTooltipVisible(false)}
         >
             {children}
-            {(isTooltipVisible || isMobile) && (
-                <span
-                    className={clsx(
-                        "font-medium tooltip:transition-all tooltip:delay-300 rounded py-1 text-xs opacity-100 delay-0 overflow-hidden text-ellipsis whitespace-nowrap",
-                        position === "top" ? "bottom-7" : "",
-                        position === "bottom" ? "top-7" : "",
-                        position === "bottom2" ? "top-10" : "",
-                        warn
-                            ? "warn-tooltip pr-2 text-left text-[#9759AE] dark:text-[#FF8200]"
-                            : "absolute bg-neutral-800/90 px-2 text-center capitalize text-white",
-                    )}
-                >
-                    {parse(content)}
-                </span>
-            )}
+            <span
+                className={clsx(
+                    "font-medium rounded py-1 text-xs text-ellipsis whitespace-nowrap transition-all duration-100 ease-out",
+                    position === "top" ? "bottom-7" : "",
+                    position === "bottom" ? "top-7" : "",
+                    position === "bottom2" ? "top-10" : "",
+                    warn
+                        ? "warn-tooltip pr-2 text-left text-[#9759AE] dark:text-[#FF8200] overflow-hidden"
+                        : "absolute bg-neutral-800/90 px-2 text-center capitalize text-white",
+                    isTooltipVisible || isMobile
+                        ? "opacity-100 max-w-[250px]"
+                        : "opacity-0 max-w-0 pointer-events-none"
+                )}
+            >
+                {parse(content)}
+            </span>
         </div>
     );
 }

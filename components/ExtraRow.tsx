@@ -6,10 +6,9 @@ import parse from "html-react-parser";
 import { IEntryGroup } from "lib/interfaces";
 import Image from "next/image";
 import React from "react";
-import { MdOutlineLayers } from "react-icons/md";
 import { PiWarningCircleBold } from "react-icons/pi";
-import Tooltip from "./Tooltip";
 import GroupHeader from "./GroupHeader";
+import Tooltip from "./Tooltip";
 
 export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
     const containerVariants = {
@@ -62,7 +61,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                 >
                                     <a
                                         className={clsx(
-                                            "group relative flex flex-col justify-end overflow-hidden bg-gradient-to-t from-white/10 to-transparent object-cover backdrop-blur-sm child:hover:scale-105 sm:backdrop-blur-none saturate-0 hover:saturate-100",
+                                            "group relative flex flex-col justify-end overflow-hidden bg-gradient-to-t from-white/10 to-transparent object-cover backdrop-blur-sm child:group-hover:scale-105 sm:backdrop-blur-none saturate-0 group-hover:saturate-100 transition-colors ease-linear",
                                             item.link && " cursor-pointer",
                                         )}
                                         rel="noopener noreferrer"
@@ -137,10 +136,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                             position={"top"}
                                                             warn={true}
                                                         >
-                                                            <a className="rounded-full bg-[#9759AE]/20 dark:bg-[#FF8200]/20 p-[2px]">
+                                                            <a className="rounded-full bg-[#9759AE]/20 dark:bg-[#FF8200]/20 p-[2px] transition-all duration-300 ease-out hover:bg-[#9759AE]/40 dark:hover:bg-[#FF8200]/40">
                                                                 <PiWarningCircleBold
                                                                     size={16}
-                                                                    className="min-h-[16px] min-w-[16px] text-[#9759AE] dark:text-[#FF8200]"
+                                                                    className="min-h-[16px] min-w-[16px] text-[#9759AE] dark:text-[#FF8200] transition-all duration-300 ease-out"
                                                                 />
                                                             </a>
                                                         </Tooltip>

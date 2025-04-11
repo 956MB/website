@@ -1,5 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import clsx from "clsx";
 import Header, { Footer } from "components/NavBar";
 import { ThemeProvider } from "components/ThemeProvider";
 import type { Metadata, Viewport } from "next";
@@ -79,9 +80,9 @@ export default function RootLayout({
                 <link rel="apple-touch-icon" href="/logo.png" />
                 <link rel="manifest" href="/manifest.json" />
             </head>
-            <body className="flex flex-col overflow-auto antialiased md:flex-row min-h-screen bg-skin-base text-skin-base">
+            <body className={clsx("flex flex-col overflow-auto antialiased md:flex-row min-h-screen")}>
                 <ThemeProvider>
-                    <main className="flex w-full min-w-0 flex-col items-center flex-1 flex-grow">
+                    <main className="flex w-full min-w-0 flex-col items-center flex-1 flex-grow relative">
                         <Header />
                         <div className="flex flex-1 w-full">
                             {children}

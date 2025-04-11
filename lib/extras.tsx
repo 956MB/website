@@ -11,6 +11,19 @@ import {
 
 const icons = [
     entry(
+        "icon_black",
+        "B/W Icons",
+        "4.11.2025",
+        "icon",
+        [item("/images/extras/icons/black-icons.gif", 1024, 1024)],
+        {
+            summary: [
+                'Some of the icons I\'ve modified to make the perfect black & white dock in macOS (I am not the orignal designer of these icons).',
+            ],
+            link: "https://macosicons.com/#/Flipper",
+        },
+    ),
+    entry(
         "icon_yapper",
         "Yapper Icon",
         "1.19.2025",
@@ -53,19 +66,6 @@ const icons = [
         },
     ),
     entry(
-        "icon_photoshop",
-        "Adobe Rosetta Icons",
-        "1.1.2024",
-        "icon",
-        [item("/images/extras/icons/adobe-ps-1.png", 1024, 1024)],
-        {
-            summary: [
-                "Variant Rosetta style icons for various Adobe applications (Photoshop, Illustrator, Bridge, InDesign, Audition). Made by me.",
-            ],
-            link: "https://store.956mb.com/l/adobe-rosetta-icons",
-        },
-    ),
-    entry(
         "icon_claude",
         "Claude",
         "5.15.2024",
@@ -80,31 +80,16 @@ const icons = [
         },
     ),
     entry(
-        "icon_vscodium",
-        "VSCodium",
-        "10.28.2023",
+        "icon_photoshop",
+        "Adobe Rosetta Icons",
+        "1.1.2024",
         "icon",
-        [item("/images/extras/icons/vscodium-v3.png", 1024, 1024)],
+        [item("/images/extras/icons/adobe-ps-1.png", 1024, 1024)],
         {
             summary: [
-                "B/W versions of an unofficial VSCodium icon. Credit to <a href=\"https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072\">@setanarut</a> for the original variation of the 'C' logo.",
+                "Variant Rosetta style icons for various Adobe applications (Photoshop, Illustrator, Bridge, InDesign, Audition). Made by me.",
             ],
-            link: "https://macosicons.com/#/?icon=7iAvJibMA8",
-            credit: '<a rel="noopener noreferrer" target="_blank" href="https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072">@setanarut</a>',
-        },
-    ),
-    entry(
-        "icon_parallels",
-        "Parallels",
-        "09.08.2023",
-        "icon",
-        [item("/images/extras/icons/parallels-3.png", 1024, 1024)],
-        {
-            summary: [
-                'My edits to a custom Parallels icon by <a href="https://www.reddit.com/r/MacOS/comments/mucnsz/i_got_tired_of_the_parallels_desktop_icon_not/2">u/JonMarksbury</a>, using the Windows 11 background. Credit to him for the original concept.',
-            ],
-            link: "https://macosicons.com/#/?icon=sGnVq3YW8Y",
-            credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/r/MacOS/comments/mucnsz/i_got_tired_of_the_parallels_desktop_icon_not/2">u/JonMarksbury</a>',
+            link: "https://store.956mb.com/l/adobe-rosetta-icons",
         },
     ),
     entry(
@@ -136,20 +121,6 @@ const icons = [
 
 // NOTE: wallpapers
 const wallpapers = [
-    entry(
-        "extra_nord_monster",
-        "Nord Monster (Invert, HEIC)",
-        "12.01.2024",
-        "wallpaper",
-        [item("/images/extras/wallpapers/nord-monster-1.png", 1920, 1080)],
-        {
-            summary: [
-                'Existing wallpaper of nord monster I found on <a href="https://www.reddit.com/r/wallpaper/s8cvai/nord_monster_1920_x_1080/">Reddit</a> I upscaled to 6K, as well as applied a color correct and invert. I also merge the inverts into a dark/light HEIC for macOS.',
-            ],
-            link: "https://drive.google.com/drive/folders/1uNQ8AGsyLr9E2KWc_JWM674buIVsIl5w?usp=sharing",
-            credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/r/wallpaper/s8cvai/nord_monster_1920_x_1080/">u/StyLeadz</a>',
-        },
-    ),
     entry(
         "model_3_performance_trace",
         "Model 3 Performance (Trace Contour)",
@@ -254,48 +225,6 @@ const wallpapers = [
             ],
             link: "https://drive.google.com/drive/folders/1zuMZQfx7B_pTh7Y1vErBXOpoWqe6ik1k?usp=sharing",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.ghibli.jp/">Studio Ghibli</a>',
-        },
-    ),
-    entry(
-        "extra_westworld_s3",
-        "Westworld S3 (Collection, Video)",
-        "09.10.2023",
-        "wallpaper",
-        [item("/images/extras/wallpapers/WWF-deepred.png", 1920, 1080)],
-        {
-            summary: [
-                'Remade the Westworld "W" logo, as well as upscaled frames from the season 3 intro. All credit to <a href="http://elastic.tv/">Elastic.tv</a>, the creator of the great intro sequence.',
-            ],
-            link: "https://drive.google.com/drive/folders/1S2GS2Dw7t_RnFX1U4yl_rjJ0-mOjkZWa?usp=sharing",
-            credit: '<a rel="noopener noreferrer" target="_blank" href="http://elastic.tv/">Elastic.tv</a>',
-        },
-    ),
-    entry(
-        "extra_armored_core_vi",
-        "ARMORED CORE VI FIRES OF RUBICON (Collection, Video)",
-        "09.08.2023",
-        "wallpaper",
-        [item("/images/extras/wallpapers/ACVI-00027.png", 1920, 1080)],
-        {
-            summary: [
-                'Frames from the \'ARMORED CORE VI FIRES OF RUBICON\' reveal trailer, upscaled to 5K. Images from the trailer property of <a href="https://www.fromsoftware.jp/ww/">FromSoftware</a> and <a href="https://www.bandainamcoent.com/">Bandai Namco</a>.',
-            ],
-            link: "https://drive.google.com/drive/folders/1MMuairvZA4f0Gb8miA26VI1_ytuXxEyl?usp=sharing",
-            credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.fromsoftware.jp/ww/">Bandai Namco</a>',
-        },
-    ),
-    entry(
-        "extra_colors_and_shapes",
-        "Colors and Shapes (Collection, Video)",
-        "09.07.2023",
-        "wallpaper",
-        [item("/images/extras/wallpapers/CASWF-00169.png", 1920, 1080)],
-        {
-            summary: [
-                'Frames from <a href="https://www.macmillerswebsite.com/">Mac Miller</a>\'s (RIP) music video for \'Colors and Shapes\'. All credit to <a href="https://www.stashmedia.tv/mac-miller-colors-and-shapes-by-sam-mason-and-hornet/">Hornet/Sam Mason/Stash</a> for creation of the video.',
-            ],
-            link: "https://drive.google.com/drive/folders/15pwpAQRDgW4TadCb07zq2TUDR5GtgMLk?usp=sharing",
-            credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.stashmedia.tv/mac-miller-colors-and-shapes-by-sam-mason-and-hornet/">Hornet/Sam Mason/Stash</a>',
         },
     ),
     entry(

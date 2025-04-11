@@ -35,10 +35,6 @@ export default function DesignRow({
             {!noHeader &&
                 <div className="top-0 z-50 m-0 flex w-full flex-col items-start justify-center sm:sticky">
                     <GroupHeader entry={entry} noDescription={false} noBorder={true} titleLink={entry.titleLink} />
-
-                    <div className="flex w-full flex-row items-center justify-center">
-                        <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
-                    </div>
                 </div>
             }
 

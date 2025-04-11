@@ -28,10 +28,14 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: var(--background);
+    overflow-x: hidden;
+    overflow-y: auto;
     color: var(--text-primary);
     overscroll-behavior-y: contain;
+}
+
+body {
+    background-color: var(--background);
 }
 
 hr {
@@ -362,6 +366,10 @@ table {
 .gallery-summary a:hover,
 .page-summary a:hover {
     @apply text-[#9759AE] dark:text-[#FF8200] underline;
+}
+
+.warn-tooltip {
+    @apply transition-all duration-300 ease-out;
 }
 
 .warn-tooltip a {

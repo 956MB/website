@@ -3,11 +3,11 @@
 import clsx from "clsx";
 import Parse from "html-react-parser";
 import { IEntry, IEntryGroup } from "lib/interfaces";
-import React, { useState, useEffect, useRef } from "react";
-import GroupHeader from "./GroupHeader";
-import { FiChevronDown } from "react-icons/fi";
-import { defaultExpandedIds } from "lib/projects"
+import { defaultExpandedIds } from "lib/projects";
 import { getLangColor } from "lib/util";
+import { useEffect, useRef, useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
+import GroupHeader from "./GroupHeader";
 
 export function ProjectItem({ index, itemsLength, entry, section }: { index: number, itemsLength: number, entry: IEntry, section: string }) {
     const [isExpanded, setIsExpanded] = useState(
@@ -56,8 +56,11 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
                 >
                     <div
                         className={clsx(
-                            "w-[10px] h-[10px] lg:absolute lg:top-0 lg:bottom-0 lg:h-full lg:w-[4px] rounded-full lg:rounded-none border lg:border-none border-white/[15%] group-hover:w-[6px] transition-all ease-in-out",
-                            getLangColor(entry.lang),
+                            "w-[10px] h-[10px] lg:absolute lg:top-0 lg:bottom-0 lg:h-full lg:w-[5px] rounded-full lg:rounded-none border lg:border-none border-white/[15%] group-hover:w-[7px] transition-all ease-in-out",
+                            index === 0 && "lg:rounded-tl-full lg:rounded-tr-full",
+                            index === itemsLength - 1 && "lg:rounded-bl-full lg:rounded-br-full",
+
+                            getLangColor(entry.lang) || "bg-neutral-300",
                         )}
                     />
                 </div>

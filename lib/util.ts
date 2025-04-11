@@ -37,17 +37,17 @@ export function rsplitPath(path: string) {
 
 export function getLangColor(lang: string | undefined): string {
     const langColors: { [key: string]: string } = {
-        JavaScript: "bg-[#F1E05A]",
-        TypeScript: "bg-[#3078C6]",
-        Python: "bg-[#3572A5]",
-        Lua: "bg-[#000080]",
-        C: "bg-[#555555]",
+        "JavaScript": "bg-[#F1E05A]",
+        "TypeScript": "bg-[#3078C6]",
+        "Python": "bg-[#3572A5]",
+        "Lua": "bg-[#000080]",
+        "C": "bg-[#555555]",
         "C++": "bg-[#F34B7D]",
         "C#": "bg-[#188601]",
-        Rust: "bg-[#DEA584]",
-        Swift: "bg-[#F05137]",
-        CSS: "bg-[#663399]",
-        "none": "bg-white/[10%]",
+        "Rust": "bg-[#DEA584]",
+        "Swift": "bg-[#F05137]",
+        "CSS": "bg-[#663399]",
+        "none": "bg-neutral-300",
     };
     
     return langColors[lang || 'none'] || langColors['none'];
