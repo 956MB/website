@@ -6,10 +6,6 @@ const nextConfig = {
 	images: {
 		formats: ["image/avif", "image/webp"],
 	},
-	experimental: {
-		appDir: true,
-		serverActions: true,
-	},
 	redirects() {
 		try {
 			return get("redirects");
@@ -24,6 +20,9 @@ const nextConfig = {
 				headers: securityHeaders,
 			},
 		];
+	},
+	webpack: (config, { isServer }) => {
+		return config;
 	},
 };
 
