@@ -13,7 +13,7 @@ const navItems: {
 } = {
     "/": { name: "home", className: "sm:hidden" },
     "/projects": { name: "projects" },
-    "/designs": { name: "design" },
+    "/designs": { name: "designs" },
     "/neography": { name: "neography" },
     "/extras": { name: "extras" },
 };
@@ -63,7 +63,7 @@ export default function Header() {
                                 <img
                                     src={theme.theme === "dark" ? "/logo-small.png" : "/logo.png"}
                                     alt="Home"
-                                    className="h-[29px] sm:h-[29px] dark:h-[20px] dark:sm:h-[20px] mr-1 dark:mr-0 object-contain translate-y-[1px] rounded-[5px] dark:rounded-none"
+                                    className="h-[29px] sm:h-[29px] dark:h-[20px] dark:sm:h-[20px] mr-1 dark:mr-0 object-contain translate-y-[1px] rounded-[5px] dark:rounded-none mb-[2px]"
                                 />
                             </Link>
                         </div>
@@ -106,9 +106,16 @@ export default function Header() {
                                 );
                             })}
                         </div>
-                        <div className="hidden md:flex items-center ml-auto">
-                            <ThemeToggle />
-                        </div>
+                        {pathname !== "/" && (
+                            <div className="flex flex-row items-center gap-x-8 ml-auto">
+                                <div className="hidden xl:flex flex-1">
+                                    <Socials />
+                                </div>
+                                <div className="hidden md:flex items-center">
+                                    <ThemeToggle />
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -129,7 +136,7 @@ export function Footer() {
             <div className="mx-6 mt-auto flex min-h-[75px] w-full max-w-screen-2xl flex-1 flex-row items-center justify-center gap-x-3 pb-6 pt-6 sm:mx-8 sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">
                 {!isHome ? (
                     <>
-                        <div className="flex-1">
+                        <div className="xl:hidden flex flex-1">
                             <Socials />
                         </div>
                         <div className="flex flex-col-reverse items-end justify-center gap-4 sm:flex-row">

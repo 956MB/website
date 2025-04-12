@@ -455,20 +455,6 @@ const personal = [
         }
     ),
     entry(
-        "p-website",
-        "website",
-        "2023",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/956MB/website",
-            lang: "JavaScript",
-            summary: [
-                "This website. My portfolio. Made in <span class='highlight'>React</span>.",
-            ],
-        }
-    ),
-    entry(
         "p-boosts",
         "boosts",
         "2024",
@@ -479,6 +465,48 @@ const personal = [
             lang: "CSS",
             summary: [
                 `Some ${li("https://arc.net", "Arc")} boosts for my own tastes (<span class='highlight'>Github</span>, <span class='highlight'>Claude</span>, <span class='highlight'>Hugging Face</span>, <span class='highlight'>F1TV</span>, ...)`,
+            ],
+        }
+    ),
+    entry(
+        "p-banner",
+        "banner",
+        "2024",
+        "Projects",
+        [],
+        {
+            link: "https://github.com/956MB/banner",
+            lang: "Python",
+            summary: [
+                "Wow, that's interesting. Rendering of my ASCII banner in Github's markdown code block.",
+            ],
+        }
+    ),
+    entry(
+        "p-wallpapers",
+        "wallpapers",
+        "2024",
+        "Projects",
+        [],
+        {
+            link: "https://github.com/956MB/wallpapers",
+            lang: "none",
+            summary: [
+                "Collection of wallpapers made or modified by me. Or just stuff I think is cool. WIP.",
+            ],
+        }
+    ),
+    entry(
+        "p-website",
+        "website",
+        "2023",
+        "Projects",
+        [],
+        {
+            link: "https://github.com/956MB/website",
+            lang: "JavaScript",
+            summary: [
+                "This website. My portfolio. Made with <span class='highlight'>React</span>/<span class='highlight'>Next.js</span>/<span class='highlight'>Tailwind</span>.",
             ],
         }
     ),
@@ -510,34 +538,6 @@ const personal = [
             ],
         }
     ),
-    entry(
-        "p-banner",
-        "banner",
-        "2024",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/956MB/banner",
-            lang: "Python",
-            summary: [
-                "Wow, that's interesting. Rendering of my ASCII banner in Github's markdown code block.",
-            ],
-        }
-    ),
-    entry(
-        "p-wallpapers",
-        "wallpapers",
-        "2024",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/956MB/wallpapers",
-            lang: "none",
-            summary: [
-                "Collection of wallpapers made or modified by me. Or just stuff I think is cool. WIP.",
-            ],
-        }
-    )
 ];
 
 export const projectGroups: IEntryGroups = [

@@ -9,7 +9,7 @@ export const email = {
     url: "mailto:bays@956mb.com",
 };
 export const socials = [
-    { serv: "twitter", name: "${highlight('956MB')}", url: "https://x.com/956MB" },
+    { serv: "x", name: "${highlight('956MB')}", url: "https://x.com/956MB" },
     {
         serv: "github",
         name: "${highlight('956MB')}",

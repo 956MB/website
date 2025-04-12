@@ -19,12 +19,12 @@ function Social({
             href={url}
             className="group flex items-center justify-center whitespace-nowrap text-center no-underline"
         >
-            <span className="font-semibold text-[14px] capitalize leading-[14px] text-neutral-800 dark:text-white group-hover:text-black dark:group-hover:text-neutral-300 lg:text-[15px]">
+            <span className="font-semibold text-[14px] capitalize leading-[14px] text-neutral-800 dark:text-white !group-hover:text-black !dark:group-hover:text-neutral-300 lg:text-[15px]">
                 {serv}
             </span>
             <FiArrowUpRight
                 size={18}
-                className="ml-1 text-neutral-400 dark:text-neutral-500 transition-transform duration-100 group-hover:-translate-y-0.5 group-hover:text-[#9759AE] dark:group-hover:text-[#FF8200]"
+                className="ml-[3px] text-neutral-400 dark:text-neutral-500 transition-transform duration-100 group-hover:-translate-y-0.5 group-hover:text-[#9759AE] dark:group-hover:text-[#FF8200]"
             />
         </a>
     );
