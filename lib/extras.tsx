@@ -1,10 +1,8 @@
 import {
     entry,
     group,
-    IEntry,
-    IEntryGroup,
     IEntryGroups,
-    item,
+    item
 } from "./interfaces";
 
 // NOTE: icons
@@ -18,9 +16,10 @@ const icons = [
         [item("/images/extras/icons/black-icons.gif", 1024, 1024)],
         {
             summary: [
-                'Some of the icons I\'ve modified to make the perfect black & white dock in macOS (I am not the orignal designer of these icons).',
+                'Some of the icons I\'ve modified to make the perfect black & white dock in macOS (I am not the orignal designer of these).',
             ],
-            link: "https://macosicons.com/#/Flipper",
+            link: "https://drive.google.com/drive/folders/1hv3KFVwsjgfq_JdMjK1oM-HKkcbZ8kcf?usp=sharing",
+            credit: 'Various',
         },
     ),
     entry(
@@ -87,7 +86,7 @@ const icons = [
         [item("/images/extras/icons/adobe-ps-1.png", 1024, 1024)],
         {
             summary: [
-                "Variant Rosetta style icons for various Adobe applications (Photoshop, Illustrator, Bridge, InDesign, Audition). Made by me.",
+                "Variant Rosetta style icons for various Adobe applications (<a>Photoshop</a>, <a>Illustrator</a>, <a>Bridge</a>, <a>InDesign</a>, <a \">Audition</a>). Made by me.",
             ],
             link: "https://store.956mb.com/l/adobe-rosetta-icons",
         },
