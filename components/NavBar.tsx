@@ -106,16 +106,16 @@ export default function Header() {
                                 );
                             })}
                         </div>
-                        {pathname !== "/" && (
                             <div className="flex flex-row items-center gap-x-8 ml-auto">
-                                <div className="hidden xl:flex flex-1">
-                                    <Socials />
-                                </div>
+                                {pathname !== "/" && (
+                                    <div className="hidden xl:flex flex-1">
+                                        <Socials />
+                                    </div>
+                                )}
                                 <div className="hidden md:flex items-center">
                                     <ThemeToggle />
                                 </div>
                             </div>
-                        )}
                     </div>
                 </div>
             </div>
