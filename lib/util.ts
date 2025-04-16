@@ -35,22 +35,28 @@ export function rsplitPath(path: string) {
     return result;
 }
 
-export function getLangColor(lang: string | undefined): string {
+export function getLangColor(lang: string | undefined, prefix: string = ""): string {
     const langColors: { [key: string]: string } = {
-        "JavaScript": "bg-[#F1E05A]",
-        "TypeScript": "bg-[#3078C6]",
-        "Python": "bg-[#3572A5]",
-        "Lua": "bg-[#000080]",
-        "C": "bg-[#555555]",
-        "C++": "bg-[#F34B7D]",
-        "C#": "bg-[#188601]",
-        "Rust": "bg-[#DEA584]",
-        "Swift": "bg-[#F05137]",
-        "CSS": "bg-[#663399]",
-        "none": "bg-neutral-300",
+        "JavaScript": "#F1E05A",
+        "TypeScript": "#3078C6",
+        "Python": "#3572A5",
+        "Lua": "#000080",
+        "Zig": "#F7A31E",
+        "C": "#555555",
+        "C++": "#F34B7D",
+        "C#": "#188601",
+        "Rust": "#DEA584",
+        "Swift": "#F05137",
+        "CSS": "#663399",
+        "none": "neutral-300",
     };
     
-    return langColors[lang || 'none'] || langColors['none'];
+    const color = langColors[lang || 'none'] || langColors['none'];
+    // Return with bg- prefix and bracket notation for hex colors
+    if (color.startsWith("#")) {
+        return `${prefix}bg-[${color}]`;
+    }
+    return `${prefix}bg-${color}`;
 }
 
 export function filterContentTags(blogs: Content[], tag: string): Content[] {

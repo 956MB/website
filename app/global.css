@@ -107,11 +107,12 @@ hr {
 }
 
 .large-highlight {
-    @apply font-bold hover:text-[#9759AE] dark:hover:text-[#FF8200];
+    @apply font-bold not-italic hover:text-[#9759AE] dark:hover:text-[#FF8200];
     color: var(--text-primary);
 }
 
 .name-highlight {
+    @apply font-bold not-italic;
     font-weight: 800 !important;
     color: var(--text-primary) !important;
     font-size: 1.65rem !important;

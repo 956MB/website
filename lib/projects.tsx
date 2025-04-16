@@ -1,19 +1,5 @@
 import { entry, group, IEntryGroups, item } from "./interfaces";
 
-export const langColors: { [key: string]: string } = {
-    JavaScript: "bg-[#F1E05A]",
-    TypeScript: "bg-[#3078C6]",
-    Python: "bg-[#3572A5]",
-    Lua: "bg-[#000080]",
-    C: "bg-[#555555]",
-    "C++": "bg-[#F34B7D]",
-    "C#": "bg-[#188601]",
-    Rust: "bg-[#DEA584]",
-    Swift: "bg-[#F05137]",
-    CSS: "bg-[#663399]",
-    "none": "bg-white/[10%]",
-};
-
 const li = (href: string, text: string) =>
     `<a class="p-link large-highlight" rel="noopener noreferrer" target="_blank" href="${href}">${text}</a>`;
 
