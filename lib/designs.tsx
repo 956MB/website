@@ -365,6 +365,40 @@ const drawings = [
 
 const logos = [
     entry(
+        "etherspent",
+        'Etherspent',
+        "2025",
+        "photoshop",
+        [
+            {
+                path: "/images/concepts/etherspent/eth-thumb.png",
+                width: 857,
+                height: 857,
+            },
+            {
+                path: "/images/concepts/etherspent/eth-x.png",
+                width: 984,
+                height: 1472,
+            },
+            {
+                path: "/images/concepts/etherspent/eth-logo.png",
+                width: 1024,
+                height: 1024,
+            },
+
+        ],
+        {
+            summary: [
+                "Don't ask me what it means, it's just a sketch. Not even close to \"done\". Just a quick thing.",
+            ],
+            thumbnail: {
+                path: "/images/concepts/etherspent/eth-thumb.png",
+                width: 857,
+                height: 857,
+            }
+        }
+    ),
+    entry(
         "ta956mb_logo",
         '"TA956MB" (My logo)',
         "2025",
