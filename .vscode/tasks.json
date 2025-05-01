@@ -1,0 +1,82 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Dev",
+            "type": "shell",
+            "command": "bun run dev",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "detail": "Run development server (bun run dev & bunx next-video sync -w)"
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "bun run build",
+            "problemMatcher": [],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "detail": "Build the application (bun run build)"
+        },
+        {
+            "label": "Build & Dev",
+            "type": "shell",
+            "command": "bun run build:dev",
+            "problemMatcher": [],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "detail": "Build and run dev server (bun run build && bun run dev)"
+        },
+        {
+            "label": "Start",
+            "type": "shell",
+            "command": "bun run start",
+            "problemMatcher": [],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "detail": "Start the production server (bun run start)"
+        },
+        {
+            "label": "Lint",
+            "type": "shell",
+            "command": "bun run lint",
+            "problemMatcher": [
+                "$eslint-stylish"
+            ],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "detail": "Run ESLint to fix code style issues"
+        },
+        {
+            "label": "Format",
+            "type": "shell",
+            "command": "bun run format",
+            "problemMatcher": [],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "detail": "Run Prettier to format code"
+        }
+    ]
+}

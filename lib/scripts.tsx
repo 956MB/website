@@ -1,15 +1,8 @@
-import {
-    entry,
-    group,
-    IEntry,
-    IEntryGroup,
-    IEntryGroups,
-    item,
-} from "./interfaces";
+import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const scripts = [
     entry(
-        "script_pLang",
+        "pLang",
         '"pLang"',
         "2024",
         "script",
@@ -26,8 +19,8 @@ const scripts = [
         },
     ),
     entry(
-        "script_circles_only",
-        "Circles only, apparently",
+        "circles-only",
+        "Circles only, apparently.",
         "2023",
         "script",
         [
@@ -51,13 +44,36 @@ const scripts = [
                 1236,
                 1770,
             ),
+            item(
+                "/images/circles-only-apparently/circles_only_1.png",
+                1038,
+                504,
+            ),
+            item(
+                "/images/circles-only-apparently/circles_only_2.png",
+                1041,
+                2411,
+            ),
+            item(
+                "/images/circles-only-apparently/circles_only_3.png",
+                1284,
+                1272,
+            ),
+            item(
+                "/images/circles-only-apparently/circles_only_4.png",
+                1236,
+                1770,
+            ),
         ],
         {
             tags: ["Circles"],
+            summary: [
+                'An experimental attempt at a script using circles and lines. Apparently they look like... something... I won\'t say what, but <a href="https://www.reddit.com/r/neography/comments/17tjpwg/comment/k8xkc8f/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">this comment</a> explains it. :|',
+            ],
         },
     ),
     entry(
-        "script_eggers_gyea",
+        "eggers-gyea",
         "Movie Posters",
         "2023",
         "script",
@@ -72,7 +88,7 @@ const scripts = [
         },
     ),
     entry(
-        "script_gyea",
+        "gyea",
         '"GYEA"',
         "2023",
         "script",
@@ -82,7 +98,7 @@ const scripts = [
         },
     ),
     entry(
-        "script_brands_tab_hokj",
+        "brands-tab-hokj",
         "Brand logos",
         "2023",
         "script",
@@ -97,7 +113,7 @@ const scripts = [
         },
     ),
     entry(
-        "script_tab",
+        "tab",
         '"Tab"',
         "2023",
         "script",
@@ -107,7 +123,7 @@ const scripts = [
         },
     ),
     entry(
-        "script_before_tab",
+        "before-tab",
         "Before Tab",
         "2023",
         "script",
@@ -117,7 +133,7 @@ const scripts = [
         },
     ),
     entry(
-        "script_hokj",
+        "hokj",
         '"Hokj"',
         "2023",
         "script",

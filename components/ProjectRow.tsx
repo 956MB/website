@@ -10,9 +10,19 @@ import { useEffect, useRef, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import GroupHeader from "./GroupHeader";
 
-export function ProjectItem({ index, itemsLength, entry, section }: { index: number, itemsLength: number, entry: IEntry, section: string }) {
+export function ProjectItem({
+    index,
+    itemsLength,
+    entry,
+    section,
+}: {
+    index: number;
+    itemsLength: number;
+    entry: IEntry;
+    section: string;
+}) {
     const [isExpanded, setIsExpanded] = useState(
-        defaultExpandedIds.includes(entry.id)
+        defaultExpandedIds.includes(entry.id),
     );
     const summaryRef = useRef<HTMLSpanElement | null>(null);
     const [showChevron, setShowChevron] = useState(false);
@@ -23,21 +33,23 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.5
-            }
+                duration: 0.5,
+            },
         },
     };
 
     useEffect(() => {
         const checkMultiline = () => {
             if (summaryRef.current) {
-                summaryRef.current.style.whiteSpace = 'normal';
-                summaryRef.current.style.overflow = 'visible';
+                summaryRef.current.style.whiteSpace = "normal";
+                summaryRef.current.style.overflow = "visible";
 
-                const lineHeight = parseInt(window.getComputedStyle(summaryRef.current).lineHeight);
+                const lineHeight = parseInt(
+                    window.getComputedStyle(summaryRef.current).lineHeight,
+                );
                 const height = summaryRef.current.offsetHeight;
-                summaryRef.current.style.whiteSpace = '';
-                summaryRef.current.style.overflow = '';
+                summaryRef.current.style.whiteSpace = "";
+                summaryRef.current.style.overflow = "";
 
                 setShowChevron(height > lineHeight * 1.5);
             }
@@ -51,68 +63,85 @@ export function ProjectItem({ index, itemsLength, entry, section }: { index: num
         <motion.div
             variants={itemVariants}
             className={clsx(
-                "flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[4px] sm:gap-y-[6px] lg:flex-row group",
+                "group flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[4px] sm:gap-y-[6px] lg:flex-row",
             )}
         >
-            <div className={clsx(
-                "flex items-center lg:items-start lg:w-[320px] lg:flex-shrink-0 min-h-full relative",
-                !entry.nested && "mt-[1px]",
-            )}>
-                {entry.date &&
-                    <span className={clsx("noselect text-neutral-700 dark:text-neutral-300 font-medium dark:font-medium mr-3 text-sm leading-4 lg:mt-[6px] lg:w-10 lg:flex-shrink-0", entry.nested && "lg:text-transparent dark:lg:text-transparent")}>
+            <div
+                className={clsx(
+                    "relative flex min-h-full items-center lg:w-[320px] lg:flex-shrink-0 lg:items-start",
+                    !entry.nested && "mt-[1px]",
+                )}
+            >
+                {entry.date && (
+                    <span
+                        className={clsx(
+                            "noselect mr-3 text-sm font-medium leading-4 text-neutral-700 dark:font-medium dark:text-neutral-300 lg:mt-[6px] lg:w-10 lg:flex-shrink-0",
+                            entry.nested &&
+                                "lg:text-transparent dark:lg:text-transparent",
+                        )}
+                    >
                         {entry.date}
                     </span>
-                }
+                )}
                 <div
-                    className={clsx("relative flex h-full items-center justify-center")}
+                    className={clsx(
+                        "relative flex h-full items-center justify-center",
+                    )}
                     title={entry.lang}
                 >
                     <div
                         className={clsx(
-                            "w-[10px] h-[10px] lg:absolute lg:top-0 lg:bottom-0 lg:h-full lg:w-[4px] rounded-full lg:rounded-none border lg:border-none border-white/[15%] group-hover:w-[7px] transition-all ease-in-out",
-                            index === 0 && "lg:rounded-tl-full lg:rounded-tr-full",
-                            index === itemsLength - 1 && "lg:rounded-bl-full lg:rounded-br-full",
-                            getLangColor(entry.lang) || "bg-neutral-200 dark:bg-neutral-800",
+                            "h-[10px] w-[10px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
+                            index === 0 &&
+                                "lg:rounded-tl-full lg:rounded-tr-full",
+                            index === itemsLength - 1 &&
+                                "lg:rounded-bl-full lg:rounded-br-full",
+                            getLangColor(entry.lang) ||
+                                "bg-neutral-200 dark:bg-neutral-800",
                             getLangColor(entry.lang, "group-hover:"),
                         )}
                     />
                 </div>
-                <div className="relative flex flex-row gap-x-[5px] w-full h-full items-start justify-start">
+                <div className="relative flex h-full w-full flex-row items-start justify-start gap-x-[5px]">
                     <a
-                        href={entry.link || '#'}
+                        href={entry.link || "#"}
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "transition-all duration-150 font-semibold hover:font-bold lg:max-w-[256px] text-[15px] leading-4 hover:text-[#9759AE] dark:hover:text-[#FF8200] text-black dark:text-white lg:mt-[6px] pl-3 lg:pl-4 group-hover:underline",
-                            entry.link ? "hover:underline hover:text-[#9759AE] dark:hover:text-[#FF8200]" : "no-underline",
+                            "pl-3 text-[15px] font-semibold leading-4 text-black transition-all duration-150 hover:font-bold hover:text-[#9759AE] group-hover:underline dark:text-white dark:hover:text-[#FF8200] lg:mt-[6px] lg:max-w-[256px] lg:pl-4",
+                            entry.link
+                                ? "hover:text-[#9759AE] hover:underline dark:hover:text-[#FF8200]"
+                                : "no-underline",
                         )}
                     >
                         {entry.title}
                     </a>
                 </div>
             </div>
-            <div className={clsx(
-                "flex w-full min-w-0 items-start justify-start gap-x-2",
-            )}>
+            <div
+                className={clsx(
+                    "flex w-full min-w-0 items-start justify-start gap-x-2",
+                )}
+            >
                 <span
                     ref={summaryRef}
                     className={clsx(
-                        "font-normal sm:font-medium leading-0 flex-1 text-sm text-neutral-800 dark:text-neutral-300 lg:pb-2 lg:pt-[1px] lg:text-[15px] lg:mt-[3px]",
+                        "leading-0 flex-1 text-sm font-normal text-neutral-800 dark:text-neutral-300 sm:font-medium lg:mt-[3px] lg:pb-2 lg:pt-[1px] lg:text-[15px]",
                         "min-w-0",
                         !isExpanded && "xl:truncate",
                     )}
                 >
-                    {Parse((entry.summary || '').toString())}
+                    {Parse((entry.summary || "").toString())}
                 </span>
                 {showChevron && (
                     <div
-                        className="px-2 py-1 text-neutral-600 dark:text-neutral-300 cursor-pointer hover:text-[#9759AE] dark:hover:text-[#FF8200] rounded-full hidden xl:block"
+                        className="hidden cursor-pointer rounded-full px-2 py-1 text-neutral-600 hover:text-[#9759AE] dark:text-neutral-300 dark:hover:text-[#FF8200] xl:block"
                         onClick={() => setIsExpanded(!isExpanded)}
                     >
                         <FiChevronDown
                             className={clsx(
-                                "flex flex-shrink-0 transition-transform duration-200 mt-[5px]",
-                                isExpanded ? "rotate-180" : "rotate-0"
+                                "mt-[5px] flex flex-shrink-0 transition-transform duration-200",
+                                isExpanded ? "rotate-180" : "rotate-0",
                             )}
                             size={17}
                         />
@@ -146,8 +175,8 @@ export default function ProjectRow({
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.5
-            }
+                duration: 0.5,
+            },
         },
     };
 
@@ -157,8 +186,8 @@ export default function ProjectRow({
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.4
-            }
+                duration: 0.4,
+            },
         },
     };
 
@@ -167,14 +196,19 @@ export default function ProjectRow({
             variants={containerVariants}
             initial="initial"
             animate="animate"
-            className="relative flex w-full max-w-screen-2xl flex-col flex-wrap items-center justify-center gap-y-0"
+            className="relative flex w-full max-w-screen-xl flex-col flex-wrap items-center justify-center gap-y-0"
         >
-            {!noHeader &&
+            {!noHeader && (
                 <motion.div
                     variants={headerVariants}
                     className="top-0 z-50 m-0 flex w-full flex-col items-start justify-center sm:sticky"
                 >
-                    <GroupHeader entry={entry} noDescription={false} noBorder={true} titleLink={entry.titleLink} />
+                    <GroupHeader
+                        entry={entry}
+                        noDescription={false}
+                        noBorder={true}
+                        titleLink={entry.titleLink}
+                    />
 
                     <motion.div
                         variants={itemVariants}
@@ -183,14 +217,20 @@ export default function ProjectRow({
                         <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
                     </motion.div>
                 </motion.div>
-            }
+            )}
 
             <motion.div
                 variants={itemVariants}
                 className="flex w-full flex-col items-center justify-center gap-y-6 py-3 lg:gap-y-0 lg:py-2"
             >
                 {entry.items.map((item, i) => (
-                    <ProjectItem key={i} index={i} itemsLength={entry.items.length} entry={item} section={entry.title} />
+                    <ProjectItem
+                        key={i}
+                        index={i}
+                        itemsLength={entry.items.length}
+                        entry={item}
+                        section={entry.title}
+                    />
                 ))}
             </motion.div>
         </motion.div>

@@ -1,6 +1,13 @@
 "use client";
 
-import { about_n, about_email, about_p, bio_p, languages_p, tools_p } from "lib/info";
+import {
+    about_email,
+    about_n,
+    about_p,
+    bio_p,
+    languages_p,
+    tools_p,
+} from "lib/info";
 import Image from "next/image";
 import React from "react";
 import Socials from "./Socials";

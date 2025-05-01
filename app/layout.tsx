@@ -10,23 +10,27 @@ export const metadata: Metadata = {
     metadataBase: new URL("https://956mb.com"),
     title: {
         default: "Alexander Bays",
-        template: "%s - Alexander Bays",
+        template: "%s – Alexander Bays",
     },
-    description:
-        "Self-taught generalist... unfortunately.",
+    description: "Self-taught generalist... unfortunately.",
     applicationName: "Alexander Bays Portfolio",
     creator: "Alexander Bays",
     publisher: "Alexander Bays",
     alternates: {
-        canonical: 'https://956mb.com',
+        canonical: "https://956mb.com",
     },
-    keywords: ['developer', 'programmer', 'designer', 'neography', 'portfolio', 'Dallas'],
-    verification: {
-    },
+    keywords: [
+        "developer",
+        "programmer",
+        "designer",
+        "neography",
+        "portfolio",
+        "Dallas",
+    ],
+    verification: {},
     openGraph: {
         title: "Alexander Bays (956MB)",
-        description:
-            "Self-taught generalist... unfortunately.",
+        description: "Self-taught generalist... unfortunately.",
         url: "https://956mb.com",
         siteName: "Alexander Bays",
         images: [
@@ -52,8 +56,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         title: "Alexander Bays (956MB)",
-        description:
-            "Self-taught generalist... unfortunately.",
+        description: "Self-taught generalist... unfortunately.",
         card: "summary_large_image",
         images: "https://956mb.com/og.png",
     },
@@ -63,7 +66,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-    width: 'device-width',
+    width: "device-width",
     initialScale: 1,
     maximumScale: 5,
 };
@@ -80,13 +83,15 @@ export default function RootLayout({
                 <link rel="apple-touch-icon" href="/logo.png" />
                 <link rel="manifest" href="/manifest.json" />
             </head>
-            <body className={clsx("flex flex-col overflow-auto antialiased md:flex-row min-h-screen")}>
+            <body
+                className={clsx(
+                    "flex min-h-screen flex-col overflow-auto antialiased md:flex-row",
+                )}
+            >
                 <ThemeProvider>
-                    <main className="flex w-full min-w-0 flex-col items-center flex-1 flex-grow relative">
+                    <main className="relative flex w-full min-w-0 flex-1 flex-grow flex-col items-center">
                         <Header />
-                        <div className="flex flex-1 w-full">
-                            {children}
-                        </div>
+                        <div className="flex w-full flex-1">{children}</div>
                         <SpeedInsights />
                         <Analytics />
                         <Footer />

@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { allContents, Content } from "contentlayer/generated";
-import { replaceSlash, sortContent, toFormattedDate } from "lib/util";
+import { sortContent } from "lib/util";
 import React from "react";
 import BlogLink from "./BlogLink";
 import BlogRow from "./BlogRow";
@@ -63,7 +63,7 @@ export default function BlogContainer({
     selectedPost: Content;
 }) {
     return (
-        <div className="mx-auto flex max-h-full w-full max-w-screen-2xl flex-1 flex-row items-start justify-center">
+        <div className="mx-auto flex max-h-full w-full max-w-screen-xl flex-1 flex-row items-start justify-center">
             <div className="sticky top-0 hidden w-full max-w-[361px] shrink flex-col overflow-auto lg:flex">
                 {selectedPost.links && (
                     <div className="flex w-full shrink flex-col overflow-auto">

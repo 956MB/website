@@ -7,3 +7,7 @@
         src="public/956mb-dark.png">
   </picture>
 </p>
+
+## License
+
+[MIT LICENSE](./LICENSE)

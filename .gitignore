@@ -20,7 +20,8 @@
 # misc
 .DS_Store
 *.pem
-.vscode
+video.d.ts
+content/
 
 # debug
 npm-debug.log*
@@ -46,11 +47,11 @@ TODO.md
 backup
 *.psd
 # next-video
+videos/
 videos/*
-!videos/*.json
-!videos/*.js
-!videos/*.ts
 public/_next-video
+public/svg/
+public/videos/
 components/ThemeTooltip.tsx
 # next-video
 videos/*

@@ -5,7 +5,8 @@
         "build": "bun run next build",
         "build:dev": "bun run next build && bun run next dev",
         "start": "bun run next start",
-        "format": "bun run prettier --write \"./components\" \"./app\" \"./lib\""
+        "lint": "bun run eslint --config .config/.eslintrc.js --ignore-path .config/.prettierignore --fix \"./components\" \"./app\" \"./lib\"",
+        "format": "bun run prettier --config .config/.prettierrc --ignore-path .config/.prettierignore --write \"./components\" \"./app\" \"./lib\""
     },
     "dependencies": {
         "@geist-ui/core": "^2.3.8",

@@ -1,29 +1,24 @@
-import {
-    entry,
-    group,
-    IEntryGroups,
-    item
-} from "./interfaces";
+import { entry, group, IEntryGroups, item } from "./interfaces";
 
 // NOTE: icons
 
 const icons = [
     entry(
-        "icon_black",
+        "black-icons",
         "B/W Icons",
         "4.11.2025",
         "icon",
         [item("/images/extras/icons/black-icons.gif", 1024, 1024)],
         {
             summary: [
-                'Some of the icons I\'ve modified to make the perfect black & white dock in macOS (I am not the orignal designer of these).',
+                "Some of the icons I've modified to make the perfect black & white dock in macOS (I am not the orignal designer of these).",
             ],
             link: "https://drive.google.com/drive/folders/1hv3KFVwsjgfq_JdMjK1oM-HKkcbZ8kcf?usp=sharing",
-            credit: 'Various',
+            credit: "Various",
         },
     ),
     entry(
-        "icon_yapper",
+        "yapper-icon",
         "Yapper Icon",
         "1.19.2025",
         "icon",
@@ -37,7 +32,7 @@ const icons = [
         },
     ),
     entry(
-        "icon_sketch",
+        "sketch-dark-glow",
         "Sketch Dark Glow",
         "12.10.2024",
         "icon",
@@ -51,7 +46,7 @@ const icons = [
         },
     ),
     entry(
-        "icon_flipper",
+        "flipper-icon-recolor",
         "Flipper Icon Recolor",
         "12.4.2024",
         "icon",
@@ -65,34 +60,34 @@ const icons = [
         },
     ),
     entry(
-        "icon_claude",
+        "claude-icons",
         "Claude",
         "5.15.2024",
         "icon",
         [item("/images/extras/icons/claude-1.gif", 1024, 1024)],
         {
             summary: [
-                "<a href=\"https://www.anthropic.com/claude\">Anthropic's Claude</a> app icon in black, white and #E77350. I did NOT create the logo, only creating replacement options for the iOS app icon.",
+                '<a href="https://www.anthropic.com/claude">Anthropic\'s Claude</a> app icon in black, white and #E77350. I did NOT create the logo, only creating replacement options for the iOS app icon.',
             ],
             link: "https://macosicons.com/#/?icon=mbaJDK7YBC",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072">@setanarut</a>',
         },
     ),
     entry(
-        "icon_photoshop",
+        "adobe-rosetta-icons",
         "Adobe Rosetta Icons",
         "1.1.2024",
         "icon",
         [item("/images/extras/icons/adobe-ps-1.png", 1024, 1024)],
         {
             summary: [
-                "Variant Rosetta style icons for various Adobe applications (<a>Photoshop</a>, <a>Illustrator</a>, <a>Bridge</a>, <a>InDesign</a>, <a \">Audition</a>). Made by me.",
+                'Variant Rosetta style icons for various Adobe applications (<a>Photoshop</a>, <a>Illustrator</a>, <a>Bridge</a>, <a>InDesign</a>, <a ">Audition</a>). Made by me.',
             ],
             link: "https://store.956mb.com/l/adobe-rosetta-icons",
         },
     ),
     entry(
-        "icon_tdb",
+        "tdb-icon",
         "TDB",
         "09.03.2023",
         "icon",
@@ -104,7 +99,7 @@ const icons = [
         },
     ),
     entry(
-        "icon_2048we",
+        "2048we-icon",
         "2048WE",
         "06.22.2023",
         "icon",
@@ -121,7 +116,7 @@ const icons = [
 // NOTE: wallpapers
 const wallpapers = [
     entry(
-        "model_3_performance_trace",
+        "model-3-performance-trace",
         "Model 3 Performance (Trace Contour)",
         "04.25.2024",
         "wallpaper",
@@ -141,7 +136,7 @@ const wallpapers = [
         },
     ),
     entry(
-        "extra_hongdae_variants",
+        "hongdae-variants",
         "Apple Store 홍대 Variants",
         "1.15.2024",
         "wallpaper",
@@ -161,7 +156,7 @@ const wallpapers = [
         },
     ),
     entry(
-        "extra_graffiti_variants",
+        "graffiti-variants",
         "Graffiti Variants",
         "12.29.2023",
         "wallpaper",
@@ -181,7 +176,7 @@ const wallpapers = [
         },
     ),
     entry(
-        "extra_d",
+        "d-o",
         '"D" / "O"',
         "12.29.2023",
         "wallpaper",
@@ -194,7 +189,7 @@ const wallpapers = [
         },
     ),
     entry(
-        "extra_pLan",
+        "plan",
         "pLan",
         "12.29.2023",
         "wallpaper",
@@ -207,7 +202,7 @@ const wallpapers = [
         },
     ),
     entry(
-        "extra_ghibli_colors",
+        "ghibli-colors",
         "スタジオジブリ作品: Colors",
         "09.12.2023",
         "wallpaper",
@@ -227,7 +222,7 @@ const wallpapers = [
         },
     ),
     entry(
-        "extra_hassan_massoudy",
+        "hassan-massoudy-bw",
         "Hassan Massoudy",
         "09.07.2023",
         "wallpaper",
@@ -241,7 +236,7 @@ const wallpapers = [
         },
     ),
     entry(
-        "extra_cybertruck",
+        "cybertruck-manipulation",
         "Cybertruck Redesign",
         "09.04.2023",
         "wallpaper",

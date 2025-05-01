@@ -17,7 +17,7 @@ export function ThemeToggle() {
             <div
                 className={clsx(
                     "flex items-center justify-center",
-                    "w-[29px] h-[29px]"
+                    "h-[29px] w-[29px]",
                 )}
             />
         );
@@ -27,8 +27,8 @@ export function ThemeToggle() {
         <button
             onClick={toggleTheme}
             className={clsx(
-                "flex items-center justify-center transition-colors fill-neutral-200 hover:fill-neutral-100 dark:text-neutral-200 dark:hover:text-neutral-200 border border-neutral-200 dark:border-neutral-800",
-                "w-[29px] h-[29px] rounded-md"
+                "flex items-center justify-center border border-neutral-200 fill-neutral-200 transition-colors hover:fill-neutral-100 dark:border-neutral-800 dark:text-neutral-200 dark:hover:text-neutral-200",
+                "h-[29px] w-[29px] rounded-md",
             )}
             aria-label="Toggle Theme"
         >
@@ -37,7 +37,7 @@ export function ThemeToggle() {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="white"
-                    className="w-[18px] h-[18px]"
+                    className="h-[18px] w-[18px]"
                 >
                     <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
                 </svg>
@@ -50,7 +50,7 @@ export function ThemeToggle() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="w-[18px] h-[18px]"
+                    className="h-[18px] w-[18px]"
                 >
                     <circle cx="12" cy="12" r="4"></circle>
                     <path d="M12 2v2"></path>
@@ -65,4 +65,4 @@ export function ThemeToggle() {
             )}
         </button>
     );
-} 
+}
