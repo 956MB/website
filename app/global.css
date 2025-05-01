@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Get these fons: */
-/* Crimson Pro */
-/* Inter */
-
 :root {
     color-scheme: dark;
     --background: #000000;
@@ -108,26 +104,6 @@ hr {
     .desktop-no-horizontal-scroll {
         overflow-x: hidden !important;
     }
-}
-
-@font-face {
-    font-family: "Crimson_Pro_Regular";
-    src: url("../public/fonts/Crimson_Pro/CrimsonPro-Regular.ttf");
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: "Crimson_Pro_Medium";
-    src: url("../public/fonts/Crimson_Pro/CrimsonPro-Medium.ttf");
-    font-weight: 400;
-}
-
-.font-crimson-pro-regular {
-    font-family: "Crimson_Pro_Regular";
-}
-
-.font-crimson-pro-medium {
-    font-family: "Crimson_Pro_Medium";
 }
 
 .highlight {
