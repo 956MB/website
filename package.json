@@ -4,7 +4,7 @@
         "dev": "bun run next dev & bunx next-video sync -w",
         "build": "bun run next build",
         "build:dev": "bun run next build && bun run next dev",
-        "clean:build": "rm -rf .next && bun run lint && bun run format && bun run build",
+        "clean:build": "rm -rf node_modules && rm -rf .next && bun install && bun run lint && bun run format && bun run build",
         "start": "bun run next start",
         "lint": "bun run eslint --ignore-path .eslintignore --fix \"./components\" \"./app\" \"./lib\"",
         "format": "bun run prettier --write \"./components\" \"./app\" \"./lib\""
@@ -53,7 +53,7 @@
         "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
         "@tailwindcss/line-clamp": "^0.4.4",
         "@tailwindcss/typography": "^0.5.9",
-        "@types/bun": "latest",
+        "@types/bun": "^1.0.10",
         "@types/node": "18.11.18",
         "@types/react": "18.0.27",
         "@types/react-dom": "18.0.10",
@@ -67,7 +67,10 @@
         "prettier": "^3.2.5",
         "prettier-plugin-tailwindcss": "^0.5.11",
         "tailwindcss": "^3.2.4",
-        "typescript": "4.9.4"
+        "typescript": "^5.4.0"
+    },
+    "resolutions": {
+        "@types/bun": "^1.0.10"
     },
     "name": "956mb.com"
 }

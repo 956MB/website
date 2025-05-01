@@ -41,6 +41,18 @@
             "detail": "Build and run dev server (bun run build && bun run dev)"
         },
         {
+            "label": "Clean Build",
+            "type": "shell",
+            "command": "bun run clean:build",
+            "problemMatcher": [],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "detail": "Clean build (rm -rf node_modules && rm -rf .next && bun install && bun run lint && bun run format && bun run build)"
+        },
+        {
             "label": "Start",
             "type": "shell",
             "command": "bun run start",
