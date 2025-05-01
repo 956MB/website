@@ -5,12 +5,10 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 export default function GroupHeader({
     entry,
-    noBorder,
     noDescription,
     titleLink,
 }: {
     entry: IEntryGroup;
-    noBorder?: boolean;
     noDescription?: boolean;
     titleLink?: string;
 }) {

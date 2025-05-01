@@ -29,7 +29,7 @@ function ImageGrid({ imageUrls }) {
     return (
         <div className="image-grid">
             {imageUrls.map((imageUrl, index) => (
-                <img key={index} src={imageUrl} alt={`Image ${index}`} />
+                <Image key={index} src={imageUrl} alt={`Image ${index}`} />
             ))}
         </div>
     );

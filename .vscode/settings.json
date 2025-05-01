@@ -1,6 +1,7 @@
 {
     "typescript.tsdk": "node_modules/.pnpm/typescript@4.9.4/node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
+    "eslint.lintTask.enable": true,
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,

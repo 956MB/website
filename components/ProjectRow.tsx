@@ -14,12 +14,10 @@ export function ProjectItem({
     index,
     itemsLength,
     entry,
-    section,
 }: {
     index: number;
     itemsLength: number;
     entry: IEntry;
-    section: string;
 }) {
     const [isExpanded, setIsExpanded] = useState(
         defaultExpandedIds.includes(entry.id),
@@ -206,7 +204,6 @@ export default function ProjectRow({
                     <GroupHeader
                         entry={entry}
                         noDescription={false}
-                        noBorder={true}
                         titleLink={entry.titleLink}
                     />
 
@@ -229,7 +226,6 @@ export default function ProjectRow({
                         index={i}
                         itemsLength={entry.items.length}
                         entry={item}
-                        section={entry.title}
                     />
                 ))}
             </motion.div>

@@ -3,15 +3,7 @@ import { socials } from "lib/info";
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
-function Social({
-    serv,
-    name,
-    url,
-}: {
-    serv: string;
-    name: string;
-    url: string;
-}) {
+function Social({ serv, url }: { serv: string; url: string }) {
     return (
         <a
             rel="noopener noreferrer"
@@ -40,8 +32,8 @@ export default function Socials({ className = "" }: { className?: string }) {
             )}
         >
             {React.Children.toArray(
-                socials.map(({ serv, name, url }) => (
-                    <Social serv={serv} name={name} url={url} />
+                socials.map(({ serv, url }) => (
+                    <Social serv={serv} url={url} />
                 )),
             )}
         </div>

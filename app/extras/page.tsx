@@ -1,6 +1,5 @@
 import ExtraRow from "components/ExtraRow";
 import { groups } from "lib/extras";
-import { extras_explained } from "lib/info";
 import type { Metadata } from "next";
 import React from "react";
 
@@ -15,7 +14,7 @@ export default function ExtraPage() {
         <section>
             <div className="flex w-full flex-col flex-wrap items-center justify-start gap-y-3 px-6 pb-6 sm:gap-y-10 sm:px-8 sm:pt-5">
                 {React.Children.toArray(
-                    groups.map((group, i) => <ExtraRow entry={group} />),
+                    groups.map((group) => <ExtraRow entry={group} />),
                 )}
             </div>
         </section>

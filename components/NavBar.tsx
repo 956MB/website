@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { VercelIcon } from "./Icons";
@@ -53,7 +54,7 @@ const Deco = ({ children, show }: { children: string; show: boolean }) => (
 );
 
 export default function Header() {
-    let pathname = usePathname() || "/";
+    const pathname = usePathname() || "/";
     const theme = useTheme();
 
     return (
@@ -71,7 +72,7 @@ export default function Header() {
                     <div className="inline-flex w-full flex-row items-center justify-between sm:justify-center sm:gap-x-7">
                         <div className="hidden h-full items-center justify-center sm:flex">
                             <Link href="/">
-                                <img
+                                <Image
                                     src={
                                         theme.theme === "dark"
                                             ? "/logo-small.png"
@@ -153,7 +154,7 @@ export default function Header() {
 }
 
 export function Footer() {
-    let pathname = usePathname() || "/";
+    const pathname = usePathname() || "/";
     const isHome = pathname === "/";
 
     return (

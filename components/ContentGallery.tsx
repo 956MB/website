@@ -4,7 +4,6 @@ import clsx from "clsx";
 import parse from "html-react-parser";
 import { IEntry } from "lib/interfaces";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { TouchEvent, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 
@@ -52,7 +51,6 @@ function calculateMaxWidth(cellCount: number): number {
 }
 
 export default function ContentGallery({ entry }: { entry: IEntry }) {
-    let pathname = usePathname() || "/";
     const { width } = useWindowSize();
     const cellCount = getCellCount(width);
     const maxGalleryWidth = calculateMaxWidth(cellCount);

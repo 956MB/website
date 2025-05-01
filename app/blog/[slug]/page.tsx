@@ -1,4 +1,4 @@
-import { allContents, Content } from "contentlayer/generated";
+import { allContents } from "contentlayer/generated";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";

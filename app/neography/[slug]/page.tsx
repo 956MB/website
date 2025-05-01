@@ -13,7 +13,7 @@ export async function generateMetadata({
         return;
     }
 
-    const { title, date, summary, id: slug } = neographyItem;
+    const { title, summary, id: slug } = neographyItem;
     const image =
         neographyItem.thumbnail?.path ||
         (neographyItem.items && neographyItem.items.length > 0

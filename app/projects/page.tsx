@@ -14,7 +14,7 @@ export default function ProjectsPage() {
             <div className="flex w-full flex-1 flex-col flex-wrap items-center justify-start gap-y-3 px-6 sm:px-8 lg:pb-3 lg:pt-6">
                 <div className="mx-auto flex w-full max-w-screen-lg flex-col gap-y-8">
                     {React.Children.toArray(
-                        projectGroups.map((group, i) => (
+                        projectGroups.map((group) => (
                             <ProjectRow entry={group} />
                         )),
                     )}

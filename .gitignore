@@ -20,8 +20,6 @@
 # misc
 .DS_Store
 *.pem
-video.d.ts
-content/
 
 # debug
 npm-debug.log*

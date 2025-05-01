@@ -13,7 +13,7 @@ export async function generateMetadata({
         return;
     }
 
-    const { title, date, summary, id: slug } = design;
+    const { title, summary, id: slug } = design;
     const image =
         design.thumbnail?.path ||
         (design.items && design.items.length > 0 ? design.items[0].path : null);

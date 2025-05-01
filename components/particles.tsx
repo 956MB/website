@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 interface ParticlesProps {
     className?: string;
@@ -9,6 +9,19 @@ interface ParticlesProps {
     ease?: number;
     refresh?: boolean;
 }
+
+type Circle = {
+    x: number;
+    y: number;
+    translateX: number;
+    translateY: number;
+    size: number;
+    alpha: number;
+    targetAlpha: number;
+    dx: number;
+    dy: number;
+    magnetism: number;
+};
 
 export default function Particles({
     className = "",
@@ -20,7 +33,7 @@ export default function Particles({
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const canvasContainerRef = useRef<HTMLDivElement>(null);
     const context = useRef<CanvasRenderingContext2D | null>(null);
-    const circles = useRef<any[]>([]);
+    const circles = useRef<Circle[]>([]);
     const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
     const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
@@ -36,28 +49,17 @@ export default function Particles({
         return () => {
             window.removeEventListener("resize", initCanvas);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         initCanvas();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refresh]);
 
     const initCanvas = () => {
         resizeCanvas();
         drawParticles();
-    };
-
-    type Circle = {
-        x: number;
-        y: number;
-        translateX: number;
-        translateY: number;
-        size: number;
-        alpha: number;
-        targetAlpha: number;
-        dx: number;
-        dy: number;
-        magnetism: number;
     };
 
     const resizeCanvas = () => {

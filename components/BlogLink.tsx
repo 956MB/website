@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { FiArrowUpRight } from "react-icons/fi";
 
-export default function BlogLink({ link, num }: { link: string; num: number }) {
+export default function BlogLink({ link }: { link: string }) {
     const [label, _link] = link.split("||");
 
     return (

@@ -31,7 +31,6 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                 <GroupHeader
                     entry={entry}
                     noDescription={false}
-                    noBorder={true}
                     titleLink={entry.titleLink}
                 />
 

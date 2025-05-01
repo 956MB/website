@@ -31,15 +31,10 @@ export default function AboutPage() {
                         <div className="flex flex-col items-center overflow-x-auto">
                             <Markdown
                                 className="text-right text-[11px] leading-4 text-black saturate-0 dark:invert"
-                                children={markdown}
                                 components={{
                                     code(props) {
-                                        const {
-                                            children,
-                                            className,
-                                            node,
-                                            ...rest
-                                        } = props;
+                                        const { children, className, ...rest } =
+                                            props;
                                         const match = /language-(\w+)/.exec(
                                             className || "",
                                         );
@@ -47,9 +42,6 @@ export default function AboutPage() {
                                             <SyntaxHighlighter
                                                 {...rest}
                                                 PreTag="div"
-                                                children={String(
-                                                    children,
-                                                ).replace(/\n$/, "")}
                                                 language={match[1]}
                                                 style={{
                                                     ...holiTheme,
@@ -89,18 +81,22 @@ export default function AboutPage() {
                                                             textShadow: "none",
                                                         },
                                                 }}
-                                            />
-                                        ) : (
-                                            <code
-                                                {...rest}
-                                                className={className}
                                             >
+                                                {String(children).replace(
+                                                    /\n$/,
+                                                    "",
+                                                )}
+                                            </SyntaxHighlighter>
+                                        ) : (
+                                            <code className={className}>
                                                 {children}
                                             </code>
                                         );
                                     },
                                 }}
-                            />
+                            >
+                                {markdown}
+                            </Markdown>
                         </div>
                     </div>
                 </div>

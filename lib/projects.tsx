@@ -177,7 +177,7 @@ const misc = [
         link: "https://github.com/956MB/aliaz",
         lang: "Zig",
         summary: [
-            `A \"manual rewrite\" of the <span class='highlight'>alias</span> command in the shell (<span class='highlight'>bash</span>/<span class='highlight'>zsh</span>/<span class='highlight'>fish</span>), and my first zig program. Uses color and descriptions for a better look, as well as adding a search function.`,
+            `A "manual rewrite" of the <span class='highlight'>alias</span> command in the shell (<span class='highlight'>bash</span>/<span class='highlight'>zsh</span>/<span class='highlight'>fish</span>), and my first zig program. Uses color and descriptions for a better look, as well as adding a search function.`,
         ],
     }),
     entry(

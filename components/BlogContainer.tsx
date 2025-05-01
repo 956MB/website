@@ -75,8 +75,8 @@ export default function BlogContainer({
 
                             <div className="inline-flex flex-col gap-y-[6px] py-4">
                                 {React.Children.toArray(
-                                    selectedPost.links?.map((link, i) => (
-                                        <BlogLink link={link} num={i + 1} />
+                                    selectedPost.links?.map((link) => (
+                                        <BlogLink link={link} />
                                     )),
                                 )}
                             </div>
@@ -127,11 +127,8 @@ export default function BlogContainer({
 
                                     <div className="mb-4 inline-flex flex-col gap-y-[16px] py-5">
                                         {React.Children.toArray(
-                                            post.links?.map((link, i) => (
-                                                <BlogLink
-                                                    link={link}
-                                                    num={i + 1}
-                                                />
+                                            post.links?.map((link) => (
+                                                <BlogLink link={link} />
                                             )),
                                         )}
                                     </div>

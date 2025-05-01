@@ -1,0 +1,16 @@
+# Build output
+.next/
+out/
+build/
+
+# Node modules
+node_modules/
+
+# Generated files
+.contentlayer/
+public/
+
+# Config files
+next.config.js
+postcss.config.js
+tailwind.config.js 

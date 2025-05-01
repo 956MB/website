@@ -17,7 +17,7 @@ export default function DesignRow({
     entry: IEntryGroup;
     noHeader?: boolean;
 }) {
-    let pathname = usePathname() || "/";
+    const pathname = usePathname() || "/";
 
     const containerVariants = {
         initial: {},
@@ -40,7 +40,6 @@ export default function DesignRow({
                     <GroupHeader
                         entry={entry}
                         noDescription={false}
-                        noBorder={true}
                         titleLink={entry.titleLink}
                     />
                 </div>

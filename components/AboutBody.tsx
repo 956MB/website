@@ -8,8 +8,6 @@ import {
     languages_p,
     tools_p,
 } from "lib/info";
-import Image from "next/image";
-import React from "react";
 import Socials from "./Socials";
 import { TextParagraph, TextParagraphSub } from "./Text";
 

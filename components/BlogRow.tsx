@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function BlogRow({ post }: { post: Content }) {
-    let pathname = usePathname() || "/";
-    let selected = pathname.includes(post.slug);
+    const pathname = usePathname() || "/";
+    const selected = pathname.includes(post.slug);
 
     return (
         <div
