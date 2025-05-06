@@ -451,15 +451,15 @@ const ui = [
 
 export const designGroups: IEntryGroups = [
     group(
-        "Logos & Icons",
-        "logo",
-        "A few logos/icons I've made for projects or personal use",
-        logos,
-    ),
-    group(
         "UI / UX",
         "concept",
         "Collection of UI prototypes and ideas for past / future projects",
         ui,
+    ),
+    group(
+        "Logos & Icons",
+        "logo",
+        "A few logos/icons I've made for projects or personal use",
+        logos,
     ),
 ];
