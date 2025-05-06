@@ -41,12 +41,12 @@ const Deco = ({ children, show }: { children: string; show: boolean }) => (
                     ? "mr-[6px]"
                     : "ml-[6px]"
                 : clsx(
-                      "hidden opacity-0 sm:block",
-                      "group-hover:opacity-50",
-                      children === "/"
-                          ? "mr-0 group-hover:mr-[6px]"
-                          : "ml-0 group-hover:ml-[6px]",
-                  ),
+                    "hidden opacity-0 sm:block",
+                    "group-hover:opacity-50",
+                    children === "/"
+                        ? "mr-0 group-hover:mr-[6px]"
+                        : "ml-0 group-hover:ml-[6px]",
+                ),
         )}
     >
         {children}
@@ -78,6 +78,8 @@ export default function Header() {
                                             ? "/logo-small.png"
                                             : "/logo.png"
                                     }
+                                    width={29}
+                                    height={29}
                                     alt="Home"
                                     className="mb-[2px] mr-1 h-[29px] translate-y-[1px] rounded-[5px] object-contain dark:mr-0 dark:h-[20px] dark:rounded-none sm:h-[29px] dark:sm:h-[20px]"
                                 />

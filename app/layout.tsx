@@ -91,7 +91,9 @@ export default function RootLayout({
                 <ThemeProvider>
                     <main className="relative flex w-full min-w-0 flex-1 flex-grow flex-col items-center">
                         <Header />
-                        <div className="flex w-full flex-1">{children}</div>
+                        <div className="flex w-full flex-1 justify-center">
+                            {children}
+                        </div>
                         <SpeedInsights />
                         <Analytics />
                         <Footer />
