@@ -8,6 +8,4 @@
   </picture>
 </p>
 
-## License
-
-[MIT LICENSE](./LICENSE)
+[MIT](./LICENSE) · [CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
