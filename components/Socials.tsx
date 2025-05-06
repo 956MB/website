@@ -1,9 +1,34 @@
 import clsx from "clsx";
 import { socials } from "lib/info";
 import React from "react";
-import { FiArrowUpRight } from "react-icons/fi";
+import { FaGithub, FaReddit, FaXTwitter } from "react-icons/fa6";
+import { SiLinktree } from "react-icons/si";
 
-function Social({ serv, url }: { serv: string; url: string }) {
+function socialIcon(iconType: string) {
+    switch (iconType) {
+        case "twitter":
+            return FaXTwitter({ size: 18 });
+        case "github":
+            return FaGithub({ size: 18 });
+        case "reddit":
+            return FaReddit({ size: 18 });
+        case "linktree":
+            return SiLinktree({ size: 18 });
+        default:
+            return null;
+    }
+}
+
+function Social({
+    serv,
+    url,
+    isHome,
+}: {
+    serv: string;
+    url: string;
+    isHome: boolean;
+}) {
+    // prettier-ignore
     return (
         <a
             rel="noopener noreferrer"
@@ -11,29 +36,51 @@ function Social({ serv, url }: { serv: string; url: string }) {
             href={url}
             className="group flex items-center justify-center whitespace-nowrap text-center no-underline"
         >
-            <span className="!group-hover:text-black !dark:group-hover:text-neutral-300 text-[14px] font-semibold capitalize leading-[14px] text-neutral-800 dark:text-white lg:text-[15px]">
-                {serv}
-            </span>
+            <div
+                className={clsx(
+                    "mr-1 flex h-6 w-6 items-center justify-center",
+                    (serv === "x" || serv === "linktree") && "mr-[2px]",
+                    !isHome && "sm:mr-0",
+                )}
+            >
+                <div
+                    className={clsx(
+                        "child:text-neutral-800 dark:child:text-neutral-400",
+                        !isHome &&
+                        "sm:child:hover:text-p0 dark:sm:child:hover:text-o0 transition-colors duration-150",
+                    )}
+                >
+                    {!serv ? null : socialIcon(serv)}
+                </div>
+            </div>
 
-            <FiArrowUpRight
-                size={18}
-                className="ml-[3px] text-neutral-400 transition-transform duration-100 group-hover:-translate-y-0.5 group-hover:text-[#9759AE] dark:text-neutral-500 dark:group-hover:text-[#FF8200]"
-            />
+            {isHome && (
+                <span className="text-[14px] font-medium capitalize leading-[14px] text-neutral-800 group-hover:text-p0 dark:text-white dark:group-hover:text-o0 transition-colors duration-150 lg:text-[15px]">
+                    {serv}
+                </span>
+            )}
         </a>
     );
 }
 
-export default function Socials({ className = "" }: { className?: string }) {
+export default function Socials({
+    className = "",
+    isHome = true,
+}: {
+    isHome?: boolean;
+    className?: string;
+}) {
     return (
         <div
             className={clsx(
-                "flex w-full flex-row flex-wrap items-center justify-start gap-6 gap-y-3 text-[13px] leading-[13px] transition-all duration-75 sm:gap-5",
+                "flex w-full flex-row items-center justify-start gap-y-3 text-[13px] leading-[13px] transition-all duration-75 sm:gap-5",
+                isHome && "flex-nowrap items-center justify-between gap-3",
                 className,
             )}
         >
             {React.Children.toArray(
                 socials.map(({ serv, url }) => (
-                    <Social serv={serv} url={url} />
+                    <Social serv={serv} url={url} isHome={isHome} />
                 )),
             )}
         </div>

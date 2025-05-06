@@ -4,7 +4,7 @@
 
 :root {
     color-scheme: dark;
-    --background: #000000;
+    background-color: #000000;
     --text-primary: #ffffff;
     --text-secondary: #c3c3c3;
     --accent: #9759ae;
@@ -14,7 +14,7 @@
 
 .light {
     color-scheme: light;
-    --background: #ffffff;
+    background-color: #ffffff;
     --text-primary: #171717;
     --text-secondary: #404040;
     --accent: #ff8200;
@@ -48,11 +48,11 @@ hr {
 }
 
 ::selection {
-    @apply bg-[#9759aea2] dark:bg-[#FF8200] text-black;
+    @apply bg-[#9759aea2] text-black dark:bg-[#FF8200];
 }
 
 ::-moz-selection {
-    @apply bg-[#9759AE] dark:bg-[#FF8200] text-black;
+    @apply bg-[#9759AE] text-black dark:bg-[#FF8200];
 }
 
 .noselect {
@@ -112,19 +112,19 @@ hr {
 }
 
 .large-highlight {
-    @apply font-bold not-italic hover:text-[#9759AE] dark:hover:text-[#FF8200];
+    @apply font-bold not-italic;
     color: var(--text-primary);
 }
 
 .name-highlight {
     @apply font-bold not-italic;
-    font-weight: 800 !important;
+    font-weight: 700 !important;
     color: var(--text-primary) !important;
-    font-size: 1.65rem !important;
+    font-size: 1.75rem !important;
 }
 
 .p-link {
-    @apply font-bold text-black underline hover:text-[#9759AE] dark:text-neutral-300 dark:hover:text-[#FF8200];
+    @apply font-bold not-italic text-black underline transition-colors duration-150 hover:text-p0 dark:text-white dark:hover:text-o0;
 }
 
 .cls-1 {
@@ -370,7 +370,7 @@ table {
 .entry-summary a:hover,
 .gallery-summary a:hover,
 .page-summary a:hover {
-    @apply text-[#9759AE] underline dark:text-[#FF8200];
+    @apply text-p0 underline dark:text-o0;
 }
 
 .warn-tooltip {

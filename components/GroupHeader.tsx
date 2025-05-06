@@ -24,17 +24,18 @@ export default function GroupHeader({
                             className="p-link group inline-flex items-center"
                         >
                             {entry.title}
-                            <FiArrowUpRight
-                                size={18}
-                                className="ml-1 text-neutral-500 group-hover:text-black dark:group-hover:text-white"
-                            />
+                            {FiArrowUpRight({
+                                size: 18,
+                                className:
+                                    "ml-1 text-neutral-500 group-hover:text-black dark:group-hover:text-white",
+                            })}
                         </a>
                     ) : (
                         entry.title
                     )}
                 </span>
                 {!noDescription && (
-                    <span className="text-sm font-medium italic leading-4 text-neutral-800 dark:text-neutral-300">
+                    <span className="text-sm font-medium italic leading-4 text-neutral-800 dark:text-neutral-350">
                         {entry.description}
                     </span>
                 )}

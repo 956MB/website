@@ -112,10 +112,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 <div className="flex w-full flex-row items-center justify-start gap-1">
                                                     <a
                                                         className={clsx(
-                                                            "m-0 overflow-hidden text-ellipsis whitespace-nowrap font-bold text-black hover:text-[#9759AE] dark:text-white dark:hover:text-[#FF8200]",
+                                                            "m-0 overflow-hidden text-ellipsis whitespace-nowrap font-bold text-black hover:text-p0 dark:text-white dark:hover:text-o0",
                                                             "block max-w-full",
                                                             item.link &&
-                                                                "hover:text-[#9759AE] hover:underline dark:hover:text-[#FF8200]",
+                                                                "hover:text-p0 hover:underline dark:hover:text-o0",
                                                             item.category ===
                                                                 "wallpaper"
                                                                 ? "text-base sm:text-lg"
@@ -141,17 +141,20 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                             warn={true}
                                                         >
                                                             <a className="rounded-full bg-[#9759AE]/20 p-[2px] transition-all duration-300 ease-out hover:bg-[#9759AE]/40 dark:bg-[#FF8200]/20 dark:hover:bg-[#FF8200]/40">
-                                                                <PiWarningCircleBold
-                                                                    size={16}
-                                                                    className="min-h-[16px] min-w-[16px] text-[#9759AE] transition-all duration-300 ease-out dark:text-[#FF8200]"
-                                                                />
+                                                                {PiWarningCircleBold(
+                                                                    {
+                                                                        size: 16,
+                                                                        className:
+                                                                            "min-h-[16px] min-w-[16px] text-p0 transition-all duration-300 ease-out dark:text-o0",
+                                                                    },
+                                                                )}
                                                             </a>
                                                         </Tooltip>
                                                     )}
                                                 </div>
 
                                                 {item.summary && (
-                                                    <span className="entry-summary w-full text-sm font-medium text-neutral-800 dark:text-neutral-300">
+                                                    <span className="entry-summary w-full text-sm font-medium text-neutral-800 dark:text-neutral-350">
                                                         {parse(
                                                             item.summary.join(
                                                                 "",

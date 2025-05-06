@@ -41,7 +41,7 @@ export default function Tooltip({ content, position, warn = false, children }) {
                     position === "bottom2" ? "top-10" : "",
                     position === "right" ? "left-7" : "",
                     warn
-                        ? "warn-tooltip overflow-hidden pr-2 text-left text-[#9759AE] dark:text-[#FF8200]"
+                        ? "warn-tooltip overflow-hidden pr-2 text-left text-p0 dark:text-o0"
                         : "absolute bg-neutral-800/90 px-2 text-center capitalize text-white",
                     isTooltipVisible && !isMobile
                         ? "max-w-[250px] opacity-100"

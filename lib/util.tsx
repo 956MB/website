@@ -60,7 +60,6 @@ export function getLangColor(
     };
 
     const color = langColors[lang || "none"] || langColors["none"];
-    // Return with bg- prefix and bracket notation for hex colors
     if (color.startsWith("#")) {
         return `${prefix}bg-[${color}]`;
     }
@@ -82,7 +81,6 @@ export function sortContent(blogs: Content[]): Content[] {
     });
 }
 
-// This function will be reused across different content types
 export function findEntryById(
     id: string,
     groups: IEntryGroup[],
@@ -98,30 +96,27 @@ export function CategoryIcon({
     large: boolean;
     category: string | undefined;
 }) {
+    // prettier-ignore
     return (
         <div className="child:text-neutral-300">
             {!category
                 ? null
                 : (() => {
-                      switch (category) {
-                          case "figma":
-                              return <PiFigmaLogo size={large ? 24 : 21} />;
-                          case "photoshop":
-                              return (
-                                  <SiAdobephotoshop size={large ? 21 : 18} />
-                              );
-                          case "illustrator":
-                              return (
-                                  <SiAdobeillustrator size={large ? 21 : 18} />
-                              );
-                          case "react":
-                              return <RiReactjsLine size={large ? 24 : 21} />;
-                          case "script":
-                              return <HiMiniLanguage size={large ? 24 : 21} />;
-                          default:
-                              return null;
-                      }
-                  })()}
+                    switch (category) {
+                        case "figma":
+                            return PiFigmaLogo({ size: large ? 24 : 21 });
+                        case "photoshop":
+                            return SiAdobephotoshop({ size: large ? 21 : 18 });
+                        case "illustrator":
+                            return SiAdobeillustrator({ size: large ? 21 : 18 });
+                        case "react":
+                            return RiReactjsLine({ size: large ? 24 : 21 });
+                        case "script":
+                            return HiMiniLanguage({ size: large ? 24 : 21 });
+                        default:
+                            return null;
+                    }
+                })()}
         </div>
     );
 }

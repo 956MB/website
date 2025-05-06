@@ -73,7 +73,7 @@ export function ProjectItem({
                 {entry.date && (
                     <span
                         className={clsx(
-                            "noselect mr-3 text-sm font-medium leading-4 text-neutral-700 dark:font-medium dark:text-neutral-300 lg:mt-[6px] lg:w-10 lg:flex-shrink-0",
+                            "noselect mr-3 text-sm font-medium leading-4 text-neutral-700 dark:font-medium dark:text-neutral-350 lg:mt-[6px] lg:w-10 lg:flex-shrink-0",
                             entry.nested &&
                                 "lg:text-transparent dark:lg:text-transparent",
                         )}
@@ -106,9 +106,9 @@ export function ProjectItem({
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "pl-3 text-[15px] font-semibold leading-4 text-black transition-all duration-150 hover:font-bold hover:text-[#9759AE] group-hover:underline dark:text-white dark:hover:text-[#FF8200] lg:mt-[6px] lg:max-w-[256px] lg:pl-4",
+                            "pl-3 text-[15px] font-semibold leading-4 text-black transition-all duration-150 hover:font-bold hover:text-p0 group-hover:underline dark:text-white dark:hover:text-o0 lg:mt-[6px] lg:max-w-[256px] lg:pl-4",
                             entry.link
-                                ? "hover:text-[#9759AE] hover:underline dark:hover:text-[#FF8200]"
+                                ? "hover:text-p0 hover:underline dark:hover:text-o0"
                                 : "no-underline",
                         )}
                     >
@@ -124,7 +124,7 @@ export function ProjectItem({
                 <span
                     ref={summaryRef}
                     className={clsx(
-                        "leading-0 flex-1 text-sm font-normal text-neutral-800 dark:text-neutral-300 sm:font-medium lg:mt-[3px] lg:pb-2 lg:pt-[1px] lg:text-[15px]",
+                        "leading-0 flex-1 text-sm font-normal text-neutral-800 dark:text-neutral-350 sm:font-medium lg:mt-[3px] lg:pb-2 lg:pt-[1px] lg:text-[15px]",
                         "min-w-0",
                         !isExpanded && "xl:truncate",
                     )}
@@ -133,16 +133,16 @@ export function ProjectItem({
                 </span>
                 {showChevron && (
                     <div
-                        className="hidden cursor-pointer rounded-full px-2 py-1 text-neutral-600 hover:text-[#9759AE] dark:text-neutral-300 dark:hover:text-[#FF8200] xl:block"
+                        className="hidden cursor-pointer rounded-full px-2 py-1 text-neutral-600 hover:text-p0 dark:text-neutral-350 dark:hover:text-o0 xl:block"
                         onClick={() => setIsExpanded(!isExpanded)}
                     >
-                        <FiChevronDown
-                            className={clsx(
+                        {FiChevronDown({
+                            className: clsx(
                                 "mt-[5px] flex flex-shrink-0 transition-transform duration-200",
                                 isExpanded ? "rotate-180" : "rotate-0",
-                            )}
-                            size={17}
-                        />
+                            ),
+                            size: 17,
+                        })}
                     </div>
                 )}
             </div>

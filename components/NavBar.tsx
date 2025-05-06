@@ -19,20 +19,28 @@ const navItems: {
     "/extras": { name: "extras" },
 };
 
-const COPYRIGHT = (
-    <span className="whitespace-nowrap text-[15px] font-medium text-neutral-800 dark:text-neutral-300">
-        <a
-            href="/LICENSE.md"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-black dark:hover:text-neutral-100"
-        >
-            Alexander Bays © 2025
-        </a>
-    </span>
-);
+const COPYRIGHT = () => {
+    const pathname = usePathname() || "/";
+    const isHome = pathname === "/";
 
-const Deco = ({ children, show }: { children: string; show: boolean }) => (
+    return (
+        <span className="text-wrap text-[14px] font-medium text-neutral-800 dark:text-neutral-400">
+            <a
+                href="/CC-BY-NC-SA-4.0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-black hover:underline dark:hover:text-neutral-100"
+            >
+                {`CC-BY-NC-SA-4.0`}
+                {!isHome ? <br className="block sm:hidden" /> : <span> </span>}
+                {`2025 © Alexander Bays`}
+            </a>
+        </span>
+    );
+};
+
+const Deco = ({ children, show }: { children: string; show: boolean }) =>
+    // prettier-ignore
     <span
         className={clsx(
             "mb-[2px] text-[14px] font-medium leading-[14px] text-neutral-400 no-underline transition-all duration-150",
@@ -50,8 +58,7 @@ const Deco = ({ children, show }: { children: string; show: boolean }) => (
         )}
     >
         {children}
-    </span>
-);
+    </span>;
 
 export default function Header() {
     const pathname = usePathname() || "/";
@@ -65,7 +72,7 @@ export default function Header() {
         >
             <div
                 className={clsx(
-                    "mx-6 flex w-full max-w-screen-xl flex-1 flex-row items-center sm:mx-8",
+                    "mx-6 flex w-full flex-1 flex-row items-center sm:mx-8",
                 )}
             >
                 <div className="no-scrollbar relative z-[55] flex w-full items-start justify-start overflow-x-scroll py-4">
@@ -106,7 +113,7 @@ export default function Header() {
                                                 <Link
                                                     href={path}
                                                     className={clsx(
-                                                        "whitespace-nowrap text-[14px] leading-[14px] no-underline hover:text-[#9759AE] dark:hover:text-[#FF8200] lg:text-[15px]",
+                                                        "whitespace-nowrap text-[14px] leading-[14px] no-underline transition-colors duration-150 hover:text-p0 dark:hover:text-o0 lg:text-[15px]",
                                                         {
                                                             "text-neutral-700 dark:text-neutral-400":
                                                                 !isActive,
@@ -141,7 +148,7 @@ export default function Header() {
                         <div className="ml-auto hidden flex-row items-center gap-x-8 sm:flex">
                             {pathname !== "/" && (
                                 <div className="hidden flex-1 xl:flex">
-                                    <Socials />
+                                    <Socials isHome={true} />
                                 </div>
                             )}
                             <div className="hidden items-center md:flex">
@@ -165,18 +172,36 @@ export function Footer() {
                 "z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center lg:mt-8",
             )}
         >
-            <div className="mx-6 mt-auto flex min-h-[75px] w-full max-w-screen-xl flex-1 flex-row items-center justify-center gap-x-3 pb-6 pt-6 sm:mx-8 sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">
+            <div className="mx-6 mt-auto flex min-h-[75px] w-full flex-1 flex-row items-end justify-center gap-x-3 pb-6 pt-6 sm:mx-8 sm:items-center sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">
                 {!isHome ? (
                     <>
                         <div className="flex flex-1 xl:hidden">
                             <Socials />
                         </div>
                         <div className="flex flex-col-reverse items-end justify-center gap-4 sm:flex-row">
-                            {COPYRIGHT}
+                            <COPYRIGHT />
                             <div className="flex items-center gap-3">
+                                <a
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                    href="https://vercel.com/"
+                                    className="flex items-center text-black transition-all duration-100 dark:text-white"
+                                >
+                                    <VercelIcon />
+                                </a>
                                 <div className="md:hidden">
                                     <ThemeToggle />
                                 </div>
+                            </div>
+                        </div>
+                    </>
+                ) : (
+                    <div className="flex flex-col items-center gap-4 sm:flex-row">
+                        <div className="flex items-center gap-3">
+                            <div className="md:hidden">
+                                <ThemeToggle />
+                            </div>
+                            <div className="flex items-center gap-3">
                                 <a
                                     rel="noopener noreferrer"
                                     target="_blank"
@@ -187,23 +212,7 @@ export function Footer() {
                                 </a>
                             </div>
                         </div>
-                    </>
-                ) : (
-                    <div className="flex flex-row items-center gap-4">
-                        {COPYRIGHT}
-                        <div className="flex items-center gap-3">
-                            <div className="md:hidden">
-                                <ThemeToggle />
-                            </div>
-                            <a
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://vercel.com/"
-                                className="flex items-center text-black transition-all duration-100 dark:text-white"
-                            >
-                                <VercelIcon />
-                            </a>
-                        </div>
+                        <COPYRIGHT />
                     </div>
                 )}
             </div>

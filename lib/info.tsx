@@ -10,7 +10,7 @@ export const email = {
 };
 export const socials = [
     {
-        serv: "x",
+        serv: "twitter",
         name: "${highlight('956MB')}",
         url: "https://x.com/956MB",
     },
@@ -23,11 +23,6 @@ export const socials = [
         serv: "reddit",
         name: "${highlight('bauera5')}",
         url: "https://www.reddit.com/user/bauera5",
-    },
-    {
-        serv: "ko-fi",
-        name: "${highlight('956MB')}",
-        url: "https://ko-fi.com/956mb",
     },
     {
         serv: "linktree",
@@ -49,14 +44,14 @@ const hl = function (text) {
 };
 
 export const about_n = `<span class='name-highlight'>${name}</span>`;
-export const about_p = `Self-taught* ${hl("programmer")}, ${hl("designer")} and <a class="p-link large-highlight" rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/user/bauera5/">r/neography</a> hobbyist from ${hl(" Dallas, TX")}.`;
-export const about_email = `<a class="p-link" rel="noopener noreferrer" target="_blank" href="mailto:bays@956mb.com">${hl("bays@956mb.com")}</a>`;
+export const about_p = `Self-taught* ${hl("programmer")}, ${hl("designer")} and <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/user/bauera5/">r/neography</a> hobbyist from ${hl(" Dallas, TX")}.`;
+export const about_email = `<a class="p-link" rel="noopener noreferrer" target="_blank" href="mailto:bays@956mb.com">bays@956mb.com</a>`;
 
 export const bio_p = `My self-taught skills journey started around 2010, initially focusing on graphic design and learning ${hl("Photoshop")}, doing mostly minor freelance work. In ${hl("2018")}, a computer engineer friend introduced me to programming, and it quickly became my passion. When I'm not working on the long list of projects, I'm slowly learning languages like ${hl("한국어")} or ${hl("Finnish")}, and I'm thinking up / drawing new "languages" on ${hl("Reddit")}.`;
 
-export const languages_p = `In addition to loving ${hl("Swift")} (and ${hl("SwiftUI")}) for Apple products, I've worked a lot with both ${hl("JavaScript")} / ${hl("TypeScript")} to make desktop apps and websites in & ${hl("React")} (this website), and I'm most recently exploring languages like ${hl("Lua")} and ${hl("C/C++")} for things like ${hl("Neovim")} plugins and ${hl("Flipper Zero")} / <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://github.com/Next-Flip/Momentum-Firmware">${hl("Momentum Firmware")}</a> development. And of course wrapping my head around ${hl("Rust")} remains a struggle.`;
+export const languages_p = `In addition to loving ${hl("Swift")} (and ${hl("SwiftUI")}) for Apple products, I've worked a lot with both ${hl("JavaScript")} / ${hl("TypeScript")} to make desktop apps and websites in & ${hl("React")} (this website), and I'm most recently exploring languages like ${hl("Lua")} and ${hl("C/C++")} for things like ${hl("Neovim")} plugins and ${hl("Flipper Zero")} / <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://github.com/Next-Flip/Momentum-Firmware">Momentum Firmware</a> development. And of course wrapping my head around ${hl("Rust")} remains a struggle.`;
 
-export const tools_p = `Every frontend / design project starts in & ${hl("Figma")}, ${hl("Photoshop")} or ${hl("Illustrator")}, and all code is written in either ${hl("Neovim")} (${hl("ghostty")}), ${hl("VSCode")} or ${hl("Xcode")} (depending on my interest at the moment or which is best for the job). I also get way too distracted with my <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://github.com/956MB/dotfiles">${hl("dotfiles")}</a>.`;
+export const tools_p = `Every frontend / design project starts in & ${hl("Figma")}, ${hl("Photoshop")} or ${hl("Illustrator")}, and all code is written in either ${hl("Neovim")} (${hl("ghostty")}), ${hl("VSCode")} or ${hl("Xcode")} (depending on my interest at the moment or which is best for the job). I also get way too distracted with my <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://github.com/956MB/dotfiles">dotfiles</a>.`;
 
 export const neography_t = "Scripts & Conlangs (eventually)";
 

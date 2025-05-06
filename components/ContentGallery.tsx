@@ -138,8 +138,15 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
                         </div>
 
                         {entry.summary && entry.summary.length > 0 && (
-                            <div className="w-full max-w-lg pb-2 pt-2 sm:pb-0 xl:max-w-xl">
-                                <span className="gallery-summary block text-center text-[13px] font-medium italic leading-[1.56em] tracking-wide text-neutral-800 dark:text-neutral-300 sm:text-left sm:text-[14px]">
+                            <div
+                                className={clsx(
+                                    "w-full max-w-lg pb-2 pt-2 sm:pb-0 xl:max-w-xl",
+                                    entry.items?.length &&
+                                        entry.items?.length <= 1 &&
+                                        "xl:max-w-2xl",
+                                )}
+                            >
+                                <span className="gallery-summary block text-center text-[13px] font-medium italic leading-[1.56em] tracking-wide text-neutral-800 dark:text-neutral-350 sm:text-left sm:text-[14px]">
                                     {parse(entry.summary.join(""))}
                                 </span>
                             </div>

@@ -21,7 +21,7 @@ export default function NeographyPage() {
                             {neography_t}
                         </span>
 
-                        <span className="page-summary max-w-5xl text-start text-sm font-medium leading-[1.56em] text-neutral-800 dark:text-neutral-300 sm:text-center">
+                        <span className="page-summary max-w-5xl text-start text-sm font-medium leading-[1.56em] text-neutral-800 dark:text-neutral-350 sm:text-center">
                             {parse(neography_d)}
                         </span>
                     </div>

@@ -19,7 +19,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
             | "dark"
             | "light"
             | null;
-        setTheme(storedTheme || "light");
+        setTheme(storedTheme || "dark");
     }, []);
 
     useEffect(() => {
@@ -43,7 +43,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
     };
     const contextValue = {
-        theme: theme || "light",
+        theme: theme || "dark",
         toggleTheme,
     };
 

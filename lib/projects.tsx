@@ -16,13 +16,13 @@ const flipper = [
             link: "https://github.com/Next-Flip/Momentum-Firmware/pulls?q=is%3Apr+author%3A956MB+",
             lang: "C",
             summary: [
-                `My contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum-Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. As well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. Thanks ${li("https://github.com/Willy-JL", "@Willy-JL")}.`,
+                `My contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum-Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. As well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. Thanks ${li("https://github.com/WillyJL", "WillyJL")}.`,
             ],
         },
     ),
     entry(
-        "p-feat-popup-verlay",
-        "feat/popup-verlay",
+        "p-feat-popup-overlay",
+        "feat/popup-overlay",
         "fork/+",
         "Projects",
         [],

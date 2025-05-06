@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import clsx from "clsx";
 import Header, { Footer } from "components/NavBar";
+import Particles from "components/particles";
 import { ThemeProvider } from "components/ThemeProvider";
 import type { Metadata, Viewport } from "next";
 import "./global.css";
@@ -97,6 +98,10 @@ export default function RootLayout({
                         <SpeedInsights />
                         <Analytics />
                         <Footer />
+                        <Particles
+                            className="absolute inset-0 -z-10 hidden animate-fade-in invert dark:invert-0 sm:block"
+                            quantity={96}
+                        />
                     </main>
                 </ThemeProvider>
             </body>
