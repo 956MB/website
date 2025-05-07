@@ -19,15 +19,7 @@ function socialIcon(iconType: string) {
     }
 }
 
-function Social({
-    serv,
-    url,
-    isHome,
-}: {
-    serv: string;
-    url: string;
-    isHome: boolean;
-}) {
+function Social({ serv, url }: { serv: string; url: string }) {
     // prettier-ignore
     return (
         <a
@@ -40,25 +32,20 @@ function Social({
                 className={clsx(
                     "mr-1 flex h-6 w-6 items-center justify-center",
                     (serv === "x" || serv === "linktree") && "mr-[2px]",
-                    !isHome && "sm:mr-0",
                 )}
             >
                 <div
                     className={clsx(
                         "child:text-neutral-800 dark:child:text-neutral-400",
-                        !isHome &&
-                        "sm:child:hover:text-p0 dark:sm:child:hover:text-o0 transition-colors duration-150",
                     )}
                 >
                     {!serv ? null : socialIcon(serv)}
                 </div>
             </div>
 
-            {isHome && (
-                <span className="text-[14px] font-medium capitalize leading-[14px] text-neutral-800 group-hover:text-p0 dark:text-white dark:group-hover:text-o0 transition-colors duration-150 lg:text-[15px]">
-                    {serv}
-                </span>
-            )}
+            <span className="text-[14px] font-medium capitalize leading-[14px] text-neutral-600 group-hover:text-p0 dark:text-white dark:group-hover:text-o0 transition-colors duration-150 lg:text-[15px]">
+                {serv}
+            </span>
         </a>
     );
 }
@@ -74,13 +61,15 @@ export default function Socials({
         <div
             className={clsx(
                 "flex w-full flex-row items-center justify-start gap-y-3 text-[13px] leading-[13px] transition-all duration-75 sm:gap-5",
-                isHome && "flex-nowrap items-center justify-between gap-3",
+                isHome
+                    ? "flex-nowrap items-center justify-between gap-3"
+                    : "flex-wrap items-center justify-start gap-3",
                 className,
             )}
         >
             {React.Children.toArray(
                 socials.map(({ serv, url }) => (
-                    <Social serv={serv} url={url} isHome={isHome} />
+                    <Social serv={serv} url={url} />
                 )),
             )}
         </div>

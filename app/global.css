@@ -5,6 +5,7 @@
 :root {
     color-scheme: dark;
     background-color: #000000;
+    --bg: #000000;
     --text-primary: #ffffff;
     --text-secondary: #c3c3c3;
     --accent: #9759ae;
@@ -15,11 +16,12 @@
 .light {
     color-scheme: light;
     background-color: #ffffff;
+    --bg: #ffffff;
     --text-primary: #171717;
     --text-secondary: #404040;
     --accent: #ff8200;
     --border: #e5e5e5;
-    --card-bg: #f5f5f5;
+    --card-bg: #e5e5e5;
 }
 
 html,
@@ -41,6 +43,25 @@ hr {
     border: 0 none;
     margin: 30px 0 30px 0;
     background-color: var(--border);
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--card-bg);
+    border-radius: 5px;
+}
+
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--card-bg) var(--bg);
 }
 
 .prose :where(hr):not(:where([class~="not-prose"] *)) {

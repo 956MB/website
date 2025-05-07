@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ExtraPage() {
     return (
         <section>
-            <div className="flex w-full flex-col flex-wrap items-center justify-start gap-y-3 px-6 pb-6 sm:gap-y-10 sm:px-8 sm:pt-5">
+            <div className="flex w-full flex-col flex-wrap items-center justify-start gap-y-3 px-6 pb-6 sm:gap-y-10 sm:px-7 sm:pt-5">
                 {React.Children.toArray(
                     groups.map((group) => <ExtraRow entry={group} />),
                 )}

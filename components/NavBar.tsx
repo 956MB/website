@@ -24,7 +24,7 @@ const COPYRIGHT = () => {
     const isHome = pathname === "/";
 
     return (
-        <span className="text-wrap text-[14px] font-medium text-neutral-800 dark:text-neutral-400">
+        <span className="text-wrap text-[14px] font-medium text-neutral-600 dark:text-neutral-400">
             <a
                 href="/CC-BY-NC-SA-4.0"
                 target="_blank"
@@ -72,7 +72,7 @@ export default function Header() {
         >
             <div
                 className={clsx(
-                    "mx-6 flex w-full flex-1 flex-row items-center sm:mx-8",
+                    "mx-6 flex w-full flex-1 flex-row items-center sm:mx-6",
                 )}
             >
                 <div className="no-scrollbar relative z-[55] flex w-full items-start justify-start overflow-x-scroll py-4">
@@ -115,7 +115,7 @@ export default function Header() {
                                                     className={clsx(
                                                         "whitespace-nowrap text-[14px] leading-[14px] no-underline transition-colors duration-150 hover:text-p0 dark:hover:text-o0 lg:text-[15px]",
                                                         {
-                                                            "text-neutral-700 dark:text-neutral-400":
+                                                            "text-neutral-600 dark:text-neutral-400":
                                                                 !isActive,
                                                         },
                                                     )}
@@ -176,7 +176,7 @@ export function Footer() {
                 {!isHome ? (
                     <>
                         <div className="flex flex-1 xl:hidden">
-                            <Socials />
+                            <Socials isHome={false} />
                         </div>
                         <div className="flex flex-col-reverse items-end justify-center gap-4 sm:flex-row">
                             <COPYRIGHT />

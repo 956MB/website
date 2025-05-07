@@ -75,7 +75,7 @@ export function ProjectItem({
                         className={clsx(
                             "noselect mr-3 text-sm font-medium leading-4 text-neutral-700 dark:font-medium dark:text-neutral-350 lg:mt-[6px] lg:w-10 lg:flex-shrink-0",
                             entry.nested &&
-                                "lg:text-transparent dark:lg:text-transparent",
+                            "lg:text-transparent dark:lg:text-transparent",
                         )}
                     >
                         {entry.date}
@@ -91,11 +91,11 @@ export function ProjectItem({
                         className={clsx(
                             "h-[10px] w-[10px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
                             index === 0 &&
-                                "lg:rounded-tl-full lg:rounded-tr-full",
+                            "lg:rounded-tl-full lg:rounded-tr-full",
                             index === itemsLength - 1 &&
-                                "lg:rounded-bl-full lg:rounded-br-full",
+                            "lg:rounded-bl-full lg:rounded-br-full",
                             getLangColor(entry.lang) ||
-                                "bg-neutral-200 dark:bg-neutral-800",
+                            "bg-neutral-200 dark:bg-neutral-800",
                             getLangColor(entry.lang, "group-hover:"),
                         )}
                     />
@@ -106,7 +106,7 @@ export function ProjectItem({
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "pl-3 text-[15px] font-semibold leading-4 text-black transition-all duration-150 hover:font-bold hover:text-p0 group-hover:underline dark:text-white dark:hover:text-o0 lg:mt-[6px] lg:max-w-[256px] lg:pl-4",
+                            "pl-3 text-[15px] font-semibold leading-4 text-black transition-all duration-150 hover:text-p0 group-hover:underline dark:text-white dark:hover:text-o0 lg:mt-[6px] lg:max-w-[256px] lg:pl-4",
                             entry.link
                                 ? "hover:text-p0 hover:underline dark:hover:text-o0"
                                 : "no-underline",
@@ -124,7 +124,7 @@ export function ProjectItem({
                 <span
                     ref={summaryRef}
                     className={clsx(
-                        "leading-0 flex-1 text-sm font-normal text-neutral-800 dark:text-neutral-350 sm:font-medium lg:mt-[3px] lg:pb-2 lg:pt-[1px] lg:text-[15px]",
+                        "leading-0 flex-1 text-sm font-normal text-neutral-600 dark:text-neutral-350 sm:font-medium lg:mt-[3px] lg:pb-2 lg:pt-[1px] lg:text-[15px]",
                         "min-w-0",
                         !isExpanded && "xl:truncate",
                     )}

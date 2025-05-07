@@ -3,7 +3,6 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { IEntryGroup } from "lib/interfaces";
-import { CategoryIcon } from "lib/util";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -84,8 +83,8 @@ export default function DesignRow({
                                             ? item.linkBlog
                                             : item.items &&
                                                 item.items.length > 0
-                                              ? `${pathname}/${item.id}`
-                                              : "#"
+                                                ? `${pathname}/${item.id}`
+                                                : "#"
                                     }
                                 >
                                     <Image
@@ -93,28 +92,28 @@ export default function DesignRow({
                                         className={clsx(
                                             "block aspect-square h-full w-full object-cover transition-transform duration-75 ease-in-out hover:scale-105",
                                             (item.items || item.linkBlog) &&
-                                                "cursor-pointer",
+                                            "cursor-pointer",
                                         )}
                                         src={
                                             item.thumbnail
                                                 ? item.thumbnail.path
                                                 : item.items
-                                                  ? item.items[0].path
-                                                  : ""
+                                                    ? item.items[0].path
+                                                    : ""
                                         }
                                         width={
                                             item.thumbnail
                                                 ? item.thumbnail.width
                                                 : item.items
-                                                  ? item.items[0].width
-                                                  : 0
+                                                    ? item.items[0].width
+                                                    : 0
                                         }
                                         height={
                                             item.thumbnail
                                                 ? item.thumbnail.height
                                                 : item.items
-                                                  ? item.items[0].height
-                                                  : 0
+                                                    ? item.items[0].height
+                                                    : 0
                                         }
                                         loading="eager"
                                         unoptimized={true}
@@ -124,26 +123,19 @@ export default function DesignRow({
                                     className={clsx(
                                         "pointer-events-none absolute bottom-0 z-10 flex h-1/2 w-full flex-col justify-end gap-y-2 bg-gradient-to-t from-black/80 to-black/0 px-2 py-3 text-start opacity-100 group-hover:opacity-100 sm:h-full sm:justify-center sm:from-black/80 sm:to-black/20 sm:transition-opacity sm:duration-200 lg:py-4 lg:opacity-0",
                                         item.category == "photoshop" &&
-                                            "pl-4 pr-4",
+                                        "pl-4 pr-4",
                                         item.summary &&
-                                            item.summary.length <= 0 &&
-                                            "h-[53px] max-h-[53px] min-h-[53px]",
+                                        item.summary.length <= 0 &&
+                                        "h-[53px] max-h-[53px] min-h-[53px]",
                                     )}
                                 >
                                     <div
                                         className={clsx(
                                             "flex flex-row items-center justify-start gap-2 overflow-hidden sm:flex-col sm:justify-center lg:gap-1",
                                             item.category == "photoshop" &&
-                                                "gap-x-3",
+                                            "gap-x-3",
                                         )}
                                     >
-                                        <div className="hidden sm:block">
-                                            <CategoryIcon
-                                                large={false}
-                                                category={item.category}
-                                            />
-                                        </div>
-
                                         <span
                                             className={clsx(
                                                 "text-center text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
