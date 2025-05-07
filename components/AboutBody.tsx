@@ -54,7 +54,7 @@ export function AboutBody() {
 
     return (
         <motion.div
-            className="mr-0 mt-6 w-full max-w-2xl flex-row items-center justify-center justify-items-center text-left sm:pt-6 lg:mt-0"
+            className="mr-0 mt-6 w-full max-w-2xl flex-row items-center justify-center justify-items-center text-left lg:mt-0 lg:pt-6"
             variants={containerVariants}
             initial="initial"
             animate="animate"
