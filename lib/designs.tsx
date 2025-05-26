@@ -25,9 +25,9 @@ const logos = [
                 `Don't ask me what it means. SHOCKINGLY easy to make in <a rel="noopener noreferrer" target="_blank" href="https://100r.co/site/dotgrid.html">Dotgrid (100r.co)</a>. Those two are so impressive it makes me sad.`,
             ],
             thumbnail: {
-                path: "/images/concepts/etherspent/eth-logo.png",
-                width: 857,
-                height: 857,
+                path: "/images/concepts/etherspent/eth-sketch.png",
+                width: 1024,
+                height: 1024,
             },
         },
     ),
