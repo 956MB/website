@@ -56,6 +56,7 @@ export function getLangColor(
         Rust: "#DEA584",
         Swift: "#F05137",
         CSS: "#663399",
+        Vue: "#40B983",
         none: "neutral-300",
     };
 

@@ -33,7 +33,7 @@ const COPYRIGHT = () => {
             >
                 {`CC-BY-NC-SA-4.0`}
                 {!isHome ? <br className="block sm:hidden" /> : <span> </span>}
-                {`2025 © Alexander Bays`}
+                {` 2025 © Alexander Bays`}
             </a>
         </span>
     );
