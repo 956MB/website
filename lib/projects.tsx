@@ -7,6 +7,20 @@ const li = (href: string, text: string) =>
 
 const flipper = [
     entry(
+        "p-momentum-website-redesign",
+        "momentum-fw.dev Redesign",
+        "2025",
+        "Projects",
+        [],
+        {
+            link: "https://v2.momentum-fw.dev",
+            lang: "Vue",
+            summary: [
+                `My redesign of the ${li("https://momentum-fw.dev", "Momentum Firmware")} website using ${li("https://vitepress.dev/", "Vitepress")} and ${li("https://vuejs.org/", "Vue")}.`,
+            ],
+        },
+    ),
+    entry(
         "p-momentum-firmware",
         "Next-Flip/Momentum-Firmware",
         "2025",
