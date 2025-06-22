@@ -4,7 +4,7 @@ import clsx from "clsx";
 import parse from "html-react-parser";
 import { IEntry } from "lib/interfaces";
 import Image from "next/image";
-import { TouchEvent, useEffect, useRef, useState } from "react";
+import { TouchEvent, useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 
 const CELL_SIZE = 80;
@@ -15,11 +15,14 @@ const CELL_COUNT_L = 5;
 
 function useWindowSize() {
     const [windowSize, setWindowSize] = useState({
-        width: typeof window !== "undefined" ? window.innerWidth : 0,
-        height: typeof window !== "undefined" ? window.innerHeight : 0,
+        width: 0,
+        height: 0,
     });
+    const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
+        setIsClient(true);
+
         function handleResize() {
             setWindowSize({
                 width: window.innerWidth,
@@ -27,13 +30,13 @@ function useWindowSize() {
             });
         }
 
-        window.addEventListener("resize", handleResize);
         handleResize();
+        window.addEventListener("resize", handleResize);
 
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    return windowSize;
+    return { ...windowSize, isClient };
 }
 
 function getCellCount(width: number): number {
@@ -51,20 +54,45 @@ function calculateMaxWidth(cellCount: number): number {
 }
 
 export default function ContentGallery({ entry }: { entry: IEntry }) {
-    const { width } = useWindowSize();
-    const cellCount = getCellCount(width);
-    const maxGalleryWidth = calculateMaxWidth(cellCount);
+    const { width, isClient } = useWindowSize();
+    const cellCount = useMemo(() => getCellCount(width), [width]);
+    const maxGalleryWidth = useMemo(
+        () => calculateMaxWidth(cellCount),
+        [cellCount],
+    );
 
     const [selectedIdx, setSelectedIdx] = useState(0);
     const imagesCount = entry.items?.length || 0;
     const touchStartX = useRef<number | null>(null);
     const touchEndX = useRef<number | null>(null);
     const thumbnailContainerRef = useRef<HTMLDivElement>(null);
+    const [indicatorPosition, setIndicatorPosition] = useState(0);
+    const [indicatorWidth, setIndicatorWidth] = useState(0);
 
     const updateIdx = (dir: number) => {
         const newIdx = selectedIdx + dir;
         if (newIdx >= 0 && newIdx < imagesCount) {
             setSelectedIdx(newIdx);
+            updateIndicatorPosition(newIdx);
+        }
+    };
+
+    const updateIndicatorPosition = (index: number) => {
+        if (!thumbnailContainerRef.current) return;
+
+        const thumbnails = thumbnailContainerRef.current.children;
+        if (thumbnails[index]) {
+            const thumbnail = thumbnails[index] as HTMLElement;
+            const containerRect =
+                thumbnailContainerRef.current.getBoundingClientRect();
+            const thumbnailRect = thumbnail.getBoundingClientRect();
+            const relativeLeft = thumbnailRect.left - containerRect.left;
+            const thumbnailWidth = thumbnailRect.width;
+
+            setIndicatorPosition(
+                relativeLeft + thumbnailWidth / 2 - thumbnailWidth / 3 / 2,
+            );
+            setIndicatorWidth(thumbnailWidth / 3);
         }
     };
 
@@ -76,6 +104,10 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
             left: scrollAmount,
             behavior: "smooth",
         });
+
+        setTimeout(() => {
+            updateIndicatorPosition(selectedIdx);
+        }, 300);
     };
 
     const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
@@ -106,11 +138,50 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
 
     const selectedContent = entry.items?.[selectedIdx];
 
+    useEffect(() => {
+        if (!entry.items || !isClient) return;
+
+        const preloadImage = (index: number) => {
+            const item = entry.items?.[index];
+            if (item && !item.path.includes(".mp4")) {
+                const img = new window.Image();
+                img.src = item.path;
+            }
+        };
+
+        if (selectedIdx > 0) preloadImage(selectedIdx - 1);
+        if (selectedIdx < imagesCount - 1) preloadImage(selectedIdx + 1);
+    }, [selectedIdx, entry.items, imagesCount, isClient]);
+
+    useEffect(() => {
+        if (isClient) {
+            const timer = setTimeout(() => {
+                updateIndicatorPosition(selectedIdx);
+            }, 10);
+            return () => clearTimeout(timer);
+        }
+    }, [selectedIdx, isClient]);
+
+    useEffect(() => {
+        if (!thumbnailContainerRef.current || !isClient) return;
+
+        const handleScroll = () => {
+            updateIndicatorPosition(selectedIdx);
+        };
+
+        const container = thumbnailContainerRef.current;
+        container.addEventListener("scroll", handleScroll);
+
+        return () => {
+            container.removeEventListener("scroll", handleScroll);
+        };
+    }, [selectedIdx, isClient]);
+
     return (
         <div className="flex h-full w-full max-w-screen-xl flex-col items-center overflow-hidden">
             <div className="w-full px-2 sm:px-0">
                 <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start sm:gap-8">
-                    <div className="flex flex-col items-center sm:items-start sm:pr-4   ">
+                    <div className="flex flex-col items-start sm:pr-4">
                         <div className="inline-flex flex-row items-center justify-center gap-3 py-2 sm:justify-start sm:py-3">
                             <h1 className="mt-[1px] whitespace-nowrap text-center text-[23px] font-bold text-black dark:text-white sm:leading-5">
                                 {entry.title}
@@ -119,7 +190,7 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
 
                         <div className="flex flex-row items-center justify-center gap-3">
                             {entry.date && (
-                                <span className="mt-[2px] text-center text-sm font-medium text-neutral-500 dark:font-medium dark:text-white/70 sm:leading-5">
+                                <span className="mt-[2px] text-center text-sm font-medium text-black dark:font-medium dark:text-white/90 sm:leading-5">
                                     {entry.date}
                                 </span>
                             )}
@@ -140,13 +211,10 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
                         {entry.summary && entry.summary.length > 0 && (
                             <div
                                 className={clsx(
-                                    "w-full max-w-lg pb-2 pt-2 sm:pb-0 xl:max-w-xl",
-                                    entry.items?.length &&
-                                        entry.items?.length <= 1 &&
-                                        "xl:max-w-2xl",
+                                    "w-full max-w-2xl pb-2 pt-2 sm:pb-0",
                                 )}
                             >
-                                <span className="gallery-summary block text-center text-[13px] font-medium italic leading-[1.56em] tracking-wide text-neutral-800 dark:text-neutral-350 sm:text-left sm:text-[14px]">
+                                <span className="gallery-summary block text-left text-[13px] font-medium italic leading-[1.56em] tracking-wide text-neutral-800 dark:text-neutral-350 sm:text-[14px]">
                                     {parse(entry.summary.join(""))}
                                 </span>
                             </div>
@@ -192,7 +260,7 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
                                 <div
                                     ref={thumbnailContainerRef}
                                     className={clsx(
-                                        `no-scrollbar desktop-no-horizontal-scroll flex touch-pan-x flex-row items-center justify-start gap-3 overflow-x-auto whitespace-nowrap`,
+                                        `no-scrollbar desktop-no-horizontal-scroll flex touch-pan-x flex-row items-center justify-start gap-2.5 overflow-x-auto whitespace-nowrap`,
                                         {
                                             "justify-center":
                                                 entry.items.length <= cellCount,
@@ -205,10 +273,13 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
                                             className={clsx(
                                                 "group relative flex-shrink-0 cursor-pointer pb-3 transition-all duration-100",
                                                 selectedIdx !== idx
-                                                    ? "opacity-70 hover:opacity-100"
+                                                    ? "opacity-60 hover:opacity-100"
                                                     : "opacity-100",
                                             )}
-                                            onClick={() => setSelectedIdx(idx)}
+                                            onClick={() => {
+                                                setSelectedIdx(idx);
+                                                updateIndicatorPosition(idx);
+                                            }}
                                         >
                                             {content.path.includes(".mp4") ? (
                                                 <div
@@ -240,21 +311,24 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
                                                         src={content.path}
                                                         width={CELL_SIZE}
                                                         height={CELL_SIZE}
-                                                        unoptimized={true}
+                                                        draggable={false}
+                                                        loading={
+                                                            idx <= cellCount
+                                                                ? "eager"
+                                                                : "lazy"
+                                                        }
                                                     />
                                                 </div>
                                             )}
-
-                                            <div
-                                                className={clsx(
-                                                    "absolute bottom-0 left-0 right-0 mx-auto h-[1px] w-full transition-all",
-                                                    selectedIdx === idx
-                                                        ? "bg-neutral-300 dark:bg-neutral-700"
-                                                        : "bg-transparent",
-                                                )}
-                                            ></div>
                                         </div>
                                     ))}
+                                    <div
+                                        className="absolute bottom-3 h-0.5 rounded-full bg-neutral-950 transition-all duration-300 ease-out dark:bg-neutral-100"
+                                        style={{
+                                            left: `${indicatorPosition}px`,
+                                            width: `${indicatorWidth}px`,
+                                        }}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -263,10 +337,10 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
             </div>
 
             <div
-                className="zpx-2 relative flex w-full flex-1 items-center justify-center overflow-hidden pt-4 sm:px-0 sm:pt-8"
+                className="relative flex w-full flex-1 items-center justify-center overflow-hidden px-2 pt-4 sm:px-0 sm:pt-8"
                 style={{
                     maxHeight: "calc(100vh - 320px)",
-                    minHeight: "min(600px, calc(100vh - 320px))",
+                    minHeight: "min(100px, calc(100vh - 320px))",
                 }}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
@@ -299,6 +373,8 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
                                     src={selectedContent.path}
                                     width={selectedContent.width}
                                     height={selectedContent.height}
+                                    priority={true}
+                                    draggable={false}
                                     loading="eager"
                                 />
                                 {selectedContent.caption && (

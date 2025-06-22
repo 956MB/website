@@ -172,7 +172,7 @@ export function Footer() {
                 "z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center lg:mt-8",
             )}
         >
-            <div className="mx-6 mt-auto flex min-h-[75px] w-full flex-1 flex-row items-end justify-center gap-x-3 pb-6 pt-6 sm:mx-8 sm:items-center sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">
+            <div className="mx-6 mt-auto flex min-h-[75px] w-full flex-1 flex-row items-end justify-end gap-x-3 pb-6 pt-6 sm:mx-8 sm:items-center sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">
                 {!isHome ? (
                     <>
                         <div className="flex flex-1 xl:hidden">
