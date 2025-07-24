@@ -10,7 +10,7 @@ export const email = {
 };
 export const socials = [
     {
-        serv: "twitter",
+        serv: "x/twitter",
         name: "${highlight('956MB')}",
         url: "https://x.com/956MB",
     },
@@ -18,11 +18,6 @@ export const socials = [
         serv: "github",
         name: "${highlight('956MB')}",
         url: "https://github.com/956MB",
-    },
-    {
-        serv: "reddit",
-        name: "${highlight('bauera5')}",
-        url: "https://www.reddit.com/user/bauera5",
     },
     {
         serv: "linktree",

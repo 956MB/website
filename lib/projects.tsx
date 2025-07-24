@@ -35,6 +35,21 @@ const flipper = [
         },
     ),
     entry(
+        "p-feat-input-vibro-trigger",
+        "feat/input-vibro-trigger",
+        "fork/+",
+        "Projects",
+        [],
+        {
+            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/429",
+            lang: "C",
+            nested: true,
+            summary: [
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/429", "#429")} Adds setting to pick the vibration trigger for button clicks (${li("https://github.com/Next-Flip/Momentum-Firmware/issues/428", "#428")}). Press, Release or Both (original).`,
+            ],
+        },
+    ),
+    entry(
         "p-feat-popup-overlay",
         "feat/popup-overlay",
         "fork/+",
@@ -413,7 +428,7 @@ const neostuff = [
 // NOTE: Personal
 
 const personal = [
-    entry("p-dotfiles", "dotfiles", "2024", "Projects", [], {
+    entry("p-dotfiles", "dotfiles", "2025", "Projects", [], {
         link: "https://github.com/956MB/dotfiles",
         lang: "Lua",
         summary: [
@@ -441,21 +456,21 @@ const personal = [
             "Collection of wallpapers made or modified by me. Or just stuff I think is cool. WIP.",
         ],
     }),
-    entry("p-website", "website", "2023", "Projects", [], {
+    entry("p-website", "website", "2025", "Projects", [], {
         link: "https://github.com/956MB/website",
-        lang: "JavaScript",
+        lang: "TypeScript",
         summary: [
             "This website. My portfolio. Made with <span class='highlight'>React</span>/<span class='highlight'>Next.js</span>/<span class='highlight'>Tailwind</span>.",
         ],
     }),
-    entry("p-kata", "Kata", "2020", "Projects", [], {
+    entry("p-kata", "Kata", "2020+", "Projects", [], {
         link: "https://github.com/956MB/Kata",
         lang: "Python",
         summary: [
             `Most of my ${li("https://www.codewars.com/users/956MB", "Codewars")} katas. Majority in <span class='highlight'>Python</span>. Gotta do more in <span class='highlight'>Go</span> / <span class='highlight'>Rust</span> / <span class='highlight'>Zig</span> (eventually).`,
         ],
     }),
-    entry("p-aoc", "AoC", "2018", "Projects", [], {
+    entry("p-aoc", "AoC", "2018+", "Projects", [], {
         link: "https://github.com/956MB/AoC",
         lang: "Python",
         summary: [

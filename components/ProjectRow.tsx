@@ -10,6 +10,15 @@ import { useEffect, useRef, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import GroupHeader from "./GroupHeader";
 
+const shortenLang = (lang: string): string => {
+    const langMap: { [key: string]: string } = {
+        TypeScript: "TS",
+        JavaScript: "JS",
+        Python: "PY",
+    };
+    return langMap[lang] || lang;
+};
+
 export function ProjectItem({
     index,
     itemsLength,
@@ -71,15 +80,31 @@ export function ProjectItem({
                 )}
             >
                 {entry.date && (
-                    <span
-                        className={clsx(
-                            "noselect mr-3 text-sm font-medium leading-4 text-neutral-700 dark:font-medium dark:text-neutral-350 lg:mt-[6px] lg:w-10 lg:flex-shrink-0",
-                            entry.nested &&
-                            "lg:text-transparent dark:lg:text-transparent",
+                    <div className="relative mr-3 lg:mt-[6px] lg:w-10 lg:flex-shrink-0">
+                        <span
+                            className={clsx(
+                                "absolute text-sm font-medium leading-4 text-neutral-700 ease-in-out dark:font-medium dark:text-neutral-350",
+                                entry.lang &&
+                                    entry.lang !== "none" &&
+                                    "group-hover:opacity-0",
+                                entry.nested &&
+                                    "lg:text-transparent dark:lg:text-transparent",
+                            )}
+                        >
+                            {entry.date}
+                        </span>
+                        {entry.lang && entry.lang !== "none" && (
+                            <span
+                                className={clsx(
+                                    "absolute text-sm font-medium leading-4 text-neutral-700 opacity-0 ease-in-out group-hover:opacity-100 dark:font-medium dark:text-neutral-350",
+                                    entry.nested &&
+                                        "lg:text-transparent dark:lg:text-transparent",
+                                )}
+                            >
+                                {shortenLang(entry.lang)}
+                            </span>
                         )}
-                    >
-                        {entry.date}
-                    </span>
+                    </div>
                 )}
                 <div
                     className={clsx(
@@ -91,11 +116,11 @@ export function ProjectItem({
                         className={clsx(
                             "h-[10px] w-[10px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
                             index === 0 &&
-                            "lg:rounded-tl-full lg:rounded-tr-full",
+                                "lg:rounded-tl-full lg:rounded-tr-full",
                             index === itemsLength - 1 &&
-                            "lg:rounded-bl-full lg:rounded-br-full",
+                                "lg:rounded-bl-full lg:rounded-br-full",
                             getLangColor(entry.lang) ||
-                            "bg-neutral-200 dark:bg-neutral-800",
+                                "bg-neutral-200 dark:bg-neutral-800",
                             getLangColor(entry.lang, "group-hover:"),
                         )}
                     />
@@ -106,7 +131,7 @@ export function ProjectItem({
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "pl-3 text-[15px] font-semibold leading-4 text-black transition-all duration-150 hover:text-p0 group-hover:underline dark:text-white dark:hover:text-o0 lg:mt-[6px] lg:max-w-[256px] lg:pl-4",
+                            "pl-3 text-[15px] font-semibold leading-4 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0 lg:mt-[6px] lg:max-w-[256px] lg:pl-4",
                             entry.link
                                 ? "hover:text-p0 hover:underline dark:hover:text-o0"
                                 : "no-underline",

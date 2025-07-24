@@ -6,7 +6,7 @@ import { SiLinktree } from "react-icons/si";
 
 function socialIcon(iconType: string) {
     switch (iconType) {
-        case "twitter":
+        case "x/twitter":
             return FaXTwitter({ size: 18 });
         case "github":
             return FaGithub({ size: 18 });

@@ -29,7 +29,7 @@ const COPYRIGHT = () => {
                 href="/CC-BY-NC-SA-4.0"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-black hover:underline dark:hover:text-neutral-100"
+                className="transition-colors hover:text-p0 hover:underline dark:hover:text-o0"
             >
                 {`CC-BY-NC-SA-4.0`}
                 {!isHome ? <br className="block sm:hidden" /> : <span> </span>}
@@ -163,9 +163,6 @@ export default function Header() {
 }
 
 export function Footer() {
-    const pathname = usePathname() || "/";
-    const isHome = pathname === "/";
-
     return (
         <div
             className={clsx(
@@ -173,48 +170,24 @@ export function Footer() {
             )}
         >
             <div className="mx-6 mt-auto flex min-h-[75px] w-full flex-1 flex-row items-end justify-end gap-x-3 pb-6 pt-6 sm:mx-8 sm:items-center sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">
-                {!isHome ? (
-                    <>
-                        <div className="flex flex-1 xl:hidden">
-                            <Socials isHome={false} />
+                <div className="flex flex-col items-center gap-4 sm:flex-row">
+                    <COPYRIGHT />
+                    <div className="flex items-center gap-3">
+                        <div className="md:hidden">
+                            <ThemeToggle />
                         </div>
-                        <div className="flex flex-col-reverse items-end justify-center gap-4 sm:flex-row">
-                            <COPYRIGHT />
-                            <div className="flex items-center gap-3">
-                                <a
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                    href="https://vercel.com/"
-                                    className="flex items-center text-black transition-all duration-100 dark:text-white"
-                                >
-                                    <VercelIcon />
-                                </a>
-                                <div className="md:hidden">
-                                    <ThemeToggle />
-                                </div>
-                            </div>
-                        </div>
-                    </>
-                ) : (
-                    <div className="flex flex-col items-center gap-4 sm:flex-row">
                         <div className="flex items-center gap-3">
-                            <div className="md:hidden">
-                                <ThemeToggle />
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <a
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                    href="https://vercel.com/"
-                                    className="flex items-center text-black transition-all duration-100 dark:text-white"
-                                >
-                                    <VercelIcon />
-                                </a>
-                            </div>
+                            <a
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                href="https://vercel.com/"
+                                className="flex items-center text-black transition-all duration-100 dark:text-white"
+                            >
+                                <VercelIcon />
+                            </a>
                         </div>
-                        <COPYRIGHT />
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );
