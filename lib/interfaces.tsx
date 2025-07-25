@@ -1,3 +1,5 @@
+import { imgUrl } from "./util";
+
 export interface IEntryItem {
     caption?: string;
     path: string;
@@ -45,7 +47,7 @@ export const item = (
     height: number,
     caption?: string,
 ): IEntryItem => ({
-    path,
+    path: imgUrl(path),
     width,
     height,
     ...(caption && { caption }),

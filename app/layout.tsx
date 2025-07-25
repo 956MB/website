@@ -89,8 +89,15 @@ export default function RootLayout({
                     "flex min-h-screen flex-col overflow-auto antialiased md:flex-row",
                 )}
             >
+                <div className="fixed inset-0 z-0">
+                    <Particles
+                        className="absolute inset-0 hidden animate-fade-in invert dark:invert-0 sm:block"
+                        quantity={128}
+                    />
+                </div>
+
                 <ThemeProvider>
-                    <main className="relative flex w-full min-w-0 flex-1 flex-grow flex-col items-center">
+                    <main className="relative z-10 flex w-full min-w-0 flex-1 flex-grow flex-col items-center">
                         <Header />
                         <div className="flex w-full flex-1 justify-center">
                             {children}
@@ -98,10 +105,6 @@ export default function RootLayout({
                         <SpeedInsights />
                         <Analytics />
                         <Footer />
-                        <Particles
-                            className="absolute inset-0 -z-10 hidden animate-fade-in invert dark:invert-0 sm:block"
-                            quantity={96}
-                        />
                     </main>
                 </ThemeProvider>
             </body>

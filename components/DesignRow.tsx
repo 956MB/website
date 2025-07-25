@@ -43,16 +43,14 @@ export default function DesignRow({
     return (
         <div className="relative flex w-full max-w-screen-xl flex-col flex-wrap items-center justify-center gap-y-0 lg:pt-5">
             {!noHeader && (
-                <div className="top-0 z-50 m-0 flex w-full flex-col items-start justify-center sm:sticky">
-                    <GroupHeader
-                        entry={entry}
-                        noDescription={false}
-                        titleLink={entry.titleLink}
-                    />
-                </div>
+                <GroupHeader
+                    entry={entry}
+                    noDescription={false}
+                    titleLink={entry.titleLink}
+                />
             )}
 
-            <div className="flex flex-col gap-y-2">
+            <div className="flex w-full flex-col gap-y-2">
                 <div className="flex w-full flex-row items-center justify-center">
                     <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
                 </div>
@@ -63,6 +61,7 @@ export default function DesignRow({
                     animate="animate"
                     className={clsx(
                         "grid w-full grid-cols-1 items-start justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+                        "min-h-0", // Prevent container from collapsing
                     )}
                 >
                     {entry.items.map((item, i) => (
@@ -76,6 +75,7 @@ export default function DesignRow({
                             id={item.id}
                             className={clsx(
                                 "group relative z-0 box-content flex flex-col justify-start overflow-hidden saturate-0 hover:saturate-100",
+                                "aspect-square", // Maintain consistent aspect ratio
                             )}
                         >
                             {item.new === true && (
@@ -96,37 +96,39 @@ export default function DesignRow({
                                           : "#"
                                 }
                             >
-                                <Image
-                                    alt={item.id}
-                                    className={clsx(
-                                        "block aspect-square h-full w-full object-cover transition-transform duration-75 ease-in-out hover:scale-105",
-                                        (item.items || item.linkBlog) &&
-                                            "cursor-pointer",
-                                    )}
-                                    src={
-                                        item.thumbnail
-                                            ? item.thumbnail.path
-                                            : item.items
-                                              ? item.items[0].path
-                                              : ""
-                                    }
-                                    width={
-                                        item.thumbnail
-                                            ? item.thumbnail.width
-                                            : item.items
-                                              ? item.items[0].width
-                                              : 0
-                                    }
-                                    height={
-                                        item.thumbnail
-                                            ? item.thumbnail.height
-                                            : item.items
-                                              ? item.items[0].height
-                                              : 0
-                                    }
-                                    loading="eager"
-                                    unoptimized={true}
-                                />
+                                <div className="relative aspect-square w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+                                    <Image
+                                        alt={item.id}
+                                        className={clsx(
+                                            "block aspect-square h-full w-full object-cover transition-transform duration-75 ease-in-out hover:scale-105",
+                                            (item.items || item.linkBlog) &&
+                                                "cursor-pointer",
+                                        )}
+                                        src={
+                                            item.thumbnail
+                                                ? item.thumbnail.path
+                                                : item.items
+                                                  ? item.items[0].path
+                                                  : ""
+                                        }
+                                        width={
+                                            item.thumbnail
+                                                ? item.thumbnail.width
+                                                : item.items
+                                                  ? item.items[0].width
+                                                  : 0
+                                        }
+                                        height={
+                                            item.thumbnail
+                                                ? item.thumbnail.height
+                                                : item.items
+                                                  ? item.items[0].height
+                                                  : 0
+                                        }
+                                        loading="eager"
+                                        unoptimized={true}
+                                    />
+                                </div>
                             </Link>
                             <div
                                 className={clsx(

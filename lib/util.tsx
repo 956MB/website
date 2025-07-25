@@ -4,6 +4,15 @@ import { HiMiniLanguage } from "react-icons/hi2";
 import { PiFigmaLogo } from "react-icons/pi";
 import { RiReactjsLine } from "react-icons/ri";
 import { SiAdobeillustrator, SiAdobephotoshop } from "react-icons/si";
+import { imgBase } from "./info";
+
+export function imgUrl(path: string): string {
+    if (path.startsWith("http")) {
+        return path;
+    }
+
+    return `${imgBase}${path}`;
+}
 
 export function replaceSlash(date: string) {
     return date.replace(/\//g, ".");

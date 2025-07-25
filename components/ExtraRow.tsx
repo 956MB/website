@@ -26,20 +26,18 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
     };
 
     return (
-        <div className="relative flex w-full flex-col flex-wrap items-center justify-center">
-            <div className="top-0 z-50 m-0 flex w-full flex-col items-start justify-center sm:sticky">
-                <GroupHeader
-                    entry={entry}
-                    noDescription={false}
-                    titleLink={entry.titleLink}
-                />
+        <div className="relative flex w-full flex-col flex-wrap items-center justify-center gap-y-0">
+            <GroupHeader
+                entry={entry}
+                noDescription={false}
+                titleLink={entry.titleLink}
+            />
 
+            <div className="flex flex-col">
                 <div className="flex w-full flex-row items-center justify-center">
                     <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
                 </div>
-            </div>
 
-            <div className="flex flex-col">
                 <motion.div
                     variants={containerVariants}
                     initial="initial"
@@ -72,32 +70,41 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                         target="_blank"
                                         href={item.link ? item.link : undefined}
                                     >
-                                        <Image
-                                            alt={item.id}
+                                        <div
                                             className={clsx(
-                                                "duration-100` block h-full w-full transition-transform delay-0 ease-linear",
+                                                "relative w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900",
                                                 item.category === "icon"
-                                                    ? "aspect-square object-contain"
-                                                    : "aspect-video object-cover sm:aspect-video",
+                                                    ? "aspect-square"
+                                                    : "aspect-video",
                                             )}
-                                            src={
-                                                item.items
-                                                    ? item.items[0].path
-                                                    : ""
-                                            }
-                                            width={
-                                                item.items
-                                                    ? item.items[0].width
-                                                    : 0
-                                            }
-                                            height={
-                                                item.items
-                                                    ? item.items[0].height
-                                                    : 0
-                                            }
-                                            loading="eager"
-                                            unoptimized={true}
-                                        />
+                                        >
+                                            <Image
+                                                alt={item.id}
+                                                className={clsx(
+                                                    "duration-100` block h-full w-full transition-transform delay-0 ease-linear",
+                                                    item.category === "icon"
+                                                        ? "aspect-square object-contain"
+                                                        : "aspect-video object-cover sm:aspect-video",
+                                                )}
+                                                src={
+                                                    item.items
+                                                        ? item.items[0].path
+                                                        : ""
+                                                }
+                                                width={
+                                                    item.items
+                                                        ? item.items[0].width
+                                                        : 0
+                                                }
+                                                height={
+                                                    item.items
+                                                        ? item.items[0].height
+                                                        : 0
+                                                }
+                                                loading="eager"
+                                                unoptimized={true}
+                                            />
+                                        </div>
                                     </a>
                                     <div
                                         className={clsx(

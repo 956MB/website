@@ -1,5 +1,5 @@
 import DesignRow from "components/DesignRow";
-import parse from "html-react-parser";
+import GroupHeader from "components/GroupHeader";
 import { neography_d, neography_t } from "lib/info";
 import { neographyGroups } from "lib/scripts";
 import type { Metadata } from "next";
@@ -12,19 +12,22 @@ export const metadata: Metadata = {
 };
 
 export default function NeographyPage() {
+    const neographyEntry = {
+        title: neography_t,
+        description: neography_d,
+        category: "neography",
+        items: [],
+    };
+
     return (
         <section>
-            <div className="flex w-full flex-col flex-wrap items-center justify-start gap-4 px-6 pb-2 sm:px-7 sm:pt-5">
-                <div className="inline-flex w-full max-w-screen-xl flex-col gap-4">
-                    <div className="flex flex-col items-start justify-center gap-4 pt-6 text-start sm:pt-4">
-                        <span className="text-left text-[22px] font-bold leading-[18px] text-black dark:text-white">
-                            {neography_t}
-                        </span>
-
-                        <span className="page-summary max-w-2xl text-start text-sm font-medium leading-[1.56em] text-neutral-800 dark:text-neutral-350">
-                            {parse(neography_d)}
-                        </span>
-                    </div>
+            <div className="flex w-full flex-col flex-wrap items-center justify-start px-6 pb-2 sm:px-7 sm:pt-5">
+                <div className="relative flex w-full max-w-screen-xl flex-col flex-wrap items-center justify-center gap-y-0">
+                    <GroupHeader
+                        entry={neographyEntry}
+                        noDescription={false}
+                        noBackdrop={true}
+                    />
                 </div>
 
                 {React.Children.toArray(

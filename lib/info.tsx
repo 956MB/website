@@ -1,5 +1,6 @@
 import logo_s_i from "../public/logo-small.png";
 
+export const imgBase = "https://img.956mb.com";
 export const logo_s = logo_s_i;
 export const name = "Alexander Bays";
 export const copyright = "© Alexander Bays 2024";
