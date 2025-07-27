@@ -1,0 +1,1 @@
+eval "$(curl -fsSL https://raw.githubusercontent.com/956MB/dotfiles/main/install.sh)"
