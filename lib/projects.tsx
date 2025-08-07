@@ -8,15 +8,15 @@ const li = (href: string, text: string) =>
 const flipper = [
     entry(
         "p-momentum-website-redesign",
-        "momentum-fw.dev Redesign",
+        "momentum-fw.dev",
         "2025",
         "Projects",
         [],
         {
-            link: "https://v2.momentum-fw.dev",
+            link: "https://momentum-fw.dev",
             lang: "Vue",
             summary: [
-                `My redesign of the ${li("https://momentum-fw.dev", "Momentum Firmware")} website using ${li("https://vitepress.dev/", "Vitepress")} and ${li("https://vuejs.org/", "Vue")}.`,
+                `My redesign of the ${li("https://github.com/Next-Flip/v2.momentum-fw.dev", "Momentum Firmware website")} using ${li("https://vitepress.dev/", "Vitepress")} and ${li("https://vuejs.org/", "Vue")}.`,
             ],
         },
     ),
@@ -30,7 +30,7 @@ const flipper = [
             link: "https://github.com/Next-Flip/Momentum-Firmware/pulls?q=is%3Apr+author%3A956MB+",
             lang: "C",
             summary: [
-                `My contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum-Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. As well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. Thanks ${li("https://github.com/WillyJL", "WillyJL")}.`,
+                `My contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. As well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. Thanks ${li("https://github.com/WillyJL", "WillyJL")}.`,
             ],
         },
     ),
