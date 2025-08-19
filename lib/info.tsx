@@ -3,7 +3,8 @@ import logo_s_i from "../public/logo-small.png";
 export const imgBase = "https://img.956mb.com";
 export const logo_s = logo_s_i;
 export const name = "Alexander Bays";
-export const copyright = "© Alexander Bays 2024";
+export const license = "CC-BY-NC-SA-4.0";
+export const copyright = " © 2025 Alexander Bays";
 export const email = {
     key: "contact",
     value: "bays@956mb.com",
@@ -40,15 +41,15 @@ const hl = function (text) {
 };
 
 export const about_n = `<span class='name-highlight'>${name}</span>`;
-export const about_p = `Self-taught* ${hl("programmer")}, ${hl("designer")} and <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/user/bauera5/">r/neography</a> hobbyist from ${hl(" Dallas, TX")}.`;
+export const about_p = `self-taught* ${hl("programmer")}, ${hl("designer")} and <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/user/bauera5/">r/neography</a> hobbyist from ${hl(" Dallas, TX")}.`;
 export const about_email = `<a class="p-link" rel="noopener noreferrer" target="_blank" href="mailto:bays@956mb.com">bays@956mb.com</a>`;
 
-export const bio_p = `My self-taught skills journey started around 2010, initially focusing on graphic design and learning ${hl("Photoshop")}, doing mostly minor freelance work. In ${hl("2018")}, a computer engineer friend introduced me to programming, and it quickly became my passion. When I'm not working on the long list of projects, I'm slowly learning languages like ${hl("한국어")} or ${hl("Finnish")}, and I'm thinking up / drawing new "languages" on ${hl("Reddit")}.`;
+export const bio_p = `my self-taught skills journey started around 2010, initially focusing on graphic design and learning ${hl("Photoshop")}, doing mostly minor freelance work. in ${hl("2018")}, a computer engineer friend introduced me to programming, and it quickly became my passion. when i'm not working on the long list of projects, i'm slowly learning languages like ${hl("한국어")} or ${hl("Finnish")}, and i'm thinking up / drawing new "languages" on ${hl("Reddit")}.`;
 
-export const languages_p = `In addition to loving ${hl("Swift")} (and ${hl("SwiftUI")}) for Apple products, I've worked a lot with both ${hl("JavaScript")} / ${hl("TypeScript")} to make desktop apps and websites in & ${hl("React")} (this website), and I'm most recently exploring languages like ${hl("Lua")} and ${hl("C/C++")} for things like ${hl("Neovim")} plugins and ${hl("Flipper Zero")} / <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://github.com/Next-Flip/Momentum-Firmware">Momentum Firmware</a> development. And of course wrapping my head around ${hl("Rust")} remains a struggle.`;
+export const languages_p = `in addition to loving ${hl("Swift")} (and ${hl("SwiftUI")}) for Apple products, i've worked a lot with both ${hl("JavaScript")} / ${hl("TypeScript")} to make desktop apps and websites in & ${hl("React")} (this website), and i'm most recently exploring languages like ${hl("Lua")} and ${hl("C/C++")} for things like ${hl("Neovim")} plugins and ${hl("Flipper Zero")} / <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://github.com/Next-Flip/Momentum-Firmware">Momentum Firmware</a> development. and of course wrapping my head around ${hl("Rust")} remains a struggle.`;
 
-export const tools_p = `Every frontend / design project starts in & ${hl("Figma")}, ${hl("Photoshop")} or ${hl("Illustrator")}, and all code is written in either ${hl("Neovim")} (${hl("ghostty")}), ${hl("VSCode")} or ${hl("Xcode")} (depending on my interest at the moment or which is best for the job). I also get way too distracted with my <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://github.com/956MB/dotfiles">dotfiles</a>.`;
+export const tools_p = `every frontend / design project starts in & ${hl("Figma")}, ${hl("Photoshop")} or ${hl("Illustrator")}, and all code is written in either ${hl("Neovim")} (${hl("ghostty")}), ${hl("VSCode")} or ${hl("Xcode")} (depending on my interest at the moment or which is best for the job). i also get way too distracted with my <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://github.com/956MB/dotfiles">dotfiles</a>.`;
 
-export const neography_t = "Scripts & Conlangs (eventually)";
+export const neography_t = "scripts & conlangs (eventually)";
 
-export const neography_d = `I love language, and I'm a visual person so I especially love scripts. Not just real-world, but fictional as well (Lord of The Rings, Star Wars, Dune, etc). A really inspiriing figure to me is <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://dedalvs.com/">David J. Peterson</a>, creator of the languages for Game of Thrones, and MANY other things. These are most of the language scripts (and eventually conlangs) I've created for the <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/r/neography/">r/neography</a> subreddit, and maybe one day it'll be as impressive a collection as David's.`;
+export const neography_d = `i love language, and i'm a visual person so i especially love scripts. not just real-world, but fictional as well (Lord of The Rings, Star Wars, Dune, etc). a really inspiriing figure to me is <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://dedalvs.com/">David J. Peterson</a>, creator of the languages for Game of Thrones, and many other things. these are most of the language scripts (and eventually conlangs) i've created for the <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/r/neography/">r/neography</a> subreddit, and maybe one day it'll be as impressive a collection as David's.`;

@@ -4,10 +4,8 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import Parse from "html-react-parser";
 import { IEntry, IEntryGroup } from "lib/interfaces";
-import { defaultExpandedIds } from "lib/projects";
 import { getLangColor } from "lib/util";
-import { useEffect, useRef, useState } from "react";
-import { FiChevronDown } from "react-icons/fi";
+import { useRef } from "react";
 import GroupHeader from "./GroupHeader";
 
 const shortenLang = (lang: string): string => {
@@ -28,11 +26,7 @@ export function ProjectItem({
     itemsLength: number;
     entry: IEntry;
 }) {
-    const [isExpanded, setIsExpanded] = useState(
-        defaultExpandedIds.includes(entry.id),
-    );
     const summaryRef = useRef<HTMLSpanElement | null>(null);
-    const [showChevron, setShowChevron] = useState(false);
 
     const itemVariants = {
         initial: { opacity: 0, y: 10 },
@@ -44,27 +38,6 @@ export function ProjectItem({
             },
         },
     };
-
-    useEffect(() => {
-        const checkMultiline = () => {
-            if (summaryRef.current) {
-                summaryRef.current.style.whiteSpace = "normal";
-                summaryRef.current.style.overflow = "visible";
-
-                const lineHeight = parseInt(
-                    window.getComputedStyle(summaryRef.current).lineHeight,
-                );
-                const height = summaryRef.current.offsetHeight;
-                summaryRef.current.style.whiteSpace = "";
-                summaryRef.current.style.overflow = "";
-
-                setShowChevron(height > lineHeight * 1.5);
-            }
-        };
-
-        const timer = setTimeout(checkMultiline, 0);
-        return () => clearTimeout(timer);
-    }, [entry.summary]);
 
     return (
         <motion.div
@@ -151,25 +124,10 @@ export function ProjectItem({
                     className={clsx(
                         "leading-0 flex-1 text-sm font-normal text-neutral-600 dark:text-neutral-350 sm:font-medium lg:mt-[3px] lg:pb-2 lg:pt-[1px] lg:text-[15px]",
                         "min-w-0",
-                        !isExpanded && "xl:truncate",
                     )}
                 >
                     {Parse((entry.summary || "").toString())}
                 </span>
-                {showChevron && (
-                    <div
-                        className="hidden cursor-pointer rounded-full px-2 py-1 text-neutral-600 hover:text-p0 dark:text-neutral-350 dark:hover:text-o0 xl:block"
-                        onClick={() => setIsExpanded(!isExpanded)}
-                    >
-                        {FiChevronDown({
-                            className: clsx(
-                                "mt-[5px] flex flex-shrink-0 transition-transform duration-200",
-                                isExpanded ? "rotate-180" : "rotate-0",
-                            ),
-                            size: 17,
-                        })}
-                    </div>
-                )}
             </div>
         </motion.div>
     );
@@ -236,14 +194,14 @@ export default function ProjectRow({
                         variants={itemVariants}
                         className="flex w-full flex-row items-center justify-center"
                     >
-                        <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
+                        <hr className="my-auto h-px w-full border-b border-dashed border-neutral-200 bg-transparent dark:border-neutral-800" />
                     </motion.div>
                 </motion.div>
             )}
 
             <motion.div
                 variants={itemVariants}
-                className="flex w-full flex-col items-center justify-center gap-y-6 py-3 lg:gap-y-0 lg:py-2"
+                className="flex w-full flex-col items-center justify-center gap-y-6 py-3.5 lg:gap-y-0"
             >
                 {entry.items.map((item, i) => (
                     <ProjectItem

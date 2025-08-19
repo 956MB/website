@@ -16,7 +16,7 @@ const flipper = [
             link: "https://momentum-fw.dev",
             lang: "Vue",
             summary: [
-                `My redesign of the ${li("https://github.com/Next-Flip/v2.momentum-fw.dev", "Momentum Firmware website")} using ${li("https://vitepress.dev/", "Vitepress")} and ${li("https://vuejs.org/", "Vue")}.`,
+                `my redesign of the ${li("https://github.com/Next-Flip/v2.momentum-fw.dev", "Momentum Firmware website")} using ${li("https://vitepress.dev/", "Vitepress")} and ${li("https://vuejs.org/", "Vue")}.`,
             ],
         },
     ),
@@ -30,7 +30,7 @@ const flipper = [
             link: "https://github.com/Next-Flip/Momentum-Firmware/pulls?q=is%3Apr+author%3A956MB+",
             lang: "C",
             summary: [
-                `My contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. As well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. Thanks ${li("https://github.com/WillyJL", "WillyJL")}.`,
+                `my contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. as well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. thanks ${li("https://github.com/WillyJL", "WillyJL")}.`,
             ],
         },
     ),
@@ -45,7 +45,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/429", "#429")} Adds setting to pick the vibration trigger for button clicks (${li("https://github.com/Next-Flip/Momentum-Firmware/issues/428", "#428")}). Press, Release or Both (original).`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/429", "#429")} adds setting to pick the vibration trigger for button clicks (${li("https://github.com/Next-Flip/Momentum-Firmware/issues/428", "#428")}). press, release or both (original).`,
             ],
         },
     ),
@@ -60,7 +60,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/380", "#380")} Adds a checkerboard overlay behind the lockmenu and other various popup elements.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/380", "#380")} adds a checkerboard overlay behind the lockmenu and other various popup elements.`,
             ],
         },
     ),
@@ -75,7 +75,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/385", "#385")} Fixes the misaligned speech bubble text (lockscreen/desktop) when using a custom font from an asset pack.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/385", "#385")} fixes the misaligned speech bubble text (lockscreen/desktop) when using a custom font from an asset pack.`,
             ],
         },
     ),
@@ -90,7 +90,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/340", "#354")} Adds more info and optional toggles to PS4/Vertical/MNTM menu styles.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/340", "#354")} adds more info and optional toggles to ps4/vertical/mntm menu styles.`,
             ],
         },
     ),
@@ -105,7 +105,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/344", "#344")} Checks asset packs for Fonts/Icons and adds "Size Warning" screen.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/344", "#344")} checks asset packs for fonts/icons and adds "size warning" screen.`,
             ],
         },
     ),
@@ -120,7 +120,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")} Added new <span class='highlight'>Midnight Format</span> option to show users preferred format of <span class='highlight'>12:XX</span> or <span class='highlight'>00:XX</span> for 12AM-1AM on all clocks.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")} added new <span class='highlight'>midnight format</span> option to show users preferred format of <span class='highlight'>12:xx</span> or <span class='highlight'>00:xx</span> for 12am-1am on all clocks.`,
             ],
         },
     ),
@@ -135,7 +135,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/331", "#331")} Allows selection of file/directories in desktop keybinds and the main menu.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/331", "#331")} allows selection of file/directories in desktop keybinds and the main menu.`,
             ],
         },
     ),
@@ -150,7 +150,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/327", "#327")} Implemented multiple file selection in Archive app.`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/327", "#327")} implemented multiple file selection in archive app.`,
             ],
         },
     ),
@@ -165,7 +165,7 @@ const flipper = [
             lang: "C",
             nested: true,
             summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")} Interface option to show dynamic paths in the Archive app (file browser).`,
+                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")} interface option to show dynamic paths in the archive app (file browser).`,
             ],
         },
     ),
@@ -179,7 +179,7 @@ const flipper = [
             link: "https://github.com/Next-Flip/Momentum-Apps/pulls?q=is%3Apr+author%3A956MB+",
             lang: "C",
             summary: [
-                `My tiny changes to the ${li("https://github.com/Next-Flip/Momentum-Apps", "Momentum-Apps")} repo. Mostly fixes. ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/39", "#39")}, ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/41", "#41")}, ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/42", "#42")}`,
+                `my tiny changes to the ${li("https://github.com/Next-Flip/Momentum-Apps", "Momentum-Apps")} repo. mostly fixes. ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/39", "#39")}, ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/41", "#41")}, ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/42", "#42")}`,
             ],
         },
     ),
@@ -193,7 +193,7 @@ const flipper = [
             link: "https://github.com/956MB/flipper-chess",
             lang: "C++",
             summary: [
-                `My changes to the Flipper Zero app ${li("https://github.com/xtruan/flipper-chess", "xtruan/flipper-chess")} "Chess". Adding an optional eval bar for game evaluation, and fixing the ${li("https://github.com/xtruan/flipper-chess/issues/3", "illegal move issue")}.`,
+                `my changes to the flipper zero app ${li("https://github.com/xtruan/flipper-chess", "xtruan/flipper-chess")} "chess". adding an optional eval bar for game evaluation, and fixing the ${li("https://github.com/xtruan/flipper-chess/issues/3", "illegal move issue")}.`,
             ],
         },
     ),
@@ -206,7 +206,7 @@ const misc = [
         link: "https://github.com/956MB/aliaz",
         lang: "Zig",
         summary: [
-            `A "manual rewrite" of the <span class='highlight'>alias</span> command in the shell (<span class='highlight'>bash</span>/<span class='highlight'>zsh</span>/<span class='highlight'>fish</span>), and my first zig program. Uses color and descriptions for a better look, as well as adding a search function.`,
+            `a "manual rewrite" of the <span class='highlight'>alias</span> command in the shell (<span class='highlight'>bash</span>/<span class='highlight'>zsh</span>/<span class='highlight'>fish</span>), and my first zig program. uses color and descriptions for a better look, as well as adding a search function.`,
         ],
     }),
     entry(
@@ -219,7 +219,7 @@ const misc = [
             link: "https://github.com/956MB/Vencord/tree/plugin/change-server-icon",
             lang: "TypeScript",
             summary: [
-                `My first plugin for ${li("https://vencord.dev", "Vencord")}, a Discord client mod. Adds option to change server icons with custom images.`,
+                `my first plugin for ${li("https://vencord.dev", "Vencord")}, a discord client mod. adds option to change server icons with custom images.`,
             ],
         },
     ),
@@ -233,20 +233,20 @@ const misc = [
             link: "https://github.com/956MB/reddit-download-button",
             lang: "JavaScript",
             summary: [
-                `The browser extension that I've always wanted for <span class='highlight'>Reddit</span>... Adds buttons to more easily hoard images/videos. v1.3.4 of the extension is also on ${li("https://greasyfork.org/en/scripts/501718-reddit-download-buttons", "Greasy Fork")}.`,
+                `the browser extension that i've always wanted for <span class='highlight'>Reddit</span>... adds buttons to more easily hoard images/videos. v1.3.4 of the extension is also on ${li("https://greasyfork.org/en/scripts/501718-reddit-download-buttons", "Greasy Fork")}.`,
             ],
         },
     ),
     entry("p-vscode-yazi", "vscode.yazi", "2024", "Projects", [], {
         link: "https://github.com/956MB/vscode.yazi",
         summary: [
-            `${li("https://github.com/yazi-rs/yazi", "Yazi")} flavors inspired by the default themes (dark/light) in Visual Studio Code, and ${li("https://github.com/Mofiqul/vscode.nvim", "Mofiqul/vscode.nvim")}.`,
+            `${li("https://github.com/yazi-rs/yazi", "Yazi")} flavors inspired by the default themes (dark/light) in visual studio code, and ${li("https://github.com/Mofiqul/vscode.nvim", "Mofiqul/vscode.nvim")}.`,
         ],
     }),
     entry("p-tis-term", "TIS-TERM (WIP)", "2024", "Projects", [], {
         lang: "Rust",
         summary: [
-            `${li("https://www.zachtronics.com/tis-100/", "TIS-100")} Clone in the Terminal, written in Rust. WIP.`,
+            `${li("https://www.zachtronics.com/tis-100/", "TIS-100")} clone in the terminal, written in rust. wip.`,
         ],
     }),
     entry(
@@ -258,7 +258,7 @@ const misc = [
         {
             lang: "Swift",
             summary: [
-                `Like ${li("https://mactracker.net", "MacTracker")}, but for ${li("https://www.tesla.com/models", "Tesla")}. Full spec sheets and detailed info about every vehicle, solar product, and piece of software Tesla has released in the last 15 years. <span class='highlight'>"A Tesla version of this would be awesome"</span>, we said.`,
+                `like ${li("https://mactracker.net", "MacTracker")}, but for ${li("https://www.tesla.com/models", "Tesla")}. full spec sheets and detailed info about every vehicle, solar product, and piece of software tesla has released in the last 15 years. <span class='highlight'>"a tesla version of this would be awesome"</span>, we said.`,
             ],
             tags: ["iOS", "macOS", "Swift", "SwiftUI"],
         },
@@ -272,8 +272,8 @@ const misc = [
         {
             lang: "TypeScript",
             summary: [
-                "A desktop client for spectating professional <span class='highlight'>League of Legends</span> players.",
-                "This app is the result of my previous design concept for an OP.GG 'Spectate Pro Matches' feature, which would be a helpful tool around Worlds.",
+                "a desktop client for spectating professional <span class='highlight'>League of Legends</span> players.",
+                "this app is the result of my previous design concept for an op.gg 'spectate pro matches' feature, which would be a helpful tool around worlds.",
             ],
             tags: ["Windows", "Tauri", "TypeScript", "React"],
         },
@@ -288,7 +288,7 @@ const misc = [
             link: "https://github.com/956MB/2048WE",
             lang: "Swift",
             summary: [
-                "Full functionality of the iOS app <span class='highlight'>2048</span>, right on your Apple Watch. High scores saved on device, end of game stats, and current game progress is never lost between app resets and Watch being turned off. My first attempt making a standalone WatchOS app with the new method. ",
+                "full functionality of the ios app <span class='highlight'>2048</span>, right on your apple watch. high scores saved on device, end of game stats, and current game progress is never lost between app resets and watch being turned off. my first attempt making a standalone watchos app with the new method. ",
             ],
             tags: ["WatchOS", "Swift", "SwiftUI"],
         },
@@ -303,7 +303,7 @@ const misc = [
             link: "https://github.com/956MB/TX4",
             lang: "C++",
             summary: [
-                `Fully featured app for viewing all accumulated dashcam / Sentry mode clips off your <span class='highlight'>Tesla</span>. The idea came from a computer engineer friend who owns a <span class='highlight'>Model 3</span>. Also the fact that I wanted to start proper <span class='highlight'>Qt</span> project. The ${li("https://www.956mb.com/designs/#ui_tx4", "Figma concept here")} looks WAY better than the thrown togethre look of this thing...`,
+                `fully featured app for viewing all accumulated dashcam / sentry mode clips off your <span class='highlight'>Tesla</span>. the idea came from a computer engineer friend who owns a <span class='highlight'>model 3</span>. also the fact that i wanted to start proper <span class='highlight'>Qt</span> project. the ${li("https://www.956mb.com/designs/#ui_tx4", "Figma concept here")} looks way better than the thrown togethre look of this thing...`,
             ],
             tags: ["Windows", "C++", "Qt"],
         },
@@ -318,7 +318,7 @@ const misc = [
             link: "https://github.com/956MB/MSSNC",
             lang: "Swift",
             summary: [
-                "This idea came directly from myself using the Windows app <span class='highlight'>'Sticky Notes'</span>, and wanting the same thing on Mac. Notes are easily identified with their unique colors, and windows maintain their position and size on the desktop before and after application restarts.",
+                "this idea came directly from myself using the windows app <span class='highlight'>'Sticky Notes'</span>, and wanting the same thing on mac. notes are easily identified with their unique colors, and windows maintain their position and size on the desktop before and after application restarts.",
             ],
             tags: ["macOS", "Swift", "SwiftUI"],
         },
@@ -333,7 +333,7 @@ const misc = [
             link: "https://github.com/956MB/SomeAimGame",
             lang: "C#",
             summary: [
-                "My first and so far only attempt at creating a game in <span class='highlight'>Unity Engine</span>. For this to be a proper 'aim game', it needed a few primary features if nothing else, which I believe I implemented fairly well.",
+                "my first and so far only attempt at creating a game in <span class='highlight'>Unity Engine</span>. for this to be a proper 'aim game', it needed a few primary features if nothing else, which i believe i implemented fairly well.",
             ],
             tags: ["Windows", "C#", "Unity"],
         },
@@ -348,7 +348,7 @@ const misc = [
             link: "https://github.com/956MB/Twanslate",
             lang: "Swift",
             summary: [
-                "Translating messages in <span class='highlight'>Twitch</span> chat in real-time. Leverages <span class='highlight'>Twitch API</span> and the <span class='highlight'>IRC</span> protocol used for chats, and uses multiple other APIs (<span class='highlight'>Google</span>, <span class='highlight'>Microsoft</span>, <span class='highlight'>NLP</span>). Finnish -> English, or vice versa.",
+                "translating messages in <span class='highlight'>Twitch</span> chat in real-time. leverages <span class='highlight'>Twitch API</span> and the <span class='highlight'>IRC</span> protocol used for chats, and uses multiple other apis (<span class='highlight'>Google</span>, <span class='highlight'>Microsoft</span>, <span class='highlight'>NLP</span>). finnish -> english, or vice versa.",
             ],
             tags: ["macOS", "Swift", "SwiftUI"],
         },
@@ -363,7 +363,7 @@ const misc = [
             link: "https://github.com/956MB/GithubDesktop.css",
             lang: "CSS",
             summary: [
-                "More light/dark themes for the <span class='highlight'>Github Desktop</span> client. It just didn't have enough cool options. (Probably needs upadte!)",
+                "more light/dark themes for the <span class='highlight'>Github Desktop</span> client. it just didn't have enough cool options. (probably needs upadte!)",
             ],
             tags: ["CSS", "Shell"],
         },
@@ -378,7 +378,7 @@ const misc = [
             link: "https://github.com/956MB/board-games.py",
             lang: "Python",
             summary: [
-                `${li("https://github.com/956MB/go.py", "Go")}, ${li("https://github.com/956MB/chess.py", "Chess")}, ${li("https://github.com/956MB/checkers.py", "Checkers")}, and ${li("https://github.com/956MB/connect-four.py", "Connect Four")}. Basically the "quick/dirty" approach to terminal games. Very messy... not at all impressive... NOT done.`,
+                `${li("https://github.com/956MB/go.py", "Go")}, ${li("https://github.com/956MB/chess.py", "Chess")}, ${li("https://github.com/956MB/checkers.py", "Checkers")}, and ${li("https://github.com/956MB/connect-four.py", "Connect Four")}. basically the "quick/dirty" approach to terminal games. very messy... not at all impressive... not done.`,
             ],
             tags: ["Python"],
         },
@@ -392,35 +392,35 @@ const neostuff = [
         link: "https://github.com/956MB/ncks.nvim",
         lang: "Lua",
         summary: [
-            `Tiny utility plugin to append Discord nickname ideas to a file without leaving Neovim. My first ${li("https://neovim.io", "Neovim")} plugin. WIP`,
+            `tiny utility plugin to append discord nickname ideas to a file without leaving neovim. my first ${li("https://neovim.io", "Neovim")} plugin. wip`,
         ],
     }),
     entry("p-head-nvim", "head.nvim", "2024", "Projects", [], {
         link: "https://github.com/956MB/head.nvim",
         lang: "Lua",
         summary: [
-            "Neovim plugin for adding and automatically updating file headers. WIP",
+            "neovim plugin for adding and automatically updating file headers. wip",
         ],
     }),
     entry("p-quicker-nvim", "quicker.nvim", "fork/+", "Projects", [], {
         link: "https://github.com/956MB/neostuff#quickernvim-link-tba",
         lang: "Lua",
         summary: [
-            "Adds cursor line number highlight (<span class='highlight'>CursorLineNr</span>) to the quicker.nvim quickfix list. Follows the cursor movement and updates like normal line numbers.",
+            "adds cursor line number highlight (<span class='highlight'>CursorLineNr</span>) to the <span class='highlight'>quicker.nvim</span> quickfix list. follows the cursor movement and updates like normal line numbers.",
         ],
     }),
     entry("p-lazy-nvim", "lazy.nvim", "fork/+", "Projects", [], {
         link: "https://github.com/956MB/neostuff#lazynvim",
         lang: "Lua",
         summary: [
-            "Adds a URL to the end of each plugin entry line in the lazy.nvim Home/Summary page, making displaying the entire page or finding a plugin's URL easier.",
+            "adds a url to the end of each plugin entry line in the lazy.nvim home/summary page, making displaying the entire page or finding a plugin's url easier.",
         ],
     }),
     entry("p-oil-nvim", "oil.nvim", "fork/+", "Projects", [], {
         link: "https://github.com/956MB/neostuff#oilnvim-link-tba",
         lang: "Lua",
         summary: [
-            "Adds the <span class='highlight'>netrw</span> directory listing UI to the oil.nvim file explorer. I like the way it looks, it fills out the top of the oil buffer a bit more. The \"Sort sequence\" line is currently nonsense... I haven't figured out how to make use of this yet, but it's still nice having it there anyway :)",
+            "adds the <span class='highlight'>netrw</span> directory listing ui to the oil.nvim file explorer. i like the way it looks, it fills out the top of the oil buffer a bit more. the \"sort sequence\" line is currently nonsense... i haven't figured out how to make use of this yet, but it's still nice having it there anyway :)",
         ],
     }),
 ];
@@ -432,66 +432,66 @@ const personal = [
         link: "https://github.com/956MB/dotfiles",
         lang: "Lua",
         summary: [
-            `The... files. (${li("https://github.com/956MB/dotfiles/tree/main/ghostty", "ghostty")}, ${li("https://github.com/956MB/dotfiles/tree/main/nvim", "nvim")}, ${li("https://github.com/956MB/dotfiles/tree/main/fish", "fish")}, ${li("https://github.com/956MB/dotfiles/tree/main/yabai", "yabai")}, ${li("https://github.com/956MB/dotfiles/tree/main/lazygit", "lazygit")}...)`,
+            `the... files. (${li("https://github.com/956MB/dotfiles/tree/main/ghostty", "ghostty")}, ${li("https://github.com/956MB/dotfiles/tree/main/nvim", "nvim")}, ${li("https://github.com/956MB/dotfiles/tree/main/fish", "fish")}, ${li("https://github.com/956MB/dotfiles/tree/main/yabai", "yabai")}, ${li("https://github.com/956MB/dotfiles/tree/main/lazygit", "lazygit")}...)`,
         ],
     }),
     entry("p-boosts", "boosts", "2024", "Projects", [], {
         link: "https://github.com/956MB/boosts",
         lang: "CSS",
         summary: [
-            `Some ${li("https://arc.net", "Arc")} boosts for my own tastes (<span class='highlight'>Github</span>, <span class='highlight'>Claude</span>, <span class='highlight'>Hugging Face</span>, <span class='highlight'>F1TV</span>, ...)`,
+            `some ${li("https://arc.net", "Arc")} boosts for my own tastes (<span class='highlight'>Github</span>, <span class='highlight'>Claude</span>, <span class='highlight'>Hugging Face</span>, <span class='highlight'>F1TV</span>, ...)`,
         ],
     }),
     entry("p-banner", "banner", "2024", "Projects", [], {
         link: "https://github.com/956MB/banner",
         lang: "Python",
         summary: [
-            "Wow, that's interesting. Rendering of my ASCII banner in Github's markdown code block.",
+            "wow, that's interesting. rendering of my ascii banner in github's markdown code block.",
         ],
     }),
     entry("p-wallpapers", "wallpapers", "2024", "Projects", [], {
         link: "https://github.com/956MB/wallpapers",
         lang: "none",
         summary: [
-            "Collection of wallpapers made or modified by me. Or just stuff I think is cool. WIP.",
+            "collection of wallpapers made or modified by me. or just stuff i think is cool. wip.",
         ],
     }),
     entry("p-website", "website", "2025", "Projects", [], {
         link: "https://github.com/956MB/website",
         lang: "TypeScript",
         summary: [
-            "This website. My portfolio. Made with <span class='highlight'>React</span>/<span class='highlight'>Next.js</span>/<span class='highlight'>Tailwind</span>.",
+            "this website. my portfolio. made with <span class='highlight'>React</span>/<span class='highlight'>Next.js</span>/<span class='highlight'>Tailwind</span>.",
         ],
     }),
     entry("p-kata", "Kata", "2020+", "Projects", [], {
         link: "https://github.com/956MB/Kata",
         lang: "Python",
         summary: [
-            `Most of my ${li("https://www.codewars.com/users/956MB", "Codewars")} katas. Majority in <span class='highlight'>Python</span>. Gotta do more in <span class='highlight'>Go</span> / <span class='highlight'>Rust</span> / <span class='highlight'>Zig</span> (eventually).`,
+            `most of my ${li("https://www.codewars.com/users/956MB", "Codewars")} katas. majority in <span class='highlight'>Python</span>. gotta do more in <span class='highlight'>Go</span> / <span class='highlight'>Rust</span> / <span class='highlight'>Zig</span> (eventually).`,
         ],
     }),
     entry("p-aoc", "AoC", "2018+", "Projects", [], {
         link: "https://github.com/956MB/AoC",
         lang: "Python",
         summary: [
-            `All of my ${li("https://adventofcode.com", "Advent of Code")} solutions. (${li("https://github.com/956MB/AoC/tree/master/18", "18")}, ${li("https://github.com/956MB/AoC/tree/master/20", "20")}, ${li("https://github.com/956MB/AoC/tree/master/21", "21")}, ${li("https://github.com/956MB/AoC/tree/master/22", "22")})`,
+            `all of my ${li("https://adventofcode.com", "Advent of Code")} solutions. (${li("https://github.com/956MB/AoC/tree/master/18", "18")}, ${li("https://github.com/956MB/AoC/tree/master/20", "20")}, ${li("https://github.com/956MB/AoC/tree/master/21", "21")}, ${li("https://github.com/956MB/AoC/tree/master/22", "22")})`,
         ],
     }),
 ];
 
 export const projectGroups: IEntryGroups = [
-    group("Flipper", "Projects", "Flipper Zero firmware and apps", flipper),
-    group("Misc", "Projects", "Code projects and contributions", misc),
+    group("flipper", "Projects", "flipper zero firmware and apps", flipper),
+    group("misc", "Projects", "code projects and contributions", misc),
     group(
-        "Neostuff",
+        "neostuff",
         "Projects",
-        "My Neovim plugins and changes to others",
+        "my neovim plugins and changes to others",
         neostuff,
         {
             titleLink: "https://github.com/956MB/neostuff",
         },
     ),
-    group("Personal", "Projects", 'The "workspace"', personal),
+    group("personal", "Projects", 'the "workspace"', personal),
 ];
 
 export const defaultExpandedIds = [

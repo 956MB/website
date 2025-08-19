@@ -11,7 +11,7 @@ const icons = [
         [item("/images/extras/icons/black-icons.gif", 1024, 1024)],
         {
             summary: [
-                "Some of the icons I've modified to make the perfect black & white dock in macOS (I am not the orignal designer of these).",
+                "some of the icons i've modified to make the perfect black & white dock in macOS (i am not the orignal designer of these).",
             ],
             link: "https://drive.google.com/drive/folders/1hv3KFVwsjgfq_JdMjK1oM-HKkcbZ8kcf?usp=sharing",
             credit: "Various",
@@ -25,7 +25,7 @@ const icons = [
         [item("/images/extras/icons/yapper-1.png", 1024, 1024)],
         {
             summary: [
-                'Rendition of the <a href="https://github.com/Next-Flip/qFlipper">qFlipper</a> app icon, but using the Yapper from <a href="https://github.com/Next-Flip">Momentum Firmware</a>. Shoutout to Lucky for the :yapsip: emote.',
+                'rendition of the <a href="https://github.com/Next-Flip/qFlipper">qFlipper</a> app icon, but using the Yapper from <a href="https://github.com/Next-Flip">Momentum Firmware</a>. shoutout to Lucky for the :yapsip: emote.',
             ],
             link: "https://macosicons.com/#/Flipper",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://discord.gg/momentum">Lucky</a>',
@@ -39,7 +39,7 @@ const icons = [
         [item("/images/extras/icons/sketch-3.png", 1024, 1024)],
         {
             summary: [
-                'Dark mode version of the <a href="https://www.sketch.com/">Sketch</a> app icon, with a bit more glow.',
+                'dark mode version of the <a href="https://www.sketch.com/">Sketch</a> app icon, with a bit more glow.',
             ],
             link: "https://macosicons.com/#/?icon=coH1yycbca",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.sketch.com/home/">Sketch</a>',
@@ -53,7 +53,7 @@ const icons = [
         [item("/images/extras/icons/flipper-4.png", 1024, 1024)],
         {
             summary: [
-                'Recolor and resize of the <a href="https://flipperzero.one/">Flipper</a> app icons, by me. (iOS, macOS, Windows)',
+                'recolor and resize of the <a href="https://flipperzero.one/">Flipper</a> app icons, by me. (iOS, macOS, Windows)',
             ],
             link: "https://macosicons.com/#/?icon=3KGMA5wWih",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://flipperzero.one/design-guide#!/tab/282742113-4">Flipper</a>',
@@ -67,7 +67,7 @@ const icons = [
         [item("/images/extras/icons/claude-1.gif", 1024, 1024)],
         {
             summary: [
-                '<a href="https://www.anthropic.com/claude">Anthropic\'s Claude</a> app icon in black, white and #E77350. I did NOT create the logo, only creating replacement options for the iOS app icon.',
+                '<a href="https://www.anthropic.com/claude">Anthropic\'s Claude</a> app icon in black, white and #E77350. i did NOT create the logo, only creating replacement options for the iOS app icon.',
             ],
             link: "https://macosicons.com/#/?icon=mbaJDK7YBC",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072">@setanarut</a>',
@@ -81,7 +81,7 @@ const icons = [
         [item("/images/extras/icons/adobe-ps-1.png", 1024, 1024)],
         {
             summary: [
-                'Variant Rosetta style icons for various Adobe applications (<a>Photoshop</a>, <a>Illustrator</a>, <a>Bridge</a>, <a>InDesign</a>, <a ">Audition</a>). Made by me.',
+                'variant Rosetta style icons for various Adobe applications (<a>Photoshop</a>, <a>Illustrator</a>, <a>Bridge</a>, <a>InDesign</a>, <a ">Audition</a>). made by me.',
             ],
             link: "https://store.956mb.com/l/adobe-rosetta-icons",
         },
@@ -94,7 +94,7 @@ const icons = [
         [item("/images/extras/icons/tdb-1.png", 1024, 1024)],
         {
             summary: [
-                'App icon for my iOS/iPadOS/macOS app <a href="https://www.tdb.fyi/">TDB</a>. Made by me.',
+                'app icon for my iOS/iPadOS/macOS app <a href="https://www.tdb.fyi/">TDB</a>. made by me.',
             ],
         },
     ),
@@ -106,7 +106,7 @@ const icons = [
         [item("/images/extras/icons/2048we-3.png", 704, 704)],
         {
             summary: [
-                "The custom app icon for my Apple Watch app, 2048WE (Apple Watch Edition). Made by me.",
+                "the custom app icon for my Apple Watch app, 2048WE (Apple Watch Edition). made by me.",
             ],
             link: "https://store.956mb.com/l/2048we-icon",
         },
@@ -114,6 +114,7 @@ const icons = [
 ];
 
 // NOTE: wallpapers
+
 const wallpapers = [
     entry(
         "model-3-performance-trace",
@@ -129,7 +130,7 @@ const wallpapers = [
         ],
         {
             summary: [
-                '2024 Model 3 Performance with the Trace Contour effect (Photoshop)... just a random idea. I tried upscaling to 6k, but there were some weird artifacting going on... All credit to the <a href="https://www.tesla.com/tesla-gallery">Tesla Gallery</a> for the original photos.',
+                '2024 Model 3 Performance with the trace contour effect (Photoshop)... just a random idea. i tried upscaling to 6k, but there were some weird artifacting going on... all credit to the <a href="https://www.tesla.com/tesla-gallery">Tesla Gallery</a> for the original photos.',
             ],
             link: "https://drive.google.com/drive/folders/1PiO6OjZeZClEnoyhkNOlapOvrjHY2NPk?usp=sharing",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.tesla.com/">Tesla</a>',
@@ -149,7 +150,7 @@ const wallpapers = [
         ],
         {
             summary: [
-                "Eight color variations of the Apple Store Hongdae (홍대) wallpapers. The grey brought down to black, and several Lightroom changes to add some variety. I did not design these!",
+                "eight color variations of the Apple Store Hongdae (홍대) wallpapers. the grey brought down to black, and several Lightroom changes to add some variety. i did not design these!",
             ],
             link: "https://drive.google.com/drive/folders/1lJRSJZwxUlsaq0SXEuaK57L-cK8vq4sH?usp=sharing",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.apple.com/kr/retail/hongdae/">Apple 홍대.</a>',
@@ -169,7 +170,7 @@ const wallpapers = [
         ],
         {
             summary: [
-                'Several color variants of the great graffiti wallpaper by <a href="https://twitter.com/BasicAppleGuy">@BasicAppleGuy</a>. I DID NOT DESIGN THESE, ONLY MODIFIED. Credit to him for the amazing art.',
+                'several color variants of the great graffiti wallpaper by <a href="https://twitter.com/BasicAppleGuy">@BasicAppleGuy</a>. I DID NOT DESIGN THESE, ONLY MODIFIED. credit to him for the amazing art.',
             ],
             link: "https://drive.google.com/drive/folders/1oI_40YXzpUyvsNE6RHtasf7fuyO_lcD8?usp=sharing",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://basicappleguy.com/haberdashery/graffiti">@BasicAppleGuy</a>',
@@ -183,7 +184,7 @@ const wallpapers = [
         [item("/images/concepts/d/d-wallpaper-thumb.png", 2304, 1296)],
         {
             summary: [
-                'I have NO idea what this is, I just started painting. Made by me. <a href="https://www.956mb.com/designs/#logo_d">"D" / "O"</a>.',
+                'i have NO idea what this is, i just started painting. made by me. <a href="https://www.956mb.com/designs/#logo_d">"D" / "O"</a>.',
             ],
             link: "https://drive.google.com/drive/folders/1mYTo3YpLKCwEOMqpEMnuSm0Sqar4z5qj?usp=sharing",
         },
@@ -196,7 +197,7 @@ const wallpapers = [
         [item("/images/concepts/pLan/pLan-thumb.png", 2048, 1152)],
         {
             summary: [
-                'Painting used as the banner/background of my fake programming language "brand", <a href="https://www.956mb.com/designs/#logo_plan">pLan</a>. Made by me.',
+                'painting used as the banner/background of my fake programming language "brand", <a href="https://www.956mb.com/designs/#logo_plan">pLan</a>. made by me.',
             ],
             link: "https://drive.google.com/drive/folders/1HNcP5ZXG5qLHVh9LqCcKtsjbRhOXWd_s?usp=sharing",
         },
@@ -215,7 +216,7 @@ const wallpapers = [
         ],
         {
             summary: [
-                'The beautiful Studio Ghibli wordmark and logo modified by me in many color combinations. Logo property of <a href="https://www.ghibli.jp/">Studio Ghibli</a>.',
+                'the beautiful Studio Ghibli wordmark and logo modified by me in many color combinations. logo property of <a href="https://www.ghibli.jp/">Studio Ghibli</a>.',
             ],
             link: "https://drive.google.com/drive/folders/1zuMZQfx7B_pTh7Y1vErBXOpoWqe6ik1k?usp=sharing",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.ghibli.jp/">Studio Ghibli</a>',
@@ -229,7 +230,7 @@ const wallpapers = [
         [item("/images/extras/wallpapers/_0010_HM326.png", 1920, 1502)],
         {
             summary: [
-                'Almost every <a href="https://www.massoudy.net/">Hassan Massoudy</a> piece, upscaled to 5K and modified to dark black and white. All credit to him for the absolutey phenomenal calligraphy.',
+                'almost every <a href="https://www.massoudy.net/">Hassan Massoudy</a> piece, upscaled to 5K and modified to dark black and white. all credit to him for the absolutey phenomenal calligraphy.',
             ],
             link: "https://drive.google.com/drive/folders/1i0Zf3II5JaSc4s6JnyORfPiu5Lnzm5gT?usp=sharing",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.massoudy.net/">Hassan Massoudy</a>',
@@ -243,7 +244,7 @@ const wallpapers = [
         [item("/images/extras/wallpapers/cybertruck-redesign.png", 1920, 1080)],
         {
             summary: [
-                'My photo manipulation and upscaling of a Cybertruck concept from <a href="https://www.reddit.com/r/cybertruck/comments/mlshr8/what_are_your_thoughts_about_this_for_farming_or/?utm_source=share&utm_medium=web2x&context=3">???</a> on Reddit. Credit to him for the original modification of Cybertruck design.',
+                'my photo manipulation and upscaling of a Cybertruck concept from <a href="https://www.reddit.com/r/cybertruck/comments/mlshr8/what_are_your_thoughts_about_this_for_farming_or/?utm_source=share&utm_medium=web2x&context=3">???</a> on Reddit. credit to him for the original modification of Cybertruck design.',
             ],
             link: "https://drive.google.com/drive/folders/1d2DtdnDqvSqY4KfGYtSjHVkodIIr9mjn?usp=sharing",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/r/cybertruck/comments/mlshr8/what_are_your_thoughts_about_this_for_farming_or/?utm_source=share&utm_medium=web2x&context=3">???</a>',
@@ -254,16 +255,16 @@ const wallpapers = [
 // NOTE: groups
 
 export const icons_section = group(
-    "App Icons",
+    "app icons",
     "icons",
-    "Mostly slight changes to existing icons, but some of my own as well",
+    "mostly slight changes to existing icons, but some of my own as well",
     icons,
 );
 
 export const wallpapers_section = group(
-    "Wallpapers & Screenshots",
+    "wallpapers & screenshots",
     "wallpapers",
-    "Collection of wallpapers I've created, modified/upscaled, or that I just like",
+    "collection of wallpapers i've created, modified/upscaled, or that i just like",
     wallpapers,
 );
 

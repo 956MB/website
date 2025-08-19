@@ -35,7 +35,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 
             <div className="flex flex-col">
                 <div className="flex w-full flex-row items-center justify-center">
-                    <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
+                    <hr className="my-auto h-px w-full border-b border-dashed border-neutral-200 bg-transparent dark:border-neutral-800" />
                 </div>
 
                 <motion.div
@@ -45,8 +45,8 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                     className={clsx(
                         "grid w-full max-w-screen-xl items-start justify-center",
                         entry.category === "icons"
-                            ? "grid-cols-2 gap-2 pt-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-                            : "grid-cols-1 gap-3 pt-3 lg:grid-cols-2",
+                            ? "grid-cols-2 gap-2 pt-3.5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+                            : "grid-cols-1 gap-3 pt-3.5 lg:grid-cols-2",
                     )}
                 >
                     {React.Children.toArray(
@@ -63,7 +63,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                 >
                                     <a
                                         className={clsx(
-                                            "group relative flex flex-col justify-end overflow-hidden bg-gradient-to-t from-white/10 to-transparent object-cover saturate-0 backdrop-blur-sm transition-colors ease-linear group-hover:saturate-100 child:group-hover:scale-105 sm:backdrop-blur-none",
+                                            "group relative flex flex-col justify-end overflow-hidden rounded-lg bg-gradient-to-t from-white/10 to-transparent object-cover saturate-0 backdrop-blur-sm transition-colors ease-linear group-hover:saturate-100 child:group-hover:scale-105 sm:backdrop-blur-none",
                                             item.link && " cursor-pointer",
                                         )}
                                         rel="noopener noreferrer"

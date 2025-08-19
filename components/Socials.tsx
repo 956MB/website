@@ -43,7 +43,7 @@ function Social({ serv, url }: { serv: string; url: string }) {
                 </div>
             </div>
 
-            <span className="text-[14px] font-medium capitalize leading-[14px] text-neutral-600 group-hover:text-p0 dark:text-white dark:group-hover:text-o0 transition-colors duration-150 lg:text-[15px]">
+            <span className="text-[14px] font-medium lowercase leading-[14px] text-neutral-600 group-hover:text-p0 dark:text-white dark:group-hover:text-o0 transition-colors duration-150 lg:text-[15px]">
                 {serv}
             </span>
         </a>

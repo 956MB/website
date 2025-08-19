@@ -14,7 +14,7 @@ const logos = [
         ],
         {
             summary: [
-                `Don't ask me what it means. SHOCKINGLY easy to make in <a rel="noopener noreferrer" target="_blank" href="https://100r.co/site/dotgrid.html">Dotgrid (100r.co)</a>. Those two are so impressive it makes me sad.`,
+                `don't ask me what it means. SHOCKINGLY easy to make in <a rel="noopener noreferrer" target="_blank" href="https://100r.co/site/dotgrid.html">Dotgrid (100r.co)</a>. those two are so impressive it makes me sad.`,
             ],
             thumbnail: item(
                 "/images/concepts/etherspent/eth-sketch.png",
@@ -31,7 +31,7 @@ const logos = [
         [item("/images/concepts/ta956mb-logo.png", 1000, 1000)],
         {
             summary: [
-                "Refined version of my personal logo, based on a character in a prototype \"GYEA\" script. Contains the letters 'TAB' (for my initials) and '956mb' (my alias).",
+                "refined version of my personal logo, based on a character in a prototype \"GYEA\" script. contains the letters 'TAB' (for my initials) and '956mb' (my alias).",
             ],
             thumbnail: item("/images/concepts/ta956mb-logo.png", 1000, 1000),
         },
@@ -61,7 +61,7 @@ const logos = [
                 "/images/t_wear/t-wear-italy.jpg",
                 3152,
                 1064,
-                "Three versions... can't make my mind up about anything",
+                "three versions... can't make my mind up about anything",
             ),
             item("/images/t_wear/t-wear-x-2.jpg", 1837, 2651),
             item(
@@ -73,7 +73,7 @@ const logos = [
         ],
         {
             summary: [
-                "This Is one of a few logo ideas for a clothing brand that popped into my head watching the Australian Open this year. I've always been interested in the idea of custom equipment / clothing, and what those things would look like if I designed them for myself. Whether it was hockey in my past, snowboarding or tennis. There's three because I can't make up my mind with this concept... but #1 is probably front runner. (Jannik is the absolute man.)",
+                "this is one of a few logo ideas for a clothing brand that popped into my head watching the Australian Open this year. i've always been interested in the idea of custom equipment / clothing, and what those things would look like if i designed them for myself. whether it was hockey in my past, snowboarding or tennis. there's three because i can't make up my mind with this concept... but #1 is probably front runner. (Jannik is the absolute man.)",
             ],
             useLinkPreview: {
                 path: "/images/t_wear/t-wear-preview-6.png",
@@ -96,7 +96,7 @@ const logos = [
             item("/videos/d-timelapse.mp4", 1440, 1440),
         ],
         {
-            summary: ["I have NO idea what this is, I just started painting."],
+            summary: ["i have NO idea what this is, i just started painting."],
             useLinkPreview: item("/images/concepts/d/d-banner.png", 1764, 588),
             thumbnail: item("/images/concepts/d/o-thumb-1000.png", 1000, 1000),
         },
@@ -113,7 +113,7 @@ const logos = [
         ],
         {
             summary: [
-                '"Logo" and "brand aesthetics" for my first programming language, pLan. Which of course doesn\'t actually exist yet. It\'ll be done in 20 years. I guess I really like coming up with names for programming languages and creating graphics for them more than I like learning how to actually make one.',
+                '"logo" and "brand aesthetics" for my first programming language, pLan. which of course doesn\'t actually exist yet. it\'ll be done in 20 years. i guess i really like coming up with names for programming languages and creating graphics for them more than i like learning how to actually make one.',
             ],
             thumbnail: item("/thumbnails/plan-thumb.png", 571, 571),
         },
@@ -129,7 +129,7 @@ const logos = [
         ],
         {
             summary: [
-                "App icon for my iOS/iPadOS/macOS Tesla database app, TDB. Two versions, the square being the initial iOS app icon, and the circle one for profile pictures and various other things. (Still in development, NOT on the App Store yet.)",
+                "app icon for my iOS/iPadOS/macOS Tesla database app, TDB. two versions, the square being the initial iOS app icon, and the circle one for profile pictures and various other things. (still in development, NOT on the App Store yet.)",
             ],
             thumbnail: item(
                 "/images/tdb-landing/tdb-landing-thumb.png",
@@ -140,13 +140,13 @@ const logos = [
     ),
     entry("warp-logo", "Warp Logo concept", "2019~", "photoshop", [], {
         summary: [
-            "Similar to the 'X' logo concept, this is a logo concept I made FOREVER ago. Like 2018/2019. ",
+            "similar to the 'X' logo concept, this is a logo concept i made FOREVER ago. like 2018/2019. ",
         ],
         thumbnail: item("/images/concepts/d-borders-logo-2019.gif", 1024, 1024),
     }),
     entry("x-logo", '"X" Logo concept', "2013~", "illustrator", [], {
         summary: [
-            'This is a logo concept I made of the letter "X" a VERY long time ago. Somewhere around 2013~2016, I think. I sold this logo to some random person on Shopify for around $10 I believe, and I\'m not even sure if it was ever used. Not that bad for being so early in my Illustrator skills from back then.',
+            'this is a logo concept i made of the letter "X" a VERY long time ago. somewhere around 2013~2016, i think. i sold this logo to some random person on Shopify for around $10 i believe, and i\'m not even sure if it was ever used. not that bad for being so early in my Illustrator skills from back then.',
         ],
         thumbnail: item("/images/concepts/x-logo-2013.png", 1024, 1024),
     }),
@@ -163,7 +163,7 @@ const ui = [
         [item("/images/tdb-landing/tdb-landing-2.png", 2880, 2160)],
         {
             summary: [
-                "Very simple and VERY static landing page design for my iOS/iPadOS/macOS app, TDB. The idea of the app and it's overall functionality is super easy to understand, so I thought it's landing site should be the same. There's no need for a bunch of animations or slides advertising what it can do, one page with a demo and a download button should be enough. (NOT on the App Store yet.)",
+                "very simple and VERY static landing page design for my iOS/iPadOS/macOS app, TDB. the idea of the app and it's overall functionality is super easy to understand, so i thought it's landing site should be the same. there's no need for a bunch of animations or slides advertising what it can do, one page with a demo and a download button should be enough. (NOT on the App Store yet.)",
             ],
             thumbnail: item("/thumbnails/tdb-landing-thumb.png", 1920, 1920),
         },
@@ -176,7 +176,7 @@ const ui = [
         [item("/images/wallpaper-sync/wallpaper-sync.png", 3616, 3662)],
         {
             summary: [
-                "This is another spontaneous project idea for a desktop app to set and automatically handle your different wallpapers on multiple devices. I'm personally a Synergy user, and have been for a long time, but I also manually switch back and forth between my Mac and PC. So, my intended use case came from having a folder of auto-rotating wallpapers on my Mac that I wanted to apply the exact same way to my PC, without any manually transferring of files through Google Drive or something.",
+                "this is another spontaneous project idea for a desktop app to set and automatically handle your different wallpapers on multiple devices. i'm personally a Synergy user, and have been for a long time, but i also manually switch back and forth between my Mac and PC. so, my intended use case came from having a folder of auto-rotating wallpapers on my Mac that i wanted to apply the exact same way to my PC, without any manually transferring of files through Google Drive or something.",
             ],
             thumbnail: item("/thumbnails/wallpaper-sync-thumb.png", 1458, 1458),
         },
@@ -194,7 +194,7 @@ const ui = [
         ],
         {
             summary: [
-                "An actual attempt at my previously shown app, TX4. I tried to keep the same general ideas and structure of the original Qt creation, but with a much more thought out design before going into development. This was crucial because doing things on the fly with no plan, in Qt no less, lead to a terrible look and feel. Development on it has already started in React, but is very early stages.",
+                "an actual attempt at my previously shown app, TX4. i tried to keep the same general ideas and structure of the original Qt creation, but with a much more thought out design before going into development. this was crucial because doing things on the fly with no plan, in Qt no less, lead to a terrible look and feel. development on it has already started in React, but is very early stages.",
             ],
             thumbnail: item("/thumbnails/tx4-thumb.png", 1260, 1260),
         },
@@ -212,7 +212,7 @@ const ui = [
         ],
         {
             summary: [
-                "This was my take (apparently not very good) on a re-design of the Comma 3 interface. It came from an interview assignment called the 'Comma Interface Challenge', where Comma wanted modifications or whole different design structures for a 'Software updater' inside the UI. I supposedly didn't fully grasp the objective of the interview challenge though.",
+                "this was my take (apparently not very good) on a re-design of the Comma 3 interface. it came from an interview assignment called the 'Comma Interface Challenge', where Comma wanted modifications or whole different design structures for a 'Software updater' inside the UI. i supposedly didn't fully grasp the objective of the interview challenge though.",
             ],
             thumbnail: item(
                 "/thumbnails/comma-interface-thumb.png",
@@ -235,7 +235,7 @@ const ui = [
         ],
         {
             summary: [
-                "This is a concept for a website I've had for a long time. It's a website where any and all TV show or movie intro 'frames' are collected. Sort of like if IMDB or Rotten Tomatoes was only for intros and end credits.",
+                "this is a concept for a website i've had for a long time. it's a website where any and all TV show or movie intro 'frames' are collected. sort of like if IMDB or Rotten Tomatoes was only for intros and end credits.",
             ],
             thumbnail: item("/thumbnails/troio-thumb.png", 1104, 1104),
         },
@@ -253,7 +253,7 @@ const ui = [
         ],
         {
             summary: [
-                "This is a concept for the OP.GG 'Pro Matches' feature, integrated into their desktop client. I really liked the 'Spectate Pro Players' part of OP.GG's website, but I thought it would be cool if you never had to leave the desktop client to load up and spectate pro games.",
+                "this is a concept for the OP.GG 'Pro Matches' feature, integrated into their desktop client. i really liked the 'Spectate Pro Players' part of OP.GG's website, but i thought it would be cool if you never had to leave the desktop client to load up and spectate pro games.",
             ],
             thumbnail: item("/thumbnails/opgg-thumb.png", 824, 824),
         },
@@ -266,7 +266,7 @@ const ui = [
         [item("/images/concepts/LoL.png", 1794, 1009)],
         {
             summary: [
-                "This concept was made before the overhaul to the borders and ranks. This website allows you to pair borders to icons to banners to customize your LoL profile, or see what combinations look good. All level and rank borders/banners and every icon would be available to preview.",
+                "this concept was made before the overhaul to the borders and ranks. this website allows you to pair borders to icons to banners to customize your LoL profile, or see what combinations look good. all level and rank borders/banners and every icon would be available to preview.",
             ],
         },
     ),
@@ -276,15 +276,15 @@ const ui = [
 
 export const designGroups: IEntryGroups = [
     group(
-        "UI / UX",
+        "ui / ux",
         "concept",
-        "Collection of UI prototypes and ideas for past / future projects",
+        "collection of ui prototypes and ideas for past / future projects",
         ui,
     ),
     group(
-        "Logos & Icons",
+        "logos & icons",
         "logo",
-        "A few logos/icons I've made for projects or personal use",
+        "a few logos/icons i've made for projects or personal use",
         logos,
     ),
 ];

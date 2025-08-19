@@ -1,12 +1,12 @@
 "use client";
 
 import clsx from "clsx";
+import { copyright, license } from "lib/info";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { VercelIcon } from "./Icons";
 import Socials from "./Socials";
-import { useTheme } from "./ThemeProvider";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems: {
@@ -31,9 +31,9 @@ const COPYRIGHT = () => {
                 rel="noopener noreferrer"
                 className="transition-colors hover:text-p0 hover:underline dark:hover:text-o0"
             >
-                {`CC-BY-NC-SA-4.0`}
+                {`${license}`}
                 {!isHome ? <br className="block sm:hidden" /> : <span> </span>}
-                {` 2025 © Alexander Bays`}
+                {`${copyright}`}
             </a>
         </span>
     );
@@ -43,7 +43,7 @@ const Deco = ({ children, show }: { children: string; show: boolean }) =>
     // prettier-ignore
     <span
         className={clsx(
-            "mb-[2px] text-[14px] font-medium leading-[14px] text-neutral-400 no-underline transition-all duration-150",
+            "mb-[2px] text-[14px] font-medium leading-[14px] text-neutral-500 no-underline transition-all duration-150",
             show
                 ? children === "/"
                     ? "mr-[6px]"
@@ -62,7 +62,6 @@ const Deco = ({ children, show }: { children: string; show: boolean }) =>
 
 export default function Header() {
     const pathname = usePathname() || "/";
-    const theme = useTheme();
 
     return (
         <div
@@ -80,15 +79,11 @@ export default function Header() {
                         <div className="hidden h-full items-center justify-center sm:flex">
                             <Link href="/">
                                 <Image
-                                    src={
-                                        theme.theme === "dark"
-                                            ? "/logo-small.png"
-                                            : "/logo.png"
-                                    }
-                                    width={29}
-                                    height={29}
+                                    src={"/signature.png"}
+                                    width={32}
+                                    height={32}
                                     alt="Home"
-                                    className="mb-[2px] mr-1 h-[29px] translate-y-[1px] rounded-[5px] object-contain dark:mr-0 dark:h-[20px] dark:rounded-none sm:h-[29px] dark:sm:h-[20px]"
+                                    className="mb-[2px] ml-1 h-[32px] translate-y-[1px] rounded-[5px] object-contain invert dark:mr-0 dark:h-[20px] dark:rounded-none dark:invert-0 sm:h-[32px] dark:sm:h-[20px]"
                                 />
                             </Link>
                         </div>
@@ -122,7 +117,7 @@ export default function Header() {
                                                 >
                                                     <span
                                                         className={clsx(
-                                                            "relative text-center capitalize",
+                                                            "relative text-center lowercase",
                                                             pathname.endsWith(
                                                                 name,
                                                             ) ||
@@ -146,11 +141,9 @@ export default function Header() {
                             )}
                         </div>
                         <div className="ml-auto hidden flex-row items-center gap-x-8 sm:flex">
-                            {pathname !== "/" && (
-                                <div className="hidden flex-1 xl:flex">
-                                    <Socials isHome={true} />
-                                </div>
-                            )}
+                            <div className="hidden flex-1 xl:flex">
+                                <Socials isHome={true} />
+                            </div>
                             <div className="hidden items-center md:flex">
                                 <ThemeToggle />
                             </div>

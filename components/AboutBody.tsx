@@ -12,7 +12,6 @@ import {
 import Markdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { holiTheme } from "react-syntax-highlighter/dist/esm/styles/prism";
-import Socials from "./Socials";
 import { TextParagraph, TextParagraphSub } from "./Text";
 
 export function AboutBody() {
@@ -71,9 +70,6 @@ export function AboutBody() {
                     </div>
                 </motion.div>
                 <motion.div variants={itemVariants}>
-                    <Socials isHome={true} />
-                </motion.div>
-                <motion.div variants={itemVariants}>
                     <TextParagraph>{bio_p}</TextParagraph>
                 </motion.div>
                 <motion.div variants={itemVariants}>
@@ -88,7 +84,7 @@ export function AboutBody() {
                 variants={itemVariants}
                 className="hidden w-full flex-row items-center justify-center align-middle md:flex"
             >
-                <div className="flex flex-col items-center overflow-x-auto">
+                <div className="flex flex-col items-center overflow-x-auto border-t border-dashed border-neutral-200 py-6 dark:border-neutral-800">
                     <Markdown
                         className="text-right text-[11px] leading-4 text-black saturate-0 dark:invert"
                         components={{

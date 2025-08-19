@@ -6,8 +6,85 @@ import { IEntryGroup } from "lib/interfaces";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import GroupHeader from "./GroupHeader";
+
+function useBreakpoint() {
+    const [breakpoint, setBreakpoint] = useState<"sm" | "md" | "lg" | "base">(
+        "base",
+    );
+
+    useEffect(() => {
+        const updateBreakpoint = () => {
+            if (window.innerWidth >= 1024) {
+                setBreakpoint("lg");
+            } else if (window.innerWidth >= 768) {
+                setBreakpoint("md");
+            } else if (window.innerWidth >= 640) {
+                setBreakpoint("sm");
+            } else {
+                setBreakpoint("base");
+            }
+        };
+
+        updateBreakpoint();
+        window.addEventListener("resize", updateBreakpoint);
+        return () => window.removeEventListener("resize", updateBreakpoint);
+    }, []);
+
+    return breakpoint;
+}
+
+function getColumns(breakpoint: "sm" | "md" | "lg" | "base"): number {
+    switch (breakpoint) {
+        case "lg":
+            return 4;
+        case "md":
+            return 3;
+        case "sm":
+            return 2;
+        default:
+            return 1;
+    }
+}
+
+function getRadius(
+    index: number,
+    totalItems: number,
+    columns: number,
+): { style: React.CSSProperties; className: string } {
+    const row = Math.floor(index / columns);
+    const col = index % columns;
+    const totalRows = Math.ceil(totalItems / columns);
+    const lastRow = totalRows - 1;
+    const itemsInLastRow = totalItems - lastRow * columns;
+    const isFirstRow = row === 0;
+    const isLastRow = row === lastRow;
+    const isFirstCol = col === 0;
+    const isLastColInRow =
+        col === columns - 1 || (isLastRow && col === itemsInLastRow - 1);
+    const cellBelowIndex = index + columns;
+    const hasCellBelow = cellBelowIndex < totalItems;
+    const topLeft = isFirstRow && isFirstCol;
+    const topRight = isFirstRow && isLastColInRow;
+    const bottomLeft =
+        (isLastRow && isFirstCol) || (isFirstCol && !hasCellBelow);
+    const bottomRight =
+        (isLastRow && isLastColInRow) || (isLastColInRow && !hasCellBelow);
+
+    const radius = "0.659rem";
+    const style: React.CSSProperties = {
+        borderTopLeftRadius: topLeft ? radius : "0",
+        borderTopRightRadius: topRight ? radius : "0",
+        borderBottomLeftRadius: bottomLeft ? radius : "0",
+        borderBottomRightRadius: bottomRight ? radius : "0",
+    };
+
+    return {
+        style,
+        className: "overflow-hidden",
+    };
+}
 
 export default function DesignRow({
     entry,
@@ -17,6 +94,9 @@ export default function DesignRow({
     noHeader?: boolean;
 }) {
     const pathname = usePathname() || "/";
+    const breakpoint = useBreakpoint();
+    const columns = getColumns(breakpoint);
+
     const randomDelays = useMemo(() => {
         const delays = entry.items.map((_, index) => index * 0.1);
         for (let i = delays.length - 1; i > 0; i--) {
@@ -50,9 +130,9 @@ export default function DesignRow({
                 />
             )}
 
-            <div className="flex w-full flex-col gap-y-2">
+            <div className="flex w-full flex-col gap-y-3.5">
                 <div className="flex w-full flex-row items-center justify-center">
-                    <hr className="my-auto h-px w-full bg-neutral-200 dark:bg-neutral-800" />
+                    <hr className="my-auto h-px w-full border-b border-dashed border-neutral-200 bg-transparent dark:border-neutral-800" />
                 </div>
 
                 <motion.div
@@ -60,115 +140,132 @@ export default function DesignRow({
                     initial="initial"
                     animate="animate"
                     className={clsx(
-                        "grid w-full grid-cols-1 items-start justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
-                        "min-h-0", // Prevent container from collapsing
+                        "grid w-full grid-cols-1 items-start justify-center gap-px sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+                        "min-h-0",
                     )}
                 >
-                    {entry.items.map((item, i) => (
-                        <motion.div
-                            key={item.id}
-                            variants={itemVariants}
-                            transition={{
-                                duration: 0.5,
-                                delay: randomDelays[i],
-                            }}
-                            id={item.id}
-                            className={clsx(
-                                "group relative z-0 box-content flex flex-col justify-start overflow-hidden saturate-0 hover:saturate-100",
-                                "aspect-square", // Maintain consistent aspect ratio
-                            )}
-                        >
-                            {item.new === true && (
-                                <div className="absolute right-2 top-2 z-20 m-0 flex flex-row items-center justify-center gap-1 rounded-full bg-black/50 backdrop-blur-lg">
-                                    <span className="cursor-default rounded-full border border-white/20 px-[7px] pb-[5px] pt-[6px] text-[12px] font-medium leading-[12px] text-white/90">
-                                        {"NEW"}
-                                    </span>
-                                </div>
-                            )}
+                    {entry.items.map((item, i) => {
+                        const cornerRadius = getRadius(
+                            i,
+                            entry.items.length,
+                            columns,
+                        );
 
-                            <Link
-                                className="group relative flex flex-col justify-end overflow-hidden"
-                                href={
-                                    item.linkBlog
-                                        ? item.linkBlog
-                                        : item.items && item.items.length > 0
-                                          ? `${pathname}/${item.id}`
-                                          : "#"
-                                }
-                            >
-                                <div className="relative aspect-square w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900">
-                                    <Image
-                                        alt={item.id}
-                                        className={clsx(
-                                            "block aspect-square h-full w-full object-cover transition-transform duration-75 ease-in-out hover:scale-105",
-                                            (item.items || item.linkBlog) &&
-                                                "cursor-pointer",
-                                        )}
-                                        src={
-                                            item.thumbnail
-                                                ? item.thumbnail.path
-                                                : item.items
-                                                  ? item.items[0].path
-                                                  : ""
-                                        }
-                                        width={
-                                            item.thumbnail
-                                                ? item.thumbnail.width
-                                                : item.items
-                                                  ? item.items[0].width
-                                                  : 0
-                                        }
-                                        height={
-                                            item.thumbnail
-                                                ? item.thumbnail.height
-                                                : item.items
-                                                  ? item.items[0].height
-                                                  : 0
-                                        }
-                                        loading="eager"
-                                        unoptimized={true}
-                                    />
-                                </div>
-                            </Link>
-                            <div
+                        return (
+                            <motion.div
+                                key={item.id}
+                                variants={itemVariants}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: randomDelays[i],
+                                }}
+                                id={item.id}
                                 className={clsx(
-                                    "pointer-events-none absolute bottom-0 z-10 flex h-1/2 w-full flex-col justify-end gap-y-2 bg-gradient-to-t from-black/80 to-black/0 px-2 py-3 text-start opacity-100 group-hover:opacity-100 sm:h-full sm:justify-center sm:from-black/80 sm:to-black/20 sm:transition-opacity sm:duration-200 lg:py-4 lg:opacity-0",
-                                    item.category === "photoshop" &&
-                                        "pl-4 pr-4",
-                                    item.summary &&
-                                        item.summary.length <= 0 &&
-                                        "h-[53px] max-h-[53px] min-h-[53px]",
+                                    "group relative z-0 box-content flex flex-col justify-start saturate-0 hover:saturate-100",
+                                    "aspect-square",
                                 )}
+                                style={cornerRadius.style}
                             >
+                                {item.new === true && (
+                                    <div className="absolute right-2 top-2 z-20 m-0 flex flex-row items-center justify-center gap-1 rounded-full bg-black/50 backdrop-blur-lg">
+                                        <span className="cursor-default rounded-full border border-white/20 px-[7px] pb-[5px] pt-[6px] text-[12px] font-medium leading-[12px] text-white/90">
+                                            {"NEW"}
+                                        </span>
+                                    </div>
+                                )}
+
+                                <Link
+                                    className="group relative flex flex-col justify-end"
+                                    href={
+                                        item.linkBlog
+                                            ? item.linkBlog
+                                            : item.items &&
+                                                item.items.length > 0
+                                              ? `${pathname}/${item.id}`
+                                              : "#"
+                                    }
+                                >
+                                    <div
+                                        className={clsx(
+                                            "relative aspect-square w-full bg-neutral-100 dark:bg-neutral-900",
+                                            cornerRadius.className,
+                                        )}
+                                        style={cornerRadius.style}
+                                    >
+                                        <Image
+                                            alt={item.id}
+                                            className={clsx(
+                                                "block aspect-square h-full w-full object-cover transition-transform duration-75 ease-in-out hover:scale-105",
+                                                (item.items || item.linkBlog) &&
+                                                    "cursor-pointer",
+                                            )}
+                                            src={
+                                                item.thumbnail
+                                                    ? item.thumbnail.path
+                                                    : item.items
+                                                      ? item.items[0].path
+                                                      : ""
+                                            }
+                                            width={
+                                                item.thumbnail
+                                                    ? item.thumbnail.width
+                                                    : item.items
+                                                      ? item.items[0].width
+                                                      : 0
+                                            }
+                                            height={
+                                                item.thumbnail
+                                                    ? item.thumbnail.height
+                                                    : item.items
+                                                      ? item.items[0].height
+                                                      : 0
+                                            }
+                                            loading="eager"
+                                            unoptimized={true}
+                                        />
+                                    </div>
+                                </Link>
                                 <div
                                     className={clsx(
-                                        "flex flex-row items-center justify-start gap-2 overflow-hidden sm:flex-col sm:justify-center lg:gap-1",
+                                        "pointer-events-none absolute bottom-0 z-10 flex h-1/2 w-full flex-col justify-end gap-y-2 bg-gradient-to-t from-black/80 to-black/0 px-2 py-3 text-start opacity-100 group-hover:opacity-100 sm:h-full sm:justify-center sm:from-black/80 sm:to-black/20 sm:transition-opacity sm:duration-200 lg:py-4 lg:opacity-0",
                                         item.category === "photoshop" &&
-                                            "gap-x-3",
+                                            "pl-4 pr-4",
+                                        item.summary &&
+                                            item.summary.length <= 0 &&
+                                            "h-[53px] max-h-[53px] min-h-[53px]",
                                     )}
+                                    style={cornerRadius.style}
                                 >
-                                    <span
+                                    <div
                                         className={clsx(
-                                            "text-center text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
-                                            !item.date && "sm:mb-[34px]",
+                                            "flex flex-row items-center justify-start gap-2 overflow-hidden sm:flex-col sm:justify-center lg:gap-1",
+                                            item.category === "photoshop" &&
+                                                "gap-x-3",
                                         )}
                                     >
-                                        {item.title}
-                                    </span>
-
-                                    {item.date && (
                                         <span
-                                            className={
-                                                "text-center text-sm font-medium text-white/70 sm:w-full sm:leading-5 lg:mb-2"
-                                            }
+                                            className={clsx(
+                                                "text-center text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
+                                                !item.date && "sm:mb-[34px]",
+                                            )}
                                         >
-                                            {item.date}
+                                            {item.title}
                                         </span>
-                                    )}
+
+                                        {item.date && (
+                                            <span
+                                                className={
+                                                    "text-center text-sm font-medium text-white/70 sm:w-full sm:leading-5 lg:mb-2"
+                                                }
+                                            >
+                                                {item.date}
+                                            </span>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
             </div>
         </div>

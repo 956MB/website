@@ -302,7 +302,7 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
                                             ) : (
                                                 <div
                                                     className={clsx(
-                                                        "h-16 w-16 overflow-hidden bg-white dark:bg-neutral-900 sm:h-20 sm:w-20",
+                                                        "h-16 w-16 overflow-hidden rounded-md bg-white dark:bg-neutral-900 sm:h-20 sm:w-20",
                                                     )}
                                                 >
                                                     <Image
@@ -346,7 +346,7 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
                 onTouchEnd={handleTouchEnd}
             >
                 {selectedContent && (
-                    <div className="flex h-full w-full items-center justify-center bg-neutral-50 dark:bg-neutral-950">
+                    <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-[0.659rem] bg-neutral-50 dark:bg-neutral-950">
                         {selectedContent.path.includes(".mp4") ? (
                             <div className="flex max-h-full max-w-full flex-col items-center bg-neutral-50 dark:bg-neutral-950">
                                 <video
