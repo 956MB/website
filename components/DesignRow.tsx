@@ -195,9 +195,9 @@ export default function DesignRow({
                                         <Image
                                             alt={item.id}
                                             className={clsx(
-                                                "block aspect-square h-full w-full object-cover transition-transform duration-75 ease-in-out hover:scale-105",
+                                                "block aspect-square h-full w-full select-none object-cover transition-transform duration-75 ease-in-out hover:scale-105",
                                                 (item.items || item.linkBlog) &&
-                                                    "cursor-pointer",
+                                                    "!cursor-pointer",
                                             )}
                                             src={
                                                 item.thumbnail
@@ -245,8 +245,7 @@ export default function DesignRow({
                                     >
                                         <span
                                             className={clsx(
-                                                "text-center text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
-                                                !item.date && "sm:mb-[34px]",
+                                                "pointer-events-none select-none text-center text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
                                             )}
                                         >
                                             {item.title}
@@ -255,7 +254,7 @@ export default function DesignRow({
                                         {item.date && (
                                             <span
                                                 className={
-                                                    "text-center text-sm font-medium text-white/70 sm:w-full sm:leading-5 lg:mb-2"
+                                                    "pointer-events-none select-none text-center text-sm font-medium text-white/70 sm:w-full sm:leading-5 lg:mb-2"
                                                 }
                                             >
                                                 {item.date}

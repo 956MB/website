@@ -2,6 +2,40 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const scripts = [
     entry(
+        "03.09.2024",
+        "03.09.2024",
+        "",
+        "script",
+        [
+            item("/images/scripts/03092024_1.png", 2778, 1850),
+            item("/images/scripts/03092024_2.png", 1020, 1147),
+            item("/images/scripts/03092024_3.png", 1259, 1096),
+            item("/images/scripts/03092024_4.png", 1029, 886),
+            item("/images/scripts/03092024_5.png", 979, 859),
+            item("/images/scripts/03092024_6.png", 1015, 772),
+            item("/images/scripts/03092024_7.png", 1061, 593),
+            item("/images/scripts/03092024_8.png", 940, 805),
+        ],
+        {
+            thumbnail: item("/images/scripts/03092024_thumb.png", 1000, 1000),
+        },
+    ),
+    entry(
+        "12.02.2023",
+        "12.02.2023",
+        "",
+        "script",
+        [
+            item("/images/scripts/12022023_1.png", 1920, 1519),
+            item("/images/scripts/12022023_2.png", 1972, 1400),
+            item("/images/scripts/12022023_3.png", 1833, 1121),
+            item("/images/scripts/12022023_4.png", 2153, 1445),
+        ],
+        {
+            thumbnail: item("/images/scripts/12022023_thumb.png", 2778, 1850),
+        },
+    ),
+    entry(
         "pLang",
         '"pLang"',
         "2024",

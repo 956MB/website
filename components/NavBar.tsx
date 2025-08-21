@@ -162,8 +162,8 @@ export function Footer() {
                 "z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center lg:mt-8",
             )}
         >
-            <div className="mx-6 mt-auto flex min-h-[75px] w-full flex-1 flex-row items-start justify-start pb-6 pt-6 sm:mx-8 sm:items-center sm:justify-end sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">
-                <div className="flex w-full flex-col items-start gap-5 sm:w-auto sm:flex-row sm:items-center">
+            <div className="mx-6 mt-auto flex min-h-[75px] w-full flex-1 flex-row items-start justify-start pb-14 pt-12 sm:mx-8 sm:items-center sm:justify-end sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">
+                <div className="flex w-full flex-col items-start gap-3 sm:w-auto sm:flex-row sm:items-center">
                     <div className="mb-1.5 flex items-center gap-4 sm:order-2 sm:mb-0">
                         <div className="flex items-center gap-3">
                             <a

@@ -53,7 +53,7 @@ export function ProjectItem({
                 )}
             >
                 {entry.date && (
-                    <div className="relative mr-3 lg:mt-[6px] lg:w-10 lg:flex-shrink-0">
+                    <div className="relative mr-3 hidden sm:block lg:mt-[6px] lg:w-10 lg:flex-shrink-0">
                         <span
                             className={clsx(
                                 "absolute text-sm font-medium leading-4 text-neutral-700 ease-in-out dark:font-medium dark:text-neutral-350",
@@ -87,7 +87,7 @@ export function ProjectItem({
                 >
                     <div
                         className={clsx(
-                            "h-[10px] w-[10px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
+                            "mt-px h-[8px] w-[8px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] sm:mt-0 lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
                             index === 0 &&
                                 "lg:rounded-tl-full lg:rounded-tr-full",
                             index === itemsLength - 1 &&
@@ -104,7 +104,7 @@ export function ProjectItem({
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "pl-3 text-[15px] font-semibold leading-4 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0 lg:mt-[6px] lg:max-w-[256px] lg:pl-4",
+                            "pl-2 text-[15px] font-semibold leading-4 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0 lg:mt-[6px] lg:max-w-[256px] lg:pl-4",
                             entry.link
                                 ? "hover:text-p0 hover:underline dark:hover:text-o0"
                                 : "no-underline",

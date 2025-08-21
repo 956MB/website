@@ -190,14 +190,16 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
 
                         <div className="flex flex-row items-center justify-center gap-3">
                             {entry.date && (
-                                <span className="mt-[2px] text-center text-sm font-medium text-black dark:font-medium dark:text-white/90 sm:leading-5">
-                                    {entry.date}
-                                </span>
+                                <>
+                                    <span className="mt-[2px] text-center text-sm font-medium text-black dark:font-medium dark:text-white/90 sm:leading-5">
+                                        {entry.date}
+                                    </span>
+
+                                    <div className="h-[22px] self-center border-r border-neutral-200 dark:border-neutral-800"></div>
+                                </>
                             )}
 
                             <>
-                                <div className="h-[22px] self-center border-r border-neutral-200 dark:border-neutral-800"></div>
-
                                 <div className="flex flex-row items-center justify-center gap-3">
                                     {entry.category && (
                                         <span className="mt-[2px] text-center text-sm font-semibold capitalize text-black dark:font-medium dark:text-white/90 sm:leading-5">
