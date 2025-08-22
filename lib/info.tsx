@@ -1,7 +1,4 @@
-import logo_s_i from "../public/logo-small.png";
-
 export const imgBase = "https://img.956mb.com";
-export const logo_s = logo_s_i;
 export const name = "Alexander Bays";
 export const license = "CC-BY-NC-SA-4.0";
 export const copyright = " © 2025 Alexander Bays";
