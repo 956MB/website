@@ -2,6 +2,16 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const scripts = [
     entry(
+        "10.29.2025",
+        "10.29.2025",
+        "",
+        "script",
+        [item("/images/scripts/10292025_1.jpg", 1940, 1940)],
+        {
+            thumbnail: item("/images/scripts/10292025_thumb.jpg", 1000, 1000),
+        },
+    ),
+    entry(
         "03.09.2024",
         "03.09.2024",
         "",

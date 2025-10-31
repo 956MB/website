@@ -178,7 +178,7 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
     }, [selectedIdx, isClient]);
 
     return (
-        <div className="flex h-full w-full max-w-screen-xl flex-col items-center overflow-hidden">
+        <div className="flex h-full w-full max-w-screen-lg flex-col items-center overflow-hidden">
             <div className="w-full px-2 sm:px-0">
                 <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start sm:gap-8">
                     <div className="flex flex-col items-start sm:pr-4">

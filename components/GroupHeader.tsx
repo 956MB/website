@@ -56,7 +56,7 @@ export default function GroupHeader({
                     )}
                 </span>
                 {!noDescription && entry.description && (
-                    <span className="max-w-3xl text-sm font-medium italic leading-5 text-neutral-600 dark:text-neutral-350">
+                    <span className="max-w-screen-lg text-sm font-medium italic leading-5 text-neutral-600 dark:text-neutral-350">
                         {parse(entry.description)}
                     </span>
                 )}

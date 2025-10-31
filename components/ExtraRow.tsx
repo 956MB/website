@@ -43,9 +43,9 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                     initial="initial"
                     animate="animate"
                     className={clsx(
-                        "grid w-full max-w-screen-xl items-start justify-center",
+                        "grid w-full max-w-screen-lg items-start justify-center",
                         entry.category === "icons"
-                            ? "grid-cols-2 gap-2 pt-3.5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+                            ? "grid-cols-2 gap-2 pt-3.5 md:grid-cols-3 lg:grid-cols-4"
                             : "grid-cols-1 gap-3 pt-3.5 lg:grid-cols-2",
                     )}
                 >
@@ -63,7 +63,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                 >
                                     <a
                                         className={clsx(
-                                            "group relative flex flex-col justify-end overflow-hidden rounded-lg bg-gradient-to-t from-white/10 to-transparent object-cover saturate-0 backdrop-blur-sm transition-colors ease-linear group-hover:saturate-100 child:group-hover:scale-105 sm:backdrop-blur-none",
+                                            "group relative flex flex-col justify-end overflow-hidden rounded-[0.659rem] bg-gradient-to-t from-white/10 to-transparent object-cover saturate-0 backdrop-blur-sm transition-colors ease-linear group-hover:saturate-100 child:group-hover:scale-105 sm:backdrop-blur-none",
                                             item.link && " cursor-pointer",
                                         )}
                                         rel="noopener noreferrer"

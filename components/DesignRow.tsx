@@ -10,15 +10,11 @@ import { useEffect, useMemo, useState } from "react";
 import GroupHeader from "./GroupHeader";
 
 function useBreakpoint() {
-    const [breakpoint, setBreakpoint] = useState<"sm" | "md" | "lg" | "base">(
-        "base",
-    );
+    const [breakpoint, setBreakpoint] = useState<"sm" | "md" | "base">("base");
 
     useEffect(() => {
         const updateBreakpoint = () => {
-            if (window.innerWidth >= 1024) {
-                setBreakpoint("lg");
-            } else if (window.innerWidth >= 768) {
+            if (window.innerWidth >= 768) {
                 setBreakpoint("md");
             } else if (window.innerWidth >= 640) {
                 setBreakpoint("sm");
@@ -35,10 +31,8 @@ function useBreakpoint() {
     return breakpoint;
 }
 
-function getColumns(breakpoint: "sm" | "md" | "lg" | "base"): number {
+function getColumns(breakpoint: "sm" | "md" | "base"): number {
     switch (breakpoint) {
-        case "lg":
-            return 4;
         case "md":
             return 3;
         case "sm":
@@ -121,7 +115,7 @@ export default function DesignRow({
     };
 
     return (
-        <div className="relative flex w-full max-w-screen-xl flex-col flex-wrap items-center justify-center gap-y-0 lg:pt-5">
+        <div className="relative flex w-full max-w-screen-lg flex-col flex-wrap items-center justify-center gap-y-0 lg:pt-9">
             {!noHeader && (
                 <GroupHeader
                     entry={entry}
@@ -140,7 +134,7 @@ export default function DesignRow({
                     initial="initial"
                     animate="animate"
                     className={clsx(
-                        "grid w-full grid-cols-1 items-start justify-center gap-px sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+                        "grid w-full grid-cols-1 items-start justify-center gap-px sm:grid-cols-2 md:grid-cols-3",
                         "min-h-0",
                     )}
                 >

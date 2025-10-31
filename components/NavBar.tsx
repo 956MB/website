@@ -71,7 +71,7 @@ export default function Header() {
         >
             <div
                 className={clsx(
-                    "mx-6 flex w-full flex-1 flex-row items-center sm:mx-6",
+                    "mx-6 flex w-full max-w-screen-lg flex-1 flex-row items-center sm:mx-6",
                 )}
             >
                 <div className="no-scrollbar relative z-[55] flex w-full items-start justify-start overflow-x-scroll py-4">
@@ -159,12 +159,15 @@ export function Footer() {
     return (
         <div
             className={clsx(
-                "z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center lg:mt-8",
+                "z-[55] flex w-full max-w-screen-lg flex-1 flex-row justify-center lg:mt-10",
             )}
         >
-            <div className="mx-6 mt-auto flex min-h-[75px] w-full flex-1 flex-row items-start justify-start pb-14 pt-12 sm:mx-8 sm:items-center sm:justify-end sm:gap-4 lg:max-h-[75px] lg:pb-0 lg:pt-0">
-                <div className="flex w-full flex-col items-start gap-3 sm:w-auto sm:flex-row sm:items-center">
-                    <div className="mb-1.5 flex items-center gap-4 sm:order-2 sm:mb-0">
+            <div className="mx-6 mb-10 mt-auto flex w-full flex-1 flex-row items-center justify-center pb-14 pt-12 sm:mx-8 sm:gap-4 lg:pb-0 lg:pt-0">
+                <div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:items-center">
+                    <div className="mb-1.5 flex items-center justify-center gap-4 sm:order-1 sm:mb-0">
+                        <div className="md:hidden">
+                            <ThemeToggle />
+                        </div>
                         <div className="flex items-center gap-3">
                             <a
                                 rel="noopener noreferrer"
@@ -175,14 +178,11 @@ export function Footer() {
                                 <VercelIcon />
                             </a>
                         </div>
-                        <div className="md:hidden">
-                            <ThemeToggle />
-                        </div>
                     </div>
                     <div className="sm:hidden">
                         <Socials isHome={false} />
                     </div>
-                    <div className="w-full sm:order-1 sm:w-auto">
+                    <div className="w-full justify-center text-center sm:order-1 sm:w-auto sm:justify-start">
                         <COPYRIGHT />
                     </div>
                 </div>

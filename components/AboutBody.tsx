@@ -16,17 +16,23 @@ import { TextParagraph, TextParagraphSub } from "./Text";
 
 export function AboutBody() {
     const markdown = String.raw`
-~~~ruby
-    /\\\\\\\\\ ······················································································
-   /\\\//////// ·····················································································
-   \//\\\ ···························································································
-    \////\\\        /\\\\\\\\   /\\/\\\\\\\     /\\\\\\\\\   /\\\\\\\\\     /\\\\\\\\\\\\\ ··········
-────── \////\\\ ── /\\\/////\\\ \/\\\/////\\\  /\\\////// ─ /\\\/////\\\ ─ /\\\/////////\\\ ─────────
-──────────── \////\\\  /\\\\\\\\\\\ \//\\\\\\\\/\\\/\\\ ────── \//\\\\\\\\/\\\ \/\\\ ───── \/\\\ ────
-──────────────── \////\\\ \//\\/////// ─ \///////\// \//\\\ ────── \///////\// ─ \//\\\ ──── /\\\ ───
-──────────────────── \////\\\\\ ───────────────────── \///\\\ ───── /\\\/\\\\\\ ── \///\\\\\\\\\/ ───
-                        \/////                          \/////      \///\\\\\\       \///////// ·····
-                                                                        \///// ······················
+~~~graphql
+           /////////////////////////////      
+         /···|/////////////////////|···|      
+        |·/||/                    /||/        
+      /·|  /·|                  |||/          
+     |·/    |·/              /|·|/            
+   /·|      /·|            /|·|/              
+  ||/        |·/         /||/                 
+/··|/////////|·|       /||////            //  
+////////////////    /|||//|||·|        /|||/  
+                  /|·|||||/  |·|    /|||/     
+                /|···||/      |·|/|||/        
+              /|··||/         /···/           
+           /|··||/         /|||/|·|           
+         /|··|/         /|||/    |·|          
+       /|·|/         /|···|//////|··|         
+       //            ////////////////         
 ~~~
 `;
 
@@ -58,7 +64,7 @@ export function AboutBody() {
             initial="initial"
             animate="animate"
         >
-            <div className="m-0 mb-2 flex max-w-4xl flex-col flex-wrap items-start justify-center gap-y-5 pr-0 text-left sm:mb-7 sm:gap-y-7">
+            <div className="m-0 mb-2 flex max-w-4xl flex-col flex-wrap items-start justify-center gap-y-5 pr-0 text-left sm:mb-10 sm:gap-y-7">
                 <motion.div
                     variants={itemVariants}
                     className="inline-flex flex-col items-start justify-center gap-y-5 sm:gap-y-6"
@@ -84,9 +90,9 @@ export function AboutBody() {
                 variants={itemVariants}
                 className="hidden w-full flex-row items-center justify-center align-middle md:flex"
             >
-                <div className="flex flex-col items-center overflow-x-auto border-t border-dashed border-neutral-200 py-6 dark:border-neutral-800">
+                <div className="flex w-full flex-col items-center overflow-x-auto border-t border-dashed border-neutral-200 py-10 dark:border-neutral-800">
                     <Markdown
-                        className="text-right text-[11px] leading-4 text-black saturate-0 dark:invert"
+                        className="text-right text-sm leading-4 text-black saturate-0 dark:invert"
                         components={{
                             code(props) {
                                 const { children, className, ...rest } = props;
@@ -115,7 +121,7 @@ export function AboutBody() {
                                                 boxShadow: "none",
                                                 textShadow: "none",
                                                 padding: "0",
-                                                fontSize: "11px",
+                                                fontSize: "14px",
                                                 fontFamily: "monospace",
                                                 lineHeight: "1.05rem",
                                                 color: "black",
@@ -127,7 +133,7 @@ export function AboutBody() {
                                                 ],
                                                 fontFamily:
                                                     "monospace",
-                                                fontSize: "11px",
+                                                fontSize: "14px",
                                                 lineHeight:
                                                     "1.05rem",
                                                 color: "black",
