@@ -30,7 +30,8 @@ export function ThemeToggle() {
                 "flex items-center justify-center border border-neutral-200 stroke-neutral-500 transition-colors hover:stroke-neutral-900 dark:border-neutral-800 dark:fill-neutral-400 dark:hover:fill-neutral-100",
                 "h-[29px] w-[29px] rounded-md",
             )}
-            aria-label="Toggle Theme"
+            title={theme === "dark" ? "Dark mode" : "Light mode"}
+            aria-label={theme === "dark" ? "Dark mode" : "Light mode"}
         >
             {theme === "dark" ? (
                 <svg

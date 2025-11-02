@@ -3,11 +3,13 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import parse from "html-react-parser";
-import { IEntryGroup } from "lib/interfaces";
+import { IEntry, IEntryGroup } from "lib/interfaces";
+import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 
 export default function GroupHeader({
     entry,
+    itemEntry,
     noDescription,
     header,
     gallery,
@@ -15,6 +17,7 @@ export default function GroupHeader({
     noBackdrop,
 }: {
     entry: IEntryGroup;
+    itemEntry?: IEntry;
     noDescription?: boolean;
     header?: boolean;
     gallery?: boolean;
@@ -65,15 +68,62 @@ export default function GroupHeader({
                         entry.title
                     )}
                 </span>
+
                 {!noDescription && entry.description && (
                     <span
                         className={clsx(
                             "gallery-summary max-w-screen-lg text-sm font-medium italic leading-5 text-neutral-600 dark:text-neutral-350",
-                            gallery && "max-w-screen-md",
+                            gallery && "max-w-screen-sm",
                         )}
                     >
                         {parse(entry.description)}
                     </span>
+                )}
+
+                {itemEntry?.references && itemEntry.references.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-2">
+                        {itemEntry.references.map((ref, idx) => {
+                            const isExternalLink =
+                                ref.url.startsWith("http://") ||
+                                ref.url.startsWith("https://");
+
+                            return (
+                                <span key={idx} className="flex items-center">
+                                    {isExternalLink ? (
+                                        <>
+                                            <a
+                                                href={ref.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="whitespace-nowrap text-sm font-medium text-neutral-700 underline decoration-neutral-400 decoration-1 underline-offset-2 hover:text-p0 hover:decoration-p0 dark:text-neutral-300 dark:decoration-neutral-500 dark:hover:text-o0 dark:hover:decoration-o0"
+                                            >
+                                                {ref.title}
+                                            </a>
+                                            {FiArrowUpRight({
+                                                size: 14,
+                                                className:
+                                                    "ml-1 mt-1 text-neutral-500",
+                                            })}
+                                        </>
+                                    ) : (
+                                        <Link
+                                            href={ref.url}
+                                            className="whitespace-nowrap text-sm font-medium text-neutral-700 underline decoration-neutral-400 decoration-1 underline-offset-2 hover:text-p0 hover:decoration-p0 dark:text-neutral-300 dark:decoration-neutral-500 dark:hover:text-o0 dark:hover:decoration-o0"
+                                        >
+                                            {ref.title}
+                                        </Link>
+                                    )}
+                                    {idx <
+                                        (itemEntry.references?.length ?? 0) -
+                                            1 && (
+                                        <span className="ml-2 text-sm text-neutral-400 dark:text-neutral-500">
+                                            ·
+                                        </span>
+                                    )}
+                                </span>
+                            );
+                        })}
+                    </div>
                 )}
             </div>
         </motion.div>

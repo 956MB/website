@@ -1,4 +1,4 @@
-import { entry, group, IEntryGroups, item } from "./interfaces";
+import { entry, group, IEntryGroups, item, reference } from "./interfaces";
 
 const scripts = [
     entry(
@@ -8,6 +8,7 @@ const scripts = [
         "script",
         [item("/images/scripts/10292025_1.jpg", 1940, 1940)],
         {
+            references: [reference("11.22.2024", "/neography/11.22.2024")],
             thumbnail: item("/images/scripts/10292025_thumb.jpg", 1000, 1000),
         },
     ),
@@ -27,6 +28,7 @@ const scripts = [
             item("/images/scripts/03092024_8.png", 940, 805),
         ],
         {
+            references: [reference("10.29.2025", "/neography/10.29.2025")],
             thumbnail: item("/images/scripts/03092024_thumb.png", 1000, 1000),
         },
     ),
@@ -91,6 +93,12 @@ const scripts = [
         ],
         {
             tags: ["Circles"],
+            references: [
+                reference(
+                    'r/neography - "I can only do circles, apparently"',
+                    "https://www.reddit.com/r/neography/comments/17tjpwg/i_can_only_do_circles_apparently/",
+                ),
+            ],
             summary: [
                 'An experimental attempt at a script using circles and lines. Apparently they look like... something... I won\'t say what, but <a href="https://www.reddit.com/r/neography/comments/17tjpwg/comment/k8xkc8f/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">this comment</a> explains it. :|',
             ],
@@ -109,6 +117,7 @@ const scripts = [
         ],
         {
             tags: ["GYEA"],
+            references: [reference('"GYEA"', "/neography/gyea")],
         },
     ),
     entry(
@@ -119,6 +128,13 @@ const scripts = [
         [item("/images/concepts/gyea.png", 1745, 789)],
         {
             tags: ["GYEA"],
+            references: [
+                reference("Movie Posters", "/neography/eggers-gyea"),
+                reference(
+                    "r/neography - Is this anything?",
+                    "https://www.reddit.com/r/neography/comments/13wk0t6/is_this_anything/",
+                ),
+            ],
         },
     ),
     entry(
@@ -134,6 +150,19 @@ const scripts = [
         ],
         {
             tags: ["Tab"],
+            references: [
+                reference('"Tab"', "/neography/tab"),
+                reference('"Before Tab"', "/neography/before-tab"),
+                reference('"Hokj"', "/neography/hokj"),
+                reference(
+                    "r/neography - Star Wars: Visions",
+                    "https://www.reddit.com/r/neography/comments/13r9iw8/star_wars_visions/",
+                ),
+                reference(
+                    "r/neography - Wanted to do the Reddit logo...",
+                    "https://www.reddit.com/r/neography/comments/129gdiq/wanted_to_do_the_reddit_logo_thing_with_this/",
+                ),
+            ],
         },
     ),
     entry(
@@ -144,6 +173,13 @@ const scripts = [
         [item("/images/concepts/tab.png", 1358, 929)],
         {
             tags: ["Tab"],
+            references: [
+                reference('"Before Tab"', "/neography/before-tab"),
+                reference(
+                    "r/neography - Very different look now",
+                    "https://www.reddit.com/r/neography/comments/13cmyrp/very_different_look_now/",
+                ),
+            ],
         },
     ),
     entry(
@@ -154,6 +190,12 @@ const scripts = [
         [item("/images/something-new/IMG_54322.jpg", 1358, 929)],
         {
             tags: ["Tab"],
+            references: [
+                reference(
+                    "r/neography - First draft of something...",
+                    "https://www.reddit.com/r/neography/comments/12pdpky/first_draft_of_something_new_some_minor/",
+                ),
+            ],
         },
     ),
     entry(
@@ -164,6 +206,16 @@ const scripts = [
         [item("/images/concepts/hokj.png", 1362, 720)],
         {
             tags: ["Hokj"],
+            references: [
+                reference(
+                    "r/neography - I have no idea what I'm doing",
+                    "https://www.reddit.com/r/neography/comments/1281xvo/i_have_no_idea_what_im_doing/",
+                ),
+                reference(
+                    "r/neography - Continuation/variation...",
+                    "https://www.reddit.com/r/neography/comments/12ia74d/continuationvariation_on_my_fish_hook_script/",
+                ),
+            ],
         },
     ),
 ];

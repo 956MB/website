@@ -1,12 +1,17 @@
 "use client";
 
 import clsx from "clsx";
-import parse from "html-react-parser";
 import { IEntry } from "lib/interfaces";
 import Image from "next/image";
 import Link from "next/link";
 import { TouchEvent, useEffect, useRef, useState } from "react";
-import { FiArrowLeft } from "react-icons/fi";
+import {
+    FiArrowLeft,
+    FiChevronLeft,
+    FiChevronRight,
+    FiMaximize,
+    FiMinimize,
+} from "react-icons/fi";
 import GroupHeader from "./GroupHeader";
 
 function useWindowSize() {
@@ -35,6 +40,180 @@ function useWindowSize() {
     return { ...windowSize, isClient };
 }
 
+function NavigationButtons({
+    selectedIdx,
+    imagesCount,
+    isFullscreen,
+    onPrevious,
+    onNext,
+    onToggleFullscreen,
+}: {
+    selectedIdx: number;
+    imagesCount: number;
+    isFullscreen: boolean;
+    onPrevious: () => void;
+    onNext: () => void;
+    onToggleFullscreen: () => void;
+}) {
+    const sizeClasses = isFullscreen
+        ? "h-8 w-8 sm:h-10 sm:w-10"
+        : "h-8 w-8 sm:h-9 sm:w-9";
+    const iconSizeClasses = isFullscreen ? "h-5 w-5" : "h-5 w-5";
+    const fullscreenIconSize = isFullscreen ? "h-5 w-5" : "h-4 w-4";
+
+    return (
+        <>
+            {imagesCount > 1 && (
+                <>
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onPrevious();
+                        }}
+                        disabled={selectedIdx === 0}
+                        title="Previous"
+                        aria-label="Previous"
+                        className={clsx(
+                            "group flex items-center justify-center rounded-lg border border-neutral-200 bg-white/90 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90",
+                            sizeClasses,
+                            selectedIdx === 0
+                                ? "cursor-default opacity-40"
+                                : "",
+                        )}
+                    >
+                        {FiChevronLeft({
+                            className: clsx(
+                                "text-neutral-400",
+                                iconSizeClasses,
+                                selectedIdx === 0
+                                    ? ""
+                                    : "group-hover:text-neutral-900 dark:group-hover:text-neutral-100",
+                            ),
+                        })}
+                    </button>
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onNext();
+                        }}
+                        disabled={selectedIdx === imagesCount - 1}
+                        title="Next"
+                        aria-label="Next"
+                        className={clsx(
+                            "group flex items-center justify-center rounded-lg border border-neutral-200 bg-white/90 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90",
+                            sizeClasses,
+                            selectedIdx === imagesCount - 1
+                                ? "cursor-default opacity-40"
+                                : "",
+                        )}
+                    >
+                        {FiChevronRight({
+                            className: clsx(
+                                "text-neutral-400",
+                                iconSizeClasses,
+                                selectedIdx === imagesCount - 1
+                                    ? ""
+                                    : "group-hover:text-neutral-900 dark:group-hover:text-neutral-100",
+                            ),
+                        })}
+                    </button>
+                </>
+            )}
+            <button
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onToggleFullscreen();
+                }}
+                className={clsx(
+                    "group flex items-center justify-center rounded-lg border border-neutral-200 bg-white/90 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90",
+                    sizeClasses,
+                )}
+                title={isFullscreen ? "Minimize" : "Maximize"}
+                aria-label={isFullscreen ? "Minimize" : "Maximize"}
+            >
+                {isFullscreen
+                    ? FiMinimize({
+                          className: clsx(
+                              "text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-100",
+                              fullscreenIconSize,
+                          ),
+                      })
+                    : FiMaximize({
+                          className: clsx(
+                              "text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-100",
+                              fullscreenIconSize,
+                          ),
+                      })}
+            </button>
+        </>
+    );
+}
+
+function MediaContent({
+    content,
+    selectedIdx,
+    isFullscreen = false,
+}: {
+    content: { path: string; width: number; height: number; caption?: string };
+    selectedIdx: number;
+    isFullscreen?: boolean;
+}) {
+    const isVideo = content.path.includes(".mp4");
+
+    if (isVideo) {
+        return (
+            <video
+                onClick={(e) => e.stopPropagation()}
+                className={
+                    isFullscreen ? "max-h-full max-w-full" : "h-full w-full"
+                }
+                style={{
+                    objectFit: "contain",
+                    ...(isFullscreen
+                        ? {}
+                        : { minHeight: "100%", minWidth: "100%" }),
+                }}
+                src={content.path}
+                width={content.width}
+                height={content.height}
+                controls
+                loop
+                muted
+                playsInline
+                autoPlay={isFullscreen}
+            />
+        );
+    }
+
+    return (
+        <Image
+            onClick={(e) => e.stopPropagation()}
+            alt={
+                isFullscreen
+                    ? `fullscreen-image-${selectedIdx}`
+                    : `project-image-${selectedIdx}`
+            }
+            className={
+                isFullscreen
+                    ? "max-h-full max-w-full"
+                    : "h-full w-full bg-transparent dark:bg-black"
+            }
+            style={{
+                objectFit: "contain",
+                ...(isFullscreen
+                    ? {}
+                    : { minHeight: "100%", minWidth: "100%" }),
+            }}
+            src={content.path}
+            width={content.width}
+            height={content.height}
+            priority={true}
+            draggable={false}
+            loading="eager"
+        />
+    );
+}
+
 export default function ContentGallery({
     entry,
     backLink,
@@ -45,6 +224,7 @@ export default function ContentGallery({
     const { isClient } = useWindowSize();
 
     const [selectedIdx, setSelectedIdx] = useState(0);
+    const [isFullscreen, setIsFullscreen] = useState(false);
     const imagesCount = entry.items?.length || 0;
     const touchStartX = useRef<number | null>(null);
     const touchEndX = useRef<number | null>(null);
@@ -85,6 +265,26 @@ export default function ContentGallery({
     const selectedContent = entry.items?.[selectedIdx];
 
     useEffect(() => {
+        const handleEsc = (e: KeyboardEvent) => {
+            if (e.key === "Escape" && isFullscreen) {
+                setIsFullscreen(false);
+            }
+        };
+
+        if (isFullscreen) {
+            document.addEventListener("keydown", handleEsc);
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+
+        return () => {
+            document.removeEventListener("keydown", handleEsc);
+            document.body.style.overflow = "";
+        };
+    }, [isFullscreen]);
+
+    useEffect(() => {
         if (!entry.items || !isClient) return;
 
         const preloadImage = (index: number) => {
@@ -105,7 +305,7 @@ export default function ContentGallery({
                 <div className="flex flex-col items-start">
                     <Link
                         href={backLink ?? "/"}
-                        className="mb-2 flex flex-row items-center gap-2 text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-400"
+                        className="mb-2 flex flex-row items-center gap-2 text-neutral-500 hover:text-p0 dark:hover:text-o0"
                     >
                         {FiArrowLeft({
                             className: "h-5 w-5",
@@ -122,28 +322,11 @@ export default function ContentGallery({
                             category: entry.category || "",
                             items: [] as IEntry[],
                         }}
+                        itemEntry={entry}
                         header={true}
                         gallery={true}
                         noBackdrop={true}
                     />
-
-                    {/* <div className="inline-flex flex-row items-center justify-center gap-3 py-2 sm:justify-start sm:py-3">
-                        <h1 className="mt-[1px] whitespace-nowrap text-center text-[23px] font-bold lowercase text-black dark:text-white sm:leading-5">
-                            {entry.title}
-                        </h1>
-                    </div> */}
-
-                    {/* {entry.summary && entry.summary.length > 0 && (
-                        <div
-                            className={clsx(
-                                "w-full max-w-2xl pb-2 pt-2 sm:pb-0",
-                            )}
-                        >
-                            <span className="gallery-summary block text-left text-[13px] font-medium lowercase italic leading-[1.56em] tracking-wide text-neutral-800 dark:text-neutral-350 sm:text-[14px]">
-                                {parse(entry.summary.join(""))}
-                            </span>
-                        </div>
-                    )} */}
                 </div>
             </div>
 
@@ -156,64 +339,39 @@ export default function ContentGallery({
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
             >
+                <div
+                    className={clsx(
+                        "absolute right-3 top-3 z-20 flex gap-2",
+                        isFullscreen ? "hidden" : "",
+                    )}
+                >
+                    <NavigationButtons
+                        selectedIdx={selectedIdx}
+                        imagesCount={imagesCount}
+                        isFullscreen={false}
+                        onPrevious={() => updateIdx(-1)}
+                        onNext={() => updateIdx(1)}
+                        onToggleFullscreen={() =>
+                            setIsFullscreen(!isFullscreen)
+                        }
+                    />
+                </div>
+
                 {selectedContent && (
                     <div className="flex h-full w-full items-center justify-center overflow-hidden bg-neutral-50 dark:bg-black">
-                        {selectedContent.path.includes(".mp4") ? (
-                            <div className="flex max-h-full max-w-full flex-col items-center bg-neutral-50 dark:bg-black">
-                                <video
-                                    className="h-full w-full"
-                                    style={{
-                                        objectFit: "contain",
-                                        minHeight: "100%",
-                                        minWidth: "100%",
-                                    }}
-                                    src={selectedContent.path}
-                                    width={selectedContent.width}
-                                    height={selectedContent.height}
-                                    controls
-                                    loop
-                                    muted
-                                    playsInline
-                                />
-                                {selectedContent.caption && (
-                                    <span className="gallery-summary mt-4 max-w-xl text-center text-[13px] font-medium leading-[1.3em] tracking-wide text-neutral-500 dark:text-neutral-400">
-                                        {parse(selectedContent.caption)}
-                                    </span>
-                                )}
-                            </div>
-                        ) : (
-                            <div className="flex max-h-full max-w-full flex-col items-center bg-neutral-50 dark:bg-black">
-                                <Image
-                                    alt={`project-image-${selectedIdx}`}
-                                    className="h-full w-full bg-transparent dark:bg-black"
-                                    style={{
-                                        objectFit: "contain",
-                                        minHeight: "100%",
-                                        minWidth: "100%",
-                                    }}
-                                    src={selectedContent.path}
-                                    width={selectedContent.width}
-                                    height={selectedContent.height}
-                                    priority={true}
-                                    draggable={false}
-                                    loading="eager"
-                                />
-                                {selectedContent.caption && (
-                                    <span className="gallery-summary mt-4 max-w-xl text-center text-[13px] font-medium leading-[1.3em] tracking-wide text-neutral-500 dark:text-neutral-400">
-                                        {parse(selectedContent.caption)}
-                                    </span>
-                                )}
-                            </div>
-                        )}
+                        <MediaContent
+                            content={selectedContent}
+                            selectedIdx={selectedIdx}
+                            isFullscreen={false}
+                        />
                     </div>
                 )}
             </div>
 
-            {/* Dashed line separator and thumbnails below main image */}
             {entry.items && entry.items.length > 1 && (
                 <>
                     <div className="w-full">
-                        <div className="grid grid-cols-2 gap-3 px-0.5 pb-0.5 sm:grid-cols-4 sm:px-0">
+                        <div className="grid grid-cols-2 gap-3 px-0.5 pb-0.5 sm:grid-cols-4 lg:px-0">
                             {entry.items?.map((content, idx) => (
                                 <div
                                     key={idx}
@@ -276,6 +434,37 @@ export default function ContentGallery({
                         </div>
                     </div>
                 </>
+            )}
+
+            {isFullscreen && selectedContent && (
+                <div
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/80 dark:bg-black/80"
+                    onClick={() => setIsFullscreen(false)}
+                >
+                    <div className="absolute right-3 top-3 z-[10000] flex gap-2">
+                        <NavigationButtons
+                            selectedIdx={selectedIdx}
+                            imagesCount={imagesCount}
+                            isFullscreen={true}
+                            onPrevious={() => updateIdx(-1)}
+                            onNext={() => updateIdx(1)}
+                            onToggleFullscreen={() =>
+                                setIsFullscreen(!isFullscreen)
+                            }
+                        />
+                    </div>
+
+                    <div
+                        className="relative z-[9998] flex h-full w-full items-center justify-center p-4"
+                        onClick={() => setIsFullscreen(false)}
+                    >
+                        <MediaContent
+                            content={selectedContent}
+                            selectedIdx={selectedIdx}
+                            isFullscreen={true}
+                        />
+                    </div>
+                </div>
             )}
         </div>
     );

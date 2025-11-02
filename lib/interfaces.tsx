@@ -7,6 +7,11 @@ export interface IEntryItem {
     height: number;
 }
 
+export interface IReference {
+    title: string;
+    url: string;
+}
+
 export interface IEntry {
     id: string;
     title: string;
@@ -26,6 +31,7 @@ export interface IEntry {
     linkBlog?: string;
     thumbnail?: IEntryItem;
     items?: IEntryItem[];
+    references?: IReference[];
 }
 
 export interface IEntryGroup {
@@ -51,6 +57,11 @@ export const item = (
     width,
     height,
     ...(caption && { caption }),
+});
+
+export const reference = (title: string, url: string): IReference => ({
+    title,
+    url,
 });
 
 export const entry = (

@@ -175,7 +175,7 @@ export function Footer() {
                                 rel="noopener noreferrer"
                                 target="_blank"
                                 href="https://vercel.com/"
-                                className="mt-1 flex items-center text-black transition-all duration-100 dark:text-white"
+                                className="mt-1 flex items-center text-black transition-all duration-300 hover:rotate-180 dark:text-white"
                             >
                                 <VercelIcon />
                             </a>
