@@ -6,8 +6,10 @@
         "build:dev": "bun run next build && bun run next dev",
         "clean:build": "rm -rf node_modules && rm -rf .next && bun install && bun run lint && bun run format && bun run build",
         "start": "bun run next start",
+        "preview": "bun run build && bun run next start",
         "lint": "bun run eslint --ignore-path .eslintignore --fix \"./components\" \"./app\" \"./lib\"",
-        "format": "bun run prettier --write \"./components\" \"./app\" \"./lib\""
+        "format": "bun run prettier --write \"./components\" \"./app\" \"./lib\"",
+        "check:meta": "bunx check-site-meta --no-analytics 4173"
     },
     "dependencies": {
         "@geist-ui/core": "^2.3.8",

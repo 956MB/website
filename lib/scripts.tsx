@@ -221,11 +221,21 @@ const scripts = [
 ];
 
 export const scripts_section = group(
-    "Scripts",
-    "script",
-    "Construced scripts (and eventually conlangs) I draw for fun (r/neography)",
+    "Neography",
+    "neography",
+    "Most of the language scripts (and eventually conlangs) I've created for the r/neography subreddit, or my own personal use.",
     scripts,
-    { credit: true },
+    {
+        credit: true,
+        keywords: [
+            "scripts",
+            "language",
+            "conlang",
+            "r/neography",
+            "reddit",
+            "concepts",
+        ],
+    },
 );
 
 export const neographyGroups: IEntryGroups = [scripts_section];

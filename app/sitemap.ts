@@ -1,3 +1,4 @@
+import { baseUrl } from "lib/info";
 import { designGroups } from "../lib/designs";
 import { neographyGroups } from "../lib/scripts";
 
@@ -9,20 +10,20 @@ export default async function sitemap() {
         "/neography",
         "/extras",
     ].map((route) => ({
-        url: `https://956mb.com${route}`,
+        url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString().split("T")[0],
     }));
 
     const designSlugs = designGroups.flatMap((group) =>
         group.items.map((entry) => ({
-            url: `https://956mb.com/designs/${entry.id}`,
+            url: `${baseUrl}/designs/${entry.id}`,
             lastModified: new Date().toISOString().split("T")[0],
         })),
     );
 
     const scriptSlugs = neographyGroups.flatMap((group) =>
         group.items.map((entry) => ({
-            url: `https://956mb.com/neography/${entry.id}`,
+            url: `${baseUrl}/neography/${entry.id}`,
             lastModified: new Date().toISOString().split("T")[0],
         })),
     );

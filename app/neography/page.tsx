@@ -1,15 +1,11 @@
 import DesignRow from "components/DesignRow";
 import GroupHeader from "components/GroupHeader";
-import { neography_d, neography_t } from "lib/info";
-import { neographyGroups } from "lib/scripts";
-import type { Metadata } from "next";
+import { baseUrl, name, neography_d, neography_t, og } from "lib/info";
+import { pageMetadata } from "lib/interfaces";
+import { neographyGroups, scripts_section } from "lib/scripts";
 import React from "react";
 
-export const metadata: Metadata = {
-    title: "Scripts",
-    description:
-        "All of the language scripts (and eventually conlangs) I've created for the r/neography subreddit.",
-};
+export const metadata = pageMetadata(baseUrl, name, og, scripts_section);
 
 export default function NeographyPage() {
     const neographyEntry = {

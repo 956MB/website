@@ -4,21 +4,22 @@ import clsx from "clsx";
 import Header, { Footer } from "components/NavBar";
 import Particles from "components/particles";
 import { ThemeProvider } from "components/ThemeProvider";
+import { baseUrl, description, name, og, title } from "lib/info";
 import type { Metadata, Viewport } from "next";
 import "./global.css";
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://956mb.com"),
+    metadataBase: new URL(baseUrl),
     title: {
-        default: "Alexander Bays",
-        template: "%s – Alexander Bays",
+        default: name,
+        template: `%s – ${name}`,
     },
-    description: "Self-taught generalist... unfortunately.",
-    applicationName: "Alexander Bays Portfolio",
-    creator: "Alexander Bays",
-    publisher: "Alexander Bays",
+    description: description,
+    applicationName: `${name} Portfolio`,
+    creator: name,
+    publisher: name,
     alternates: {
-        canonical: "https://956mb.com",
+        canonical: baseUrl,
     },
     keywords: [
         "developer",
@@ -26,17 +27,18 @@ export const metadata: Metadata = {
         "designer",
         "neography",
         "portfolio",
-        "Dallas",
+        "dallas",
+        "956mb",
     ],
     verification: {},
     openGraph: {
-        title: "Alexander Bays (956MB)",
-        description: "Self-taught generalist... unfortunately.",
-        url: "https://956mb.com",
-        siteName: "Alexander Bays",
+        title: title,
+        description: description,
+        url: baseUrl,
+        siteName: name,
         images: [
             {
-                url: "https://956mb.com/og.png",
+                url: og,
                 width: 1920,
                 height: 1080,
             },
@@ -56,10 +58,10 @@ export const metadata: Metadata = {
         },
     },
     twitter: {
-        title: "Alexander Bays (956MB)",
-        description: "Self-taught generalist... unfortunately.",
+        title: title,
+        description: description,
         card: "summary_large_image",
-        images: "https://956mb.com/og.png",
+        images: og,
     },
     icons: {
         shortcut: "/favicon.ico",

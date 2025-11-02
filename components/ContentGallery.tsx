@@ -87,7 +87,7 @@ function NavigationButtons({
                                 iconSizeClasses,
                                 selectedIdx === 0
                                     ? ""
-                                    : "group-hover:text-neutral-900 dark:group-hover:text-neutral-100",
+                                    : "group-hover:text-p0 dark:group-hover:text-o0",
                             ),
                         })}
                     </button>
@@ -113,7 +113,7 @@ function NavigationButtons({
                                 iconSizeClasses,
                                 selectedIdx === imagesCount - 1
                                     ? ""
-                                    : "group-hover:text-neutral-900 dark:group-hover:text-neutral-100",
+                                    : "group-hover:text-p0 dark:group-hover:text-o0",
                             ),
                         })}
                     </button>
@@ -134,13 +134,13 @@ function NavigationButtons({
                 {isFullscreen
                     ? FiMinimize({
                           className: clsx(
-                              "text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-100",
+                              "text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
                               fullscreenIconSize,
                           ),
                       })
                     : FiMaximize({
                           className: clsx(
-                              "text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-100",
+                              "text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
                               fullscreenIconSize,
                           ),
                       })}

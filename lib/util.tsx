@@ -130,3 +130,15 @@ export function CategoryIcon({
         </div>
     );
 }
+
+export const stripHtml = (htmlString: string): string => {
+    return htmlString
+        .replace(/<code>(.*?)<\/code>/g, "$1")
+        .replace(/<a[^>]*>(.*?)<\/a>/g, "$1")
+        .replace(/<[^>]*>/g, "")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&amp;/g, "&")
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'");
+};

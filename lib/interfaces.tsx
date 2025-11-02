@@ -1,4 +1,5 @@
-import { imgUrl } from "./util";
+import { Metadata } from "next";
+import { imgUrl, stripHtml } from "./util";
 
 export interface IEntryItem {
     caption?: string;
@@ -39,6 +40,8 @@ export interface IEntryGroup {
     titleLink?: string;
     category: string;
     description?: string;
+    keywords?: string[];
+    og?: string;
     items: IEntry[];
     credit?: boolean;
     links?: string[];
@@ -97,3 +100,67 @@ export const group = (
     items,
     ...options,
 });
+
+export const pageMetadata = (
+    baseUrl: string,
+    name: string,
+    og: string,
+    group: IEntryGroup,
+): Metadata => {
+    return {
+        title: group.title,
+        authors: [{ name }],
+        keywords: group.keywords,
+        description: group.description,
+        openGraph: {
+            title: group.title,
+            description: group.description,
+            url: `${baseUrl}/${group.category}`,
+            images: [
+                {
+                    url: og,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: group.title,
+            description: group.description,
+            images: og,
+        },
+    };
+};
+
+export const slugMetadata = (
+    baseUrl: string,
+    name: string,
+    og: string,
+    entry: IEntry,
+): Metadata => {
+    const image =
+        entry.thumbnail?.path ||
+        (entry.items && entry.items.length > 0 ? entry.items[0].path : null);
+
+    return {
+        title: entry.title,
+        authors: [{ name }],
+        keywords: entry.tags,
+        description: stripHtml(entry.summary?.join(" ") ?? ""),
+        openGraph: {
+            title: entry.title,
+            description: stripHtml(entry.summary?.join(" ") ?? ""),
+            url: image ? `${baseUrl}${image}` : undefined,
+            images: [
+                {
+                    url: image ?? "",
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: entry.title,
+            description: stripHtml(entry.summary?.join(" ") ?? ""),
+            images: image ?? "",
+        },
+    };
+};

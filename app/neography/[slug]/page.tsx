@@ -1,4 +1,6 @@
 import ContentGallery from "components/ContentGallery";
+import { baseUrl, name, og } from "lib/info";
+import { slugMetadata } from "lib/interfaces";
 import { neographyGroups } from "lib/scripts";
 import { findEntryById } from "lib/util";
 import type { Metadata } from "next";
@@ -13,37 +15,7 @@ export async function generateMetadata({
         return;
     }
 
-    const { title, summary, id: slug } = neographyItem;
-    const image =
-        neographyItem.thumbnail?.path ||
-        (neographyItem.items && neographyItem.items.length > 0
-            ? neographyItem.items[0].path
-            : null);
-    const ogImage = image
-        ? `https://956mb.com${image}`
-        : `https://956mb.com/og?title=${title}`;
-
-    return {
-        title,
-        description: summary ? summary.join(" ") : `Neography: ${title}`,
-        openGraph: {
-            title,
-            description: summary ? summary.join(" ") : `Neography: ${title}`,
-            type: "article",
-            url: `https://956mb.com/neography/${slug}`,
-            images: [
-                {
-                    url: ogImage,
-                },
-            ],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title,
-            description: summary ? summary.join(" ") : `${title}`,
-            images: [ogImage],
-        },
-    };
+    return slugMetadata(baseUrl, name, og, neographyItem);
 }
 
 export default function NeographyPage({ params }) {

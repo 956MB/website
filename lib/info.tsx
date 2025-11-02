@@ -1,7 +1,11 @@
 export const imgBase = "https://img.956mb.com";
 export const name = "Alexander Bays";
+export const title = `${name} (956MB)`;
+export const description = "Self-taught generalist... unfortunately.";
+export const baseUrl = "https://956mb.com";
+export const og = `${baseUrl}/og.png`;
 export const license = "CC-BY-NC-SA-4.0";
-export const copyright = " © 2025 Alexander Bays";
+export const copyright = ` © 2025 ${name}`;
 export const email = {
     key: "contact",
     value: "bays@956mb.com",

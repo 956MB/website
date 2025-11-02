@@ -27,7 +27,7 @@ export function ThemeToggle() {
         <button
             onClick={toggleTheme}
             className={clsx(
-                "flex items-center justify-center border border-neutral-200 stroke-neutral-500 transition-colors hover:stroke-neutral-900 dark:border-neutral-800 dark:fill-neutral-400 dark:hover:fill-neutral-100",
+                "flex items-center justify-center border border-neutral-200 stroke-neutral-500 transition-colors hover:stroke-p0 dark:border-neutral-800 dark:fill-neutral-400 dark:hover:fill-o0",
                 "h-[29px] w-[29px] rounded-md",
             )}
             title={theme === "dark" ? "Dark mode" : "Light mode"}

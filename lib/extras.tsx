@@ -254,6 +254,16 @@ const wallpapers = [
 
 // NOTE: groups
 
+export const extras_section = group(
+    "Extras",
+    "extras",
+    "Collection of upscaled/edited wallpapers, and various icons I've made or modified.",
+    [],
+    {
+        keywords: ["extras", "wallpapers", "icons", "resources"],
+    },
+);
+
 export const icons_section = group(
     "app icons",
     "icons",

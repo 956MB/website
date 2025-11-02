@@ -1,12 +1,10 @@
 import ProjectRow from "components/ProjectRow";
-import { projectGroups } from "lib/projects";
-import type { Metadata } from "next";
+import { baseUrl, name, og } from "lib/info";
+import { pageMetadata } from "lib/interfaces";
+import { projectGroups, projects_section } from "lib/projects";
 import React from "react";
 
-export const metadata: Metadata = {
-    title: "Projects",
-    description: "Some of my programming projects.",
-};
+export const metadata = pageMetadata(baseUrl, name, og, projects_section);
 
 export default function ProjectsPage() {
     return (

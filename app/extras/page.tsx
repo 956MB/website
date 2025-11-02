@@ -1,13 +1,10 @@
 import ExtraRow from "components/ExtraRow";
-import { groups } from "lib/extras";
-import type { Metadata } from "next";
+import { extras_section, groups } from "lib/extras";
+import { baseUrl, name, og } from "lib/info";
+import { pageMetadata } from "lib/interfaces";
 import React from "react";
 
-export const metadata: Metadata = {
-    title: "Extras",
-    description:
-        "Collection of upscaled/edited wallpapers, and various other free stuff.",
-};
+export const metadata = pageMetadata(baseUrl, name, og, extras_section);
 
 export default function ExtraPage() {
     return (

@@ -479,6 +479,41 @@ const personal = [
     }),
 ];
 
+// NOTE: groups
+
+export const projects_section = group(
+    "Projects",
+    "projects",
+    "My programming projects, contributions to open source, and personal dotfiles.",
+    [],
+    {
+        keywords: [
+            "projects",
+            "programming",
+            "code",
+            "development",
+            "software",
+            "javascript",
+            "typescript",
+            "react",
+            "next.js",
+            "tailwind",
+            "html",
+            "css",
+            "python",
+            "go",
+            "rust",
+            "zig",
+            "lua",
+            "neovim",
+            "vim",
+            "fish",
+            "shell",
+            "bash",
+        ],
+    },
+);
+
 export const projectGroups: IEntryGroups = [
     group("flipper", "Projects", "flipper zero firmware and apps", flipper),
     group("misc", "Projects", "code projects and contributions", misc),

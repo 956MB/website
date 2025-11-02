@@ -1,12 +1,10 @@
 import DesignRow from "components/DesignRow";
-import { designGroups } from "lib/designs";
-import type { Metadata } from "next";
+import { designGroups, designs_section } from "lib/designs";
+import { baseUrl, name, og } from "lib/info";
+import { pageMetadata } from "lib/interfaces";
 import React from "react";
 
-export const metadata: Metadata = {
-    title: "Designs",
-    description: "Various Figma, Photoshop and other design concepts.",
-};
+export const metadata = pageMetadata(baseUrl, name, og, designs_section);
 
 export default function DesignPage() {
     return (

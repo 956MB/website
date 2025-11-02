@@ -274,6 +274,26 @@ const ui = [
 
 // NOTE: sections
 
+export const designs_section = group(
+    "Designs",
+    "designs",
+    "Various Figma, Photoshop and other design concepts.",
+    [],
+    {
+        keywords: [
+            "designs",
+            "figma",
+            "photoshop",
+            "illustrator",
+            "graphic design",
+            "logos",
+            "icons",
+            "ui",
+            "ux",
+        ],
+    },
+);
+
 export const designGroups: IEntryGroups = [
     group(
         "ui / ux",

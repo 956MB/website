@@ -1,5 +1,7 @@
 import ContentGallery from "components/ContentGallery";
 import { designGroups } from "lib/designs";
+import { baseUrl, name, og } from "lib/info";
+import { slugMetadata } from "lib/interfaces";
 import { findEntryById } from "lib/util";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -13,35 +15,7 @@ export async function generateMetadata({
         return;
     }
 
-    const { title, summary, id: slug } = design;
-    const image =
-        design.thumbnail?.path ||
-        (design.items && design.items.length > 0 ? design.items[0].path : null);
-    const ogImage = image
-        ? `https://956mb.com${image}`
-        : `https://956mb.com/og?title=${title}`;
-
-    return {
-        title,
-        description: summary ? summary.join(" ") : `Design work: ${title}`,
-        openGraph: {
-            title,
-            description: summary ? summary.join(" ") : `Design work: ${title}`,
-            type: "article",
-            url: `https://956mb.com/designs/${slug}`,
-            images: [
-                {
-                    url: ogImage,
-                },
-            ],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title,
-            description: summary ? summary.join(" ") : `${title}`,
-            images: [ogImage],
-        },
-    };
+    return slugMetadata(baseUrl, name, og, design);
 }
 
 export default function DesignPage({ params }) {

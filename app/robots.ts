@@ -1,3 +1,5 @@
+import { baseUrl } from "lib/info";
+
 export default function robots() {
     return {
         rules: [
@@ -6,7 +8,7 @@ export default function robots() {
                 allow: "/",
             },
         ],
-        sitemap: "https://956mb.com/sitemap.xml",
-        host: "https://956mb.com",
+        sitemap: `${baseUrl}/sitemap.xml`,
+        host: baseUrl,
     };
 }
