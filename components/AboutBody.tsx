@@ -64,7 +64,7 @@ export function AboutBody() {
             initial="initial"
             animate="animate"
         >
-            <div className="m-0 mb-2 flex max-w-4xl flex-col flex-wrap items-start justify-center gap-y-5 pr-0 text-left sm:mb-10 sm:gap-y-7">
+            <div className="m-0 mb-10 flex max-w-4xl flex-col flex-wrap items-start justify-center gap-y-5 pr-0 text-left sm:gap-y-7">
                 <motion.div
                     variants={itemVariants}
                     className="inline-flex flex-col items-start justify-center gap-y-5 sm:gap-y-6"
@@ -88,7 +88,7 @@ export function AboutBody() {
 
             <motion.div
                 variants={itemVariants}
-                className="hidden w-full flex-row items-center justify-center align-middle md:flex"
+                className="flex w-full flex-row items-center justify-center align-middle"
             >
                 <div className="flex w-full flex-col items-center overflow-x-auto border-t border-dashed border-neutral-200 py-10 dark:border-neutral-800">
                     <Markdown

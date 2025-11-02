@@ -21,12 +21,13 @@ export default function NeographyPage() {
 
     return (
         <section>
-            <div className="flex w-full flex-col flex-wrap items-center justify-start px-6 pb-2 sm:px-7 sm:pt-5">
+            <div className="flex w-full flex-col flex-wrap items-center justify-start px-6 pb-2 sm:px-7 sm:pb-10 sm:pt-5">
                 <div className="relative flex w-full max-w-screen-xl flex-col flex-wrap items-center justify-center gap-y-0">
                     <GroupHeader
                         entry={neographyEntry}
                         noDescription={false}
                         noBackdrop={true}
+                        header={true}
                     />
                 </div>
 

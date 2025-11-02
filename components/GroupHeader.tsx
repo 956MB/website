@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { motion } from "framer-motion";
 import parse from "html-react-parser";
 import { IEntryGroup } from "lib/interfaces";
@@ -8,11 +9,15 @@ import { FiArrowUpRight } from "react-icons/fi";
 export default function GroupHeader({
     entry,
     noDescription,
+    header,
+    gallery,
     titleLink,
     noBackdrop,
 }: {
     entry: IEntryGroup;
     noDescription?: boolean;
+    header?: boolean;
+    gallery?: boolean;
     titleLink?: string;
     noBackdrop?: boolean;
 }) {
@@ -35,7 +40,12 @@ export default function GroupHeader({
             initial="initial"
             animate="animate"
         >
-            <div className="flex w-full flex-col items-start justify-center gap-1.5 leading-[21px]">
+            <div
+                className={clsx(
+                    "flex w-full flex-col items-start justify-center leading-[21px]",
+                    header ? "gap-3.5" : "gap-1.5",
+                )}
+            >
                 <span className="whitespace-normal align-baseline text-[23px] font-bold leading-6 text-neutral-900 dark:text-white sm:whitespace-nowrap">
                     {titleLink ? (
                         <a
@@ -56,7 +66,12 @@ export default function GroupHeader({
                     )}
                 </span>
                 {!noDescription && entry.description && (
-                    <span className="max-w-screen-lg text-sm font-medium italic leading-5 text-neutral-600 dark:text-neutral-350">
+                    <span
+                        className={clsx(
+                            "gallery-summary max-w-screen-lg text-sm font-medium italic leading-5 text-neutral-600 dark:text-neutral-350",
+                            gallery && "max-w-screen-md",
+                        )}
+                    >
                         {parse(entry.description)}
                     </span>
                 )}

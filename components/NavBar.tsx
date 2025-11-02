@@ -87,11 +87,11 @@ export default function Header() {
                                 />
                             </Link>
                         </div>
-                        <div className="hidden h-[22px] self-center border-r border-neutral-200 dark:border-neutral-800 sm:block"></div>
+                        {/* <div className="hidden h-[22px] self-center border-r border-neutral-200 dark:border-neutral-800 sm:block"></div> */}
                         <div className="inline-flex w-full flex-row flex-nowrap items-center justify-between gap-x-4 sm:mr-auto sm:w-auto sm:justify-center sm:gap-y-6 sm:py-3 lg:gap-x-7">
                             {Object.entries(navItems).map(
                                 ([path, { name, className }]) => {
-                                    const isActive = path === pathname;
+                                    const isActive = pathname.includes(path);
 
                                     return (
                                         <div
@@ -121,7 +121,9 @@ export default function Header() {
                                                             pathname.endsWith(
                                                                 name,
                                                             ) ||
-                                                                pathname == path
+                                                                pathname.includes(
+                                                                    path,
+                                                                )
                                                                 ? "font-bold text-black dark:font-semibold dark:text-white"
                                                                 : "font-medium hover:font-semibold",
                                                         )}
@@ -129,11 +131,11 @@ export default function Header() {
                                                         {name}
                                                     </span>
                                                 </Link>
-                                                {pathname !== path &&
+                                                {/* {pathname !== path &&
                                                     pathname.includes(path) &&
                                                     path !== "/" && (
-                                                        <div className="absolute -bottom-2 left-1/2 h-[2px] w-1/3 -translate-x-1/2 transform rounded-full bg-black dark:bg-white sm:-bottom-5"></div>
-                                                    )}
+                                                        <div className="absolute -bottom-2 left-1/2 h-[3px] w-1/3 -translate-x-1/2 transform rounded-full bg-black dark:bg-white sm:-bottom-5"></div>
+                                                    )} */}
                                             </div>
                                         </div>
                                     );

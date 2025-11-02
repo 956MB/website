@@ -54,7 +54,7 @@ export default function DesignPage({ params }) {
     return (
         <section className="mx-6 flex h-full w-full flex-col overflow-x-hidden pt-2 sm:mx-8 sm:pt-5">
             <div className="relative flex w-full flex-1 flex-col items-center overflow-hidden">
-                <ContentGallery entry={designEntry} />
+                <ContentGallery entry={designEntry} backLink="/designs" />
             </div>
         </section>
     );

@@ -4,14 +4,10 @@ import clsx from "clsx";
 import parse from "html-react-parser";
 import { IEntry } from "lib/interfaces";
 import Image from "next/image";
-import { TouchEvent, useEffect, useMemo, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
-
-const CELL_SIZE = 80;
-const CELL_GAP = 12;
-const CELL_COUNT_S = 3;
-const CELL_COUNT_M = 4;
-const CELL_COUNT_L = 5;
+import Link from "next/link";
+import { TouchEvent, useEffect, useRef, useState } from "react";
+import { FiArrowLeft } from "react-icons/fi";
+import GroupHeader from "./GroupHeader";
 
 function useWindowSize() {
     const [windowSize, setWindowSize] = useState({
@@ -39,75 +35,25 @@ function useWindowSize() {
     return { ...windowSize, isClient };
 }
 
-function getCellCount(width: number): number {
-    if (width < 769) {
-        return CELL_COUNT_S;
-    } else if (width < 1024) {
-        return CELL_COUNT_M;
-    } else {
-        return CELL_COUNT_L;
-    }
-}
-
-function calculateMaxWidth(cellCount: number): number {
-    return CELL_SIZE * cellCount + CELL_GAP * (cellCount - 1) + CELL_SIZE / 2;
-}
-
-export default function ContentGallery({ entry }: { entry: IEntry }) {
-    const { width, isClient } = useWindowSize();
-    const cellCount = useMemo(() => getCellCount(width), [width]);
-    const maxGalleryWidth = useMemo(
-        () => calculateMaxWidth(cellCount),
-        [cellCount],
-    );
+export default function ContentGallery({
+    entry,
+    backLink,
+}: {
+    entry: IEntry;
+    backLink?: string;
+}) {
+    const { isClient } = useWindowSize();
 
     const [selectedIdx, setSelectedIdx] = useState(0);
     const imagesCount = entry.items?.length || 0;
     const touchStartX = useRef<number | null>(null);
     const touchEndX = useRef<number | null>(null);
-    const thumbnailContainerRef = useRef<HTMLDivElement>(null);
-    const [indicatorPosition, setIndicatorPosition] = useState(0);
-    const [indicatorWidth, setIndicatorWidth] = useState(0);
 
     const updateIdx = (dir: number) => {
         const newIdx = selectedIdx + dir;
         if (newIdx >= 0 && newIdx < imagesCount) {
             setSelectedIdx(newIdx);
-            updateIndicatorPosition(newIdx);
         }
-    };
-
-    const updateIndicatorPosition = (index: number) => {
-        if (!thumbnailContainerRef.current) return;
-
-        const thumbnails = thumbnailContainerRef.current.children;
-        if (thumbnails[index]) {
-            const thumbnail = thumbnails[index] as HTMLElement;
-            const containerRect =
-                thumbnailContainerRef.current.getBoundingClientRect();
-            const thumbnailRect = thumbnail.getBoundingClientRect();
-            const relativeLeft = thumbnailRect.left - containerRect.left;
-            const thumbnailWidth = thumbnailRect.width;
-
-            setIndicatorPosition(
-                relativeLeft + thumbnailWidth / 2 - thumbnailWidth / 3 / 2,
-            );
-            setIndicatorWidth(thumbnailWidth / 3);
-        }
-    };
-
-    const scrollThumbnails = (direction: number) => {
-        if (!thumbnailContainerRef.current) return;
-        const scrollAmount = direction * calculateMaxWidth(cellCount);
-
-        thumbnailContainerRef.current.scrollBy({
-            left: scrollAmount,
-            behavior: "smooth",
-        });
-
-        setTimeout(() => {
-            updateIndicatorPosition(selectedIdx);
-        }, 300);
     };
 
     const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
@@ -153,206 +99,74 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
         if (selectedIdx < imagesCount - 1) preloadImage(selectedIdx + 1);
     }, [selectedIdx, entry.items, imagesCount, isClient]);
 
-    useEffect(() => {
-        if (isClient) {
-            const timer = setTimeout(() => {
-                updateIndicatorPosition(selectedIdx);
-            }, 10);
-            return () => clearTimeout(timer);
-        }
-    }, [selectedIdx, isClient]);
-
-    useEffect(() => {
-        if (!thumbnailContainerRef.current || !isClient) return;
-
-        const handleScroll = () => {
-            updateIndicatorPosition(selectedIdx);
-        };
-
-        const container = thumbnailContainerRef.current;
-        container.addEventListener("scroll", handleScroll);
-
-        return () => {
-            container.removeEventListener("scroll", handleScroll);
-        };
-    }, [selectedIdx, isClient]);
-
     return (
-        <div className="flex h-full w-full max-w-screen-lg flex-col items-center overflow-hidden">
+        <div className="flex h-full w-full max-w-screen-lg flex-col items-center overflow-visible">
             <div className="w-full px-2 sm:px-0">
-                <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start sm:gap-8">
-                    <div className="flex flex-col items-start sm:pr-4">
-                        <div className="inline-flex flex-row items-center justify-center gap-3 py-2 sm:justify-start sm:py-3">
-                            <h1 className="mt-[1px] whitespace-nowrap text-center text-[23px] font-bold text-black dark:text-white sm:leading-5">
-                                {entry.title}
-                            </h1>
-                        </div>
+                <div className="flex flex-col items-start">
+                    <Link
+                        href={backLink ?? "/"}
+                        className="mb-2 flex flex-row items-center gap-2 text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-400"
+                    >
+                        {FiArrowLeft({
+                            className: "h-5 w-5",
+                        })}
+                        <span className="text-sm font-medium leading-none">
+                            Back
+                        </span>
+                    </Link>
 
-                        <div className="flex flex-row items-center justify-center gap-3">
-                            {entry.date && (
-                                <>
-                                    <span className="mt-[2px] text-center text-sm font-medium text-black dark:font-medium dark:text-white/90 sm:leading-5">
-                                        {entry.date}
-                                    </span>
+                    <GroupHeader
+                        entry={{
+                            title: entry.title,
+                            description: entry.summary?.join("") || "",
+                            category: entry.category || "",
+                            items: [] as IEntry[],
+                        }}
+                        header={true}
+                        gallery={true}
+                        noBackdrop={true}
+                    />
 
-                                    <div className="h-[22px] self-center border-r border-neutral-200 dark:border-neutral-800"></div>
-                                </>
-                            )}
+                    {/* <div className="inline-flex flex-row items-center justify-center gap-3 py-2 sm:justify-start sm:py-3">
+                        <h1 className="mt-[1px] whitespace-nowrap text-center text-[23px] font-bold lowercase text-black dark:text-white sm:leading-5">
+                            {entry.title}
+                        </h1>
+                    </div> */}
 
-                            <>
-                                <div className="flex flex-row items-center justify-center gap-3">
-                                    {entry.category && (
-                                        <span className="mt-[2px] text-center text-sm font-semibold capitalize text-black dark:font-medium dark:text-white/90 sm:leading-5">
-                                            {entry.category}
-                                        </span>
-                                    )}
-                                </div>
-                            </>
-                        </div>
-
-                        {entry.summary && entry.summary.length > 0 && (
-                            <div
-                                className={clsx(
-                                    "w-full max-w-2xl pb-2 pt-2 sm:pb-0",
-                                )}
-                            >
-                                <span className="gallery-summary block text-left text-[13px] font-medium italic leading-[1.56em] tracking-wide text-neutral-800 dark:text-neutral-350 sm:text-[14px]">
-                                    {parse(entry.summary.join(""))}
-                                </span>
-                            </div>
-                        )}
-                    </div>
-
-                    {entry.items && entry.items.length > 1 && (
+                    {/* {entry.summary && entry.summary.length > 0 && (
                         <div
                             className={clsx(
-                                "group relative self-center sm:self-end",
+                                "w-full max-w-2xl pb-2 pt-2 sm:pb-0",
                             )}
                         >
-                            {entry.items.length > cellCount && (
-                                <div className="hidden lg:block">
-                                    <div className="absolute -left-0 top-1/2 z-10 -translate-y-[calc(50%+5px)] opacity-0 transition-opacity duration-100 group-hover:opacity-100">
-                                        <button
-                                            className="rounded-full bg-neutral-200/80 p-1.5 backdrop-blur-sm transition-all hover:bg-neutral-200 dark:bg-neutral-900/80 hover:dark:bg-neutral-800"
-                                            onClick={() => scrollThumbnails(-1)}
-                                        >
-                                            <ChevronLeft
-                                                size={16}
-                                                className="text-neutral-600 dark:text-neutral-400"
-                                            />
-                                        </button>
-                                    </div>
-                                    <div className="absolute -right-0 top-1/2 z-10 -translate-y-[calc(50%+5px)] opacity-0 transition-opacity duration-100 group-hover:opacity-100">
-                                        <button
-                                            className="rounded-full bg-neutral-200/80 p-1.5 backdrop-blur-sm transition-all hover:bg-neutral-200 dark:bg-neutral-900/80 hover:dark:bg-neutral-800"
-                                            onClick={() => scrollThumbnails(1)}
-                                        >
-                                            <ChevronRight
-                                                size={16}
-                                                className="text-neutral-600 dark:text-neutral-400"
-                                            />
-                                        </button>
-                                    </div>
-                                </div>
-                            )}
-                            <div
-                                className="relative overflow-x-auto px-2 py-[10px] sm:self-start sm:px-0"
-                                style={{ maxWidth: `${maxGalleryWidth}px` }}
-                            >
-                                <div
-                                    ref={thumbnailContainerRef}
-                                    className={clsx(
-                                        `no-scrollbar desktop-no-horizontal-scroll flex touch-pan-x flex-row items-center justify-start gap-2.5 overflow-x-auto whitespace-nowrap`,
-                                        {
-                                            "justify-center":
-                                                entry.items.length <= cellCount,
-                                        },
-                                    )}
-                                >
-                                    {entry.items?.map((content, idx) => (
-                                        <div
-                                            key={idx}
-                                            className={clsx(
-                                                "group relative flex-shrink-0 cursor-pointer pb-3 transition-all duration-100",
-                                                selectedIdx !== idx
-                                                    ? "opacity-60 hover:opacity-100"
-                                                    : "opacity-100",
-                                            )}
-                                            onClick={() => {
-                                                setSelectedIdx(idx);
-                                                updateIndicatorPosition(idx);
-                                            }}
-                                        >
-                                            {content.path.includes(".mp4") ? (
-                                                <div
-                                                    className={clsx(
-                                                        "flex h-16 w-16 items-center justify-center overflow-hidden bg-neutral-900 sm:h-20 sm:w-20",
-                                                    )}
-                                                >
-                                                    <video
-                                                        className="h-full w-full object-cover"
-                                                        src={content.path}
-                                                        width={CELL_SIZE}
-                                                        height={CELL_SIZE}
-                                                        muted
-                                                        autoPlay={false}
-                                                        loop={false}
-                                                        controls={false}
-                                                        playsInline={false}
-                                                    />
-                                                </div>
-                                            ) : (
-                                                <div
-                                                    className={clsx(
-                                                        "h-16 w-16 overflow-hidden rounded-md bg-white dark:bg-neutral-900 sm:h-20 sm:w-20",
-                                                    )}
-                                                >
-                                                    <Image
-                                                        alt={`thumbnail-${idx}`}
-                                                        className="h-full w-full object-cover"
-                                                        src={content.path}
-                                                        width={CELL_SIZE}
-                                                        height={CELL_SIZE}
-                                                        draggable={false}
-                                                        loading={
-                                                            idx <= cellCount
-                                                                ? "eager"
-                                                                : "lazy"
-                                                        }
-                                                    />
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                    <div
-                                        className="absolute bottom-3 h-0.5 rounded-full bg-neutral-950 transition-all duration-300 ease-out dark:bg-neutral-100"
-                                        style={{
-                                            left: `${indicatorPosition}px`,
-                                            width: `${indicatorWidth}px`,
-                                        }}
-                                    />
-                                </div>
-                            </div>
+                            <span className="gallery-summary block text-left text-[13px] font-medium lowercase italic leading-[1.56em] tracking-wide text-neutral-800 dark:text-neutral-350 sm:text-[14px]">
+                                {parse(entry.summary.join(""))}
+                            </span>
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
 
             <div
-                className="relative flex w-full flex-1 items-center justify-center overflow-hidden px-2 pt-4 sm:px-0 sm:pt-8"
+                className="relative mb-3 mt-4 flex w-full items-center justify-center overflow-hidden rounded-[0.659rem] border border-neutral-200 px-2 dark:border-neutral-800 sm:mt-8 sm:px-0"
                 style={{
-                    maxHeight: "calc(100vh - 320px)",
-                    minHeight: "min(100px, calc(100vh - 320px))",
+                    aspectRatio: "16/10",
+                    maxHeight: "60vh",
                 }}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
             >
                 {selectedContent && (
-                    <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-[0.659rem] bg-neutral-50 dark:bg-neutral-950">
+                    <div className="flex h-full w-full items-center justify-center overflow-hidden bg-neutral-50 dark:bg-black">
                         {selectedContent.path.includes(".mp4") ? (
-                            <div className="flex max-h-full max-w-full flex-col items-center bg-neutral-50 dark:bg-neutral-950">
+                            <div className="flex max-h-full max-w-full flex-col items-center bg-neutral-50 dark:bg-black">
                                 <video
-                                    className="max-h-[70vh] max-w-full object-contain"
+                                    className="h-full w-full"
+                                    style={{
+                                        objectFit: "contain",
+                                        minHeight: "100%",
+                                        minWidth: "100%",
+                                    }}
                                     src={selectedContent.path}
                                     width={selectedContent.width}
                                     height={selectedContent.height}
@@ -368,10 +182,15 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
                                 )}
                             </div>
                         ) : (
-                            <div className="flex max-h-full max-w-full flex-col items-center bg-neutral-50 dark:bg-neutral-950">
+                            <div className="flex max-h-full max-w-full flex-col items-center bg-neutral-50 dark:bg-black">
                                 <Image
                                     alt={`project-image-${selectedIdx}`}
-                                    className="max-h-[70vh] max-w-full bg-transparent object-contain dark:bg-neutral-950"
+                                    className="h-full w-full bg-transparent dark:bg-black"
+                                    style={{
+                                        objectFit: "contain",
+                                        minHeight: "100%",
+                                        minWidth: "100%",
+                                    }}
                                     src={selectedContent.path}
                                     width={selectedContent.width}
                                     height={selectedContent.height}
@@ -389,6 +208,75 @@ export default function ContentGallery({ entry }: { entry: IEntry }) {
                     </div>
                 )}
             </div>
+
+            {/* Dashed line separator and thumbnails below main image */}
+            {entry.items && entry.items.length > 1 && (
+                <>
+                    <div className="w-full">
+                        <div className="grid grid-cols-2 gap-3 px-0.5 pb-0.5 sm:grid-cols-4 sm:px-0">
+                            {entry.items?.map((content, idx) => (
+                                <div
+                                    key={idx}
+                                    className={clsx(
+                                        "aspect-square cursor-pointer",
+                                    )}
+                                    onClick={() => {
+                                        setSelectedIdx(idx);
+                                    }}
+                                >
+                                    {content.path.includes(".mp4") ? (
+                                        <div
+                                            className={clsx(
+                                                "relative flex h-full w-full items-center justify-center overflow-hidden rounded-lg bg-black",
+                                                selectedIdx === idx
+                                                    ? "border-white-600 border-2 ring-2 ring-p0 dark:border-black dark:ring-o0"
+                                                    : "hover:ring-1 hover:ring-neutral-200 dark:hover:ring-neutral-600",
+                                            )}
+                                        >
+                                            {selectedIdx === idx && (
+                                                <div className="pointer-events-none absolute inset-[3px] z-10 rounded-md"></div>
+                                            )}
+                                            <video
+                                                className="h-full w-full object-cover"
+                                                src={content.path}
+                                                muted
+                                                autoPlay={false}
+                                                loop={false}
+                                                controls={false}
+                                                playsInline={false}
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div
+                                            className={clsx(
+                                                "relative box-border h-full w-full overflow-hidden rounded-lg bg-white dark:bg-black",
+                                                selectedIdx === idx
+                                                    ? "border-white-600 border-2 ring-2 ring-p0 dark:border-black dark:ring-o0"
+                                                    : "hover:ring-1 hover:ring-neutral-200 dark:hover:ring-neutral-600",
+                                            )}
+                                        >
+                                            {selectedIdx === idx && (
+                                                <div className="pointer-events-none absolute inset-[3px] z-10 rounded-md"></div>
+                                            )}
+                                            <Image
+                                                alt={`thumbnail-${idx}`}
+                                                className="h-full w-full object-cover"
+                                                src={content.path}
+                                                width={200}
+                                                height={200}
+                                                draggable={false}
+                                                loading={
+                                                    idx <= 6 ? "eager" : "lazy"
+                                                }
+                                            />
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </>
+            )}
         </div>
     );
 }

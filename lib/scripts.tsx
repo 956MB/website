@@ -88,26 +88,6 @@ const scripts = [
                 1236,
                 1770,
             ),
-            item(
-                "/images/circles-only-apparently/circles_only_1.png",
-                1038,
-                504,
-            ),
-            item(
-                "/images/circles-only-apparently/circles_only_2.png",
-                1041,
-                2411,
-            ),
-            item(
-                "/images/circles-only-apparently/circles_only_3.png",
-                1284,
-                1272,
-            ),
-            item(
-                "/images/circles-only-apparently/circles_only_4.png",
-                1236,
-                1770,
-            ),
         ],
         {
             tags: ["Circles"],
