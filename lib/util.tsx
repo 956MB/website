@@ -1,4 +1,3 @@
-import { Content } from "contentlayer/generated";
 import { IEntry, IEntryGroup } from "lib/interfaces";
 import { HiMiniLanguage } from "react-icons/hi2";
 import { PiFigmaLogo } from "react-icons/pi";
@@ -74,21 +73,6 @@ export function getLangColor(
         return `${prefix}bg-[${color}]`;
     }
     return `${prefix}bg-${color}`;
-}
-
-export function filterContentTags(blogs: Content[], tag: string): Content[] {
-    return blogs.filter((blog): blog is Content => {
-        return blog && blog.tags !== undefined && blog.tags?.includes(tag);
-    });
-}
-
-export function sortContent(blogs: Content[]): Content[] {
-    return blogs.sort((a, b) => {
-        if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
-            return -1;
-        }
-        return 1;
-    });
 }
 
 export function findEntryById(
