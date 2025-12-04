@@ -30,6 +30,7 @@ const nextConfig = {
     webpack: (config, { isServer }) => {
         return config;
     },
+    turbopack: {},
 };
 
 // https://nextjs.org/docs/advanced-features/security-headers

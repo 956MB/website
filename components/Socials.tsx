@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { socials } from "lib/info";
-import React from "react";
 import { FaGithub, FaReddit, FaXTwitter } from "react-icons/fa6";
 import { SiLinktree } from "react-icons/si";
 
@@ -67,11 +66,9 @@ export default function Socials({
                 className,
             )}
         >
-            {React.Children.toArray(
-                socials.map(({ serv, url }) => (
-                    <Social serv={serv} url={url} />
-                )),
-            )}
+            {socials.map(({ serv, url }) => (
+                <Social key={serv} serv={serv} url={url} />
+            ))}
         </div>
     );
 }

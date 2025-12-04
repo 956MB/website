@@ -100,7 +100,7 @@ export default function RootLayout({
 
                 <ThemeProvider>
                     <main className="relative z-10 flex w-full min-w-0 flex-1 flex-grow flex-col items-center">
-                        <Header />
+                        <Header key={Math.random()} />
                         <div className="flex w-full flex-1 justify-center">
                             {children}
                         </div>
