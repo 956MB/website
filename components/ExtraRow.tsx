@@ -55,7 +55,6 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                 <motion.div
                                     key={i}
                                     variants={itemVariants}
-                                    transition={{ duration: 0.5 }}
                                     id={item.id}
                                     className={clsx(
                                         "group relative z-0 box-content flex flex-col justify-start",
@@ -63,7 +62,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                 >
                                     <a
                                         className={clsx(
-                                            "group relative flex flex-col justify-end overflow-hidden rounded-[0.659rem] bg-gradient-to-t from-white/10 to-transparent object-cover saturate-0 backdrop-blur-sm transition-colors ease-linear group-hover:saturate-100 child:group-hover:scale-105 sm:backdrop-blur-none",
+                                            "duration-50 group relative flex select-none flex-col justify-end overflow-hidden rounded-[0.659rem] bg-gradient-to-t from-white/10 to-transparent object-cover saturate-0 backdrop-blur-sm transition-all ease-linear group-hover:saturate-100 sm:backdrop-blur-none",
                                             item.link && " cursor-pointer",
                                         )}
                                         rel="noopener noreferrer"
@@ -81,7 +80,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                             <Image
                                                 alt={item.id}
                                                 className={clsx(
-                                                    "duration-100` block h-full w-full transition-transform delay-0 ease-linear",
+                                                    "duration-50 block h-full w-full transition-transform delay-0 ease-linear group-hover:scale-105",
                                                     item.category === "icon"
                                                         ? "aspect-square object-contain"
                                                         : "aspect-video object-cover sm:aspect-video",
@@ -136,7 +135,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                                 : undefined
                                                         }
                                                     >
-                                                        {item.title}
+                                                        {parse(item.title)}
                                                     </a>
 
                                                     {item.credit && (
@@ -163,9 +162,11 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 {item.summary && (
                                                     <span className="entry-summary w-full text-sm font-medium text-neutral-800 dark:text-neutral-350">
                                                         {parse(
-                                                            item.summary.join(
-                                                                "",
-                                                            ),
+                                                            (
+                                                                item.summary.join(
+                                                                    "",
+                                                                ) || ""
+                                                            ).toString(),
                                                         )}
                                                     </span>
                                                 )}

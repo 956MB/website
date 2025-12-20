@@ -32,140 +32,133 @@ const flipper = [
             summary: [
                 `my contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. as well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. thanks ${li("https://github.com/WillyJL", "WillyJL")}.`,
             ],
-        },
-    ),
-    entry(
-        "p-feat-input-vibro-trigger",
-        "feat/input-vibro-trigger",
-        "fork/+",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/429",
-            lang: "C",
-            nested: true,
-            summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/429", "#429")} adds setting to pick the vibration trigger for button clicks (${li("https://github.com/Next-Flip/Momentum-Firmware/issues/428", "#428")}). press, release or both (original).`,
-            ],
-        },
-    ),
-    entry(
-        "p-feat-popup-overlay",
-        "feat/popup-overlay",
-        "fork/+",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/380",
-            lang: "C",
-            nested: true,
-            summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/380", "#380")} adds a checkerboard overlay behind the lockmenu and other various popup elements.`,
-            ],
-        },
-    ),
-    entry(
-        "p-fix-custom-font-bubble-ascent",
-        "fix/custom-font-bubble-ascent",
-        "fork/+",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/385",
-            lang: "C",
-            nested: true,
-            summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/385", "#385")} fixes the misaligned speech bubble text (lockscreen/desktop) when using a custom font from an asset pack.`,
-            ],
-        },
-    ),
-    entry(
-        "p-feat-menu-more-info",
-        "feat/menu-more-info",
-        "fork/+",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/354",
-            lang: "C",
-            nested: true,
-            summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/340", "#354")} adds more info and optional toggles to ps4/vertical/mntm menu styles.`,
-            ],
-        },
-    ),
-    entry(
-        "p-feat-asset-packs-ram-warning",
-        "feat/asset-packs-ram-warning",
-        "fork/+",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/344",
-            lang: "C",
-            nested: true,
-            summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/344", "#344")} checks asset packs for fonts/icons and adds "size warning" screen.`,
-            ],
-        },
-    ),
-    entry(
-        "p-feat-clock-midnight-format",
-        "feat/clock-midnight-format",
-        "fork/+",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/341",
-            lang: "C",
-            nested: true,
-            summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")} added new <span class='highlight'>midnight format</span> option to show users preferred format of <span class='highlight'>12:xx</span> or <span class='highlight'>00:xx</span> for 12am-1am on all clocks.`,
-            ],
-        },
-    ),
-    entry(
-        "p-feat-directory-keybind-support",
-        "feat/directory-keybind-support",
-        "fork/+",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/331",
-            lang: "C",
-            nested: true,
-            summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/331", "#331")} allows selection of file/directories in desktop keybinds and the main menu.`,
-            ],
-        },
-    ),
-    entry(
-        "p-feat-archive-select-multiple",
-        "feat/archive-select-multiple",
-        "fork/+",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/327",
-            lang: "C",
-            nested: true,
-            summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/327", "#327")} implemented multiple file selection in archive app.`,
-            ],
-        },
-    ),
-    entry(
-        "p-feat-archive-dynamic-tabs",
-        "feat/archive-dynamic-tabs",
-        "fork/+",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/Next-Flip/Momentum-Firmware/pull/322",
-            lang: "C",
-            nested: true,
-            summary: [
-                `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")} interface option to show dynamic paths in the archive app (file browser).`,
+            children: [
+                entry(
+                    "p-feat-input-vibro-trigger",
+                    "feat/input-vibro-trigger",
+                    "fork/+",
+                    "Projects",
+                    [],
+                    {
+                        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/429",
+                        lang: "C",
+                        summary: [
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/429", "#429")} adds setting to pick the vibration trigger for button clicks (${li("https://github.com/Next-Flip/Momentum-Firmware/issues/428", "#428")}). press, release or both (original).`,
+                        ],
+                    },
+                ),
+                entry(
+                    "p-feat-popup-overlay",
+                    "feat/popup-overlay",
+                    "fork/+",
+                    "Projects",
+                    [],
+                    {
+                        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/380",
+                        lang: "C",
+                        summary: [
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/380", "#380")} adds a checkerboard overlay behind the lockmenu and other various popup elements.`,
+                        ],
+                    },
+                ),
+                entry(
+                    "p-fix-custom-font-bubble-ascent",
+                    "fix/custom-font-bubble-ascent",
+                    "fork/+",
+                    "Projects",
+                    [],
+                    {
+                        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/385",
+                        lang: "C",
+                        summary: [
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/385", "#385")} fixes the misaligned speech bubble text (lockscreen/desktop) when using a custom font from an asset pack.`,
+                        ],
+                    },
+                ),
+                entry(
+                    "p-feat-menu-more-info",
+                    "feat/menu-more-info",
+                    "fork/+",
+                    "Projects",
+                    [],
+                    {
+                        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/354",
+                        lang: "C",
+                        summary: [
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/340", "#354")} adds more info and optional toggles to ps4/vertical/mntm menu styles.`,
+                        ],
+                    },
+                ),
+                entry(
+                    "p-feat-asset-packs-ram-warning",
+                    "feat/asset-packs-ram-warning",
+                    "fork/+",
+                    "Projects",
+                    [],
+                    {
+                        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/344",
+                        lang: "C",
+                        summary: [
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/344", "#344")} checks asset packs for fonts/icons and adds "size warning" screen.`,
+                        ],
+                    },
+                ),
+                entry(
+                    "p-feat-clock-midnight-format",
+                    "feat/clock-midnight-format",
+                    "fork/+",
+                    "Projects",
+                    [],
+                    {
+                        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/341",
+                        lang: "C",
+                        summary: [
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")} added new <span class='highlight'>midnight format</span> option to show users preferred format of <span class='highlight'>12:xx</span> or <span class='highlight'>00:xx</span> for 12am-1am on all clocks.`,
+                        ],
+                    },
+                ),
+                entry(
+                    "p-feat-directory-keybind-support",
+                    "feat/directory-keybind-support",
+                    "fork/+",
+                    "Projects",
+                    [],
+                    {
+                        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/331",
+                        lang: "C",
+                        summary: [
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/331", "#331")} allows selection of file/directories in desktop keybinds and the main menu.`,
+                        ],
+                    },
+                ),
+                entry(
+                    "p-feat-archive-select-multiple",
+                    "feat/archive-select-multiple",
+                    "fork/+",
+                    "Projects",
+                    [],
+                    {
+                        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/327",
+                        lang: "C",
+                        summary: [
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/issues/327", "#327")} implemented multiple file selection in archive app.`,
+                        ],
+                    },
+                ),
+                entry(
+                    "p-feat-archive-dynamic-tabs",
+                    "feat/archive-dynamic-tabs",
+                    "fork/+",
+                    "Projects",
+                    [],
+                    {
+                        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/322",
+                        lang: "C",
+                        summary: [
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/322", "#322")} interface option to show dynamic paths in the archive app (file browser).`,
+                        ],
+                    },
+                ),
             ],
         },
     ),
@@ -210,20 +203,6 @@ const misc = [
         ],
     }),
     entry(
-        "p-change-server-icon",
-        "ChangeServerIcon (WIP)",
-        "2025",
-        "Projects",
-        [],
-        {
-            link: "https://github.com/956MB/Vencord/tree/plugin/change-server-icon",
-            lang: "TypeScript",
-            summary: [
-                `my first plugin for ${li("https://vencord.dev", "Vencord")}, a discord client mod. adds option to change server icons with custom images.`,
-            ],
-        },
-    ),
-    entry(
         "p-reddit-download-buttons",
         "Reddit Download Buttons",
         "2024",
@@ -237,16 +216,22 @@ const misc = [
             ],
         },
     ),
+    entry(
+        "wow-thats-interesting",
+        "Wow, that's interesting.",
+        "2024",
+        "Projects",
+        [],
+        {
+            link: "https://github.com/956MB/banner",
+            lang: "Python",
+            summary: [`Wow, that's interesting.`],
+        },
+    ),
     entry("p-vscode-yazi", "vscode.yazi", "2024", "Projects", [], {
         link: "https://github.com/956MB/vscode.yazi",
         summary: [
             `${li("https://github.com/yazi-rs/yazi", "Yazi")} flavors inspired by the default themes (dark/light) in visual studio code, and ${li("https://github.com/Mofiqul/vscode.nvim", "Mofiqul/vscode.nvim")}.`,
-        ],
-    }),
-    entry("p-tis-term", "TIS-TERM (WIP)", "2024", "Projects", [], {
-        lang: "Rust",
-        summary: [
-            `${li("https://www.zachtronics.com/tis-100/", "TIS-100")} clone in the terminal, written in rust. wip.`,
         ],
     }),
     entry(
@@ -474,7 +459,7 @@ const personal = [
         link: "https://github.com/956MB/AoC",
         lang: "Python",
         summary: [
-            `all of my ${li("https://adventofcode.com", "Advent of Code")} solutions. (${li("https://github.com/956MB/AoC/tree/master/18", "18")}, ${li("https://github.com/956MB/AoC/tree/master/20", "20")}, ${li("https://github.com/956MB/AoC/tree/master/21", "21")}, ${li("https://github.com/956MB/AoC/tree/master/22", "22")})`,
+            `all of my ${li("https://adventofcode.com", "Advent of Code")} solutions. (${li("https://github.com/956MB/AoC/tree/master/18", "18")}, ${li("https://github.com/956MB/AoC/tree/master/20", "20")}, ${li("https://github.com/956MB/AoC/tree/master/21", "21")}, ${li("https://github.com/956MB/AoC/tree/master/22", "22")}, ${li("https://github.com/956MB/AoC/tree/master/24", "24")}, ${li("https://github.com/956MB/AoC/tree/master/25", "25")})`,
         ],
     }),
 ];

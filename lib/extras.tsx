@@ -1,4 +1,5 @@
 import { entry, group, IEntryGroups, item } from "./interfaces";
+import { hl } from "./util";
 
 // NOTE: icons
 
@@ -81,7 +82,7 @@ const icons = [
         [item("/images/extras/icons/adobe-ps-1.png", 1024, 1024)],
         {
             summary: [
-                'variant Rosetta style icons for various Adobe applications (<a>Photoshop</a>, <a>Illustrator</a>, <a>Bridge</a>, <a>InDesign</a>, <a ">Audition</a>). made by me.',
+                `variant Rosetta style icons for various Adobe applications (${hl("Photoshop")}, ${hl("Illustrator")}, ${hl("Bridge")}, ${hl("InDesign")}, ${hl("Audition")}). made by me.`,
             ],
             link: "https://store.956mb.com/l/adobe-rosetta-icons",
         },
@@ -116,6 +117,26 @@ const icons = [
 // NOTE: wallpapers
 
 const wallpapers = [
+    entry(
+        "hpl-gou-tanabe-wallpapers",
+        "Mountains of Madness <i>&</i> Call of Cthulhu",
+        "12.20.2025",
+        "wallpaper",
+        [
+            item(
+                "/images/extras/wallpapers/hpl-gou-tanabe-wallperps.jpg",
+                1920,
+                1244,
+            ),
+        ],
+        {
+            summary: [
+                `Stitched, cropped and upscaled pages from Gou Tanabe's (${hl("田邊剛")}) manga adaptations of "<a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/writings/fiction/mm.aspx">At the Mountains of Madness</a>" and "<a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/writings/fiction/cc.aspx">The Call of Cthulhu</a>", by <a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/">H.P. Lovecraft</a>. All credit to him for the INSANE original artwork.`,
+            ],
+            link: "https://drive.google.com/drive/folders/1LULXaQBAUGOsGQEfFnTD542JHP51hyFZ?usp=sharing",
+            credit: '<a rel="noopener noreferrer" target="_blank" href="https://x.com/gou_tanabe">田邊剛</a>',
+        },
+    ),
     entry(
         "model-3-performance-trace",
         "Model 3 Performance (Trace Contour)",
@@ -274,7 +295,8 @@ export const icons_section = group(
 export const wallpapers_section = group(
     "wallpapers & screenshots",
     "wallpapers",
-    "collection of wallpapers i've created, modified/upscaled, or that i just like",
+    "collection of wallpapers from others i like, or ones i've made/modified",
+    // "collection of wallpapers i've created, modified/upscaled, or that i just like",
     wallpapers,
 );
 

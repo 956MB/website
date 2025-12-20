@@ -1,3 +1,5 @@
+import { hl } from "./util";
+
 export const imgBase = "https://img.956mb.com";
 export const name = "Alexander Bays";
 export const title = `${name} (956MB)`;
@@ -35,10 +37,6 @@ export const extras_explained = {
         'I love screen grabbing from things like movies/TV/games, and then using Photoshop or Topaz Photo AI to make them into wallpapers. I also feel a great urge to share them with others since I think they\'re so cool, and most things arent natively in 6K (yet). Hopefully this section comes across as a "public repo" of sorts for cool wallpapers and stuff, and not me trying to claim all these as my own works (obviously except for the ones I actually did make myself).',
     disclaimer:
         "Anything that is marked I DO NOT take credit for. I have NOT photographed, painted or rendered anything here unless specified. I am just trying to share things I've messed with or that I personally use for others to enjoy.",
-};
-
-const hl = function (text) {
-    return `<span class='large-highlight'>${text}</span>`;
 };
 
 export const about_n = `<span class='name-highlight'>${name}</span>`;

@@ -74,6 +74,7 @@ module.exports = {
         function ({ addVariant }) {
             addVariant("child", "& > *");
             addVariant("child-hover", "& > *:hover");
+            addVariant("is-family-hovered", "&.is-family-hovered");
         },
     ],
     safelist: [
@@ -102,6 +103,18 @@ module.exports = {
         "group-hover:bg-[#F05137]",
         "group-hover:bg-[#663399]",
         "group-hover:bg-[#40B983]",
+        "is-family-hovered:bg-[#F1E05A]",
+        "is-family-hovered:bg-[#3078C6]",
+        "is-family-hovered:bg-[#3572A5]",
+        "is-family-hovered:bg-[#000080]",
+        "is-family-hovered:bg-[#F7A31E]",
+        "is-family-hovered:bg-[#555555]",
+        "is-family-hovered:bg-[#F34B7D]",
+        "is-family-hovered:bg-[#188601]",
+        "is-family-hovered:bg-[#DEA584]",
+        "is-family-hovered:bg-[#F05137]",
+        "is-family-hovered:bg-[#663399]",
+        "is-family-hovered:bg-[#40B983]",
         "light",
         "dark",
     ],

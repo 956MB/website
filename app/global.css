@@ -415,3 +415,7 @@ table {
 .animate-spin-slow {
     animation: spin-slow 10s linear infinite;
 }
+
+.mask-to-t {
+    mask: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}

@@ -11,7 +11,9 @@ export default function DesignPage() {
         <section>
             <div className="flex w-full flex-col flex-wrap items-center justify-start gap-y-3 px-6 pb-6 sm:gap-y-7 sm:px-7 sm:pb-0">
                 {React.Children.toArray(
-                    designGroups.map((group) => <DesignRow entry={group} />),
+                    designGroups.map((group) => (
+                        <DesignRow key={group.title} entry={group} />
+                    )),
                 )}
             </div>
         </section>

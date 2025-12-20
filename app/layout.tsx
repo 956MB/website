@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
     title: {
         default: name,
-        template: `%s – ${name}`,
+        template: `%s · ${name}`,
     },
     description: description,
     applicationName: `${name} Portfolio`,
@@ -91,7 +91,7 @@ export default function RootLayout({
                     "flex min-h-screen flex-col overflow-auto antialiased md:flex-row",
                 )}
             >
-                <div className="fixed inset-0 z-0">
+                <div className="pointer-events-none fixed inset-0 z-0">
                     <Particles
                         className="absolute inset-0 hidden animate-fade-in invert dark:invert-0 sm:block"
                         quantity={128}

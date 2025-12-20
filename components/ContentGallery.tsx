@@ -371,7 +371,7 @@ export default function ContentGallery({
             {entry.items && entry.items.length > 1 && (
                 <>
                     <div className="w-full">
-                        <div className="grid grid-cols-2 gap-3 px-0.5 pb-0.5 sm:grid-cols-4 lg:px-0">
+                        <div className="grid grid-cols-2 gap-3 px-0.5 pb-0.5 sm:grid-cols-8 lg:px-0">
                             {entry.items?.map((content, idx) => (
                                 <div
                                     key={idx}

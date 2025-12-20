@@ -9,7 +9,8 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({
     params,
 }): Promise<Metadata | undefined> {
-    const neographyItem = findEntryById(params.slug, neographyGroups);
+    const { slug } = await params;
+    const neographyItem = findEntryById(slug, neographyGroups);
 
     if (!neographyItem) {
         return;
@@ -18,8 +19,9 @@ export async function generateMetadata({
     return slugMetadata(baseUrl, name, og, neographyItem);
 }
 
-export default function NeographyPage({ params }) {
-    const neographyEntry = findEntryById(params.slug, neographyGroups);
+export default async function NeographyPage({ params }) {
+    const { slug } = await params;
+    const neographyEntry = findEntryById(slug, neographyGroups);
 
     if (!neographyEntry) {
         notFound();

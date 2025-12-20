@@ -29,7 +29,7 @@ export default function NeographyPage() {
 
                 {React.Children.toArray(
                     neographyGroups.map((group) => (
-                        <DesignRow entry={group} noHeader />
+                        <DesignRow key={group.title} entry={group} noHeader />
                     )),
                 )}
             </div>

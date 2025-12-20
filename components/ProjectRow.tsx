@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Parse from "html-react-parser";
 import { IEntry, IEntryGroup } from "lib/interfaces";
 import { getLangColor } from "lib/util";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import GroupHeader from "./GroupHeader";
 
 const shortenLang = (lang: string): string => {
@@ -17,51 +17,66 @@ const shortenLang = (lang: string): string => {
     return langMap[lang] || lang;
 };
 
-export function ProjectItem({
+export function ProjectRow({
     index,
     itemsLength,
     entry,
+    hoveredId,
+    setHoveredId,
+    isChild = false,
+    parentId,
 }: {
     index: number;
     itemsLength: number;
     entry: IEntry;
+    hoveredId: string | null;
+    setHoveredId: (id: string | null) => void;
+    isChild?: boolean;
+    parentId?: string;
 }) {
     const summaryRef = useRef<HTMLSpanElement | null>(null);
 
-    const itemVariants = {
-        initial: { opacity: 0, y: 10 },
-        animate: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5,
-            },
-        },
+    const familyGroupId = parentId || entry.id;
+    const isFamily = hoveredId === familyGroupId;
+    const shouldDim = hoveredId !== null && !isFamily;
+
+    const handleMouseEnter = () => {
+        setHoveredId(familyGroupId);
+    };
+    const handleMouseLeave = () => {
+        setHoveredId(null);
     };
 
     return (
         <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{
+                opacity: shouldDim ? 0.56 : 1,
+                y: 0,
+            }}
+            transition={{ duration: 0.15 }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             className={clsx(
                 "group flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[4px] sm:gap-y-[6px] lg:flex-row",
+                isFamily && "is-family-hovered",
             )}
         >
             <div
                 className={clsx(
-                    "relative flex min-h-full items-center lg:w-[320px] lg:flex-shrink-0 lg:items-start",
-                    !entry.nested && "mt-[1px]",
+                    "relative flex min-h-full items-start lg:w-[320px] lg:flex-shrink-0 lg:items-start",
+                    isChild && "mt-[1px]",
                 )}
             >
-                {entry.date && (
-                    <div className="relative mr-3 hidden sm:block lg:mt-[6px] lg:w-10 lg:flex-shrink-0">
+                {entry.date && !isChild && (
+                    <div className="relative mr-3 hidden h-full sm:block lg:w-10 lg:flex-shrink-0 lg:pt-1">
                         <span
                             className={clsx(
-                                "absolute text-sm font-medium leading-4 text-neutral-700 ease-in-out dark:font-medium dark:text-neutral-350",
+                                "absolute text-sm font-medium leading-5 text-neutral-700 transition-opacity duration-150 ease-in-out dark:font-medium dark:text-neutral-350",
                                 entry.lang &&
                                     entry.lang !== "none" &&
-                                    "group-hover:opacity-0",
-                                entry.nested &&
-                                    "lg:text-transparent dark:lg:text-transparent",
+                                    isFamily &&
+                                    "opacity-0",
                             )}
                         >
                             {entry.date}
@@ -69,15 +84,17 @@ export function ProjectItem({
                         {entry.lang && entry.lang !== "none" && (
                             <span
                                 className={clsx(
-                                    "absolute text-sm font-medium leading-4 text-neutral-700 opacity-0 ease-in-out group-hover:opacity-100 dark:font-medium dark:text-neutral-350",
-                                    entry.nested &&
-                                        "lg:text-transparent dark:lg:text-transparent",
+                                    "absolute text-sm font-medium leading-5 text-neutral-700 transition-opacity duration-150 ease-in-out dark:font-medium dark:text-neutral-350",
+                                    isFamily ? "opacity-100" : "opacity-0",
                                 )}
                             >
                                 {shortenLang(entry.lang)}
                             </span>
                         )}
                     </div>
+                )}
+                {isChild && (
+                    <div className="relative mr-3 hidden sm:block lg:w-10 lg:flex-shrink-0" />
                 )}
                 <div
                     className={clsx(
@@ -87,7 +104,7 @@ export function ProjectItem({
                 >
                     <div
                         className={clsx(
-                            "mt-px h-[8px] w-[8px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] sm:mt-0 lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
+                            "mt-[7px] h-[8px] w-[8px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] is-family-hovered:w-[7px] sm:mt-0 lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
                             index === 0 &&
                                 "lg:rounded-tl-full lg:rounded-tr-full",
                             index === itemsLength - 1 &&
@@ -95,16 +112,17 @@ export function ProjectItem({
                             getLangColor(entry.lang) ||
                                 "bg-neutral-200 dark:bg-neutral-800",
                             getLangColor(entry.lang, "group-hover:"),
+                            getLangColor(entry.lang, "is-family-hovered:"),
                         )}
                     />
                 </div>
-                <div className="relative flex h-full w-full flex-row items-start justify-start gap-x-[5px]">
+                <div className="relative flex h-full w-full flex-row items-start justify-start gap-x-[5px] lg:pt-1">
                     <a
                         href={entry.link || "#"}
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "pl-2 text-[15px] font-semibold leading-4 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0 lg:mt-[6px] lg:max-w-[256px] lg:pl-4",
+                            "pl-2 text-[15px] font-semibold leading-5 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0  lg:max-w-[256px] lg:pl-4",
                             entry.link
                                 ? "hover:text-p0 hover:underline dark:hover:text-o0"
                                 : "no-underline",
@@ -116,13 +134,13 @@ export function ProjectItem({
             </div>
             <div
                 className={clsx(
-                    "flex w-full min-w-0 items-start justify-start gap-x-2",
+                    "flex w-full min-w-0 items-start justify-start gap-x-2 lg:pt-1",
                 )}
             >
                 <span
                     ref={summaryRef}
                     className={clsx(
-                        "leading-0 flex-1 text-sm font-normal text-neutral-600 dark:text-neutral-350 sm:font-medium lg:mt-[3px] lg:pb-2 lg:pt-[1px] lg:text-[15px]",
+                        "leading-0 line-clamp-3 flex-1 text-sm font-normal text-neutral-600 dark:text-neutral-350 sm:font-medium lg:mb-[6px] lg:text-[15px]",
                         "min-w-0",
                     )}
                 >
@@ -133,13 +151,14 @@ export function ProjectItem({
     );
 }
 
-export default function ProjectRow({
+export default function ProjectSection({
     entry,
     noHeader,
 }: {
     entry: IEntryGroup;
     noHeader?: boolean;
 }) {
+    const [hoveredId, setHoveredId] = useState<string | null>(null);
     const containerVariants = {
         initial: {},
         animate: {
@@ -172,6 +191,32 @@ export default function ProjectRow({
         },
     };
 
+    const flatRows: Array<{
+        entry: IEntry;
+        isChild: boolean;
+        parentId?: string;
+        index: number;
+    }> = [];
+
+    entry.items.forEach((item) => {
+        flatRows.push({
+            entry: item,
+            isChild: false,
+            index: flatRows.length,
+        });
+
+        if (item.children && item.children.length > 0) {
+            item.children.forEach((child) => {
+                flatRows.push({
+                    entry: child,
+                    isChild: true,
+                    parentId: item.id,
+                    index: flatRows.length,
+                });
+            });
+        }
+    });
+
     return (
         <motion.div
             variants={containerVariants}
@@ -201,16 +246,22 @@ export default function ProjectRow({
 
             <motion.div
                 variants={itemVariants}
-                className="flex w-full flex-col items-center justify-center gap-y-6 py-3.5 lg:gap-y-0"
+                className="flex w-full flex-col items-center justify-center gap-y-3 py-3.5 lg:gap-y-0"
             >
-                {entry.items.map((item, i) => (
-                    <ProjectItem
-                        key={i}
-                        index={i}
-                        itemsLength={entry.items.length}
-                        entry={item}
-                    />
-                ))}
+                {flatRows.map((item) => {
+                    return (
+                        <ProjectRow
+                            key={item.entry.id}
+                            index={item.index}
+                            itemsLength={flatRows.length}
+                            entry={item.entry}
+                            hoveredId={hoveredId}
+                            setHoveredId={setHoveredId}
+                            isChild={item.isChild}
+                            parentId={item.parentId}
+                        />
+                    );
+                })}
             </motion.div>
         </motion.div>
     );

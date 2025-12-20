@@ -38,7 +38,7 @@ export default function GroupHeader({
 
     return (
         <motion.div
-            className={`top-0 z-50 m-0 flex w-full max-w-screen-xl flex-col items-start justify-center py-3 sm:sticky ${noBackdrop ? "bg-transparent" : "bg-white/90 backdrop-blur dark:bg-black/80"}`}
+            className={`top-0 z-50 m-0 flex w-full max-w-screen-xl flex-col items-start justify-center py-3 sm:sticky ${noBackdrop ? "bg-transparent" : "from:bg-white/90 bg-gradient-to-r to-transparent backdrop-blur-xl dark:from-black dark:to-black/30"}`}
             variants={headerVariants}
             initial="initial"
             animate="animate"

@@ -25,6 +25,7 @@ export interface IEntry {
     category?: string;
     new?: boolean;
     nested?: boolean;
+    children?: IEntry[];
     useLinkPreview?: IEntryItem;
     credit?: string;
     aspectRatio?: boolean;

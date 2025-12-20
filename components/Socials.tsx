@@ -59,7 +59,7 @@ export default function Socials({
     return (
         <div
             className={clsx(
-                "flex w-full flex-row items-center justify-start gap-y-3 text-[13px] leading-[13px] transition-all duration-75 sm:gap-5",
+                "flex flex-row items-center justify-end gap-y-3 text-[13px] leading-[13px] transition-all duration-75 sm:gap-5",
                 isHome
                     ? "flex-nowrap items-center justify-between gap-3"
                     : "flex-wrap items-center justify-start gap-3",

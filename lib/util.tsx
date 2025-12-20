@@ -5,8 +5,12 @@ import { RiReactjsLine } from "react-icons/ri";
 import { SiAdobeillustrator, SiAdobephotoshop } from "react-icons/si";
 import { imgBase } from "./info";
 
+export const hl = function (text) {
+    return `<span class='large-highlight'>${text}</span>`;
+};
+
 export function imgUrl(path: string): string {
-    if (path.startsWith("http")) {
+    if (path.startsWith("http") || path.startsWith("./")) {
         return path;
     }
 
