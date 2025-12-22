@@ -49,7 +49,7 @@ export default function GroupHeader({
                     header ? "gap-3.5" : "gap-1.5",
                 )}
             >
-                <span className="whitespace-normal align-baseline text-[23px] font-bold leading-6 text-neutral-900 dark:text-white sm:whitespace-nowrap">
+                <span className="whitespace-normal align-baseline text-[23px] font-bold italic leading-6 text-neutral-900 dark:text-white sm:whitespace-nowrap">
                     {titleLink ? (
                         <a
                             href={titleLink}
@@ -72,7 +72,7 @@ export default function GroupHeader({
                 {!noDescription && entry.description && (
                     <span
                         className={clsx(
-                            "gallery-summary max-w-screen-lg text-sm font-medium italic leading-5 text-neutral-600 dark:text-neutral-350",
+                            "gallery-summary max-w-screen-lg text-sm font-medium leading-5 text-neutral-600 dark:text-neutral-350",
                             gallery && "max-w-screen-sm",
                         )}
                     >

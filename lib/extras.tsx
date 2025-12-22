@@ -68,7 +68,7 @@ const icons = [
         [item("/images/extras/icons/claude-1.gif", 1024, 1024)],
         {
             summary: [
-                '<a href="https://www.anthropic.com/claude">Anthropic\'s Claude</a> app icon in black, white and #E77350. i did NOT create the logo, only creating replacement options for the iOS app icon.',
+                `<a href="https://www.anthropic.com/claude">Anthropic's Claude</a> app icon in black, white and ${hl("#E77350")}. i did NOT create the logo, only creating replacement options for the iOS app icon.`,
             ],
             link: "https://macosicons.com/#/?icon=mbaJDK7YBC",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://github.com/VSCodium/vscodium/issues/491#issuecomment-729040072">@setanarut</a>',
@@ -131,7 +131,7 @@ const wallpapers = [
         ],
         {
             summary: [
-                `Stitched, cropped and upscaled pages from Gou Tanabe's (${hl("田邊剛")}) manga adaptations of "<a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/writings/fiction/mm.aspx">At the Mountains of Madness</a>" and "<a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/writings/fiction/cc.aspx">The Call of Cthulhu</a>", by <a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/">H.P. Lovecraft</a>. All credit to him for the INSANE original artwork.`,
+                `stitched, cropped and upscaled pages from Gou Tanabe's (${hl("田邊剛")}) manga adaptations of "<a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/writings/fiction/mm.aspx">At the Mountains of Madness</a>" and "<a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/writings/fiction/cc.aspx">The Call of Cthulhu</a>", by <a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/">H.P. Lovecraft</a>. All credit to him for the INSANE original artwork.`,
             ],
             link: "https://drive.google.com/drive/folders/1LULXaQBAUGOsGQEfFnTD542JHP51hyFZ?usp=sharing",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://x.com/gou_tanabe">田邊剛</a>',
@@ -154,7 +154,6 @@ const wallpapers = [
                 '2024 Model 3 Performance with the trace contour effect (Photoshop)... just a random idea. i tried upscaling to 6k, but there were some weird artifacting going on... all credit to the <a href="https://www.tesla.com/tesla-gallery">Tesla Gallery</a> for the original photos.',
             ],
             link: "https://drive.google.com/drive/folders/1PiO6OjZeZClEnoyhkNOlapOvrjHY2NPk?usp=sharing",
-            credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.tesla.com/">Tesla</a>',
         },
     ),
     entry(
@@ -286,17 +285,16 @@ export const extras_section = group(
 );
 
 export const icons_section = group(
-    "app icons",
     "icons",
-    "mostly slight changes to existing icons, but some of my own as well",
+    "icons",
+    "mostly slight changes to existing app icons, but some of my own as well",
     icons,
 );
 
 export const wallpapers_section = group(
-    "wallpapers & screenshots",
     "wallpapers",
-    "collection of wallpapers from others i like, or ones i've made/modified",
-    // "collection of wallpapers i've created, modified/upscaled, or that i just like",
+    "wallpapers",
+    'collection of images from others i\'ve "modified", or wallpapers done by me',
     wallpapers,
 );
 

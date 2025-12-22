@@ -302,9 +302,9 @@ export const designGroups: IEntryGroups = [
         ui,
     ),
     group(
-        "logos & icons",
+        '"logos"',
         "logo",
-        "a few logos/icons i've made for projects or personal use",
+        "a few logos / icons i've made for projects or personal use",
         logos,
     ),
 ];
