@@ -118,6 +118,20 @@ const icons = [
 
 const wallpapers = [
     entry(
+        "beluga-bw",
+        "Beluga Whale Eye",
+        "1.8.2026",
+        "wallpaper",
+        [item("/images/extras/wallpapers/beluga-blue.png", 1920, 1244, true)],
+        {
+            summary: [
+                `photo by <a href="https://www.rachelmoorephotos.com/">Rachel Moore</a>, upscale and ${hl("Lr")}/${hl("Ps")} edits by me.`,
+            ],
+            link: "https://drive.google.com/drive/folders/1pMETuToBwmF_fTL9xKGA-7-x_RFoXgDE?usp=sharing",
+            credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.rachelmoorephotos.com/">Rachel Moore</a>',
+        },
+    ),
+    entry(
         "hpl-gou-tanabe-wallpapers",
         "Mountains of Madness <i>&</i> Call of Cthulhu",
         "12.20.2025",

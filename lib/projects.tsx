@@ -2,10 +2,18 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const li = (href: string, text: string) =>
     `<a class="p-link large-highlight" rel="noopener noreferrer" target="_blank" href="${href}">${text}</a>`;
+const hl = (text: string) => `<span class='highlight'>${text}</span>`;
 
 // NOTE: Flipper
 
 const flipper = [
+    entry("p-956/prs", "MNTM for 956 (956/prs)", "2026", "Projects", [], {
+        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/503",
+        lang: "C",
+        summary: [
+            `consolidated branch of ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum Firmware")} with my *currently* unmerged PRs (UI fixes/adds).`,
+        ],
+    }),
     entry(
         "p-momentum-website-redesign",
         "momentum-fw.dev",
@@ -16,7 +24,7 @@ const flipper = [
             link: "https://momentum-fw.dev",
             lang: "Vue",
             summary: [
-                `my redesign of the ${li("https://github.com/Next-Flip/v2.momentum-fw.dev", "Momentum Firmware website")} using ${li("https://vitepress.dev/", "Vitepress")} and ${li("https://vuejs.org/", "Vue")}.`,
+                `redesign of the ${li("https://github.com/Next-Flip/v2.momentum-fw.dev", "Momentum Firmware website")} using ${li("https://vitepress.dev/", "Vitepress")} and ${li("https://vuejs.org/", "Vue")}.`,
             ],
         },
     ),
@@ -30,7 +38,7 @@ const flipper = [
             link: "https://github.com/Next-Flip/Momentum-Firmware/pulls?q=is%3Apr+author%3A956MB+",
             lang: "C",
             summary: [
-                `my contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. as well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. thanks ${li("https://github.com/WillyJL", "WillyJL")}.`,
+                `contributions to ${li("https://github.com/Next-Flip/Momentum-Firmware", "Momentum Firmware")}, for the ${li("https://flipper.net", "Flipper Zero")}. as well as other small fixes: ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/339", "#339")}, ${li("https://github.com/Next-Flip/Momentum-Firmware/pulls/341", "#341")}. thanks ${li("https://github.com/WillyJL", "WillyJL")}.`,
             ],
             children: [
                 entry(
@@ -113,7 +121,7 @@ const flipper = [
                         link: "https://github.com/Next-Flip/Momentum-Firmware/pull/341",
                         lang: "C",
                         summary: [
-                            `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")} added new <span class='highlight'>midnight format</span> option to show users preferred format of <span class='highlight'>12:xx</span> or <span class='highlight'>00:xx</span> for 12am-1am on all clocks.`,
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/341", "#341")} added new ${hl("midnight format")} option to show users preferred format of ${hl("12:xx")} or ${hl("00:xx")} for 12am-1am on all clocks.`,
                         ],
                     },
                 ),
@@ -172,7 +180,7 @@ const flipper = [
             link: "https://github.com/Next-Flip/Momentum-Apps/pulls?q=is%3Apr+author%3A956MB+",
             lang: "C",
             summary: [
-                `my tiny changes to the ${li("https://github.com/Next-Flip/Momentum-Apps", "Momentum-Apps")} repo. mostly fixes. ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/39", "#39")}, ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/41", "#41")}, ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/42", "#42")}`,
+                `tiny changes to the ${li("https://github.com/Next-Flip/Momentum-Apps", "Momentum-Apps")} repo. mostly fixes. ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/39", "#39")}, ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/41", "#41")}, ${li("https://github.com/Next-Flip/Momentum-Apps/pulls/42", "#42")}`,
             ],
         },
     ),
@@ -186,7 +194,7 @@ const flipper = [
             link: "https://github.com/956MB/flipper-chess",
             lang: "C++",
             summary: [
-                `my changes to the flipper zero app ${li("https://github.com/xtruan/flipper-chess", "xtruan/flipper-chess")} "chess". adding an optional eval bar for game evaluation, and fixing the ${li("https://github.com/xtruan/flipper-chess/issues/3", "illegal move issue")}.`,
+                `changes to the flipper zero app ${li("https://github.com/xtruan/flipper-chess", "xtruan/flipper-chess")} "chess". adding an optional eval bar for game evaluation, and fixing the ${li("https://github.com/xtruan/flipper-chess/issues/3", "illegal move issue")}.`,
             ],
         },
     ),
@@ -199,7 +207,7 @@ const misc = [
         link: "https://github.com/956MB/aliaz",
         lang: "Zig",
         summary: [
-            `a "manual rewrite" of the <span class='highlight'>alias</span> command in the shell (<span class='highlight'>bash</span>/<span class='highlight'>zsh</span>/<span class='highlight'>fish</span>), and my first zig program. uses color and descriptions for a better look, as well as adding a search function.`,
+            `a "manual rewrite" of the ${hl("alias")} command in the shell (${hl("bash")}/${hl("zsh")}/${hl("fish")}), and my first zig program. uses color and descriptions for a better look, as well as adding a search function.`,
         ],
     }),
     entry(
@@ -212,7 +220,7 @@ const misc = [
             link: "https://github.com/956MB/reddit-download-button",
             lang: "JavaScript",
             summary: [
-                `the browser extension that i've always wanted for <span class='highlight'>Reddit</span>... adds buttons to more easily hoard images/videos. v1.3.4 of the extension is also on ${li("https://greasyfork.org/en/scripts/501718-reddit-download-buttons", "Greasy Fork")}.`,
+                `the browser extension that i've always wanted for ${hl("Reddit")}... adds buttons to more easily hoard images/videos. v1.3.4 of the extension is also on ${li("https://greasyfork.org/en/scripts/501718-reddit-download-buttons", "Greasy Fork")}.`,
             ],
         },
     ),
@@ -243,7 +251,7 @@ const misc = [
         {
             lang: "Swift",
             summary: [
-                `like ${li("https://mactracker.net", "MacTracker")}, but for ${li("https://www.tesla.com/models", "Tesla")}. full spec sheets and detailed info about every vehicle, solar product, and piece of software tesla has released in the last 15 years. <span class='highlight'>"a tesla version of this would be awesome"</span>, we said.`,
+                `like ${li("https://mactracker.net", "MacTracker")}, but for ${li("https://www.tesla.com/models", "Tesla")}. full spec sheets and detailed info about every vehicle, solar product, and piece of software tesla has released in the last 15 years. ${hl('"a tesla version of this would be awesome"')}, we said.`,
             ],
             tags: ["iOS", "macOS", "Swift", "SwiftUI"],
         },
@@ -257,7 +265,7 @@ const misc = [
         {
             lang: "TypeScript",
             summary: [
-                "a desktop client for spectating professional <span class='highlight'>League of Legends</span> players.",
+                `a desktop client for spectating professional ${hl("League of Legends")} players.`,
                 "this app is the result of my previous design concept for an op.gg 'spectate pro matches' feature, which would be a helpful tool around worlds.",
             ],
             tags: ["Windows", "Tauri", "TypeScript", "React"],
@@ -273,7 +281,7 @@ const misc = [
             link: "https://github.com/956MB/2048WE",
             lang: "Swift",
             summary: [
-                "full functionality of the ios app <span class='highlight'>2048</span>, right on your apple watch. high scores saved on device, end of game stats, and current game progress is never lost between app resets and watch being turned off. my first attempt making a standalone watchos app with the new method. ",
+                `full functionality of the ios app ${hl("2048")}, right on your apple watch. high scores saved on device, end of game stats, and current game progress is never lost between app resets and watch being turned off. my first attempt making a standalone watchos app with the new method. `,
             ],
             tags: ["WatchOS", "Swift", "SwiftUI"],
         },
@@ -288,7 +296,7 @@ const misc = [
             link: "https://github.com/956MB/TX4",
             lang: "C++",
             summary: [
-                `fully featured app for viewing all accumulated dashcam / sentry mode clips off your <span class='highlight'>Tesla</span>. the idea came from a computer engineer friend who owns a <span class='highlight'>model 3</span>. also the fact that i wanted to start proper <span class='highlight'>Qt</span> project. the ${li("https://www.956mb.com/designs/#ui_tx4", "Figma concept here")} looks way better than the thrown togethre look of this thing...`,
+                `fully featured app for viewing all accumulated dashcam / sentry mode clips off your ${hl("Tesla")}. the idea came from a computer engineer friend who owns a ${hl("model 3")}. also the fact that i wanted to start proper ${hl("Qt")} project. the ${li("https://www.956mb.com/designs/#ui_tx4", "Figma concept here")} looks way better than the thrown togethre look of this thing...`,
             ],
             tags: ["Windows", "C++", "Qt"],
         },
@@ -303,7 +311,7 @@ const misc = [
             link: "https://github.com/956MB/MSSNC",
             lang: "Swift",
             summary: [
-                "this idea came directly from myself using the windows app <span class='highlight'>'Sticky Notes'</span>, and wanting the same thing on mac. notes are easily identified with their unique colors, and windows maintain their position and size on the desktop before and after application restarts.",
+                `this idea came directly from myself using the windows app ${hl("'Sticky Notes'")}, and wanting the same thing on mac. notes are easily identified with their unique colors, and windows maintain their position and size on the desktop before and after application restarts.`,
             ],
             tags: ["macOS", "Swift", "SwiftUI"],
         },
@@ -318,7 +326,7 @@ const misc = [
             link: "https://github.com/956MB/SomeAimGame",
             lang: "C#",
             summary: [
-                "my first and so far only attempt at creating a game in <span class='highlight'>Unity Engine</span>. for this to be a proper 'aim game', it needed a few primary features if nothing else, which i believe i implemented fairly well.",
+                `my first and so far only attempt at creating a game in ${hl("Unity Engine")}. for this to be a proper 'aim game', it needed a few primary features if nothing else, which i believe i implemented fairly well.`,
             ],
             tags: ["Windows", "C#", "Unity"],
         },
@@ -333,7 +341,7 @@ const misc = [
             link: "https://github.com/956MB/Twanslate",
             lang: "Swift",
             summary: [
-                "translating messages in <span class='highlight'>Twitch</span> chat in real-time. leverages <span class='highlight'>Twitch API</span> and the <span class='highlight'>IRC</span> protocol used for chats, and uses multiple other apis (<span class='highlight'>Google</span>, <span class='highlight'>Microsoft</span>, <span class='highlight'>NLP</span>). finnish -> english, or vice versa.",
+                `translating messages in ${hl("Twitch")} chat in real-time. leverages ${hl("Twitch API")} and the ${hl("IRC")} protocol used for chats, and uses multiple other apis (${hl("Google")}, ${hl("Microsoft")}, ${hl("NLP")}). finnish -> english, or vice versa.`,
             ],
             tags: ["macOS", "Swift", "SwiftUI"],
         },
@@ -348,7 +356,7 @@ const misc = [
             link: "https://github.com/956MB/GithubDesktop.css",
             lang: "CSS",
             summary: [
-                "more light/dark themes for the <span class='highlight'>Github Desktop</span> client. it just didn't have enough cool options. (probably needs upadte!)",
+                `more light/dark themes for the ${hl("Github Desktop")} client. it just didn't have enough cool options. (probably needs upadte!)`,
             ],
             tags: ["CSS", "Shell"],
         },
@@ -391,7 +399,7 @@ const neostuff = [
         link: "https://github.com/956MB/neostuff#quickernvim-link-tba",
         lang: "Lua",
         summary: [
-            "adds cursor line number highlight (<span class='highlight'>CursorLineNr</span>) to the <span class='highlight'>quicker.nvim</span> quickfix list. follows the cursor movement and updates like normal line numbers.",
+            `adds cursor line number highlight (${hl("CursorLineNr")}) to the ${hl("quicker.nvim")} quickfix list. follows the cursor movement and updates like normal line numbers.`,
         ],
     }),
     entry("p-lazy-nvim", "lazy.nvim", "fork/+", "Projects", [], {
@@ -405,7 +413,7 @@ const neostuff = [
         link: "https://github.com/956MB/neostuff#oilnvim-link-tba",
         lang: "Lua",
         summary: [
-            "adds the <span class='highlight'>netrw</span> directory listing ui to the oil.nvim file explorer. i like the way it looks, it fills out the top of the oil buffer a bit more. the \"sort sequence\" line is currently nonsense... i haven't figured out how to make use of this yet, but it's still nice having it there anyway :)",
+            `adds the ${hl("netrw")} directory listing ui to the oil.nvim file explorer. i like the way it looks, it fills out the top of the oil buffer a bit more. the "sort sequence" line is currently nonsense... i haven't figured out how to make use of this yet, but it's still nice having it there anyway :)`,
         ],
     }),
 ];
@@ -424,7 +432,7 @@ const personal = [
         link: "https://github.com/956MB/boosts",
         lang: "CSS",
         summary: [
-            `some ${li("https://arc.net", "Arc")} boosts for my own tastes (<span class='highlight'>Github</span>, <span class='highlight'>Claude</span>, <span class='highlight'>Hugging Face</span>, <span class='highlight'>F1TV</span>, ...)`,
+            `some ${li("https://arc.net", "Arc")} boosts for my own tastes (${hl("Github")}, ${hl("Claude")}, ${hl("Hugging Face")}, ${hl("F1TV")}, ...)`,
         ],
     }),
     entry("p-banner", "banner", "2024", "Projects", [], {
@@ -445,14 +453,14 @@ const personal = [
         link: "https://github.com/956MB/website",
         lang: "TypeScript",
         summary: [
-            "this website. my portfolio. made with <span class='highlight'>React</span>/<span class='highlight'>Next.js</span>/<span class='highlight'>Tailwind</span>.",
+            `this website. my portfolio. made with ${hl("React")}/${hl("Next.js")}/${hl("Tailwind")}.`,
         ],
     }),
     entry("p-kata", "Kata", "2020+", "Projects", [], {
         link: "https://github.com/956MB/Kata",
         lang: "Python",
         summary: [
-            `most of my ${li("https://www.codewars.com/users/956MB", "Codewars")} katas. majority in <span class='highlight'>Python</span>. gotta do more in <span class='highlight'>Go</span> / <span class='highlight'>Rust</span> / <span class='highlight'>Zig</span> (eventually).`,
+            `most of my ${li("https://www.codewars.com/users/956MB", "Codewars")} katas. majority in ${hl("Python")}. gotta do more in ${hl("Go")} / ${hl("Rust")} / ${hl("Zig")} (eventually).`,
         ],
     }),
     entry("p-aoc", "AoC", "2018+", "Projects", [], {

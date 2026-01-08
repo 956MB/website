@@ -1,6 +1,6 @@
-import { hl } from "./util";
+import { hl, imgBase } from "./util";
 
-export const imgBase = "https://img.956mb.com";
+export { imgBase };
 export const name = "Alexander Bays";
 export const title = `${name} (956MB)`;
 export const description = "Self-taught generalist... unfortunately.";

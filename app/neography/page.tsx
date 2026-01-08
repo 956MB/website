@@ -22,7 +22,6 @@ export default function NeographyPage() {
                     <GroupHeader
                         entry={neographyEntry}
                         noDescription={false}
-                        noBackdrop={true}
                         header={true}
                     />
                 </div>

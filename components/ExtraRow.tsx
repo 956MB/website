@@ -64,6 +64,8 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                         className={clsx(
                                             "duration-50 group relative flex select-none flex-col justify-end overflow-hidden rounded-[0.659rem] bg-gradient-to-t from-white/10 to-transparent object-cover saturate-0 backdrop-blur-sm transition-all ease-linear group-hover:saturate-100 sm:backdrop-blur-none",
                                             item.link && " cursor-pointer",
+                                            item.items?.[0].saturation ===
+                                                true && "saturate-100",
                                         )}
                                         rel="noopener noreferrer"
                                         target="_blank"
@@ -118,10 +120,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 <div className="flex w-full flex-row items-center justify-start gap-1">
                                                     <a
                                                         className={clsx(
-                                                            "m-0 overflow-hidden text-ellipsis whitespace-nowrap font-bold text-black hover:text-p0 dark:text-white dark:hover:text-o0",
+                                                            "m-0 overflow-hidden text-ellipsis whitespace-nowrap font-bold text-black transition-colors duration-100 hover:text-p0 dark:text-white dark:hover:text-o0",
                                                             "block max-w-full",
                                                             item.link &&
-                                                                "hover:text-p0 hover:underline dark:hover:text-o0",
+                                                                "hover:underline group-hover:text-p0 dark:group-hover:text-o0",
                                                             item.category ===
                                                                 "wallpaper"
                                                                 ? "text-base sm:text-lg"
@@ -145,6 +147,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                             }
                                                             position={"top"}
                                                             warn={true}
+                                                            groupHover={true}
                                                         >
                                                             <a className="rounded-full bg-[#9759AE]/20 p-[2px] transition-all duration-300 ease-out hover:bg-[#9759AE]/40 dark:bg-[#FF8200]/20 dark:hover:bg-[#FF8200]/40">
                                                                 {PiWarningCircleBold(

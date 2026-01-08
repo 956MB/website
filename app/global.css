@@ -51,7 +51,7 @@ hr {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--bg);
+    background: transparent !important;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -61,7 +61,7 @@ hr {
 
 * {
     scrollbar-width: auto;
-    scrollbar-color: var(--card-bg) var(--bg);
+    scrollbar-color: var(--card-bg) transparent;
 }
 
 .prose :where(hr):not(:where([class~="not-prose"] *)) {

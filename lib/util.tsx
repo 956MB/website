@@ -3,7 +3,8 @@ import { HiMiniLanguage } from "react-icons/hi2";
 import { PiFigmaLogo } from "react-icons/pi";
 import { RiReactjsLine } from "react-icons/ri";
 import { SiAdobeillustrator, SiAdobephotoshop } from "react-icons/si";
-import { imgBase } from "./info";
+
+export const imgBase = "https://img.956mb.com";
 
 export const hl = function (text) {
     return `<span class='large-highlight'>${text}</span>`;

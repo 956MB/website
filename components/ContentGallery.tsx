@@ -325,7 +325,6 @@ export default function ContentGallery({
                         itemEntry={entry}
                         header={true}
                         gallery={true}
-                        noBackdrop={true}
                     />
                 </div>
             </div>

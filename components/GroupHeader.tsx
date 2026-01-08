@@ -14,7 +14,6 @@ export default function GroupHeader({
     header,
     gallery,
     titleLink,
-    noBackdrop,
 }: {
     entry: IEntryGroup;
     itemEntry?: IEntry;
@@ -22,7 +21,6 @@ export default function GroupHeader({
     header?: boolean;
     gallery?: boolean;
     titleLink?: string;
-    noBackdrop?: boolean;
 }) {
     const headerVariants = {
         initial: { opacity: 0, y: -10 },
@@ -38,7 +36,7 @@ export default function GroupHeader({
 
     return (
         <motion.div
-            className={`top-0 z-50 m-0 flex w-full max-w-screen-xl flex-col items-start justify-center py-3 sm:sticky ${noBackdrop ? "bg-transparent" : "from:bg-white/90 bg-gradient-to-r to-transparent backdrop-blur-xl dark:from-black dark:to-black/30"}`}
+            className={`top-0 z-50 m-0 flex w-full max-w-screen-xl flex-col items-start justify-center py-3`}
             variants={headerVariants}
             initial="initial"
             animate="animate"

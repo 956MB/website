@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { imgUrl, stripHtml } from "./util";
 
 export interface IEntryItem {
-    caption?: string;
+    saturation?: boolean;
     path: string;
     width: number;
     height: number;
@@ -55,12 +55,12 @@ export const item = (
     path: string,
     width: number,
     height: number,
-    caption?: string,
+    saturation?: boolean,
 ): IEntryItem => ({
     path: imgUrl(path),
     width,
     height,
-    ...(caption && { caption }),
+    ...(saturation && { saturation }),
 });
 
 export const reference = (title: string, url: string): IReference => ({
