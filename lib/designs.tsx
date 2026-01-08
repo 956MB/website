@@ -57,19 +57,9 @@ const logos = [
         "illustrator",
         [
             item("/images/t_wear/t-wear-logos-2.jpg", 3152, 1064),
-            item(
-                "/images/t_wear/t-wear-italy.jpg",
-                3152,
-                1064,
-                "three versions... can't make my mind up about anything",
-            ),
+            item("/images/t_wear/t-wear-italy.jpg", 3152, 1064),
             item("/images/t_wear/t-wear-x-2.jpg", 1837, 2651),
-            item(
-                "/images/t_wear/IMG_0722_2.PNG",
-                2778,
-                1940,
-                "Initial ideas sketched in Concepts",
-            ),
+            item("/images/t_wear/IMG_0722_2.PNG", 2778, 1940),
         ],
         {
             summary: [

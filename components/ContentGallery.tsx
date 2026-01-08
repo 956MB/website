@@ -154,7 +154,7 @@ function MediaContent({
     selectedIdx,
     isFullscreen = false,
 }: {
-    content: { path: string; width: number; height: number; caption?: string };
+    content: { path: string; width: number; height: number };
     selectedIdx: number;
     isFullscreen?: boolean;
 }) {
