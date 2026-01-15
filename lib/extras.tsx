@@ -144,9 +144,9 @@ const wallpapers = [
         "wallpaper",
         [
             item(
-                "./images/extras/wallpapers/hpl-innsmouth-time-wallpapers.png",
-                1920,
-                1244,
+                "/images/extras/wallpapers/hpl-innsmouth-time-wallpapers.png",
+                3288,
+                2128,
             ),
         ],
         {
