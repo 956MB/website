@@ -118,6 +118,46 @@ const icons = [
 
 const wallpapers = [
     entry(
+        "hpl-mountains-cthulhu-wallpapers",
+        "Mountains of Madness <i>&</i> Call of Cthulhu",
+        "12.20.2025",
+        "wallpaper",
+        [
+            item(
+                "/images/extras/wallpapers/hpl-mountains-cthulhu-wallpapers.jpg",
+                1920,
+                1244,
+            ),
+        ],
+        {
+            summary: [
+                `stitched, cropped and upscaled pages from ${hl("Gou Tanabe")}'s (${hl("田邊剛")}) manga adaptations of "<a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/writings/fiction/mm.aspx">At the Mountains of Madness</a>" and "<a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/writings/fiction/cc.aspx">The Call of Cthulhu</a>", by <a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/">H.P. Lovecraft</a>. All credit to him for the INSANE original artwork.`,
+            ],
+            link: "https://drive.google.com/drive/folders/1LULXaQBAUGOsGQEfFnTD542JHP51hyFZ?usp=sharing",
+            credit: '<a rel="noopener noreferrer" target="_blank" href="https://x.com/gou_tanabe">田邊剛</a>',
+        },
+    ),
+    entry(
+        "hpl-innsmouth-time-wallpapers",
+        "Shadow: Over Innsmouth <i>&</i> Out of Time",
+        "1.14.2026",
+        "wallpaper",
+        [
+            item(
+                "./images/extras/wallpapers/hpl-innsmouth-time-wallpapers.png",
+                1920,
+                1244,
+            ),
+        ],
+        {
+            summary: [
+                `same as the ${hl("Mountains of Madness <i>&</i> Call of Cthulhu")} wallpapers. all images property of <a rel="noopener noreferrer" target="_blank" href="https://x.com/gou_tanabe">Gou Tanabe</a> (${hl("田邊剛")}).`,
+            ],
+            link: "https://drive.google.com/drive/folders/1AiqmuvU4q2JQE0sEH5MkLYQdpqoMl-FG?usp=sharing",
+            credit: '<a rel="noopener noreferrer" target="_blank" href="https://x.com/gou_tanabe">田邊剛</a>',
+        },
+    ),
+    entry(
         "beluga-bw",
         "Beluga Whale Eye",
         "1.8.2026",
@@ -129,26 +169,6 @@ const wallpapers = [
             ],
             link: "https://drive.google.com/drive/folders/1pMETuToBwmF_fTL9xKGA-7-x_RFoXgDE?usp=sharing",
             credit: '<a rel="noopener noreferrer" target="_blank" href="https://www.rachelmoorephotos.com/">Rachel Moore</a>',
-        },
-    ),
-    entry(
-        "hpl-gou-tanabe-wallpapers",
-        "Mountains of Madness <i>&</i> Call of Cthulhu",
-        "12.20.2025",
-        "wallpaper",
-        [
-            item(
-                "/images/extras/wallpapers/hpl-gou-tanabe-wallperps.jpg",
-                1920,
-                1244,
-            ),
-        ],
-        {
-            summary: [
-                `stitched, cropped and upscaled pages from Gou Tanabe's (${hl("田邊剛")}) manga adaptations of "<a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/writings/fiction/mm.aspx">At the Mountains of Madness</a>" and "<a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/writings/fiction/cc.aspx">The Call of Cthulhu</a>", by <a rel="noopener noreferrer" target="_blank" href="https://www.hplovecraft.com/">H.P. Lovecraft</a>. All credit to him for the INSANE original artwork.`,
-            ],
-            link: "https://drive.google.com/drive/folders/1LULXaQBAUGOsGQEfFnTD542JHP51hyFZ?usp=sharing",
-            credit: '<a rel="noopener noreferrer" target="_blank" href="https://x.com/gou_tanabe">田邊剛</a>',
         },
     ),
     entry(
