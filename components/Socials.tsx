@@ -35,14 +35,14 @@ function Social({ serv, url }: { serv: string; url: string }) {
             >
                 <div
                     className={clsx(
-                        "child:text-neutral-800 dark:child:text-neutral-400",
+                        "child:text-neutral-800 dark:child:text-neutral-400 child:group-hover:text-p0 child:dark:group-hover:text-o0",
                     )}
                 >
                     {!serv ? null : socialIcon(serv)}
                 </div>
             </div>
 
-            <span className="text-[14px] font-medium lowercase leading-[14px] text-neutral-600 group-hover:text-p0 dark:text-white dark:group-hover:text-o0 transition-colors duration-150 lg:text-[15px]">
+            <span className="text-[14px] font-pixel-square lowercase leading-[14px] text-neutral-600 group-hover:text-p0 dark:text-white dark:group-hover:text-o0 transition-colors duration-150 lg:text-[15px]">
                 {serv}
             </span>
         </a>

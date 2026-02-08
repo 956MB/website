@@ -4,6 +4,15 @@ import clsx from "clsx";
 import Header, { Footer } from "components/NavBar";
 import Particles from "components/particles";
 import { ThemeProvider } from "components/ThemeProvider";
+import { GeistMono } from "geist/font/mono";
+import {
+    GeistPixelCircle,
+    GeistPixelGrid,
+    GeistPixelLine,
+    GeistPixelSquare,
+    GeistPixelTriangle,
+} from "geist/font/pixel";
+import { GeistSans } from "geist/font/sans";
 import { baseUrl, description, name, og, title } from "lib/info";
 import type { Metadata, Viewport } from "next";
 import "./global.css";
@@ -88,6 +97,14 @@ export default function RootLayout({
             </head>
             <body
                 className={clsx(
+                    GeistSans.variable,
+                    GeistMono.variable,
+                    GeistPixelSquare.variable,
+                    GeistPixelGrid.variable,
+                    GeistPixelCircle.variable,
+                    GeistPixelTriangle.variable,
+                    GeistPixelLine.variable,
+                    "font-sans",
                     "flex min-h-screen flex-col overflow-auto antialiased md:flex-row",
                 )}
             >

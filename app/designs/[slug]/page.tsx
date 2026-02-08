@@ -9,7 +9,8 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({
     params,
 }): Promise<Metadata | undefined> {
-    const design = findEntryById(params.slug, designGroups);
+    const { slug } = await params;
+    const design = findEntryById(slug, designGroups);
 
     if (!design) {
         return;
@@ -18,8 +19,9 @@ export async function generateMetadata({
     return slugMetadata(baseUrl, name, og, design);
 }
 
-export default function DesignPage({ params }) {
-    const designEntry = findEntryById(params.slug, designGroups);
+export default async function DesignPage({ params }) {
+    const { slug } = await params;
+    const designEntry = findEntryById(slug, designGroups);
 
     if (!designEntry) {
         notFound();

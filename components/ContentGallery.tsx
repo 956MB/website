@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { IEntry } from "lib/interfaces";
 import Image from "next/image";
 import Link from "next/link";
-import { TouchEvent, useEffect, useRef, useState } from "react";
+import { TouchEvent, useCallback, useEffect, useRef, useState } from "react";
 import {
     FiArrowLeft,
     FiChevronLeft,
@@ -210,6 +210,9 @@ function MediaContent({
             priority={true}
             draggable={false}
             loading="eager"
+            quality={isFullscreen ? 100 : 80}
+            unoptimized={isFullscreen ? true : false}
+            sizes={isFullscreen ? "100vw" : "(max-width: 1024px) 100vw, 1024px"}
         />
     );
 }
@@ -217,24 +220,44 @@ function MediaContent({
 export default function ContentGallery({
     entry,
     backLink,
+    fullscreenOnly = false,
+    isOpen,
+    onCloseAction,
+    initialIndex = 0,
 }: {
     entry: IEntry;
     backLink?: string;
+    fullscreenOnly?: boolean;
+    isOpen?: boolean;
+    onCloseAction?: () => void;
+    initialIndex?: number;
 }) {
     const { isClient } = useWindowSize();
 
-    const [selectedIdx, setSelectedIdx] = useState(0);
+    const [selectedIdx, setSelectedIdx] = useState(initialIndex);
     const [isFullscreen, setIsFullscreen] = useState(false);
     const imagesCount = entry.items?.length || 0;
     const touchStartX = useRef<number | null>(null);
     const touchEndX = useRef<number | null>(null);
 
-    const updateIdx = (dir: number) => {
-        const newIdx = selectedIdx + dir;
-        if (newIdx >= 0 && newIdx < imagesCount) {
-            setSelectedIdx(newIdx);
+    useEffect(() => {
+        if (fullscreenOnly) {
+            setSelectedIdx(initialIndex);
         }
-    };
+    }, [initialIndex, fullscreenOnly]);
+
+    const updateIdx = useCallback(
+        (dir: number) => {
+            setSelectedIdx((prevIdx) => {
+                const newIdx = prevIdx + dir;
+                if (newIdx >= 0 && newIdx < imagesCount) {
+                    return newIdx;
+                }
+                return prevIdx;
+            });
+        },
+        [imagesCount],
+    );
 
     const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
         touchStartX.current = e.touches[0].clientX;
@@ -265,24 +288,52 @@ export default function ContentGallery({
     const selectedContent = entry.items?.[selectedIdx];
 
     useEffect(() => {
-        const handleEsc = (e: KeyboardEvent) => {
-            if (e.key === "Escape" && isFullscreen) {
-                setIsFullscreen(false);
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+                if (fullscreenOnly && isOpen) {
+                    onCloseAction?.();
+                } else if (isFullscreen) {
+                    setIsFullscreen(false);
+                }
+                return;
+            }
+
+            if (
+                (isFullscreen || (fullscreenOnly && isOpen)) &&
+                imagesCount > 1
+            ) {
+                if (e.key === "ArrowLeft" || e.key === "h") {
+                    e.preventDefault();
+                    updateIdx(-1);
+                } else if (e.key === "ArrowRight" || e.key === "l") {
+                    e.preventDefault();
+                    updateIdx(1);
+                }
             }
         };
 
-        if (isFullscreen) {
-            document.addEventListener("keydown", handleEsc);
+        if (fullscreenOnly && isOpen) {
+            document.addEventListener("keydown", handleKeyDown);
+            document.body.style.overflow = "hidden";
+        } else if (isFullscreen) {
+            document.addEventListener("keydown", handleKeyDown);
             document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = "";
         }
 
         return () => {
-            document.removeEventListener("keydown", handleEsc);
+            document.removeEventListener("keydown", handleKeyDown);
             document.body.style.overflow = "";
         };
-    }, [isFullscreen]);
+    }, [
+        isFullscreen,
+        fullscreenOnly,
+        isOpen,
+        onCloseAction,
+        imagesCount,
+        updateIdx,
+    ]);
 
     useEffect(() => {
         if (!entry.items || !isClient) return;
@@ -299,6 +350,43 @@ export default function ContentGallery({
         if (selectedIdx < imagesCount - 1) preloadImage(selectedIdx + 1);
     }, [selectedIdx, entry.items, imagesCount, isClient]);
 
+    if (fullscreenOnly) {
+        if (!isOpen || !selectedContent) {
+            return null;
+        }
+
+        return (
+            <div
+                className="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-black"
+                onClick={onCloseAction}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+            >
+                <div className="absolute right-3 top-3 z-[10000] flex gap-2">
+                    <NavigationButtons
+                        selectedIdx={selectedIdx}
+                        imagesCount={imagesCount}
+                        isFullscreen={true}
+                        onPrevious={() => updateIdx(-1)}
+                        onNext={() => updateIdx(1)}
+                        onToggleFullscreen={onCloseAction || (() => {})}
+                    />
+                </div>
+
+                <div
+                    className="relative z-[9998] flex h-full w-full items-center justify-center p-4"
+                    onClick={onCloseAction}
+                >
+                    <MediaContent
+                        content={selectedContent}
+                        selectedIdx={selectedIdx}
+                        isFullscreen={true}
+                    />
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="flex h-full w-full max-w-screen-lg flex-col items-center overflow-visible">
             <div className="w-full px-2 sm:px-0">
@@ -310,7 +398,7 @@ export default function ContentGallery({
                         {FiArrowLeft({
                             className: "h-5 w-5",
                         })}
-                        <span className="text-sm font-medium leading-none">
+                        <span className="font-mono text-sm leading-none">
                             Back
                         </span>
                     </Link>
@@ -324,13 +412,12 @@ export default function ContentGallery({
                         }}
                         itemEntry={entry}
                         header={true}
-                        gallery={true}
                     />
                 </div>
             </div>
 
             <div
-                className="relative mb-3 mt-4 flex w-full items-center justify-center overflow-hidden rounded-[0.659rem] border border-neutral-200 px-2 dark:border-neutral-800 sm:mt-8 sm:px-0"
+                className="relative mb-3 mt-4 flex w-full items-center justify-center overflow-hidden border border-neutral-200 px-2 dark:border-neutral-800 sm:mt-8 sm:px-0"
                 style={{
                     aspectRatio: "16/10",
                     maxHeight: "60vh",
@@ -437,7 +524,7 @@ export default function ContentGallery({
 
             {isFullscreen && selectedContent && (
                 <div
-                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/80 dark:bg-black/80"
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-black"
                     onClick={() => setIsFullscreen(false)}
                 >
                     <div className="absolute right-3 top-3 z-[10000] flex gap-2">

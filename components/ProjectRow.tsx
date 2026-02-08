@@ -18,8 +18,6 @@ const shortenLang = (lang: string): string => {
 };
 
 export function ProjectRow({
-    index,
-    itemsLength,
     entry,
     hoveredId,
     setHoveredId,
@@ -72,7 +70,7 @@ export function ProjectRow({
                     <div className="relative mr-3 hidden h-full sm:block lg:w-10 lg:flex-shrink-0 lg:pt-1">
                         <span
                             className={clsx(
-                                "absolute text-sm font-medium leading-5 text-neutral-700 transition-opacity duration-150 ease-in-out dark:font-medium dark:text-neutral-350",
+                                "absolute font-mono text-sm leading-5 text-neutral-700 transition-opacity duration-150 ease-in-out dark:font-mono dark:text-neutral-350",
                                 entry.lang &&
                                     entry.lang !== "none" &&
                                     isFamily &&
@@ -84,7 +82,7 @@ export function ProjectRow({
                         {entry.lang && entry.lang !== "none" && (
                             <span
                                 className={clsx(
-                                    "absolute text-sm font-medium leading-5 text-neutral-700 transition-opacity duration-150 ease-in-out dark:font-medium dark:text-neutral-350",
+                                    "absolute font-mono text-sm leading-5 text-neutral-700 transition-opacity duration-150 ease-in-out dark:font-mono dark:text-neutral-350",
                                     isFamily ? "opacity-100" : "opacity-0",
                                 )}
                             >
@@ -105,10 +103,6 @@ export function ProjectRow({
                     <div
                         className={clsx(
                             "mt-[7px] h-[8px] w-[8px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] is-family-hovered:w-[7px] sm:mt-0 lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
-                            index === 0 &&
-                                "lg:rounded-tl-full lg:rounded-tr-full",
-                            index === itemsLength - 1 &&
-                                "lg:rounded-bl-full lg:rounded-br-full",
                             getLangColor(entry.lang) ||
                                 "bg-neutral-200 dark:bg-neutral-800",
                             getLangColor(entry.lang, "group-hover:"),
@@ -122,7 +116,7 @@ export function ProjectRow({
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "pl-2 text-[15px] font-semibold leading-5 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0  lg:max-w-[256px] lg:pl-4",
+                            "font-pixel-square pl-2 text-[15px] font-bold leading-5 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0  lg:max-w-[256px] lg:pl-4",
                             entry.link
                                 ? "hover:text-p0 hover:underline dark:hover:text-o0"
                                 : "no-underline",
@@ -140,7 +134,7 @@ export function ProjectRow({
                 <span
                     ref={summaryRef}
                     className={clsx(
-                        "leading-0 line-clamp-3 flex-1 text-sm font-normal text-neutral-600 dark:text-neutral-350 sm:font-medium lg:mb-[6px] lg:text-[15px]",
+                        "leading-0 sm:font-pixel-square line-clamp-3 flex-1 text-sm font-normal text-neutral-600 dark:text-neutral-350 lg:mb-[6px]",
                         "min-w-0",
                     )}
                 >
@@ -239,7 +233,7 @@ export default function ProjectSection({
                         variants={itemVariants}
                         className="flex w-full flex-row items-center justify-center"
                     >
-                        <hr className="my-auto h-px w-full border-b border-dashed border-neutral-200 bg-transparent dark:border-neutral-800" />
+                        <hr className="my-auto h-px w-full border-b border-dotted border-neutral-200 bg-transparent dark:border-neutral-800" />
                     </motion.div>
                 </motion.div>
             )}

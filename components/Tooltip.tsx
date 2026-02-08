@@ -49,7 +49,7 @@ export default function Tooltip({
             {children}
             <span
                 className={clsx(
-                    "text-ellipsis whitespace-nowrap rounded py-1 text-xs font-medium italic transition-all duration-100 ease-out",
+                    "text-ellipsis whitespace-nowrap rounded py-1 font-mono text-xs italic transition-all duration-100 ease-out",
                     position === "top" ? "bottom-7" : "",
                     position === "bottom" ? "top-7" : "",
                     position === "bottom2" ? "top-10" : "",

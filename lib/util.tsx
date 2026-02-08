@@ -6,13 +6,17 @@ import { SiAdobeillustrator, SiAdobephotoshop } from "react-icons/si";
 
 export const imgBase = "https://img.956mb.com";
 
-export const hl = function (text) {
+export const hl = function (text: string) {
     return `<span class='large-highlight'>${text}</span>`;
 };
 
 export function imgUrl(path: string): string {
-    if (path.startsWith("http") || path.startsWith("./")) {
+    if (path.startsWith("http")) {
         return path;
+    }
+
+    if (path.startsWith("./")) {
+        return path.replace("./", "/");
     }
 
     return `${imgBase}${path}`;
@@ -130,4 +134,30 @@ export const stripHtml = (htmlString: string): string => {
         .replace(/&amp;/g, "&")
         .replace(/&quot;/g, '"')
         .replace(/&#39;/g, "'");
+};
+
+export const generateRandomDelays = (
+    itemCount: number,
+    baseDelay: number = 0.1,
+): number[] => {
+    const delays = Array.from({ length: itemCount }, (_, i) => i * baseDelay);
+    for (let i = delays.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [delays[i], delays[j]] = [delays[j], delays[i]];
+    }
+    return delays;
+};
+
+export const containerVariants = {
+    initial: {},
+    animate: {
+        transition: {
+            staggerChildren: 0,
+        },
+    },
+};
+
+export const itemVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
 };

@@ -2,9 +2,15 @@ import DesignRow from "components/DesignRow";
 import { designGroups, designs_section } from "lib/designs";
 import { baseUrl, name, og } from "lib/info";
 import { pageMetadata } from "lib/interfaces";
+import { Metadata } from "next";
 import React from "react";
 
-export const metadata = pageMetadata(baseUrl, name, og, designs_section);
+export const metadata: Metadata = pageMetadata(
+    baseUrl,
+    name,
+    og,
+    designs_section,
+);
 
 export default function DesignPage() {
     return (

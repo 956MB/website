@@ -17,22 +17,21 @@ import { TextParagraph, TextParagraphSub } from "./Text";
 export function AboutBody() {
     const markdown = String.raw`
 ~~~graphql
-           /////////////////////////////      
-         /···|/////////////////////|···|      
-        |·/||/                    /||/        
-      /·|  /·|                  |||/          
-     |·/    |·/              /|·|/            
-   /·|      /·|            /|·|/              
-  ||/        |·/         /||/                 
-/··|/////////|·|       /||////            //  
-////////////////    /|||//|||·|        /|||/  
-                  /|·|||||/  |·|    /|||/     
-                /|···||/      |·|/|||/        
-              /|··||/         /···/           
-           /|··||/         /|||/|·|           
-         /|··|/         /|||/    |·|          
-       /|·|/         /|···|//////|··|         
-       //            ////////////////         
+⠀⢠⣤⣤⣤⣤⣠⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⡀
+⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⢿⣿⣿⡿
+⠀⠙⠻⣿⣿⣧⡉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⡿⣻⠁⠀
+⠀⠀⠀⠉⢻⣿⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⡟⠀⠀⠀
+⠀⠀⠀⠀⠀⠈⠛⢿⣿⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⣤⣿⣿⠋⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠉⠋⠁⠀⠀⠀⠀⠀⠀⣰⣾⡿⠏⠀⠀⠀⠀⠀⠀
+⠀⣠⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⡿⠟⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣿⣿⣿⣿⣶⣤⡀⠀⠀⠀⠀⠀⢀⢔⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢹⣿⣿⠛⢿⣻⣿⣶⣤⡀⠀⡔⣡⡞⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠸⣿⣿⠂⠀⠉⠘⠿⣿⣿⢿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢠⣿⣿⠀⠀⠀⠀⣀⣾⣽⠻⢿⣿⣧⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢸⣿⣿⠀⢀⣤⣾⣿⠟⠁⠀⠀⠈⠹⢿⣏⣷⣦⣄⣀⠀⠀⠀⠀⠀⠀
+⠀⠈⣿⣿⣴⣼⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣿⣿⣧⣆⡠⣀⠀⠀
+⠀⠀⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⣿⣿⣷⣷⣆
+⠀⠀⠙⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠋
 ~~~
 `;
 
@@ -90,7 +89,7 @@ export function AboutBody() {
                 variants={itemVariants}
                 className="flex w-full flex-row items-center justify-center align-middle"
             >
-                <div className="flex w-full flex-col items-center overflow-x-auto border-t border-dashed border-neutral-200 py-10 dark:border-neutral-800">
+                <div className="flex w-full flex-col items-center overflow-x-auto border-t border-dotted border-neutral-200 py-10 dark:border-neutral-800">
                     <Markdown
                         className="text-right text-sm leading-4 text-black saturate-0 dark:invert"
                         components={{

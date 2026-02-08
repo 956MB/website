@@ -12,14 +12,12 @@ export default function GroupHeader({
     itemEntry,
     noDescription,
     header,
-    gallery,
     titleLink,
 }: {
     entry: IEntryGroup;
     itemEntry?: IEntry;
     noDescription?: boolean;
     header?: boolean;
-    gallery?: boolean;
     titleLink?: string;
 }) {
     const headerVariants = {
@@ -47,7 +45,7 @@ export default function GroupHeader({
                     header ? "gap-3.5" : "gap-1.5",
                 )}
             >
-                <span className="whitespace-normal align-baseline text-[23px] font-bold italic leading-6 text-neutral-900 dark:text-white sm:whitespace-nowrap">
+                <span className="font-pixel-square whitespace-normal align-baseline text-[26px] font-medium leading-6 text-neutral-900 dark:text-white sm:whitespace-nowrap">
                     {titleLink ? (
                         <a
                             href={titleLink}
@@ -70,8 +68,7 @@ export default function GroupHeader({
                 {!noDescription && entry.description && (
                     <span
                         className={clsx(
-                            "gallery-summary max-w-screen-lg text-sm font-medium leading-5 text-neutral-600 dark:text-neutral-350",
-                            gallery && "max-w-screen-sm",
+                            "gallery-summary font-pixel-square max-w-screen-lg text-sm font-medium leading-5 text-neutral-600 dark:text-neutral-350",
                         )}
                     >
                         {parse(entry.description)}
@@ -79,7 +76,7 @@ export default function GroupHeader({
                 )}
 
                 {itemEntry?.references && itemEntry.references.length > 0 && (
-                    <div className="flex flex-wrap items-center gap-2">
+                    <div className="-mt-px flex flex-wrap items-center gap-2">
                         {itemEntry.references.map((ref, idx) => {
                             const isExternalLink =
                                 ref.url.startsWith("http://") ||

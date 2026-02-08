@@ -44,7 +44,7 @@ const flipper = [
                 entry(
                     "p-feat-input-vibro-trigger",
                     "feat/input-vibro-trigger",
-                    "fork/+",
+                    "fork",
                     "Projects",
                     [],
                     {
@@ -58,7 +58,7 @@ const flipper = [
                 entry(
                     "p-feat-popup-overlay",
                     "feat/popup-overlay",
-                    "fork/+",
+                    "fork",
                     "Projects",
                     [],
                     {
@@ -72,7 +72,7 @@ const flipper = [
                 entry(
                     "p-fix-custom-font-bubble-ascent",
                     "fix/custom-font-bubble-ascent",
-                    "fork/+",
+                    "fork",
                     "Projects",
                     [],
                     {
@@ -86,7 +86,7 @@ const flipper = [
                 entry(
                     "p-feat-menu-more-info",
                     "feat/menu-more-info",
-                    "fork/+",
+                    "fork",
                     "Projects",
                     [],
                     {
@@ -100,7 +100,7 @@ const flipper = [
                 entry(
                     "p-feat-asset-packs-ram-warning",
                     "feat/asset-packs-ram-warning",
-                    "fork/+",
+                    "fork",
                     "Projects",
                     [],
                     {
@@ -114,7 +114,7 @@ const flipper = [
                 entry(
                     "p-feat-clock-midnight-format",
                     "feat/clock-midnight-format",
-                    "fork/+",
+                    "fork",
                     "Projects",
                     [],
                     {
@@ -128,7 +128,7 @@ const flipper = [
                 entry(
                     "p-feat-directory-keybind-support",
                     "feat/directory-keybind-support",
-                    "fork/+",
+                    "fork",
                     "Projects",
                     [],
                     {
@@ -142,7 +142,7 @@ const flipper = [
                 entry(
                     "p-feat-archive-select-multiple",
                     "feat/archive-select-multiple",
-                    "fork/+",
+                    "fork",
                     "Projects",
                     [],
                     {
@@ -156,7 +156,7 @@ const flipper = [
                 entry(
                     "p-feat-archive-dynamic-tabs",
                     "feat/archive-dynamic-tabs",
-                    "fork/+",
+                    "fork",
                     "Projects",
                     [],
                     {
@@ -187,7 +187,7 @@ const flipper = [
     entry(
         "p-flipper-chess",
         "xtruan/flipper-chess (fix)",
-        "fork/+",
+        "fork",
         "Projects",
         [],
         {
@@ -395,21 +395,21 @@ const neostuff = [
             "neovim plugin for adding and automatically updating file headers. wip",
         ],
     }),
-    entry("p-quicker-nvim", "quicker.nvim", "fork/+", "Projects", [], {
+    entry("p-quicker-nvim", "quicker.nvim", "fork", "Projects", [], {
         link: "https://github.com/956MB/neostuff#quickernvim-link-tba",
         lang: "Lua",
         summary: [
             `adds cursor line number highlight (${hl("CursorLineNr")}) to the ${hl("quicker.nvim")} quickfix list. follows the cursor movement and updates like normal line numbers.`,
         ],
     }),
-    entry("p-lazy-nvim", "lazy.nvim", "fork/+", "Projects", [], {
+    entry("p-lazy-nvim", "lazy.nvim", "fork", "Projects", [], {
         link: "https://github.com/956MB/neostuff#lazynvim",
         lang: "Lua",
         summary: [
             "adds a url to the end of each plugin entry line in the lazy.nvim home/summary page, making displaying the entire page or finding a plugin's url easier.",
         ],
     }),
-    entry("p-oil-nvim", "oil.nvim", "fork/+", "Projects", [], {
+    entry("p-oil-nvim", "oil.nvim", "fork", "Projects", [], {
         link: "https://github.com/956MB/neostuff#oilnvim-link-tba",
         lang: "Lua",
         summary: [

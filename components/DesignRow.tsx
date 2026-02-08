@@ -3,6 +3,11 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { IEntryGroup } from "lib/interfaces";
+import {
+    containerVariants,
+    generateRandomDelays,
+    itemVariants,
+} from "lib/util";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -66,7 +71,7 @@ function getRadius(
     const bottomRight =
         (isLastRow && isLastColInRow) || (isLastColInRow && !hasCellBelow);
 
-    const radius = "0.659rem";
+    const radius = "0rem"; // 0.659rem
     const style: React.CSSProperties = {
         borderTopLeftRadius: topLeft ? radius : "0",
         borderTopRightRadius: topRight ? radius : "0",
@@ -91,28 +96,10 @@ export default function DesignRow({
     const breakpoint = useBreakpoint();
     const columns = getColumns(breakpoint);
 
-    const randomDelays = useMemo(() => {
-        const delays = entry.items.map((_, index) => index * 0.1);
-        for (let i = delays.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [delays[i], delays[j]] = [delays[j], delays[i]];
-        }
-        return delays;
-    }, [entry.items]);
-
-    const containerVariants = {
-        initial: {},
-        animate: {
-            transition: {
-                staggerChildren: 0,
-            },
-        },
-    };
-
-    const itemVariants = {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-    };
+    const randomDelays = useMemo(
+        () => generateRandomDelays(entry.items.length),
+        [entry.items.length],
+    );
 
     return (
         <div className="relative flex w-full max-w-screen-lg flex-col flex-wrap items-center justify-center gap-y-0 lg:pt-9">
@@ -126,7 +113,7 @@ export default function DesignRow({
 
             <div className="flex w-full flex-col gap-y-3.5">
                 <div className="flex w-full flex-row items-center justify-center">
-                    <hr className="my-auto h-px w-full border-b border-dashed border-neutral-200 bg-transparent dark:border-neutral-800" />
+                    <hr className="my-auto h-px w-full border-b border-dotted border-neutral-200 bg-transparent dark:border-neutral-800" />
                 </div>
 
                 <motion.div
@@ -239,7 +226,7 @@ export default function DesignRow({
                                     >
                                         <span
                                             className={clsx(
-                                                "pointer-events-none select-none text-center text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
+                                                "font-pixel-square pointer-events-none select-none text-center text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
                                             )}
                                         >
                                             {item.title}
@@ -248,7 +235,7 @@ export default function DesignRow({
                                         {item.date && (
                                             <span
                                                 className={
-                                                    "pointer-events-none select-none text-center text-sm font-medium text-white/70 sm:w-full sm:leading-5 lg:mb-2"
+                                                    "pointer-events-none select-none text-center font-mono text-sm text-white/70 sm:w-full sm:leading-5 lg:mb-2"
                                                 }
                                             >
                                                 {item.date}

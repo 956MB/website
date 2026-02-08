@@ -3,9 +3,15 @@ import GroupHeader from "components/GroupHeader";
 import { baseUrl, name, neography_d, neography_t, og } from "lib/info";
 import { pageMetadata } from "lib/interfaces";
 import { neographyGroups, scripts_section } from "lib/scripts";
+import { Metadata } from "next";
 import React from "react";
 
-export const metadata = pageMetadata(baseUrl, name, og, scripts_section);
+export const metadata: Metadata = pageMetadata(
+    baseUrl,
+    name,
+    og,
+    scripts_section,
+);
 
 export default function NeographyPage() {
     const neographyEntry = {

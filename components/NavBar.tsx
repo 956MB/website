@@ -16,6 +16,7 @@ const navItems: {
     "/projects": { name: "projects" },
     "/designs": { name: "designs" },
     "/neography": { name: "neography" },
+    "/lightroom": { name: "lightroom" },
     "/extras": { name: "extras" },
 };
 
@@ -24,7 +25,7 @@ const COPYRIGHT = () => {
     const isHome = pathname === "/";
 
     return (
-        <span className="text-wrap text-[14px] font-medium text-neutral-600 dark:text-neutral-400">
+        <span className="font-pixel-square text-wrap text-[14px] font-medium text-neutral-600 dark:text-neutral-400">
             <a
                 href="/CC-BY-NC-SA-4.0"
                 target="_blank"
@@ -66,7 +67,7 @@ export default function Header() {
     return (
         <div
             className={clsx(
-                "z-[55] mt-4 flex max-h-[75px] w-full flex-1 flex-row justify-center sm:mt-0",
+                "z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center sm:mt-0",
             )}
         >
             <div
@@ -75,23 +76,22 @@ export default function Header() {
                 )}
             >
                 <div className="no-scrollbar relative z-[55] flex w-full items-start justify-start overflow-x-scroll py-4">
-                    <div className="inline-flex w-full flex-row items-center justify-between sm:justify-center sm:gap-x-7">
-                        <div className="hidden h-full items-center justify-center sm:flex">
+                    <div className="inline-flex w-full flex-row items-center justify-between sm:justify-center sm:gap-x-5">
+                        <div className="duration-50 hidden h-full items-center justify-center transition-transform hover:scale-[1.1] active:scale-100 sm:flex">
                             <Link
                                 href="/"
-                                className="flex h-8 w-8 items-center justify-center"
+                                className="flex h-10 w-10 items-center justify-center"
                             >
                                 <Image
-                                    src={"/signature.png"}
+                                    src={"/logo.png"}
                                     width={32}
                                     height={32}
                                     alt="Home"
-                                    className="mb-[2px] ml-1 h-[32px] translate-y-[1px] rounded-[5px] object-contain invert dark:mr-0 dark:h-[20px] dark:rounded-none dark:invert-0 sm:h-[32px] dark:sm:h-[20px]"
+                                    className="-ml-1 h-8 translate-y-[1px] rounded-[5px] object-contain invert dark:mr-0 dark:rounded-none dark:invert-0"
                                 />
                             </Link>
                         </div>
-                        {/* <div className="hidden h-[22px] self-center border-r border-neutral-200 dark:border-neutral-800 sm:block"></div> */}
-                        <div className="inline-flex w-full flex-row flex-nowrap items-center justify-between gap-x-4 sm:mr-auto sm:w-auto sm:justify-center sm:gap-y-6 sm:py-3 lg:gap-x-7">
+                        <div className="inline-flex w-full flex-row flex-nowrap items-center justify-between gap-x-4 sm:mr-auto sm:w-auto sm:justify-center sm:gap-x-7 sm:gap-y-6 sm:py-3">
                             {Object.entries(navItems).map(
                                 ([path, { name, className }]) => {
                                     const isActive = pathname === path;
@@ -111,7 +111,7 @@ export default function Header() {
                                                 <Link
                                                     href={path}
                                                     className={clsx(
-                                                        "whitespace-nowrap text-[14px] leading-[14px] no-underline transition-colors duration-150 hover:text-p0 dark:hover:text-o0 lg:text-[15px]",
+                                                        "whitespace-nowrap text-[14px] leading-[14px] no-underline transition-colors duration-150 hover:text-p0 dark:hover:text-o0 sm:text-[15px]",
                                                         {
                                                             "text-neutral-600 dark:text-neutral-400":
                                                                 !isActive,
@@ -122,8 +122,8 @@ export default function Header() {
                                                         className={clsx(
                                                             "relative text-center lowercase",
                                                             isActive
-                                                                ? "font-bold text-black dark:font-semibold dark:text-white"
-                                                                : "font-medium hover:font-semibold",
+                                                                ? "font-pixel-square font-bold text-black dark:font-semibold dark:text-white"
+                                                                : "font-pixel-square font-medium hover:font-semibold",
                                                         )}
                                                     >
                                                         {name}
@@ -136,10 +136,10 @@ export default function Header() {
                             )}
                         </div>
                         <div className="ml-auto hidden flex-row items-center gap-x-8 sm:flex">
-                            <div className="hidden flex-1 xl:flex">
+                            <div className="hidden flex-1 lg:flex">
                                 <Socials isHome={true} />
                             </div>
-                            <div className="hidden items-center md:flex">
+                            <div className="hidden items-center sm:flex">
                                 <ThemeToggle />
                             </div>
                         </div>

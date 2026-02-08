@@ -35,7 +35,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
 
             <div className="flex flex-col">
                 <div className="flex w-full flex-row items-center justify-center">
-                    <hr className="my-auto h-px w-full border-b border-dashed border-neutral-200 bg-transparent dark:border-neutral-800" />
+                    <hr className="my-auto h-px w-full border-b border-dotted border-neutral-200 bg-transparent dark:border-neutral-800" />
                 </div>
 
                 <motion.div
@@ -62,7 +62,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                 >
                                     <a
                                         className={clsx(
-                                            "duration-50 group relative flex select-none flex-col justify-end overflow-hidden rounded-[0.659rem] bg-gradient-to-t from-white/10 to-transparent object-cover saturate-0 backdrop-blur-sm transition-all ease-linear group-hover:saturate-100 sm:backdrop-blur-none",
+                                            "duration-50 group relative flex select-none flex-col justify-end overflow-hidden bg-gradient-to-t from-white/10 to-transparent object-cover saturate-0 backdrop-blur-sm transition-all ease-linear group-hover:saturate-100 sm:backdrop-blur-none",
                                             item.link && " cursor-pointer",
                                             item.items?.[0].saturation ===
                                                 true && "saturate-100",
@@ -120,7 +120,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 <div className="flex w-full flex-row items-center justify-start gap-1">
                                                     <a
                                                         className={clsx(
-                                                            "m-0 overflow-hidden text-ellipsis whitespace-nowrap font-bold text-black transition-colors duration-100 hover:text-p0 dark:text-white dark:hover:text-o0",
+                                                            "font-pixel-square m-0 overflow-hidden text-ellipsis whitespace-nowrap font-bold text-black transition-colors duration-100 hover:text-p0 dark:text-white dark:hover:text-o0",
                                                             "block max-w-full",
                                                             item.link &&
                                                                 "hover:underline group-hover:text-p0 dark:group-hover:text-o0",
@@ -163,7 +163,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 </div>
 
                                                 {item.summary && (
-                                                    <span className="entry-summary w-full text-sm font-medium text-neutral-800 dark:text-neutral-350">
+                                                    <span className="entry-summary font-pixel-square w-full text-sm text-neutral-800 dark:text-neutral-350">
                                                         {parse(
                                                             (
                                                                 item.summary.join(

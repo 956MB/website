@@ -2,9 +2,15 @@ import ExtraRow from "components/ExtraRow";
 import { extras_section, groups } from "lib/extras";
 import { baseUrl, name, og } from "lib/info";
 import { pageMetadata } from "lib/interfaces";
+import { Metadata } from "next";
 import React from "react";
 
-export const metadata = pageMetadata(baseUrl, name, og, extras_section);
+export const metadata: Metadata = pageMetadata(
+    baseUrl,
+    name,
+    og,
+    extras_section,
+);
 
 export default function ExtraPage() {
     return (
