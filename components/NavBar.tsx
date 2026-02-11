@@ -5,6 +5,7 @@ import { copyright, license } from "lib/info";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { VercelIcon } from "./Icons";
 import Socials from "./Socials";
 import { ThemeToggle } from "./ThemeToggle";
@@ -21,20 +22,15 @@ const navItems: {
 };
 
 const COPYRIGHT = () => {
-    const pathname = usePathname() || "/";
-    const isHome = pathname === "/";
-
     return (
-        <span className="text-wrap font-pixel-square text-[14px] font-medium text-neutral-600 dark:text-neutral-400">
+        <span className="whitespace-nowrap font-pixel-square text-[14px] font-medium text-neutral-600 dark:text-neutral-400">
             <a
                 href="/CC-BY-NC-SA-4.0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors hover:text-p0 hover:underline dark:hover:text-o0"
             >
-                {`${license}`}
-                {!isHome ? <br className="block sm:hidden" /> : <span> </span>}
-                {`${copyright}`}
+                {`${license} ${copyright}`}
             </a>
         </span>
     );
@@ -63,6 +59,47 @@ const Deco = ({ children, show }: { children: string; show: boolean }) =>
 
 export default function Header() {
     const pathname = usePathname() || "/";
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const [showLeftFade, setShowLeftFade] = useState(false);
+    const [showRightFade, setShowRightFade] = useState(false);
+    const leftLinks = ["/", "/projects", "/designs"];
+    const rightLinks = ["/neography", "/lightroom", "/extras"];
+
+    const handleNavClick = (path: string) => {
+        if (!scrollRef.current) return;
+        if (leftLinks.includes(path)) {
+            scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else if (rightLinks.includes(path)) {
+            scrollRef.current.scrollTo({
+                left: scrollRef.current.scrollWidth,
+                behavior: "smooth",
+            });
+        }
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!scrollRef.current) return;
+
+            const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+            const isScrollable = scrollWidth > clientWidth;
+
+            setShowRightFade(isScrollable && scrollLeft < scrollWidth - clientWidth - 1);
+            setShowLeftFade(isScrollable && scrollLeft > 0);
+        };
+
+        const scrollElement = scrollRef.current;
+        if (scrollElement) {
+            handleScroll();
+            scrollElement.addEventListener("scroll", handleScroll);
+            window.addEventListener("resize", handleScroll);
+
+            return () => {
+                scrollElement.removeEventListener("scroll", handleScroll);
+                window.removeEventListener("resize", handleScroll);
+            };
+        }
+    }, []);
 
     return (
         <div
@@ -75,74 +112,100 @@ export default function Header() {
                     "mx-6 flex w-full max-w-screen-lg flex-1 flex-row items-center sm:mx-6",
                 )}
             >
-                <div className="no-scrollbar relative z-[55] flex w-full items-start justify-start overflow-x-scroll py-4">
-                    <div className="inline-flex w-full flex-row items-center justify-between sm:justify-center sm:gap-x-5">
-                        <div className="duration-50 hidden h-full items-center justify-center transition-transform hover:scale-[1.1] active:scale-100 sm:flex">
-                            <Link
-                                href="/"
-                                className="flex h-10 w-10 items-center justify-center"
-                            >
-                                <Image
-                                    src={"/logo.png"}
-                                    width={32}
-                                    height={32}
-                                    alt="Home"
-                                    className="-ml-1 h-8 translate-y-[1px] rounded-[5px] object-contain invert dark:mr-0 dark:rounded-none dark:invert-0"
-                                />
-                            </Link>
-                        </div>
-                        <div className="inline-flex w-full flex-row flex-nowrap items-center justify-between gap-x-4 sm:mr-auto sm:w-auto sm:justify-center sm:gap-x-7 sm:gap-y-6 sm:py-3">
-                            {Object.entries(navItems).map(
-                                ([path, { name, className }]) => {
-                                    const isActive = pathname === path;
+                <div className="relative w-full">
+                    <div
+                        className={clsx(
+                            "pointer-events-none absolute left-0 top-0 z-[60] h-full w-12 bg-gradient-to-r from-white to-transparent transition-opacity duration-300 dark:from-black sm:hidden",
+                            showLeftFade ? "opacity-100" : "opacity-0",
+                        )}
+                    />
 
-                                    return (
-                                        <div
-                                            key={path}
-                                            className={clsx(
-                                                "group relative inline-flex h-full flex-row items-center justify-center",
-                                                className,
-                                            )}
-                                        >
-                                            <div className="relative flex h-full cursor-pointer items-center justify-center py-3 text-center align-middle sm:py-0">
-                                                <Deco show={isActive}>
-                                                    {"/"}
-                                                </Deco>
-                                                <Link
-                                                    href={path}
-                                                    className={clsx(
-                                                        "whitespace-nowrap text-[14px] leading-[14px] no-underline transition-colors duration-150 hover:text-p0 dark:hover:text-o0 sm:text-[15px]",
-                                                        {
-                                                            "text-neutral-600 dark:text-neutral-400":
-                                                                !isActive,
-                                                        },
-                                                    )}
-                                                >
-                                                    <span
+                    <div
+                        className={clsx(
+                            "pointer-events-none absolute right-0 top-0 z-[60] h-full w-12 bg-gradient-to-l from-white to-transparent transition-opacity duration-300 dark:from-black sm:hidden",
+                            showRightFade ? "opacity-100" : "opacity-0",
+                        )}
+                    />
+
+                    <div
+                        ref={scrollRef}
+                        className="no-scrollbar relative z-[55] flex w-full items-start justify-start overflow-x-scroll py-4"
+                    >
+                        <div className="shrink-0 sm:hidden" style={{ width: "24px" }}/>
+
+                        <div className="inline-flex w-full flex-row items-center justify-between sm:justify-center sm:gap-x-5">
+                            <div className="duration-50 hidden h-full items-center justify-center transition-transform hover:scale-[1.1] active:scale-100 sm:flex">
+                                <Link
+                                    href="/"
+                                    className="flex h-10 w-10 items-center justify-center"
+                                >
+                                    <Image
+                                        src={"/logo.png"}
+                                        width={32}
+                                        height={32}
+                                        alt="Home"
+                                        className="-ml-1 h-8 translate-y-[1px] rounded-[5px] object-contain invert dark:mr-0 dark:rounded-none dark:invert-0"
+                                    />
+                                </Link>
+                            </div>
+                            <div className="inline-flex w-full flex-row flex-nowrap items-start gap-x-[17px] sm:mr-auto sm:w-auto sm:items-center sm:justify-center sm:gap-x-7 sm:gap-y-6 sm:py-3">
+                                {Object.entries(navItems).map(
+                                    ([path, { name, className }]) => {
+                                        const isActive = pathname === path;
+
+                                        return (
+                                            <div
+                                                key={path}
+                                                className={clsx(
+                                                    "group relative inline-flex h-full flex-row items-center justify-center",
+                                                    className,
+                                                )}
+                                            >
+                                                <div className="relative flex h-full cursor-pointer items-center justify-center py-3 text-center align-middle sm:py-0">
+                                                    <Deco show={isActive}>
+                                                        {"/"}
+                                                    </Deco>
+                                                    <Link
+                                                        href={path}
+                                                        onClick={() =>
+                                                            handleNavClick(path)
+                                                        }
                                                         className={clsx(
-                                                            "relative text-center lowercase",
-                                                            isActive
-                                                                ? "font-pixel-square font-bold text-black dark:font-semibold dark:text-white"
-                                                                : "font-pixel-square font-medium hover:font-semibold",
+                                                            "whitespace-nowrap text-[14px] leading-[14px] no-underline transition-colors duration-150 hover:text-p0 dark:hover:text-o0 sm:text-[15px]",
+                                                            {
+                                                                "text-neutral-600 dark:text-neutral-400":
+                                                                    !isActive,
+                                                            },
                                                         )}
                                                     >
-                                                        {name}
-                                                    </span>
-                                                </Link>
+                                                        <span
+                                                            className={clsx(
+                                                                "relative text-center lowercase",
+                                                                isActive
+                                                                    ? "font-pixel-square font-bold text-black dark:font-semibold dark:text-white"
+                                                                    : "font-pixel-square font-medium hover:font-semibold",
+                                                            )}
+                                                        >
+                                                            {name}
+                                                        </span>
+                                                    </Link>
+                                                </div>
                                             </div>
-                                        </div>
-                                    );
-                                },
-                            )}
-                        </div>
-                        <div className="ml-auto hidden flex-row items-center gap-x-8 sm:flex">
-                            <div className="hidden flex-1 lg:flex">
-                                <Socials isHome={true} />
+                                        );
+                                    },
+                                )}
                             </div>
-                            <div className="hidden items-center sm:flex">
-                                <ThemeToggle />
+                            <div className="ml-auto hidden flex-row items-center gap-x-8 sm:flex">
+                                <div className="hidden flex-1 lg:flex">
+                                    <Socials isHome={true} />
+                                </div>
+                                <div className="hidden items-center sm:flex">
+                                    <ThemeToggle />
+                                </div>
                             </div>
                         </div>
+
+                        <div className="shrink-0 sm:hidden" style={{ width: "2.4rem" }}/>
                     </div>
                 </div>
             </div>
