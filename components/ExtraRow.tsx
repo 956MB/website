@@ -120,7 +120,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 <div className="flex w-full flex-row items-center justify-start gap-1">
                                                     <a
                                                         className={clsx(
-                                                            "font-pixel-square m-0 overflow-hidden text-ellipsis whitespace-nowrap font-bold text-black transition-colors duration-100 hover:text-p0 dark:text-white dark:hover:text-o0",
+                                                            "m-0 overflow-hidden text-ellipsis whitespace-nowrap font-pixel-square font-bold text-black transition-colors duration-100 hover:text-p0 dark:text-white dark:hover:text-o0",
                                                             "block max-w-full",
                                                             item.link &&
                                                                 "hover:underline group-hover:text-p0 dark:group-hover:text-o0",
@@ -163,7 +163,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 </div>
 
                                                 {item.summary && (
-                                                    <span className="entry-summary font-pixel-square w-full text-sm text-neutral-800 dark:text-neutral-350">
+                                                    <span className="entry-summary w-full font-pixel-square text-sm text-neutral-800 dark:text-neutral-350">
                                                         {parse(
                                                             (
                                                                 item.summary.join(

@@ -25,7 +25,7 @@ const COPYRIGHT = () => {
     const isHome = pathname === "/";
 
     return (
-        <span className="font-pixel-square text-wrap text-[14px] font-medium text-neutral-600 dark:text-neutral-400">
+        <span className="text-wrap font-pixel-square text-[14px] font-medium text-neutral-600 dark:text-neutral-400">
             <a
                 href="/CC-BY-NC-SA-4.0"
                 target="_blank"

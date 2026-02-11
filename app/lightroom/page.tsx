@@ -15,8 +15,6 @@ export default function PhotographyPage() {
     const photos = lightroom_section.items;
 
     return (
-        <section>
-            <LightroomGrid photos={photos} />
-        </section>
+        <LightroomGrid photos={photos} />
     );
 }

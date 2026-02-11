@@ -210,7 +210,7 @@ function MediaContent({
             priority={true}
             draggable={false}
             loading="eager"
-            quality={isFullscreen ? 100 : 80}
+            quality={isFullscreen ? 100 : 85}
             unoptimized={isFullscreen ? true : false}
             sizes={isFullscreen ? "100vw" : "(max-width: 1024px) 100vw, 1024px"}
         />
@@ -224,6 +224,7 @@ export default function ContentGallery({
     isOpen,
     onCloseAction,
     initialIndex = 0,
+    onIndexChangeAction,
 }: {
     entry: IEntry;
     backLink?: string;
@@ -231,6 +232,7 @@ export default function ContentGallery({
     isOpen?: boolean;
     onCloseAction?: () => void;
     initialIndex?: number;
+    onIndexChangeAction?: (index: number) => void;
 }) {
     const { isClient } = useWindowSize();
 
@@ -251,12 +253,13 @@ export default function ContentGallery({
             setSelectedIdx((prevIdx) => {
                 const newIdx = prevIdx + dir;
                 if (newIdx >= 0 && newIdx < imagesCount) {
+                    onIndexChangeAction?.(newIdx);
                     return newIdx;
                 }
                 return prevIdx;
             });
         },
-        [imagesCount],
+        [imagesCount, onIndexChangeAction],
     );
 
     const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {

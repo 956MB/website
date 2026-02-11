@@ -226,7 +226,7 @@ export default function DesignRow({
                                     >
                                         <span
                                             className={clsx(
-                                                "font-pixel-square pointer-events-none select-none text-center text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
+                                                "pointer-events-none select-none text-center font-pixel-square text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
                                             )}
                                         >
                                             {item.title}

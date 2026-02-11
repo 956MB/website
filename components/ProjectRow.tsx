@@ -116,7 +116,7 @@ export function ProjectRow({
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "font-pixel-square pl-2 text-[15px] font-bold leading-5 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0  lg:max-w-[256px] lg:pl-4",
+                            "pl-2 font-pixel-square text-[15px] font-bold leading-5 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0  lg:max-w-[256px] lg:pl-4",
                             entry.link
                                 ? "hover:text-p0 hover:underline dark:hover:text-o0"
                                 : "no-underline",
@@ -134,7 +134,7 @@ export function ProjectRow({
                 <span
                     ref={summaryRef}
                     className={clsx(
-                        "leading-0 sm:font-pixel-square line-clamp-3 flex-1 text-sm font-normal text-neutral-600 dark:text-neutral-350 lg:mb-[6px]",
+                        "leading-0 line-clamp-3 flex-1 text-sm font-normal text-neutral-600 dark:text-neutral-350 sm:font-pixel-square lg:mb-[6px]",
                         "min-w-0",
                     )}
                 >
