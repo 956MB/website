@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import { copyright, license } from "lib/info";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,7 +41,7 @@ const Deco = ({ children, show }: { children: string; show: boolean }) =>
     // prettier-ignore
     <span
         className={clsx(
-            "mb-[2px] text-[14px] font-medium leading-[14px] text-neutral-500 no-underline transition-all duration-150",
+            "mb-px text-[14px] font-mono font-medium leading-[14px] text-neutral-500 no-underline transition-all duration-150",
             show
                 ? children === "/"
                     ? "mr-[6px]"
@@ -78,51 +79,49 @@ export default function Header() {
     };
 
     useEffect(() => {
-        const handleScroll = () => {
+        const handleNavScroll = () => {
             if (!scrollRef.current) return;
 
             const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
             const isScrollable = scrollWidth > clientWidth;
 
-            setShowRightFade(isScrollable && scrollLeft < scrollWidth - clientWidth - 1);
+            setShowRightFade(
+                isScrollable && scrollLeft < scrollWidth - clientWidth - 1,
+            );
             setShowLeftFade(isScrollable && scrollLeft > 0);
         };
 
         const scrollElement = scrollRef.current;
         if (scrollElement) {
-            handleScroll();
-            scrollElement.addEventListener("scroll", handleScroll);
-            window.addEventListener("resize", handleScroll);
+            handleNavScroll();
+            scrollElement.addEventListener("scroll", handleNavScroll);
+            window.addEventListener("resize", handleNavScroll);
 
             return () => {
-                scrollElement.removeEventListener("scroll", handleScroll);
-                window.removeEventListener("resize", handleScroll);
+                scrollElement.removeEventListener("scroll", handleNavScroll);
+                window.removeEventListener("resize", handleNavScroll);
             };
         }
     }, []);
 
     return (
-        <div
-            className={clsx(
-                "z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center sm:mt-0",
-            )}
-        >
+        <div className="header-mask sticky top-0 z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center sm:mt-0">
             <div
                 className={clsx(
-                    "mx-6 flex w-full max-w-screen-lg flex-1 flex-row items-center sm:mx-6",
+                    "mx-6 flex w-full max-w-screen-lg flex-1 flex-row items-center sm:mx-7",
                 )}
             >
                 <div className="relative w-full">
                     <div
                         className={clsx(
-                            "pointer-events-none absolute left-0 top-0 z-[60] h-full w-12 bg-gradient-to-r from-white to-transparent transition-opacity duration-300 dark:from-black sm:hidden",
+                            "pointer-events-none absolute left-0 top-0 z-[60] h-full w-6 bg-gradient-to-r from-white to-transparent transition-opacity duration-300 dark:from-black sm:hidden sm:w-12",
                             showLeftFade ? "opacity-100" : "opacity-0",
                         )}
                     />
 
                     <div
                         className={clsx(
-                            "pointer-events-none absolute right-0 top-0 z-[60] h-full w-12 bg-gradient-to-l from-white to-transparent transition-opacity duration-300 dark:from-black sm:hidden",
+                            "pointer-events-none absolute right-0 top-0 z-[60] h-full w-6 bg-gradient-to-l from-white to-transparent transition-opacity duration-300 dark:from-black sm:hidden sm:w-12",
                             showRightFade ? "opacity-100" : "opacity-0",
                         )}
                     />
@@ -131,9 +130,17 @@ export default function Header() {
                         ref={scrollRef}
                         className="no-scrollbar relative z-[55] flex w-full items-start justify-start overflow-x-scroll py-4"
                     >
-                        <div className="shrink-0 sm:hidden" style={{ width: "24px" }}/>
+                        <div
+                            className="shrink-0 sm:hidden"
+                            style={{ width: "24px" }}
+                        />
 
-                        <div className="inline-flex w-full flex-row items-center justify-between sm:justify-center sm:gap-x-5">
+                        <motion.div
+                            className="inline-flex w-full flex-row items-center justify-between sm:justify-center sm:gap-x-5"
+                            initial={{ opacity: 0, y: -18 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                        >
                             <div className="duration-50 hidden h-full items-center justify-center transition-transform hover:scale-[1.1] active:scale-100 sm:flex">
                                 <Link
                                     href="/"
@@ -144,7 +151,7 @@ export default function Header() {
                                         width={32}
                                         height={32}
                                         alt="Home"
-                                        className="-ml-1 h-8 translate-y-[1px] rounded-[5px] object-contain invert dark:mr-0 dark:rounded-none dark:invert-0"
+                                        className="-ml-1.5 h-8 translate-y-[1px] rounded-[5px] object-contain invert dark:mr-0 dark:rounded-none dark:invert-0"
                                     />
                                 </Link>
                             </div>
@@ -203,9 +210,12 @@ export default function Header() {
                                     <ThemeToggle />
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className="shrink-0 sm:hidden" style={{ width: "2.4rem" }}/>
+                        <div
+                            className="shrink-0 sm:hidden"
+                            style={{ width: "2.4rem" }}
+                        />
                     </div>
                 </div>
             </div>
@@ -237,10 +247,10 @@ export function Footer() {
                             </a>
                         </div>
                     </div>
-                    <div className="sm:hidden">
+                    <div className="order-1 lg:hidden">
                         <Socials isHome={false} />
                     </div>
-                    <div className="w-full justify-center text-center sm:order-1 sm:w-auto sm:justify-start">
+                    <div className="order-2 w-full justify-center text-center sm:w-auto sm:justify-start">
                         <COPYRIGHT />
                     </div>
                 </div>

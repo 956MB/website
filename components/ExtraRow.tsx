@@ -62,7 +62,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                 >
                                     <a
                                         className={clsx(
-                                            "duration-50 group relative flex select-none flex-col justify-end overflow-hidden bg-gradient-to-t from-white/10 to-transparent object-cover saturate-0 backdrop-blur-sm transition-all ease-linear group-hover:saturate-100 sm:backdrop-blur-none",
+                                            "duration-50 group relative flex select-none flex-col justify-end overflow-hidden object-cover saturate-0 backdrop-blur-sm transition-opacity ease-linear lg:border border-transparent dark:group-hover:border-o0 group-hover:border-p0 group-hover:saturate-100 sm:backdrop-blur-none",
                                             item.link && " cursor-pointer",
                                             item.items?.[0].saturation ===
                                                 true && "saturate-100",

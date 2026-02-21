@@ -10,6 +10,7 @@ const nextConfig = {
                 hostname: "img.956mb.com",
             },
         ],
+        qualities: [75, 85, 100],
         formats: ["image/avif", "image/webp"],
     },
     redirects() {
@@ -39,7 +40,7 @@ const ContentSecurityPolicy = `
     script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
     style-src 'self' 'unsafe-inline';
     img-src * blob: data:;
-    media-src 'self' https://956mb.com;
+    media-src 'self' https://956mb.com https://img.956mb.com;
     connect-src *;
     font-src 'self';
 `;

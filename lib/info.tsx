@@ -1,4 +1,4 @@
-import { hl, imgBase } from "./util";
+import { a, hl, imgBase } from "./util";
 
 export { imgBase };
 export const name = "Alexander Bays";
@@ -45,9 +45,9 @@ export const about_email = `<a class="p-link" rel="noopener noreferrer" target="
 
 export const bio_p = `my self-taught skills journey started around 2010, initially focusing on graphic design and learning ${hl("Photoshop")}, doing mostly minor freelance work. in ${hl("2018")}, a computer engineer friend introduced me to programming, and it quickly became my passion. when i'm not working on the long list of projects, i'm slowly learning languages like ${hl("한국어")} or ${hl("Finnish")}, and i'm thinking up / drawing new "languages" on ${hl("Reddit")}.`;
 
-export const languages_p = `in addition to loving ${hl("Swift")} (and ${hl("SwiftUI")}) for Apple products, i've worked a lot with both ${hl("JavaScript")} / ${hl("TypeScript")} to make desktop apps and websites in & ${hl("React")} (this website), and i'm most recently exploring languages like ${hl("Lua")} and ${hl("C/C++")} for things like ${hl("Neovim")} plugins and ${hl("Flipper Zero")} / <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://github.com/Next-Flip/Momentum-Firmware">Momentum Firmware</a> development. and of course wrapping my head around ${hl("Rust")} remains a struggle.`;
+export const languages_p = `i love ${hl("Swift")} (and ${hl("SwiftUI")}) for Apple app experiments like ${a("https://github.com/956MB/2048WE", "2048WE")} and ${a("https://github.com/956MB/TDB", "TDB")}, and i've leaned heavily on ${hl("JavaScript")} / ${hl("TypeScript")} for desktop apps and web projects like ${a("https://github.com/956MB/reddit-download-button", "Reddit Download Buttons")}, plus ${hl("React")} for this site. ${hl("Lua")} shows up in my ${a("https://github.com/956MB/ncks.nvim", "Neovim")} plugins, while ${hl("C/C++")} is for ${hl("Flipper Zero")} / ${a("https://github.com/Next-Flip/Momentum-Firmware", "Momentum Firmware")} work. ${hl("Python")} is still my main language for coding problems (${a("https://github.com/956MB/AoC", "AoC")}, ${a("https://github.com/956MB/Kata", "Kata")}), and of course wrapping my head around ${hl("Rust")} remains a struggle.`;
 
-export const tools_p = `every frontend / design project starts in & ${hl("Figma")}, ${hl("Photoshop")} or ${hl("Illustrator")}, and all code is written in either ${hl("Neovim")} (${hl("ghostty")}), ${hl("VSCode")} or ${hl("Xcode")} (depending on my interest at the moment or which is best for the job). i also get way too distracted with my <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://github.com/956MB/dotfiles">dotfiles</a>.`;
+export const tools_p = `most${hl("*")} frontend / design project starts in & ${hl("Figma")}, ${hl("Photoshop")} or ${hl("Illustrator")} (recently with the ${a("https://momentum-fw.dev", "momentum-fw.dev")} redesign), and code lands in either ${hl("Neovim")} (${hl("ghostty")}), ${hl("VSCode")} or ${hl("Xcode")} depending on the project. i also get way too distracted with my ${a("https://github.com/956MB/dotfiles", "dotfiles")}.`;
 
 export const neography_t = "scripts & conlangs (eventually)";
 

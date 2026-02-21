@@ -43,7 +43,7 @@ function PhotoCol({
                                 duration: 0.5,
                                 delay: randomDelays[photoIndex],
                             }}
-                            className="group relative w-full cursor-pointer overflow-hidden"
+                            className="group relative w-full cursor-pointer overflow-hidden lg:border border-transparent dark:hover:border-o0 hover:border-p0"
                             onClick={() => onPhotoClick(photoIndex)}
                         >
                             <div

@@ -10,6 +10,14 @@ export const hl = function (text: string) {
     return `<span class='large-highlight'>${text}</span>`;
 };
 
+export const a = function (
+    href: string,
+    text: string,
+    className: string = "p-link large-highlight",
+) {
+    return `<a class="${className}" rel="noopener noreferrer" target="_blank" href="${href}">${text}</a>`;
+};
+
 export function imgUrl(path: string): string {
     if (path.startsWith("http")) {
         return path;

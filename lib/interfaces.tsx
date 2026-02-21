@@ -32,6 +32,7 @@ export interface IEntry {
     groups?: string[];
     linkBlog?: string;
     thumbnail?: IEntryItem;
+    altThumb?: boolean;
     items?: IEntryItem[];
     references?: IReference[];
 }

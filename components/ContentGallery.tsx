@@ -394,18 +394,6 @@ export default function ContentGallery({
         <div className="flex h-full w-full max-w-screen-lg flex-col items-center overflow-visible">
             <div className="w-full px-2 sm:px-0">
                 <div className="flex flex-col items-start">
-                    <Link
-                        href={backLink ?? "/"}
-                        className="mb-2 flex flex-row items-center gap-2 text-neutral-500 hover:text-p0 dark:hover:text-o0"
-                    >
-                        {FiArrowLeft({
-                            className: "h-5 w-5",
-                        })}
-                        <span className="font-mono text-sm leading-none">
-                            Back
-                        </span>
-                    </Link>
-
                     <GroupHeader
                         entry={{
                             title: entry.title,
@@ -460,7 +448,7 @@ export default function ContentGallery({
             {entry.items && entry.items.length > 1 && (
                 <>
                     <div className="w-full">
-                        <div className="grid grid-cols-2 gap-3 px-0.5 pb-0.5 sm:grid-cols-8 lg:px-0">
+                        <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 px-0.5 pb-0.5 xl:grid-cols-10 lg:px-0">
                             {entry.items?.map((content, idx) => (
                                 <div
                                     key={idx}

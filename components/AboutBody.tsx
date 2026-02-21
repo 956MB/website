@@ -91,7 +91,7 @@ export function AboutBody() {
             >
                 <div className="flex w-full flex-col items-center overflow-x-auto border-t border-dotted border-neutral-200 py-10 dark:border-neutral-800">
                     <Markdown
-                        className="text-right text-sm leading-4 text-black saturate-0 dark:invert"
+                        className="text-right text-sm leading-4 text-black dark:invert"
                         components={{
                             code(props) {
                                 const { children, className, ...rest } = props;

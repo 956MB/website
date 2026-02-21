@@ -56,7 +56,7 @@ export function ProjectRow({
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className={clsx(
-                "group flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[4px] sm:gap-y-[6px] lg:flex-row",
+                "group flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[2px] lg:gap-y-[6px] lg:flex-row",
                 isFamily && "is-family-hovered",
             )}
         >
@@ -67,7 +67,7 @@ export function ProjectRow({
                 )}
             >
                 {entry.date && !isChild && (
-                    <div className="relative mr-3 hidden h-full sm:block lg:w-10 lg:flex-shrink-0 lg:pt-1">
+                    <div className="relative mr-3 hidden h-full lg:block lg:w-10 lg:flex-shrink-0 lg:pt-1">
                         <span
                             className={clsx(
                                 "absolute font-mono text-sm leading-5 text-neutral-700 transition-opacity duration-150 ease-in-out dark:font-mono dark:text-neutral-350",
@@ -92,7 +92,7 @@ export function ProjectRow({
                     </div>
                 )}
                 {isChild && (
-                    <div className="relative mr-3 hidden sm:block lg:w-10 lg:flex-shrink-0" />
+                    <div className="relative mr-3 hidden lg:block lg:w-10 lg:flex-shrink-0" />
                 )}
                 <div
                     className={clsx(
@@ -102,7 +102,7 @@ export function ProjectRow({
                 >
                     <div
                         className={clsx(
-                            "mt-[7px] h-[8px] w-[8px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] is-family-hovered:w-[7px] sm:mt-0 lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
+                            "mt-[7px] h-[8px] w-[8px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] is-family-hovered:w-[7px] lg:mt-0 lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
                             getLangColor(entry.lang) ||
                                 "bg-neutral-200 dark:bg-neutral-800",
                             getLangColor(entry.lang, "group-hover:"),
@@ -240,7 +240,7 @@ export default function ProjectSection({
 
             <motion.div
                 variants={itemVariants}
-                className="flex w-full flex-col items-center justify-center gap-y-3 py-3.5 lg:gap-y-0"
+                className="flex w-full flex-col items-center justify-center gap-y-4 py-3.5 lg:gap-y-0"
             >
                 {flatRows.map((item) => {
                     return (

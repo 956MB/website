@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { IEntryGroup } from "lib/interfaces";
+import { IEntry, IEntryGroup, IEntryItem } from "lib/interfaces";
 import {
     containerVariants,
     generateRandomDelays,
@@ -85,6 +85,151 @@ function getRadius(
     };
 }
 
+function DesignItem({
+    item,
+    cornerRadius,
+    pathname,
+    delay,
+}: {
+    item: IEntry;
+    cornerRadius: ReturnType<typeof getRadius>;
+    pathname: string;
+    delay: number;
+}) {
+    const [hoverThumb, setHoverThumb] = useState<IEntryItem | null>(null);
+
+    const thumbSrc = item.thumbnail
+        ? item.thumbnail.path
+        : item.items
+          ? item.items[0].path
+          : "";
+    const thumbWidth = item.thumbnail
+        ? item.thumbnail.width
+        : item.items
+          ? item.items[0].width
+          : 0;
+    const thumbHeight = item.thumbnail
+        ? item.thumbnail.height
+        : item.items
+          ? item.items[0].height
+          : 0;
+
+    const handleMouseEnter = () => {
+        if (item.altThumb === false || !item.items || item.items.length <= 1)
+            return;
+        const thumbPath = item.thumbnail
+            ? item.thumbnail.path
+            : item.items[0].path;
+        const candidates = item.items.filter((i) => i.path !== thumbPath);
+        if (candidates.length === 0) return;
+        const picked =
+            candidates[Math.floor(Math.random() * candidates.length)];
+        setHoverThumb(picked);
+    };
+
+    const handleMouseLeave = () => {
+        setHoverThumb(null);
+    };
+
+    return (
+        <motion.div
+            variants={itemVariants}
+            transition={{ duration: 0.5, delay }}
+            id={item.id}
+            className={clsx(
+                "group relative z-0 box-content flex flex-col justify-start saturate-0 hover:saturate-100",
+                "aspect-square",
+            )}
+            style={cornerRadius.style}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            <Link
+                className="group relative flex flex-col justify-end"
+                href={
+                    item.linkBlog
+                        ? item.linkBlog
+                        : item.items && item.items.length > 0
+                          ? `${pathname}/${item.id}`
+                          : "#"
+                }
+            >
+                <div
+                    className={clsx(
+                        "relative aspect-square w-full bg-neutral-100 dark:bg-neutral-900",
+                        cornerRadius.className,
+                    )}
+                    style={cornerRadius.style}
+                >
+                    <Image
+                        alt={item.id}
+                        className={clsx(
+                            "block aspect-square h-full w-full select-none object-cover transition-opacity duration-200 ease-in-out",
+                            (item.items || item.linkBlog) && "!cursor-pointer",
+                            hoverThumb && "opacity-0",
+                        )}
+                        src={thumbSrc}
+                        width={thumbWidth}
+                        height={thumbHeight}
+                        loading="eager"
+                        unoptimized={true}
+                    />
+                    {hoverThumb && (
+                        <Image
+                            alt={item.id}
+                            className={clsx(
+                                "absolute inset-0 block aspect-square h-full w-full select-none object-cover transition-opacity duration-200 ease-in-out",
+                                (item.items || item.linkBlog) &&
+                                    "!cursor-pointer",
+                            )}
+                            src={hoverThumb.path}
+                            width={hoverThumb.width}
+                            height={hoverThumb.height}
+                            loading="eager"
+                            unoptimized={true}
+                        />
+                    )}
+                </div>
+            </Link>
+            <div
+                className={clsx(
+                    "pointer-events-none absolute bottom-0 z-10 flex h-1/2 w-full flex-col justify-end gap-y-2 border-transparent bg-gradient-to-t from-black/80 to-black/0 px-2 py-3 text-start opacity-100 group-hover:border-p0 group-hover:opacity-100 dark:group-hover:border-o0 sm:h-full sm:justify-center sm:from-black/80 sm:to-black/20 sm:transition-opacity sm:duration-200 lg:border lg:py-4 lg:opacity-0",
+                    item.category === "photoshop" && "pl-4 pr-4",
+                    item.summary &&
+                        item.summary.length <= 0 &&
+                        "h-[53px] max-h-[53px] min-h-[53px]",
+                )}
+                style={cornerRadius.style}
+            >
+                <div
+                    className={clsx(
+                        "flex flex-row items-center justify-start gap-2 overflow-hidden sm:flex-col sm:justify-center lg:gap-1",
+                        item.category === "photoshop" && "gap-x-3",
+                    )}
+                >
+                    <span
+                        className={clsx(
+                            "pointer-events-none select-none text-center font-pixel-square text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
+                        )}
+                    >
+                        {item.title}
+                    </span>
+
+                    {item.date && (
+                        <span
+                            className={
+                                "pointer-events-none select-none text-center font-mono text-sm text-white/70 sm:w-full sm:leading-5 lg:mb-2"
+                            }
+                        >
+                            {item.date}
+                        </span>
+                    )}
+                </div>
+            </div>
+        </motion.div>
+    );
+}
+
 export default function DesignRow({
     entry,
     noHeader,
@@ -133,117 +278,13 @@ export default function DesignRow({
                         );
 
                         return (
-                            <motion.div
+                            <DesignItem
                                 key={item.id}
-                                variants={itemVariants}
-                                transition={{
-                                    duration: 0.5,
-                                    delay: randomDelays[i],
-                                }}
-                                id={item.id}
-                                className={clsx(
-                                    "group relative z-0 box-content flex flex-col justify-start saturate-0 hover:saturate-100",
-                                    "aspect-square",
-                                )}
-                                style={cornerRadius.style}
-                            >
-                                {item.new === true && (
-                                    <div className="absolute right-2 top-2 z-20 m-0 flex flex-row items-center justify-center gap-1 rounded-full bg-black/50 backdrop-blur-lg">
-                                        <span className="cursor-default rounded-full border border-white/20 px-[7px] pb-[5px] pt-[6px] text-[12px] font-medium leading-[12px] text-white/90">
-                                            {"NEW"}
-                                        </span>
-                                    </div>
-                                )}
-
-                                <Link
-                                    className="group relative flex flex-col justify-end"
-                                    href={
-                                        item.linkBlog
-                                            ? item.linkBlog
-                                            : item.items &&
-                                                item.items.length > 0
-                                              ? `${pathname}/${item.id}`
-                                              : "#"
-                                    }
-                                >
-                                    <div
-                                        className={clsx(
-                                            "relative aspect-square w-full bg-neutral-100 dark:bg-neutral-900",
-                                            cornerRadius.className,
-                                        )}
-                                        style={cornerRadius.style}
-                                    >
-                                        <Image
-                                            alt={item.id}
-                                            className={clsx(
-                                                "block aspect-square h-full w-full select-none object-cover transition-transform duration-75 ease-in-out hover:scale-105",
-                                                (item.items || item.linkBlog) &&
-                                                    "!cursor-pointer",
-                                            )}
-                                            src={
-                                                item.thumbnail
-                                                    ? item.thumbnail.path
-                                                    : item.items
-                                                      ? item.items[0].path
-                                                      : ""
-                                            }
-                                            width={
-                                                item.thumbnail
-                                                    ? item.thumbnail.width
-                                                    : item.items
-                                                      ? item.items[0].width
-                                                      : 0
-                                            }
-                                            height={
-                                                item.thumbnail
-                                                    ? item.thumbnail.height
-                                                    : item.items
-                                                      ? item.items[0].height
-                                                      : 0
-                                            }
-                                            loading="eager"
-                                            unoptimized={true}
-                                        />
-                                    </div>
-                                </Link>
-                                <div
-                                    className={clsx(
-                                        "pointer-events-none absolute bottom-0 z-10 flex h-1/2 w-full flex-col justify-end gap-y-2 bg-gradient-to-t from-black/80 to-black/0 px-2 py-3 text-start opacity-100 group-hover:opacity-100 sm:h-full sm:justify-center sm:from-black/80 sm:to-black/20 sm:transition-opacity sm:duration-200 lg:py-4 lg:opacity-0",
-                                        item.category === "photoshop" &&
-                                            "pl-4 pr-4",
-                                        item.summary &&
-                                            item.summary.length <= 0 &&
-                                            "h-[53px] max-h-[53px] min-h-[53px]",
-                                    )}
-                                    style={cornerRadius.style}
-                                >
-                                    <div
-                                        className={clsx(
-                                            "flex flex-row items-center justify-start gap-2 overflow-hidden sm:flex-col sm:justify-center lg:gap-1",
-                                            item.category === "photoshop" &&
-                                                "gap-x-3",
-                                        )}
-                                    >
-                                        <span
-                                            className={clsx(
-                                                "pointer-events-none select-none text-center font-pixel-square text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
-                                            )}
-                                        >
-                                            {item.title}
-                                        </span>
-
-                                        {item.date && (
-                                            <span
-                                                className={
-                                                    "pointer-events-none select-none text-center font-mono text-sm text-white/70 sm:w-full sm:leading-5 lg:mb-2"
-                                                }
-                                            >
-                                                {item.date}
-                                            </span>
-                                        )}
-                                    </div>
-                                </div>
-                            </motion.div>
+                                item={item}
+                                cornerRadius={cornerRadius}
+                                pathname={pathname}
+                                delay={randomDelays[i]}
+                            />
                         );
                     })}
                 </motion.div>
