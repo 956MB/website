@@ -3,12 +3,11 @@
 import clsx from "clsx";
 import { IEntry } from "lib/interfaces";
 import Image from "next/image";
-import Link from "next/link";
 import { TouchEvent, useCallback, useEffect, useRef, useState } from "react";
 import {
-    FiArrowLeft,
     FiChevronLeft,
     FiChevronRight,
+    FiExternalLink,
     FiMaximize,
     FiMinimize,
 } from "react-icons/fi";
@@ -56,10 +55,10 @@ function NavigationButtons({
     onToggleFullscreen: () => void;
 }) {
     const sizeClasses = isFullscreen
-        ? "h-8 w-8 sm:h-10 sm:w-10"
-        : "h-8 w-8 sm:h-9 sm:w-9";
-    const iconSizeClasses = isFullscreen ? "h-5 w-5" : "h-5 w-5";
-    const fullscreenIconSize = isFullscreen ? "h-5 w-5" : "h-4 w-4";
+        ? "h-8 w-8 sm:h-9 sm:w-9"
+        : "h-8 w-8 sm:h-8 sm:w-8";
+    const iconSizeClasses = isFullscreen ? "h-4 w-4" : "h-4 w-4";
+    const fullscreenIconSize = isFullscreen ? "h-4 w-4" : "h-3.5 w-3.5";
 
     return (
         <>
@@ -219,7 +218,7 @@ function MediaContent({
 
 export default function ContentGallery({
     entry,
-    backLink,
+    _backLink,
     fullscreenOnly = false,
     isOpen,
     onCloseAction,
@@ -227,7 +226,7 @@ export default function ContentGallery({
     onIndexChangeAction,
 }: {
     entry: IEntry;
-    backLink?: string;
+    _backLink?: string;
     fullscreenOnly?: boolean;
     isOpen?: boolean;
     onCloseAction?: () => void;
@@ -366,6 +365,32 @@ export default function ContentGallery({
                 onTouchEnd={handleTouchEnd}
             >
                 <div className="absolute right-3 top-3 z-[10000] flex gap-2">
+                    {entry.link && (
+                        <a
+                            href={entry.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="group flex h-8 items-center gap-1.5 rounded-lg border border-neutral-200 bg-white/90 px-2.5 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90 sm:h-9 sm:gap-2"
+                            aria-label="View on Lightroom"
+                        >
+                            <span className="text-[13px] font-normal text-neutral-600 group-hover:text-p0 dark:text-neutral-500 dark:group-hover:text-o0">
+                                {(() => {
+                                    const cleanUrl = entry.link.replace(
+                                        /^https?:\/\//,
+                                        "",
+                                    );
+                                    return cleanUrl.length >= 40
+                                        ? cleanUrl.substring(0, 40) + "..."
+                                        : cleanUrl;
+                                })()}
+                            </span>
+                            {FiExternalLink({
+                                className:
+                                    "h-3.5 w-3.5 flex-shrink-0 text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
+                            })}
+                        </a>
+                    )}
                     <NavigationButtons
                         selectedIdx={selectedIdx}
                         imagesCount={imagesCount}
@@ -448,7 +473,7 @@ export default function ContentGallery({
             {entry.items && entry.items.length > 1 && (
                 <>
                     <div className="w-full">
-                        <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 px-0.5 pb-0.5 xl:grid-cols-10 lg:px-0">
+                        <div className="grid grid-cols-3 gap-3 px-0.5 pb-0.5 sm:grid-cols-5 lg:px-0 xl:grid-cols-10">
                             {entry.items?.map((content, idx) => (
                                 <div
                                     key={idx}
@@ -519,6 +544,33 @@ export default function ContentGallery({
                     onClick={() => setIsFullscreen(false)}
                 >
                     <div className="absolute right-3 top-3 z-[10000] flex gap-2">
+                        {entry.link && (
+                            <a
+                                href={entry.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="group flex h-8 items-center gap-1.5 rounded-lg border border-neutral-200 bg-white/90 px-2.5 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90 sm:h-9 sm:gap-2 sm:px-3"
+                                title={entry.link}
+                                aria-label="View on Lightroom"
+                            >
+                                {FiExternalLink({
+                                    className:
+                                        "h-4 w-4 flex-shrink-0 text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
+                                })}
+                                <span className="text-[13px] font-medium !lowercase text-neutral-600 group-hover:text-p0 dark:text-neutral-400 dark:group-hover:text-o0 sm:text-sm">
+                                    {(() => {
+                                        const cleanUrl = entry.link.replace(
+                                            /^https?:\/\//,
+                                            "",
+                                        );
+                                        return cleanUrl.length >= 40
+                                            ? cleanUrl.substring(0, 40) + "..."
+                                            : cleanUrl;
+                                    })()}
+                                </span>
+                            </a>
+                        )}
                         <NavigationButtons
                             selectedIdx={selectedIdx}
                             imagesCount={imagesCount}

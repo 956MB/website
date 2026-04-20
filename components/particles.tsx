@@ -35,6 +35,7 @@ export default function Particles({
     const canvasContainerRef = useRef<HTMLDivElement>(null);
     const context = useRef<CanvasRenderingContext2D | null>(null);
     const circles = useRef<Circle[]>([]);
+    const rafRef = useRef<number>(0);
     const mousePosition = useMousePosition();
     const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
     const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
@@ -50,6 +51,7 @@ export default function Particles({
 
         return () => {
             window.removeEventListener("resize", initCanvas);
+            cancelAnimationFrame(rafRef.current);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -238,7 +240,7 @@ export default function Particles({
                 );
             }
         });
-        window.requestAnimationFrame(animate);
+        rafRef.current = window.requestAnimationFrame(animate);
     };
 
     return (

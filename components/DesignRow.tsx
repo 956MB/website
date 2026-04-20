@@ -137,7 +137,7 @@ function DesignItem({
             transition={{ duration: 0.5, delay }}
             id={item.id}
             className={clsx(
-                "group relative z-0 box-content flex flex-col justify-start saturate-0 hover:saturate-100",
+                "group relative z-0 box-content flex flex-col justify-start uppercase saturate-0 hover:saturate-100",
                 "aspect-square",
             )}
             style={cornerRadius.style}
@@ -209,7 +209,7 @@ function DesignItem({
                 >
                     <span
                         className={clsx(
-                            "pointer-events-none select-none text-center font-pixel-square text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-xl sm:leading-5 lg:whitespace-normal",
+                            "font-pixel-square pointer-events-none select-none text-center text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-base sm:leading-5 lg:whitespace-normal",
                         )}
                     >
                         {item.title}
@@ -266,7 +266,7 @@ export default function DesignRow({
                     initial="initial"
                     animate="animate"
                     className={clsx(
-                        "grid w-full grid-cols-1 items-start justify-center gap-px sm:grid-cols-2 md:grid-cols-3",
+                        "grid w-full grid-cols-1 items-start justify-center gap-2 sm:grid-cols-2 md:grid-cols-3",
                         "min-h-0",
                     )}
                 >

@@ -3,13 +3,13 @@
 import clsx from "clsx";
 import ContentGallery from "components/ContentGallery";
 import { motion } from "framer-motion";
+import { name } from "lib/info";
 import { IEntry } from "lib/interfaces";
 import {
     containerVariants,
     generateRandomDelays,
     itemVariants,
 } from "lib/util";
-import { name } from "lib/info";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -43,7 +43,7 @@ function PhotoCol({
                                 duration: 0.5,
                                 delay: randomDelays[photoIndex],
                             }}
-                            className="group relative w-full cursor-pointer overflow-hidden lg:border border-transparent dark:hover:border-o0 hover:border-p0"
+                            className="group relative w-full cursor-pointer overflow-hidden border-transparent hover:border-p0 dark:hover:border-o0 lg:border"
                             onClick={() => onPhotoClick(photoIndex)}
                         >
                             <div
@@ -82,11 +82,15 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
         [photos.length],
     );
 
-    const allPhotosEntry : IEntry = {
-        id: "all-photos",
-        title: "Photography",
-        items: photos.flatMap((photo) => photo.items || []),
-    };
+    const allPhotosEntry = useMemo<IEntry>(
+        () => ({
+            id: "all-photos",
+            title: "Photography",
+            items: photos.flatMap((photo) => photo.items || []),
+            link: photos[selectedPhotoIndex]?.link,
+        }),
+        [photos, selectedPhotoIndex],
+    );
 
     useEffect(() => {
         const photoId = searchParams.get("photo");
@@ -124,13 +128,13 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
 
     return (
         <>
-            <div className="flex w-full flex-col flex-wrap items-center max-w-screen-lg justify-start mx-6 pb-2 sm:mx-7 sm:pb-10 lg:pt-5">
+            <div className="mx-6 flex w-full max-w-screen-lg flex-col flex-wrap items-center justify-start pb-2 sm:mx-7 sm:pb-10 lg:pt-5">
                 <div className="relative flex w-full flex-col flex-wrap items-center justify-center gap-y-0 lg:pt-9">
                     <motion.div
                         variants={containerVariants}
                         initial="initial"
                         animate="animate"
-                        className="grid w-full grid-cols-1 lg:grid-cols-2 gap-3"
+                        className="grid w-full grid-cols-1 gap-3 lg:grid-cols-2"
                     >
                         <PhotoCol
                             photos={photos}

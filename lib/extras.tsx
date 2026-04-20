@@ -82,7 +82,7 @@ const icons = [
         [item("/images/extras/icons/adobe-ps-1.png", 1024, 1024)],
         {
             summary: [
-                `variant Rosetta style icons for various Adobe applications (${hl("Photoshop")}, ${hl("Illustrator")}, ${hl("Bridge")}, ${hl("InDesign")}, ${hl("Audition")}). made by me.`,
+                `variant Rosetta style icons for various Adobe applications (${hl("Ps")}, ${hl("Ai")}, ${hl("Br")}, ${hl("Id")}, ${hl("Au")}). made by me.`,
             ],
             link: "https://store.956mb.com/l/adobe-rosetta-icons",
         },

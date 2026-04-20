@@ -62,6 +62,12 @@
     );
 }
 
+@supports (font-size-adjust: 1) {
+    .font-degular {
+        font-size-adjust: 0.52;
+    }
+}
+
 html,
 body {
     background-color: var(--bg);
@@ -73,6 +79,8 @@ body {
     overflow-y: auto;
     color: var(--text-primary);
     overscroll-behavior-y: contain;
+    /* text-transform: uppercase; */
+    @apply tracking-tight;
 }
 
 hr {
@@ -107,11 +115,11 @@ hr {
 }
 
 ::selection {
-    @apply bg-[#9759aea2] text-black dark:bg-[#FF8200];
+    @apply bg-[#9759aea2] text-black !decoration-black dark:bg-[#FF8200];
 }
 
 ::-moz-selection {
-    @apply bg-[#9759AE] text-black dark:bg-[#FF8200];
+    @apply bg-[#9759AE] text-black !decoration-black dark:bg-[#FF8200];
 }
 
 .noselect {
@@ -171,18 +179,21 @@ hr {
 }
 
 .large-highlight {
-    @apply font-bold not-italic;
+    @apply font-semibold not-italic;
     color: var(--text-primary);
+    font-size-adjust: 0.52;
 }
 
 .name-highlight {
-    @apply font-pixel-circle not-italic;
+    @apply font-degular not-italic;
     color: var(--text-primary) !important;
-    font-size: 2.3rem !important;
+    font-size: 1.4rem !important;
+    font-size-adjust: 0.52;
 }
 
 .p-link {
-    @apply font-bold not-italic text-black underline transition-colors duration-150 hover:text-p0 dark:text-white dark:hover:text-o0;
+    font-size-adjust: 0.52;
+    @apply font-semibold not-italic text-black underline transition-colors duration-150 hover:text-p0 dark:text-white dark:hover:text-o0;
 }
 
 .cls-1 {

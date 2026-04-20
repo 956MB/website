@@ -34,7 +34,7 @@ export default function GroupHeader({
 
     return (
         <motion.div
-            className={`top-0 z-50 m-0 flex w-full max-w-screen-xl flex-col items-start justify-center py-3`}
+            className={`top-0 z-50 m-0 flex w-full max-w-screen-xl flex-col items-start justify-center py-3 uppercase`}
             variants={headerVariants}
             initial="initial"
             animate="animate"
@@ -45,7 +45,7 @@ export default function GroupHeader({
                     header ? "gap-3.5" : "gap-1.5",
                 )}
             >
-                <span className="whitespace-normal align-baseline font-pixel-square text-[26px] font-medium leading-6 text-neutral-900 dark:text-white sm:whitespace-nowrap">
+                <span className="whitespace-normal align-baseline font-degular text-xl font-medium leading-6 !tracking-tighter text-neutral-900 dark:text-white sm:whitespace-nowrap">
                     {titleLink ? (
                         <a
                             href={titleLink}
@@ -68,7 +68,7 @@ export default function GroupHeader({
                 {!noDescription && entry.description && (
                     <span
                         className={clsx(
-                            "gallery-summary max-w-screen-lg font-pixel-square text-sm font-medium leading-5 text-neutral-600 dark:text-neutral-350",
+                            "gallery-summary max-w-screen-lg font-degular text-xs font-medium leading-4 text-neutral-600 dark:text-neutral-350",
                         )}
                     >
                         {parse(entry.description)}
@@ -90,7 +90,7 @@ export default function GroupHeader({
                                                 href={ref.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="whitespace-nowrap text-sm font-medium text-neutral-700 underline decoration-neutral-400 decoration-1 underline-offset-2 hover:text-p0 hover:decoration-p0 dark:text-neutral-300 dark:decoration-neutral-500 dark:hover:text-o0 dark:hover:decoration-o0"
+                                                className="whitespace-nowrap text-xs font-medium text-neutral-700 underline decoration-neutral-400 decoration-1 underline-offset-2 hover:text-p0 hover:decoration-p0 dark:text-neutral-300 dark:decoration-neutral-500 dark:hover:text-o0 dark:hover:decoration-o0"
                                             >
                                                 {ref.title}
                                             </a>
@@ -103,7 +103,7 @@ export default function GroupHeader({
                                     ) : (
                                         <Link
                                             href={ref.url}
-                                            className="whitespace-nowrap text-sm font-medium text-neutral-700 underline decoration-neutral-400 decoration-1 underline-offset-2 hover:text-p0 hover:decoration-p0 dark:text-neutral-300 dark:decoration-neutral-500 dark:hover:text-o0 dark:hover:decoration-o0"
+                                            className="whitespace-nowrap text-xs font-medium text-neutral-700 underline decoration-neutral-400 decoration-1 underline-offset-2 hover:text-p0 hover:decoration-p0 dark:text-neutral-300 dark:decoration-neutral-500 dark:hover:text-o0 dark:hover:decoration-o0"
                                         >
                                             {ref.title}
                                         </Link>
@@ -111,7 +111,7 @@ export default function GroupHeader({
                                     {idx <
                                         (itemEntry.references?.length ?? 0) -
                                             1 && (
-                                        <span className="ml-2 text-sm text-neutral-400 dark:text-neutral-500">
+                                        <span className="ml-2 text-xs text-neutral-400 dark:text-neutral-500">
                                             ·
                                         </span>
                                     )}

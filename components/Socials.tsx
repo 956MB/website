@@ -5,14 +5,14 @@ import { SiLinktree } from "react-icons/si";
 
 function socialIcon(iconType: string) {
     switch (iconType) {
-        case "x/twitter":
-            return FaXTwitter({ size: 18 });
+        case "/ twitter":
+            return FaXTwitter({ size: 16 });
         case "github":
-            return FaGithub({ size: 18 });
+            return FaGithub({ size: 16 });
         case "reddit":
-            return FaReddit({ size: 18 });
+            return FaReddit({ size: 16 });
         case "linktree":
-            return SiLinktree({ size: 18 });
+            return SiLinktree({ size: 16 });
         default:
             return null;
     }
@@ -42,7 +42,7 @@ function Social({ serv, url }: { serv: string; url: string }) {
                 </div>
             </div>
 
-            <span className="text-[14px] font-pixel-square lowercase leading-[14px] text-neutral-600 group-hover:text-p0 dark:text-white dark:group-hover:text-o0 transition-colors duration-150 lg:text-[15px]">
+            <span className="text-[12px] font-degular leading-[14px] text-neutral-600 group-hover:text-p0 dark:text-white dark:group-hover:text-o0 transition-colors duration-150">
                 {serv}
             </span>
         </a>
@@ -59,7 +59,7 @@ export default function Socials({
     return (
         <div
             className={clsx(
-                "flex flex-row items-center justify-end gap-y-3 text-[13px] leading-[13px] transition-all duration-75 sm:gap-5",
+                "flex flex-row items-center justify-end gap-y-3 text-[13px] leading-[13px] transition-all duration-75 sm:gap-4",
                 isHome
                     ? "flex-nowrap items-center justify-between gap-3"
                     : "flex-wrap items-center justify-start gap-3",

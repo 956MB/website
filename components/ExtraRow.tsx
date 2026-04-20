@@ -26,7 +26,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
     };
 
     return (
-        <div className="relative flex w-full flex-col flex-wrap items-center justify-center gap-y-0">
+        <div className="relative flex w-full flex-col flex-wrap items-center justify-center gap-y-0 uppercase">
             <GroupHeader
                 entry={entry}
                 noDescription={false}
@@ -62,7 +62,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                 >
                                     <a
                                         className={clsx(
-                                            "duration-50 group relative flex select-none flex-col justify-end overflow-hidden object-cover saturate-0 backdrop-blur-sm transition-opacity ease-linear lg:border border-transparent dark:group-hover:border-o0 group-hover:border-p0 group-hover:saturate-100 sm:backdrop-blur-none",
+                                            "duration-50 group relative flex select-none flex-col justify-end overflow-hidden border-transparent object-cover saturate-0 backdrop-blur-sm transition-opacity ease-linear group-hover:border-p0 group-hover:saturate-100 dark:group-hover:border-o0 sm:backdrop-blur-none lg:border",
                                             item.link && " cursor-pointer",
                                             item.items?.[0].saturation ===
                                                 true && "saturate-100",
@@ -120,14 +120,10 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 <div className="flex w-full flex-row items-center justify-start gap-1">
                                                     <a
                                                         className={clsx(
-                                                            "m-0 overflow-hidden text-ellipsis whitespace-nowrap font-pixel-square font-bold text-black transition-colors duration-100 hover:text-p0 dark:text-white dark:hover:text-o0",
-                                                            "block max-w-full",
+                                                            "m-0 overflow-hidden text-ellipsis whitespace-nowrap font-degular font-semibold text-black transition-colors duration-100 hover:text-p0 dark:text-white dark:hover:text-o0",
+                                                            "block max-w-full text-sm",
                                                             item.link &&
                                                                 "hover:underline group-hover:text-p0 dark:group-hover:text-o0",
-                                                            item.category ===
-                                                                "wallpaper"
-                                                                ? "text-base sm:text-lg"
-                                                                : "text-base",
                                                         )}
                                                         rel="noopener noreferrer"
                                                         target="_blank"
@@ -163,7 +159,7 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                                                 </div>
 
                                                 {item.summary && (
-                                                    <span className="entry-summary w-full font-pixel-square text-sm text-neutral-800 dark:text-neutral-350">
+                                                    <span className="entry-summary w-full font-degular text-xs leading-4 text-neutral-800 dark:text-neutral-350">
                                                         {parse(
                                                             (
                                                                 item.summary.join(

@@ -58,48 +58,28 @@ export function AboutBody() {
 
     return (
         <motion.div
-            className="mr-0 mt-6 w-full max-w-2xl flex-row items-center justify-center justify-items-center text-left lg:mt-0 lg:pt-6"
+            className="relative mr-0 flex min-h-[calc(100vh-260px)] w-full max-w-2xl flex-row items-center justify-center justify-items-center text-left uppercase"
             variants={containerVariants}
             initial="initial"
             animate="animate"
         >
-            <div className="m-0 mb-10 flex max-w-4xl flex-col flex-wrap items-start justify-center gap-y-5 pr-0 text-left sm:gap-y-7">
+            <div className="relative w-full">
                 <motion.div
                     variants={itemVariants}
-                    className="inline-flex flex-col items-start justify-center gap-y-5 sm:gap-y-6"
+                    className="pointer-events-none absolute -left-20 -top-20 flex w-full select-none flex-row items-start justify-start align-middle"
                 >
-                    <TextParagraph>{about_n}</TextParagraph>
-                    <div className="inline-flex flex-col items-start justify-center gap-y-1">
-                        <TextParagraph>{about_p}</TextParagraph>
-                        <TextParagraphSub>{about_email}</TextParagraphSub>
-                    </div>
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                    <TextParagraph>{bio_p}</TextParagraph>
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                    <TextParagraph>{languages_p}</TextParagraph>
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                    <TextParagraph>{tools_p}</TextParagraph>
-                </motion.div>
-            </div>
-
-            <motion.div
-                variants={itemVariants}
-                className="flex w-full flex-row items-center justify-center align-middle"
-            >
-                <div className="flex w-full flex-col items-center overflow-x-auto border-t border-dotted border-neutral-200 py-10 dark:border-neutral-800">
-                    <Markdown
-                        className="text-right text-sm leading-4 text-black dark:invert"
-                        components={{
-                            code(props) {
-                                const { children, className, ...rest } = props;
-                                const match = /language-(\w+)/.exec(
-                                    className || "",
-                                );
-                                // prettier-ignore
-                                return match ? (
+                    <div className="flex w-full flex-col items-start">
+                        <Markdown
+                            className="text-left text-sm leading-[1.05rem] text-black opacity-20 dark:opacity-25 dark:invert"
+                            components={{
+                                code(props) {
+                                    const { children, className, ...rest } =
+                                        props;
+                                    const match = /language-(\w+)/.exec(
+                                        className || "",
+                                    );
+                                    // prettier-ignore
+                                    return match ? (
                                     <SyntaxHighlighter
                                         {...rest}
                                         PreTag="div"
@@ -120,9 +100,9 @@ export function AboutBody() {
                                                 boxShadow: "none",
                                                 textShadow: "none",
                                                 padding: "0",
-                                                fontSize: "14px",
+                                                fontSize: "16px",
                                                 fontFamily: "monospace",
-                                                lineHeight: "1.05rem",
+                                                lineHeight: "1.15rem",
                                                 color: "black",
                                             },
                                             'code[class*="language-"]':
@@ -132,9 +112,9 @@ export function AboutBody() {
                                                 ],
                                                 fontFamily:
                                                     "monospace",
-                                                fontSize: "14px",
+                                                fontSize: "16px",
                                                 lineHeight:
-                                                    "1.05rem",
+                                                    "1.15rem",
                                                 color: "black",
                                                 border: 0,
                                                 borderRadius: 0,
@@ -153,13 +133,36 @@ export function AboutBody() {
                                         {children}
                                     </code>
                                 );
-                            },
-                        }}
+                                },
+                            }}
+                        >
+                            {markdown}
+                        </Markdown>
+                    </div>
+                </motion.div>
+
+                <div className="relative z-10 m-0 flex max-w-4xl flex-col flex-wrap items-start justify-center gap-y-5 pr-0 text-left sm:gap-y-7">
+                    <motion.div
+                        variants={itemVariants}
+                        className="inline-flex flex-col items-start justify-center gap-y-5 sm:gap-y-6"
                     >
-                        {markdown}
-                    </Markdown>
+                        <TextParagraph>{about_n}</TextParagraph>
+                        <div className="inline-flex flex-col items-start justify-center gap-y-1">
+                            <TextParagraph>{about_p}</TextParagraph>
+                            <TextParagraphSub>{about_email}</TextParagraphSub>
+                        </div>
+                    </motion.div>
+                    <motion.div variants={itemVariants}>
+                        <TextParagraph>{bio_p}</TextParagraph>
+                    </motion.div>
+                    <motion.div variants={itemVariants}>
+                        <TextParagraph>{languages_p}</TextParagraph>
+                    </motion.div>
+                    <motion.div variants={itemVariants}>
+                        <TextParagraph>{tools_p}</TextParagraph>
+                    </motion.div>
                 </div>
-            </motion.div>
+            </div>
         </motion.div>
     );
 }

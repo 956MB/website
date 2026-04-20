@@ -24,7 +24,7 @@ const navItems: {
 
 const COPYRIGHT = () => {
     return (
-        <span className="whitespace-nowrap font-pixel-square text-[14px] font-medium text-neutral-600 dark:text-neutral-400">
+        <span className="whitespace-nowrap font-degular text-[12px] font-medium text-neutral-600 dark:text-neutral-400">
             <a
                 href="/CC-BY-NC-SA-4.0"
                 target="_blank"
@@ -41,7 +41,7 @@ const Deco = ({ children, show }: { children: string; show: boolean }) =>
     // prettier-ignore
     <span
         className={clsx(
-            "mb-px text-[14px] font-mono font-medium leading-[14px] text-neutral-500 no-underline transition-all duration-150",
+            "mb-px text-[12px] font-mono font-medium leading-[14px] text-neutral-500 no-underline transition-all duration-150 mr-1",
             show
                 ? children === "/"
                     ? "mr-[6px]"
@@ -105,7 +105,7 @@ export default function Header() {
     }, []);
 
     return (
-        <div className="header-mask sticky top-0 z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center sm:mt-0">
+        <div className="header-mask sticky top-0 z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center uppercase sm:mt-0">
             <div
                 className={clsx(
                     "mx-6 flex w-full max-w-screen-lg flex-1 flex-row items-center sm:mx-7",
@@ -144,10 +144,10 @@ export default function Header() {
                             <div className="duration-50 hidden h-full items-center justify-center transition-transform hover:scale-[1.1] active:scale-100 sm:flex">
                                 <Link
                                     href="/"
-                                    className="flex h-10 w-10 items-center justify-center"
+                                    className="flex h-8 w-8 items-center justify-center"
                                 >
                                     <Image
-                                        src={"/logo.png"}
+                                        src={"/logo-t.png"}
                                         width={32}
                                         height={32}
                                         alt="Home"
@@ -155,7 +155,7 @@ export default function Header() {
                                     />
                                 </Link>
                             </div>
-                            <div className="inline-flex w-full flex-row flex-nowrap items-start gap-x-[17px] sm:mr-auto sm:w-auto sm:items-center sm:justify-center sm:gap-x-7 sm:gap-y-6 sm:py-3">
+                            <div className="inline-flex w-full flex-row flex-nowrap items-start gap-x-[17px] sm:mr-auto sm:w-auto sm:items-center sm:justify-center sm:gap-x-4 sm:gap-y-6 sm:py-3">
                                 {Object.entries(navItems).map(
                                     ([path, { name, className }]) => {
                                         const isActive = pathname === path;
@@ -178,7 +178,7 @@ export default function Header() {
                                                             handleNavClick(path)
                                                         }
                                                         className={clsx(
-                                                            "whitespace-nowrap text-[14px] leading-[14px] no-underline transition-colors duration-150 hover:text-p0 dark:hover:text-o0 sm:text-[15px]",
+                                                            "whitespace-nowrap text-[12px] leading-[14px] no-underline transition-colors duration-150 hover:text-p0 dark:hover:text-o0",
                                                             {
                                                                 "text-neutral-600 dark:text-neutral-400":
                                                                     !isActive,
@@ -187,10 +187,10 @@ export default function Header() {
                                                     >
                                                         <span
                                                             className={clsx(
-                                                                "relative text-center lowercase",
+                                                                "relative text-center",
                                                                 isActive
-                                                                    ? "font-pixel-square font-bold text-black dark:font-semibold dark:text-white"
-                                                                    : "font-pixel-square font-medium hover:font-semibold",
+                                                                    ? "font-degular font-bold text-black dark:font-semibold dark:text-white"
+                                                                    : "font-degular font-medium hover:font-semibold",
                                                             )}
                                                         >
                                                             {name}
@@ -227,7 +227,7 @@ export function Footer() {
     return (
         <div
             className={clsx(
-                "z-[55] flex w-full max-w-screen-lg flex-1 flex-row justify-center lg:mt-10",
+                "z-[55] flex w-full max-w-screen-lg flex-1 flex-row justify-center uppercase lg:mt-10",
             )}
         >
             <div className="mx-6 mb-10 mt-auto flex w-full flex-1 flex-row items-center justify-center pb-14 pt-12 sm:mx-8 sm:gap-4 lg:pb-0 lg:pt-0">

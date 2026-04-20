@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "target": "es5",
     "lib": [
       "dom",
@@ -32,6 +33,7 @@
     "strictNullChecks": true
   },
   "include": [
+    "global.d.ts",
     "video.d.ts",
     "video.d.ts",
     "next-env.d.ts",

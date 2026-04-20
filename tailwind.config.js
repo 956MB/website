@@ -11,11 +11,7 @@ module.exports = {
             fontFamily: {
                 sans: ["var(--font-geist-sans)"],
                 mono: ["var(--font-geist-mono)"],
-                "pixel-square": ["var(--font-geist-pixel-square)"],
-                "pixel-grid": ["var(--font-geist-pixel-grid)"],
-                "pixel-circle": ["var(--font-geist-pixel-circle)"],
-                "pixel-triangle": ["var(--font-geist-pixel-triangle)"],
-                "pixel-line": ["var(--font-geist-pixel-line)"],
+                degular: ["var(--font-degular-mono)"],
             },
             colors: {
                 neutral: {

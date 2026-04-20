@@ -56,7 +56,7 @@ export function ProjectRow({
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className={clsx(
-                "group flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[2px] lg:gap-y-[6px] lg:flex-row",
+                "group flex w-full max-w-screen-lg flex-col items-stretch justify-between gap-x-3 gap-y-[2px] uppercase lg:flex-row lg:gap-y-[6px]",
                 isFamily && "is-family-hovered",
             )}
         >
@@ -102,7 +102,7 @@ export function ProjectRow({
                 >
                     <div
                         className={clsx(
-                            "mt-[7px] h-[8px] w-[8px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] is-family-hovered:w-[7px] lg:mt-0 lg:absolute lg:bottom-0 lg:top-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
+                            "mt-[7px] h-[8px] w-[8px] rounded-full border border-white/[15%] transition-all ease-in-out group-hover:w-[7px] is-family-hovered:w-[7px] lg:absolute lg:bottom-0 lg:top-0 lg:mt-0 lg:h-full lg:w-[4px] lg:rounded-none lg:border-none",
                             getLangColor(entry.lang) ||
                                 "bg-neutral-200 dark:bg-neutral-800",
                             getLangColor(entry.lang, "group-hover:"),
@@ -116,7 +116,7 @@ export function ProjectRow({
                         rel="noopener noreferrer"
                         target="_blank"
                         className={clsx(
-                            "pl-2 font-pixel-square text-[15px] font-bold leading-5 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0  lg:max-w-[256px] lg:pl-4",
+                            "pl-2 font-degular text-[13px] font-medium leading-5 text-black transition-all duration-150 hover:text-p0 dark:text-white dark:hover:text-o0  lg:max-w-[256px] lg:pl-4",
                             entry.link
                                 ? "hover:text-p0 hover:underline dark:hover:text-o0"
                                 : "no-underline",
@@ -134,7 +134,7 @@ export function ProjectRow({
                 <span
                     ref={summaryRef}
                     className={clsx(
-                        "leading-0 line-clamp-3 flex-1 text-sm font-normal text-neutral-600 dark:text-neutral-350 sm:font-pixel-square lg:mb-[6px]",
+                        "leading-0 line-clamp-3 flex-1 text-xs font-normal leading-4 text-neutral-600 dark:text-neutral-350 sm:font-degular lg:mb-[6px]",
                         "min-w-0",
                     )}
                 >

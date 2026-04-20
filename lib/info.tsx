@@ -7,7 +7,7 @@ export const description = "Self-taught generalist... unfortunately.";
 export const baseUrl = "https://956mb.com";
 export const og = `${baseUrl}/og.png`;
 export const license = "CC-BY-NC-SA-4.0";
-export const copyright = ` © 2025 ${name}`;
+export const copyright = ` © 2026 ${name}`;
 export const email = {
     key: "contact",
     value: "bays@956mb.com",
@@ -15,7 +15,7 @@ export const email = {
 };
 export const socials = [
     {
-        serv: "x/twitter",
+        serv: "/ twitter",
         name: "${highlight('956MB')}",
         url: "https://x.com/956MB",
     },
@@ -41,7 +41,7 @@ export const extras_explained = {
 
 export const about_n = `<span class='name-highlight'>${name}</span>`;
 export const about_p = `self-taught* ${hl("programmer")}, ${hl("designer")} and <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/user/bauera5/">r/neography</a> hobbyist from ${hl(" Dallas, TX")}.`;
-export const about_email = `<a class="p-link" rel="noopener noreferrer" target="_blank" href="mailto:bays@956mb.com">bays@956mb.com</a>`;
+export const about_email = `<a class="p-link" rel="noopener noreferrer" target="_blank" href="mailto:bays@956mb.com">bays@956mb.com</a> ↵`;
 
 export const bio_p = `my self-taught skills journey started around 2010, initially focusing on graphic design and learning ${hl("Photoshop")}, doing mostly minor freelance work. in ${hl("2018")}, a computer engineer friend introduced me to programming, and it quickly became my passion. when i'm not working on the long list of projects, i'm slowly learning languages like ${hl("한국어")} or ${hl("Finnish")}, and i'm thinking up / drawing new "languages" on ${hl("Reddit")}.`;
 
@@ -49,6 +49,6 @@ export const languages_p = `i love ${hl("Swift")} (and ${hl("SwiftUI")}) for App
 
 export const tools_p = `most${hl("*")} frontend / design project starts in & ${hl("Figma")}, ${hl("Photoshop")} or ${hl("Illustrator")} (recently with the ${a("https://momentum-fw.dev", "momentum-fw.dev")} redesign), and code lands in either ${hl("Neovim")} (${hl("ghostty")}), ${hl("VSCode")} or ${hl("Xcode")} depending on the project. i also get way too distracted with my ${a("https://github.com/956MB/dotfiles", "dotfiles")}.`;
 
-export const neography_t = "scripts & conlangs (eventually)";
+export const neography_t = "scripts / conlangs (eventually)";
 
 export const neography_d = `i love language, and i'm a visual person so i especially love scripts. not just real-world, but fictional as well (Lord of The Rings, Star Wars, Dune, etc). a really inspiring figure to me is <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://dedalvs.com/">David J. Peterson</a>, creator of the languages for Game of Thrones, and many other things. these are most of the scripts i've created so far, some even posted on the <a class="p-link" rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/r/neography/">r/neography</a> subreddit, and maybe one day it'll be as impressive a collection as David's.`;
