@@ -30,7 +30,7 @@ export default async function NeographyPage({ params }) {
     return (
         <section className="mx-6 flex h-full w-full flex-col overflow-x-hidden pt-2 sm:mx-8 sm:pt-5">
             <div className="relative flex w-full flex-1 flex-col items-center overflow-hidden">
-                <ContentGallery entry={neographyEntry} backLink="/neography" />
+                <ContentGallery entry={neographyEntry} _backLink="/neography" />
             </div>
         </section>
     );

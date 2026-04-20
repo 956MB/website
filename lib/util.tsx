@@ -2,7 +2,7 @@ import { IEntry, IEntryGroup } from "lib/interfaces";
 import { HiMiniLanguage } from "react-icons/hi2";
 import { PiFigmaLogo } from "react-icons/pi";
 import { RiReactjsLine } from "react-icons/ri";
-import { SiAdobeillustrator, SiAdobephotoshop } from "react-icons/si";
+import * as SiIcons from "react-icons/si";
 
 export const imgBase = "https://img.956mb.com";
 
@@ -117,9 +117,9 @@ export function CategoryIcon({
                         case "figma":
                             return PiFigmaLogo({ size: large ? 24 : 21 });
                         case "photoshop":
-                            return SiAdobephotoshop({ size: large ? 21 : 18 });
+                            return SiIcons.SiAdobephotoshop({ size: large ? 21 : 18 });
                         case "illustrator":
-                            return SiAdobeillustrator({ size: large ? 21 : 18 });
+                            return SiIcons.SiAdobeillustrator({ size: large ? 21 : 18 });
                         case "react":
                             return RiReactjsLine({ size: large ? 24 : 21 });
                         case "script":
