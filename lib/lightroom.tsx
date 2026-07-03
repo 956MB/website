@@ -2,6 +2,20 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const photos = [
     entry(
+        "boa-parkside",
+        "Bank of America Tower at Parkside",
+        "6.1.2026",
+        "photography",
+        [item("/images/lightroom/boa-parkside.jpg", 2995, 3994)],
+        {
+            summary: [
+                "I got blisters later this day after walking in Vibrams for too long.",
+            ],
+            thumbnail: item("/images/lightroom/boa-parkside.jpg", 2995, 3994),
+            link: "https://lightroom.app.link/wHXGURvut4b",
+        },
+    ),
+    entry(
         "ok-wind",
         "34° 24' 2.328\" N 97° 8' 33.298\" W",
         "5.14.2026",
