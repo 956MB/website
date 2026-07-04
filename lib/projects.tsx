@@ -247,7 +247,7 @@ const misc = [
         "TDB",
         "2023",
         "Projects",
-        [item("/images/projects/tdb.png", 1163, 764)],
+        [item("/images/projects/tdb.webp", 1163, 764)],
         {
             lang: "Swift",
             summary: [
@@ -261,7 +261,7 @@ const misc = [
         '"Pros"',
         "2023",
         "Projects",
-        [item("/images/projects/pros.png", 893, 791)],
+        [item("/images/projects/pros.webp", 893, 791)],
         {
             lang: "TypeScript",
             summary: [
@@ -276,7 +276,7 @@ const misc = [
         "2048WE",
         "2022",
         "Projects",
-        [item("/images/projects/2048W.png", 1080, 874)],
+        [item("/images/projects/2048W.webp", 1080, 874)],
         {
             link: "https://github.com/956MB/2048WE",
             lang: "Swift",
@@ -291,7 +291,7 @@ const misc = [
         "TX4",
         "2022",
         "Projects",
-        [item("/images/projects/TX4.png", 1038, 891)],
+        [item("/images/projects/TX4.webp", 1038, 891)],
         {
             link: "https://github.com/956MB/TX4",
             lang: "C++",
@@ -306,7 +306,7 @@ const misc = [
         "MSSNC",
         "2021",
         "Projects",
-        [item("/images/projects/mssnc.gif", 1532, 982)],
+        [item("/images/projects/mssnc.webp", 1532, 982)],
         {
             link: "https://github.com/956MB/MSSNC",
             lang: "Swift",
@@ -321,7 +321,7 @@ const misc = [
         '"SomeAimGame"',
         "2021",
         "Projects",
-        [item("/images/projects/sag.gif", 1408, 973)],
+        [item("/images/projects/sag.webp", 1408, 973)],
         {
             link: "https://github.com/956MB/SomeAimGame",
             lang: "C#",
@@ -336,7 +336,7 @@ const misc = [
         "Twanslate",
         "2020",
         "Projects",
-        [item("/images/projects/Twanslate.png", 1147, 886)],
+        [item("/images/projects/Twanslate.webp", 1147, 886)],
         {
             link: "https://github.com/956MB/Twanslate",
             lang: "Swift",
@@ -351,7 +351,7 @@ const misc = [
         "GithubDesktop.css",
         "2020",
         "Projects",
-        [item("/images/projects/GithubDesktopCSS.gif", 1374, 828)],
+        [item("/images/projects/GithubDesktopCSS.webp", 1374, 828)],
         {
             link: "https://github.com/956MB/GithubDesktop.css",
             lang: "CSS",
@@ -366,7 +366,7 @@ const misc = [
         "board-games.py",
         "2020",
         "Projects",
-        [item("/images/projects/bgames.gif", 820, 544)],
+        [item("/images/projects/bgames.webp", 820, 544)],
         {
             link: "https://github.com/956MB/board-games.py",
             lang: "Python",

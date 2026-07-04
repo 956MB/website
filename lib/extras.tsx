@@ -9,7 +9,7 @@ const icons = [
         "B/W Icons",
         "4.11.2025",
         "icon",
-        [item("/images/extras/icons/black-icons.gif", 1024, 1024)],
+        [item("/images/extras/icons/black-icons.webp", 1024, 1024)],
         {
             summary: [
                 "some of the icons i've modified to make the perfect black & white dock in macOS (i am not the orignal designer of these).",
@@ -23,7 +23,7 @@ const icons = [
         "Yapper Icon",
         "1.19.2025",
         "icon",
-        [item("/images/extras/icons/yapper-1.png", 1024, 1024)],
+        [item("/images/extras/icons/yapper-1.webp", 1024, 1024)],
         {
             summary: [
                 'rendition of the <a href="https://github.com/Next-Flip/qFlipper">qFlipper</a> app icon, but using the Yapper from <a href="https://github.com/Next-Flip">Momentum Firmware</a>. shoutout to Lucky for the :yapsip: emote.',
@@ -37,7 +37,7 @@ const icons = [
         "Sketch Dark Glow",
         "12.10.2024",
         "icon",
-        [item("/images/extras/icons/sketch-3.png", 1024, 1024)],
+        [item("/images/extras/icons/sketch-3.webp", 1024, 1024)],
         {
             summary: [
                 'dark mode version of the <a href="https://www.sketch.com/">Sketch</a> app icon, with a bit more glow.',
@@ -51,7 +51,7 @@ const icons = [
         "Flipper Icon Recolor",
         "12.4.2024",
         "icon",
-        [item("/images/extras/icons/flipper-4.png", 1024, 1024)],
+        [item("/images/extras/icons/flipper-4.webp", 1024, 1024)],
         {
             summary: [
                 'recolor and resize of the <a href="https://flipperzero.one/">Flipper</a> app icons, by me. (iOS, macOS, Windows)',
@@ -65,7 +65,7 @@ const icons = [
         "Claude",
         "5.15.2024",
         "icon",
-        [item("/images/extras/icons/claude-1.gif", 1024, 1024)],
+        [item("/images/extras/icons/claude-1.webp", 1024, 1024)],
         {
             summary: [
                 `<a href="https://www.anthropic.com/claude">Anthropic's Claude</a> app icon in black, white and ${hl("#E77350")}. i did NOT create the logo, only creating replacement options for the iOS app icon.`,
@@ -79,7 +79,7 @@ const icons = [
         "Adobe Rosetta Icons",
         "1.1.2024",
         "icon",
-        [item("/images/extras/icons/adobe-ps-1.png", 1024, 1024)],
+        [item("/images/extras/icons/adobe-ps-1.webp", 1024, 1024)],
         {
             summary: [
                 `variant Rosetta style icons for various Adobe applications (${hl("Ps")}, ${hl("Ai")}, ${hl("Br")}, ${hl("Id")}, ${hl("Au")}). made by me.`,
@@ -92,7 +92,7 @@ const icons = [
         "TDB",
         "09.03.2023",
         "icon",
-        [item("/images/extras/icons/tdb-1.png", 1024, 1024)],
+        [item("/images/extras/icons/tdb-1.webp", 1024, 1024)],
         {
             summary: [
                 'app icon for my iOS/iPadOS/macOS app <a href="https://www.tdb.fyi/">TDB</a>. made by me.',
@@ -104,7 +104,7 @@ const icons = [
         "2048WE",
         "06.22.2023",
         "icon",
-        [item("/images/extras/icons/2048we-3.png", 704, 704)],
+        [item("/images/extras/icons/2048we-3.webp", 704, 704)],
         {
             summary: [
                 "the custom app icon for my Apple Watch app, 2048WE (Apple Watch Edition). made by me.",
@@ -124,7 +124,7 @@ const wallpapers = [
         "wallpaper",
         [
             item(
-                "/images/extras/wallpapers/hpl-mountains-cthulhu-wallpapers.jpg",
+                "/images/extras/wallpapers/hpl-mountains-cthulhu-wallpapers.webp",
                 1920,
                 1244,
             ),
@@ -144,7 +144,7 @@ const wallpapers = [
         "wallpaper",
         [
             item(
-                "/images/extras/wallpapers/hpl-innsmouth-time-wallpapers.png",
+                "/images/extras/wallpapers/hpl-innsmouth-time-wallpapers.webp",
                 3288,
                 2128,
             ),
@@ -162,7 +162,7 @@ const wallpapers = [
         "Beluga Whale Eye",
         "1.8.2026",
         "wallpaper",
-        [item("/images/extras/wallpapers/beluga-blue.png", 1920, 1244, true)],
+        [item("/images/extras/wallpapers/beluga-blue.webp", 1920, 1244, true)],
         {
             summary: [
                 `photo by <a href="https://www.rachelmoorephotos.com/">Rachel Moore</a>, upscale and ${hl("Lr")}/${hl("Ps")} edits by me.`,
@@ -178,7 +178,7 @@ const wallpapers = [
         "wallpaper",
         [
             item(
-                "/images/extras/wallpapers/model-3-performance-trace-contour-1.png",
+                "/images/extras/wallpapers/model-3-performance-trace-contour-1.webp",
                 1920,
                 1080,
             ),
@@ -197,7 +197,7 @@ const wallpapers = [
         "wallpaper",
         [
             item(
-                "/images/extras/wallpapers/hongdae-variants-thumb.png",
+                "/images/extras/wallpapers/hongdae-variants-thumb.webp",
                 1920,
                 1080,
             ),
@@ -217,7 +217,7 @@ const wallpapers = [
         "wallpaper",
         [
             item(
-                "/images/extras/wallpapers/graffiti-variant-thumb.png",
+                "/images/extras/wallpapers/graffiti-variant-thumb.webp",
                 1920,
                 1245,
             ),
@@ -235,7 +235,7 @@ const wallpapers = [
         '"D" / "O"',
         "12.29.2023",
         "wallpaper",
-        [item("/images/concepts/d/d-wallpaper-thumb.png", 2304, 1296)],
+        [item("/images/concepts/d/d-wallpaper-thumb.webp", 2304, 1296)],
         {
             summary: [
                 'i have NO idea what this is, i just started painting. made by me. <a href="https://www.956mb.com/designs/#logo_d">"D" / "O"</a>.',
@@ -248,7 +248,7 @@ const wallpapers = [
         "pLan",
         "12.29.2023",
         "wallpaper",
-        [item("/images/concepts/pLan/pLan-thumb.png", 2048, 1152)],
+        [item("/images/concepts/pLan/pLan-thumb.webp", 2048, 1152)],
         {
             summary: [
                 'painting used as the banner/background of my fake programming language "brand", <a href="https://www.956mb.com/designs/#logo_plan">pLan</a>. made by me.',
@@ -263,7 +263,7 @@ const wallpapers = [
         "wallpaper",
         [
             item(
-                "/images/extras/wallpapers/ghibli-colors-green3.png",
+                "/images/extras/wallpapers/ghibli-colors-green3.webp",
                 1920,
                 1080,
             ),
@@ -281,7 +281,7 @@ const wallpapers = [
         "Hassan Massoudy",
         "09.07.2023",
         "wallpaper",
-        [item("/images/extras/wallpapers/_0010_HM326.png", 1920, 1502)],
+        [item("/images/extras/wallpapers/_0010_HM326.webp", 1920, 1502)],
         {
             summary: [
                 'almost every <a href="https://www.massoudy.net/">Hassan Massoudy</a> piece, upscaled to 5K and modified to dark black and white. all credit to him for the absolutey phenomenal calligraphy.',
@@ -295,7 +295,13 @@ const wallpapers = [
         "Cybertruck Redesign",
         "09.04.2023",
         "wallpaper",
-        [item("/images/extras/wallpapers/cybertruck-redesign.png", 1920, 1080)],
+        [
+            item(
+                "/images/extras/wallpapers/cybertruck-redesign.webp",
+                1920,
+                1080,
+            ),
+        ],
         {
             summary: [
                 'my photo manipulation and upscaling of a Cybertruck concept from <a href="https://www.reddit.com/r/cybertruck/comments/mlshr8/what_are_your_thoughts_about_this_for_farming_or/?utm_source=share&utm_medium=web2x&context=3">???</a> on Reddit. credit to him for the original modification of Cybertruck design.',

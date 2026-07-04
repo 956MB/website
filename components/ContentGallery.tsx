@@ -240,6 +240,7 @@ export default function ContentGallery({
     const imagesCount = entry.items?.length || 0;
     const touchStartX = useRef<number | null>(null);
     const touchEndX = useRef<number | null>(null);
+    const isInternalChange = useRef(false);
 
     useEffect(() => {
         if (fullscreenOnly) {
@@ -247,18 +248,25 @@ export default function ContentGallery({
         }
     }, [initialIndex, fullscreenOnly]);
 
+    useEffect(() => {
+        if (isInternalChange.current) {
+            isInternalChange.current = false;
+            onIndexChangeAction?.(selectedIdx);
+        }
+    }, [selectedIdx, onIndexChangeAction]);
+
     const updateIdx = useCallback(
         (dir: number) => {
             setSelectedIdx((prevIdx) => {
                 const newIdx = prevIdx + dir;
                 if (newIdx >= 0 && newIdx < imagesCount) {
-                    onIndexChangeAction?.(newIdx);
+                    isInternalChange.current = true;
                     return newIdx;
                 }
                 return prevIdx;
             });
         },
-        [imagesCount, onIndexChangeAction],
+        [imagesCount],
     );
 
     const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {

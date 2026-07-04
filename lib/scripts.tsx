@@ -6,10 +6,10 @@ const scripts = [
         "10.29.2025",
         "",
         "script",
-        [item("/images/scripts/10292025_1.jpg", 1940, 1940)],
+        [item("/images/scripts/10292025_1.webp", 1940, 1940)],
         {
             references: [reference("11.22.2024", "/neography/11.22.2024")],
-            thumbnail: item("/images/scripts/10292025_thumb.jpg", 1000, 1000),
+            thumbnail: item("/images/scripts/10292025_thumb.webp", 1000, 1000),
         },
     ),
     entry(
@@ -18,18 +18,18 @@ const scripts = [
         "",
         "script",
         [
-            item("/images/scripts/03092024_1.png", 2778, 1850),
-            item("/images/scripts/03092024_2.png", 1020, 1147),
-            item("/images/scripts/03092024_3.png", 1259, 1096),
-            item("/images/scripts/03092024_4.png", 1029, 886),
-            item("/images/scripts/03092024_5.png", 979, 859),
-            item("/images/scripts/03092024_6.png", 1015, 772),
-            item("/images/scripts/03092024_7.png", 1061, 593),
-            item("/images/scripts/03092024_8.png", 940, 805),
+            item("/images/scripts/03092024_1.webp", 2778, 1850),
+            item("/images/scripts/03092024_2.webp", 1020, 1147),
+            item("/images/scripts/03092024_3.webp", 1259, 1096),
+            item("/images/scripts/03092024_4.webp", 1029, 886),
+            item("/images/scripts/03092024_5.webp", 979, 859),
+            item("/images/scripts/03092024_6.webp", 1015, 772),
+            item("/images/scripts/03092024_7.webp", 1061, 593),
+            item("/images/scripts/03092024_8.webp", 940, 805),
         ],
         {
             references: [reference("10.29.2025", "/neography/10.29.2025")],
-            thumbnail: item("/images/scripts/03092024_thumb.png", 1000, 1000),
+            thumbnail: item("/images/scripts/03092024_thumb.webp", 1000, 1000),
         },
     ),
     entry(
@@ -38,13 +38,13 @@ const scripts = [
         "",
         "script",
         [
-            item("/images/scripts/12022023_1.png", 1920, 1519),
-            item("/images/scripts/12022023_2.png", 1972, 1400),
-            item("/images/scripts/12022023_3.png", 1833, 1121),
-            item("/images/scripts/12022023_4.png", 2153, 1445),
+            item("/images/scripts/12022023_1.webp", 1920, 1519),
+            item("/images/scripts/12022023_2.webp", 1972, 1400),
+            item("/images/scripts/12022023_3.webp", 1833, 1121),
+            item("/images/scripts/12022023_4.webp", 2153, 1445),
         ],
         {
-            thumbnail: item("/images/scripts/12022023_thumb.png", 2778, 1850),
+            thumbnail: item("/images/scripts/12022023_thumb.webp", 2778, 1850),
         },
     ),
     entry(
@@ -53,15 +53,15 @@ const scripts = [
         "2024",
         "script",
         [
-            item("/images/pLang/pLang.gif", 2368, 2368),
-            item("/images/pLang/pLang-layout.png", 1835, 1202),
+            item("/images/pLang/pLang.webp", 2368, 2368),
+            item("/images/pLang/pLang-layout.webp", 1835, 1202),
         ],
         {
             tags: ["pLang"],
             summary: [
                 'A script I was messing around with only using "p" and "L". This script makes no sense, and it\'s beyond rough right now. I\'ll probably refine it later.',
             ],
-            thumbnail: item("/images/pLang/pLang-thumb.png", 1647, 1647),
+            thumbnail: item("/images/pLang/pLang-thumb.webp", 1647, 1647),
         },
     ),
     entry(
@@ -71,22 +71,22 @@ const scripts = [
         "script",
         [
             item(
-                "/images/circles-only-apparently/circles_only_1.png",
+                "/images/circles-only-apparently/circles_only_1.webp",
                 1038,
                 504,
             ),
             item(
-                "/images/circles-only-apparently/circles_only_2.png",
+                "/images/circles-only-apparently/circles_only_2.webp",
                 1041,
                 2411,
             ),
             item(
-                "/images/circles-only-apparently/circles_only_3.png",
+                "/images/circles-only-apparently/circles_only_3.webp",
                 1284,
                 1272,
             ),
             item(
-                "/images/circles-only-apparently/circles_only_4.png",
+                "/images/circles-only-apparently/circles_only_4.webp",
                 1236,
                 1770,
             ),
@@ -110,10 +110,10 @@ const scripts = [
         "2023",
         "script",
         [
-            item("/images/poster-edits/the-northman.png", 1500, 2202),
-            item("/images/poster-edits/the-revenant.png", 2000, 3000),
-            item("/images/poster-edits/alien.png", 2000, 3000),
-            item("/images/poster-edits/the-lighthouse.png", 1778, 2667),
+            item("/images/poster-edits/the-northman.webp", 1500, 2202),
+            item("/images/poster-edits/the-revenant.webp", 2000, 3000),
+            item("/images/poster-edits/alien.webp", 2000, 3000),
+            item("/images/poster-edits/the-lighthouse.webp", 1778, 2667),
         ],
         {
             tags: ["GYEA"],
@@ -125,7 +125,7 @@ const scripts = [
         '"GYEA"',
         "2023",
         "script",
-        [item("/images/concepts/gyea.png", 1745, 789)],
+        [item("/images/concepts/gyea.webp", 1745, 789)],
         {
             tags: ["GYEA"],
             references: [
@@ -143,10 +143,10 @@ const scripts = [
         "2023",
         "script",
         [
-            item("/images/brand-logos-scripts/IMG_V678.png", 1920, 1080),
-            item("/images/brand-logos-scripts/IMG_R78968.png", 2021, 1096),
-            item("/images/brand-logos-scripts/IMG_R121234.png", 2021, 1096),
-            item("/images/brand-logos-scripts/IMG_R90636.png", 2021, 1096),
+            item("/images/brand-logos-scripts/IMG_V678.webp", 1920, 1080),
+            item("/images/brand-logos-scripts/IMG_R78968.webp", 2021, 1096),
+            item("/images/brand-logos-scripts/IMG_R121234.webp", 2021, 1096),
+            item("/images/brand-logos-scripts/IMG_R90636.webp", 2021, 1096),
         ],
         {
             tags: ["Tab"],
@@ -170,7 +170,7 @@ const scripts = [
         '"Tab"',
         "2023",
         "script",
-        [item("/images/concepts/tab.png", 1358, 929)],
+        [item("/images/concepts/tab.webp", 1358, 929)],
         {
             tags: ["Tab"],
             references: [
@@ -187,7 +187,7 @@ const scripts = [
         "Before Tab",
         "2023",
         "script",
-        [item("/images/something-new/IMG_54322.jpg", 1358, 929)],
+        [item("/images/something-new/IMG_54322.webp", 1358, 929)],
         {
             tags: ["Tab"],
             references: [
@@ -203,7 +203,7 @@ const scripts = [
         '"Hokj"',
         "2023",
         "script",
-        [item("/images/concepts/hokj.png", 1362, 720)],
+        [item("/images/concepts/hokj.webp", 1362, 720)],
         {
             tags: ["Hokj"],
             references: [

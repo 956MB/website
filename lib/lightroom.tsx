@@ -6,12 +6,12 @@ const photos = [
         "Bank of America Tower at Parkside",
         "6.1.2026",
         "photography",
-        [item("/images/lightroom/boa-parkside.jpg", 2995, 3994)],
+        [item("/images/lightroom/boa-parkside.webp", 2995, 3994)],
         {
             summary: [
                 "I got blisters later this day after walking in Vibrams for too long.",
             ],
-            thumbnail: item("/images/lightroom/boa-parkside.jpg", 2995, 3994),
+            thumbnail: item("/images/lightroom/boa-parkside.webp", 2995, 3994),
             link: "https://lightroom.app.link/wHXGURvut4b",
         },
     ),
@@ -20,12 +20,12 @@ const photos = [
         "34° 24' 2.328\" N 97° 8' 33.298\" W",
         "5.14.2026",
         "photography",
-        [item("/images/lightroom/ok-wind.jpg", 1861, 4032)],
+        [item("/images/lightroom/ok-wind.webp", 1861, 4032)],
         {
             summary: [
                 "I was worried a cop or someone else would come up and tell me not to stop in this spot.",
             ],
-            thumbnail: item("/images/lightroom/ok-wind.jpg", 1861, 4032),
+            thumbnail: item("/images/lightroom/ok-wind.webp", 1861, 4032),
             link: "https://lightroom.app.link/lHxhph0u03b",
         },
     ),
@@ -34,11 +34,11 @@ const photos = [
         "Founders Square",
         "6.11.2026",
         "photography",
-        [item("/images/lightroom/founders-square.jpg", 2396, 3194)],
+        [item("/images/lightroom/founders-square.webp", 2396, 3194)],
         {
             summary: ["Improptu at around 9pm."],
             thumbnail: item(
-                "/images/lightroom/founders-square.jpg",
+                "/images/lightroom/founders-square.webp",
                 2396,
                 3194,
             ),
@@ -50,10 +50,14 @@ const photos = [
         "AMLI / Fountain Place",
         "1.27.2026",
         "photography",
-        [item("/images/lightroom/fountain-place.jpg", 2610, 2610)],
+        [item("/images/lightroom/fountain-place.webp", 2610, 2610)],
         {
             summary: ['Texas "winter".'],
-            thumbnail: item("/images/lightroom/fountain-place.jpg", 2610, 2610),
+            thumbnail: item(
+                "/images/lightroom/fountain-place.webp",
+                2610,
+                2610,
+            ),
         },
     ),
     entry(
@@ -61,10 +65,10 @@ const photos = [
         "It Looked That Blue",
         "4.2.2026",
         "photography",
-        [item("/images/lightroom/blue-rain.jpg", 2740, 3902)],
+        [item("/images/lightroom/blue-rain.webp", 2740, 3902)],
         {
             summary: ["Little bit of water out there."],
-            thumbnail: item("/images/lightroom/blue-rain.jpg", 2740, 3902),
+            thumbnail: item("/images/lightroom/blue-rain.webp", 2740, 3902),
             link: "https://lightroom.app.link/koCf33vUu2b",
         },
     ),
@@ -73,10 +77,14 @@ const photos = [
         "Reading Corner",
         "2.9.2026",
         "photography",
-        [item("/images/lightroom/reading-corner.png", 2846, 3793)],
+        [item("/images/lightroom/reading-corner.webp", 2846, 3793)],
         {
             summary: ["Where the reading gets done."],
-            thumbnail: item("/images/lightroom/reading-corner.png", 2846, 3793),
+            thumbnail: item(
+                "/images/lightroom/reading-corner.webp",
+                2846,
+                3793,
+            ),
             link: "https://lightroom.app.link/LFyd6lNUu2b",
         },
     ),
@@ -85,10 +93,10 @@ const photos = [
         "Bank OZK",
         "2.3.2026",
         "photography",
-        [item("/images/lightroom/bank-ozk.jpg", 3024, 4032)],
+        [item("/images/lightroom/bank-ozk.webp", 3024, 4032)],
         {
             summary: ["*New* Bank OZK building, Dallas."],
-            thumbnail: item("/images/lightroom/bank-ozk.jpg", 3024, 4032),
+            thumbnail: item("/images/lightroom/bank-ozk.webp", 3024, 4032),
             link: "https://lightroom.app.link/DCxRyyAUu2b",
         },
     ),
@@ -97,11 +105,11 @@ const photos = [
         "Dallas Federal Reserve",
         "1.26.2026",
         "photography",
-        [item("/images/lightroom/dallas-federal-reserve.jpg", 3024, 4032)],
+        [item("/images/lightroom/dallas-federal-reserve.webp", 3024, 4032)],
         {
             summary: ["Dallas Federal Reserve, early morning."],
             thumbnail: item(
-                "/images/lightroom/dallas-federal-reserve.jpg",
+                "/images/lightroom/dallas-federal-reserve.webp",
                 3024,
                 4032,
             ),
