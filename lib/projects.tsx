@@ -42,6 +42,20 @@ const flipper = [
             ],
             children: [
                 entry(
+                    "p-feat-autopoweroff-percent",
+                    "feat/autopoweroff-percent",
+                    "fork",
+                    "Projects",
+                    [],
+                    {
+                        link: "https://github.com/Next-Flip/Momentum-Firmware/pull/560",
+                        lang: "C",
+                        summary: [
+                            `${li("https://github.com/Next-Flip/Momentum-Firmware/pull/560", "#560")} adds a percentage-based auto poweroff mode (${hl("OFF")}/${hl("Timer")}/${hl("%")}) with configurable battery level trigger and warning timeout setting (${li("https://github.com/Next-Flip/Momentum-Firmware/issues/522", "#522")}).`,
+                        ],
+                    },
+                ),
+                entry(
                     "p-feat-input-vibro-trigger",
                     "feat/input-vibro-trigger",
                     "fork",
