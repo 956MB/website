@@ -2,6 +2,19 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const photos = [
     entry(
+        "yellow-jacket",
+        "VERY large yellow jacket on my window",
+        "7.10.2026",
+        "photography",
+        [item("/images/lightroom/yellow-jacket.webp", 3008, 4011)],
+        {
+            summary: [
+                "How did it turn out this good?",
+            ],
+            thumbnail: item("/images/lightroom/yellow-jacket.webp", 3008, 4011),
+        },
+    ),
+    entry(
         "boa-parkside",
         "Bank of America Tower at Parkside",
         "6.1.2026",
