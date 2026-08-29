@@ -2,6 +2,34 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const photos = [
     entry(
+        "2100-ross",
+        "It's my North East view.",
+        "8.21.2026",
+        "photography",
+        [item("/images/lightroom/2100-ross.webp", 3024, 4032)],
+        {
+            summary: [
+                "It's my North East view.",
+            ],
+            thumbnail: item("/images/lightroom/2100-ross.webp", 3024, 4032),
+            link: "https://lightroom.app.link/yQQmpj4F05b",
+        },
+    ),
+    entry(
+        "hilltop",
+        "It reflects a lot around sunset.",
+        "8.27.2026",
+        "photography",
+        [item("/images/lightroom/hilltop.webp", 2773, 3697)],
+        {
+            summary: [
+                "It reflects a lot around sunset.",
+            ],
+            thumbnail: item("/images/lightroom/hilltop.webp", 2773, 3697),
+            link: "https://lightroom.app.link/3mWh69cG05b",
+        },
+    ),
+    entry(
         "yellow-jacket",
         "VERY large yellow jacket on my window",
         "7.10.2026",
@@ -83,22 +111,6 @@ const photos = [
             summary: ["Little bit of water out there."],
             thumbnail: item("/images/lightroom/blue-rain.webp", 2740, 3902),
             link: "https://lightroom.app.link/koCf33vUu2b",
-        },
-    ),
-    entry(
-        "reading-corner",
-        "Reading Corner",
-        "2.9.2026",
-        "photography",
-        [item("/images/lightroom/reading-corner.webp", 2846, 3793)],
-        {
-            summary: ["Where the reading gets done."],
-            thumbnail: item(
-                "/images/lightroom/reading-corner.webp",
-                2846,
-                3793,
-            ),
-            link: "https://lightroom.app.link/LFyd6lNUu2b",
         },
     ),
     entry(
