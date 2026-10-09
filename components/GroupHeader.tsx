@@ -13,12 +13,14 @@ export default function GroupHeader({
     noDescription,
     header,
     titleLink,
+    hideReferences = false,
 }: {
     entry: IEntryGroup;
     itemEntry?: IEntry;
     noDescription?: boolean;
     header?: boolean;
     titleLink?: string;
+    hideReferences?: boolean;
 }) {
     const headerVariants = {
         initial: { opacity: 0, y: -10 },
@@ -75,51 +77,57 @@ export default function GroupHeader({
                     </span>
                 )}
 
-                {itemEntry?.references && itemEntry.references.length > 0 && (
-                    <div className="-mt-px flex flex-wrap items-center gap-2">
-                        {itemEntry.references.map((ref, idx) => {
-                            const isExternalLink =
-                                ref.url.startsWith("http://") ||
-                                ref.url.startsWith("https://");
+                {!hideReferences &&
+                    itemEntry?.references &&
+                    itemEntry.references.length > 0 && (
+                        <div className="-mt-px flex flex-wrap items-center gap-2">
+                            {itemEntry.references.map((ref, idx) => {
+                                const isExternalLink =
+                                    ref.url.startsWith("http://") ||
+                                    ref.url.startsWith("https://");
 
-                            return (
-                                <span key={idx} className="flex items-center">
-                                    {isExternalLink ? (
-                                        <>
-                                            <a
+                                return (
+                                    <span
+                                        key={idx}
+                                        className="flex items-center"
+                                    >
+                                        {isExternalLink ? (
+                                            <>
+                                                <a
+                                                    href={ref.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="whitespace-nowrap text-xs font-medium text-neutral-700 underline decoration-neutral-400 decoration-1 underline-offset-2 hover:text-p0 hover:decoration-p0 dark:text-neutral-300 dark:decoration-neutral-500 dark:hover:text-o0 dark:hover:decoration-o0"
+                                                >
+                                                    {ref.title}
+                                                </a>
+                                                {FiArrowUpRight({
+                                                    size: 14,
+                                                    className:
+                                                        "ml-1 mt-1 text-neutral-500",
+                                                })}
+                                            </>
+                                        ) : (
+                                            <Link
                                                 href={ref.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
                                                 className="whitespace-nowrap text-xs font-medium text-neutral-700 underline decoration-neutral-400 decoration-1 underline-offset-2 hover:text-p0 hover:decoration-p0 dark:text-neutral-300 dark:decoration-neutral-500 dark:hover:text-o0 dark:hover:decoration-o0"
                                             >
                                                 {ref.title}
-                                            </a>
-                                            {FiArrowUpRight({
-                                                size: 14,
-                                                className:
-                                                    "ml-1 mt-1 text-neutral-500",
-                                            })}
-                                        </>
-                                    ) : (
-                                        <Link
-                                            href={ref.url}
-                                            className="whitespace-nowrap text-xs font-medium text-neutral-700 underline decoration-neutral-400 decoration-1 underline-offset-2 hover:text-p0 hover:decoration-p0 dark:text-neutral-300 dark:decoration-neutral-500 dark:hover:text-o0 dark:hover:decoration-o0"
-                                        >
-                                            {ref.title}
-                                        </Link>
-                                    )}
-                                    {idx <
-                                        (itemEntry.references?.length ?? 0) -
-                                            1 && (
-                                        <span className="ml-2 text-xs text-neutral-400 dark:text-neutral-500">
-                                            ·
-                                        </span>
-                                    )}
-                                </span>
-                            );
-                        })}
-                    </div>
-                )}
+                                            </Link>
+                                        )}
+                                        {idx <
+                                            (itemEntry.references?.length ??
+                                                0) -
+                                                1 && (
+                                            <span className="ml-2 text-xs text-neutral-400 dark:text-neutral-500">
+                                                ·
+                                            </span>
+                                        )}
+                                    </span>
+                                );
+                            })}
+                        </div>
+                    )}
             </div>
         </motion.div>
     );

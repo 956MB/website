@@ -3,18 +3,13 @@
 import clsx from "clsx";
 import ContentGallery from "components/ContentGallery";
 import { motion } from "framer-motion";
+import { preloadGalleryImage } from "lib/gallery";
 import { name } from "lib/info";
 import { IEntry } from "lib/interfaces";
-import {
-    containerVariants,
-    generateRandomDelays,
-    itemVariants,
-} from "lib/util";
+import { generateRandomDelays, itemVariants } from "lib/util";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-
-const COLUMN_COUNT = 3;
 
 interface IColumnPhoto {
     photo: IEntry;
@@ -41,16 +36,32 @@ function PhotoCol({
                     <motion.div
                         key={photo.id}
                         variants={itemVariants}
+                        initial="initial"
+                        animate="animate"
                         transition={{
-                            duration: 0.5,
+                            duration: 0.35,
                             delay: randomDelays[originalIndex],
                         }}
-                        className="group relative w-full cursor-pointer lg:saturate-0 hover:saturate-100 overflow-hidden border-transparent hover:border-p0 dark:hover:border-o0 lg:border"
+                        className="group relative w-full cursor-pointer overflow-hidden border-transparent hover:border-p0  dark:hover:border-o0 lg:border"
                         onClick={() => onPhotoClick(originalIndex)}
+                        onMouseEnter={() => {
+                            if (photo.items?.[0])
+                                preloadGalleryImage(photo.items[0]);
+                        }}
+                        onFocus={() => {
+                            if (photo.items?.[0])
+                                preloadGalleryImage(photo.items[0]);
+                        }}
+                        onPointerDown={() => {
+                            if (photo.items?.[0])
+                                preloadGalleryImage(photo.items[0]);
+                        }}
                     >
-                        <div
+                        <button
+                            type="button"
+                            aria-label={`Open ${photo.title}`}
                             className={clsx(
-                                "relative w-full overflow-hidden transition-all",
+                                "relative block w-full overflow-hidden transition-all",
                             )}
                         >
                             <Image
@@ -63,9 +74,9 @@ function PhotoCol({
                                 loading="lazy"
                                 unoptimized={false}
                                 quality={85}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw"
                             />
-                        </div>
+                        </button>
                     </motion.div>
                 );
             })}
@@ -74,10 +85,28 @@ function PhotoCol({
 }
 
 export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
-    const router = useRouter();
     const searchParams = useSearchParams();
-    const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-    const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
+    const photoId = searchParams.get("photo");
+    const selectedPhotoIndex = photos.findIndex(
+        (photo) => photo.id === photoId,
+    );
+    const isGalleryOpen = selectedPhotoIndex >= 0;
+    const [columnCount, setColumnCount] = useState(1);
+
+    useEffect(() => {
+        const tablet = window.matchMedia("(min-width: 640px)");
+        const desktop = window.matchMedia("(min-width: 1280px)");
+        const updateColumns = () => {
+            setColumnCount(desktop.matches ? 4 : tablet.matches ? 2 : 1);
+        };
+        updateColumns();
+        tablet.addEventListener("change", updateColumns);
+        desktop.addEventListener("change", updateColumns);
+        return () => {
+            tablet.removeEventListener("change", updateColumns);
+            desktop.removeEventListener("change", updateColumns);
+        };
+    }, []);
 
     const randomDelays = useMemo(
         () => generateRandomDelays(photos.length),
@@ -86,68 +115,63 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
 
     const columns = useMemo<IColumnPhoto[][]>(() => {
         const cols: IColumnPhoto[][] = Array.from(
-            { length: COLUMN_COUNT },
+            { length: columnCount },
             () => [],
         );
-        const heights = Array.from({ length: COLUMN_COUNT }, () => 0);
+        const heights = Array.from({ length: columnCount }, () => 0);
         photos.forEach((photo, originalIndex) => {
             const thumbnail =
                 photo.thumbnail || (photo.items && photo.items[0]);
+            if (!thumbnail) return;
             const ratio =
                 thumbnail && thumbnail.width
                     ? thumbnail.height / thumbnail.width
                     : 1;
             let shortest = 0;
-            for (let i = 1; i < COLUMN_COUNT; i++) {
+            for (let i = 1; i < columnCount; i++) {
                 if (heights[i] < heights[shortest]) shortest = i;
             }
             cols[shortest].push({ photo, originalIndex });
             heights[shortest] += ratio;
         });
         return cols;
-    }, [photos]);
+    }, [photos, columnCount]);
 
     const allPhotosEntry = useMemo<IEntry>(
         () => ({
             id: "all-photos",
             title: "Photography",
             items: photos.flatMap((photo) => photo.items || []),
-            link: photos[selectedPhotoIndex]?.link,
         }),
-        [photos, selectedPhotoIndex],
+        [photos],
     );
 
     useEffect(() => {
-        const photoId = searchParams.get("photo");
-        if (photoId) {
-            const photoIndex = photos.findIndex((p) => p.id === photoId);
-            if (photoIndex !== -1) {
-                setSelectedPhotoIndex(photoIndex);
-                setIsGalleryOpen(true);
-                document.title = `${photos[photoIndex].title} · Lightroom`;
-            }
-        } else {
-            document.title = `Lightroom · ${name}`;
-        }
-    }, [searchParams, photos]);
+        document.title = isGalleryOpen
+            ? `${photos[selectedPhotoIndex].title} · Lightroom`
+            : `Lightroom · ${name}`;
+    }, [isGalleryOpen, selectedPhotoIndex, photos]);
+
+    const updatePhotoUrl = (id?: string) => {
+        const url = new URL(window.location.href);
+        if (id) url.searchParams.set("photo", id);
+        else url.searchParams.delete("photo");
+        window.history.pushState(null, "", url.pathname + url.search);
+    };
 
     const handlePhotoClick = (photoIndex: number) => {
-        setSelectedPhotoIndex(photoIndex);
-        setIsGalleryOpen(true);
         const photoId = photos[photoIndex].id;
-        router.push(`/lightroom?photo=${photoId}`, { scroll: false });
+        updatePhotoUrl(photoId);
     };
 
     const handleCloseGallery = () => {
-        setIsGalleryOpen(false);
-        router.push("/lightroom", { scroll: false });
+        updatePhotoUrl();
     };
 
     const handleIndexChange = (newIndex: number) => {
-        setSelectedPhotoIndex(newIndex);
         const photoId = photos[newIndex]?.id;
         if (photoId) {
-            router.push(`/lightroom?photo=${photoId}`, { scroll: false });
+            updatePhotoUrl(photoId);
         }
     };
 
@@ -155,12 +179,7 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
         <>
             <div className="mx-6 flex w-full max-w-screen-2xl flex-col flex-wrap items-center justify-start pb-2 sm:mx-7 sm:pb-10 lg:pt-5">
                 <div className="relative flex w-full flex-col flex-wrap items-center justify-center gap-y-0 lg:pt-9">
-                    <motion.div
-                        variants={containerVariants}
-                        initial="initial"
-                        animate="animate"
-                        className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3"
-                    >
+                    <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
                         {columns.map((items, colIdx) => (
                             <PhotoCol
                                 key={colIdx}
@@ -169,18 +188,23 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
                                 onPhotoClick={handlePhotoClick}
                             />
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </div>
 
-            <ContentGallery
-                entry={allPhotosEntry}
-                fullscreenOnly={true}
-                isOpen={isGalleryOpen}
-                onCloseAction={handleCloseGallery}
-                initialIndex={selectedPhotoIndex}
-                onIndexChangeAction={handleIndexChange}
-            />
+            {isGalleryOpen && (
+                <ContentGallery
+                    entry={{
+                        ...allPhotosEntry,
+                        link: photos[selectedPhotoIndex]?.link,
+                    }}
+                    fullscreenOnly={true}
+                    isOpen={isGalleryOpen}
+                    onCloseAction={handleCloseGallery}
+                    initialIndex={selectedPhotoIndex}
+                    onIndexChangeAction={handleIndexChange}
+                />
+            )}
         </>
     );
 }

@@ -41,7 +41,7 @@ const Deco = ({ children, show }: { children: string; show: boolean }) =>
     // prettier-ignore
     <span
         className={clsx(
-            "mb-px text-[12px] font-mono font-medium leading-[14px] text-neutral-500 no-underline transition-all duration-150 mr-1",
+            "relative -top-px text-[12px] font-mono font-medium leading-[14px] text-neutral-500 no-underline transition-all duration-150 mr-1",
             show
                 ? children === "/"
                     ? "mr-[6px]"
@@ -105,7 +105,7 @@ export default function Header() {
     }, []);
 
     return (
-        <div className="header-mask sticky top-0 z-[55] flex max-h-[75px] w-full flex-1 flex-row justify-center uppercase sm:mt-0">
+        <div className="header-mask sticky top-0 z-[55] flex h-[75px] w-full flex-none flex-row justify-center uppercase sm:mt-0">
             <div
                 className={clsx(
                     "mx-6 flex w-full max-w-screen-lg flex-1 flex-row items-center sm:mx-7",
@@ -128,19 +128,18 @@ export default function Header() {
 
                     <div
                         ref={scrollRef}
-                        className="no-scrollbar relative z-[55] flex w-full items-start justify-start overflow-x-scroll py-4"
+                        className="no-scrollbar relative z-[55] w-full overflow-x-auto py-4"
                     >
-                        <div
-                            className="shrink-0 sm:hidden"
-                            style={{ width: "24px" }}
-                        />
-
                         <motion.div
-                            className="inline-flex w-full flex-row items-center justify-between sm:justify-center sm:gap-x-5"
+                            className="flex w-max shrink-0 flex-row items-center justify-between sm:w-full sm:shrink sm:justify-center sm:gap-x-5"
                             initial={{ opacity: 0, y: -18 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
                         >
+                            <div
+                                aria-hidden="true"
+                                className="w-6 shrink-0 sm:hidden"
+                            />
                             <div className="duration-50 hidden h-full items-center justify-center transition-transform hover:scale-[1.1] active:scale-100 sm:flex">
                                 <Link
                                     href="/"
@@ -155,7 +154,7 @@ export default function Header() {
                                     />
                                 </Link>
                             </div>
-                            <div className="inline-flex w-full flex-row flex-nowrap items-start gap-x-[17px] sm:mr-auto sm:w-auto sm:items-center sm:justify-center sm:gap-x-4 sm:gap-y-6 sm:py-3">
+                            <div className="inline-flex w-max shrink-0 flex-row flex-nowrap items-start gap-x-[17px] sm:mr-auto sm:w-auto sm:shrink sm:items-center sm:justify-center sm:gap-x-4 sm:gap-y-6 sm:py-3">
                                 {Object.entries(navItems).map(
                                     ([path, { name, className }]) => {
                                         const isActive = pathname === path;
@@ -210,12 +209,11 @@ export default function Header() {
                                     <ThemeToggle />
                                 </div>
                             </div>
+                            <div
+                                aria-hidden="true"
+                                className="w-6 shrink-0 sm:hidden"
+                            />
                         </motion.div>
-
-                        <div
-                            className="shrink-0 sm:hidden"
-                            style={{ width: "2.4rem" }}
-                        />
                     </div>
                 </div>
             </div>

@@ -80,6 +80,7 @@ body {
     color: var(--text-primary);
     overscroll-behavior-y: contain;
     /* text-transform: uppercase; */
+    scrollbar-gutter: stable;
     @apply tracking-tight;
 }
 

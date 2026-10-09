@@ -1,6 +1,11 @@
 "use client";
 
 import clsx from "clsx";
+import {
+    mediaImageQuality,
+    mediaImageSizes,
+    preloadGalleryImage,
+} from "lib/gallery";
 import { IEntry } from "lib/interfaces";
 import Image from "next/image";
 import { TouchEvent, useCallback, useEffect, useRef, useState } from "react";
@@ -10,34 +15,9 @@ import {
     FiExternalLink,
     FiMaximize,
     FiMinimize,
+    FiPlay,
 } from "react-icons/fi";
 import GroupHeader from "./GroupHeader";
-
-function useWindowSize() {
-    const [windowSize, setWindowSize] = useState({
-        width: 0,
-        height: 0,
-    });
-    const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-
-        function handleResize() {
-            setWindowSize({
-                width: window.innerWidth,
-                height: window.innerHeight,
-            });
-        }
-
-        handleResize();
-        window.addEventListener("resize", handleResize);
-
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    return { ...windowSize, isClient };
-}
 
 function NavigationButtons({
     selectedIdx,
@@ -162,6 +142,7 @@ function MediaContent({
     if (isVideo) {
         return (
             <video
+                key={content.path}
                 onClick={(e) => e.stopPropagation()}
                 className={
                     isFullscreen ? "max-h-full max-w-full" : "h-full w-full"
@@ -186,6 +167,7 @@ function MediaContent({
 
     return (
         <Image
+            key={content.path}
             onClick={(e) => e.stopPropagation()}
             alt={
                 isFullscreen
@@ -209,9 +191,8 @@ function MediaContent({
             priority={true}
             draggable={false}
             loading="eager"
-            quality={isFullscreen ? 100 : 85}
-            unoptimized={isFullscreen ? true : false}
-            sizes={isFullscreen ? "100vw" : "(max-width: 1024px) 100vw, 1024px"}
+            quality={mediaImageQuality}
+            sizes={mediaImageSizes(isFullscreen, content)}
         />
     );
 }
@@ -233,40 +214,41 @@ export default function ContentGallery({
     initialIndex?: number;
     onIndexChangeAction?: (index: number) => void;
 }) {
-    const { isClient } = useWindowSize();
-
-    const [selectedIdx, setSelectedIdx] = useState(initialIndex);
+    const [internalSelectedIdx, setSelectedIdx] = useState(initialIndex);
+    const selectedIdx = fullscreenOnly ? initialIndex : internalSelectedIdx;
     const [isFullscreen, setIsFullscreen] = useState(false);
     const imagesCount = entry.items?.length || 0;
     const touchStartX = useRef<number | null>(null);
+    const thumbnailStripRef = useRef<HTMLDivElement>(null);
     const touchEndX = useRef<number | null>(null);
-    const isInternalChange = useRef(false);
-
     useEffect(() => {
-        if (fullscreenOnly) {
-            setSelectedIdx(initialIndex);
+        const strip = thumbnailStripRef.current;
+        const selected = strip?.children[selectedIdx] as
+            | HTMLElement
+            | undefined;
+        if (!strip || !selected) return;
+        const left = selected.offsetLeft - strip.offsetLeft;
+        if (left < strip.scrollLeft) {
+            strip.scrollTo({ left });
+        } else if (
+            left + selected.offsetWidth >
+            strip.scrollLeft + strip.clientWidth
+        ) {
+            strip.scrollTo({
+                left: left + selected.offsetWidth - strip.clientWidth,
+            });
         }
-    }, [initialIndex, fullscreenOnly]);
-
-    useEffect(() => {
-        if (isInternalChange.current) {
-            isInternalChange.current = false;
-            onIndexChangeAction?.(selectedIdx);
-        }
-    }, [selectedIdx, onIndexChangeAction]);
+    }, [selectedIdx]);
 
     const updateIdx = useCallback(
         (dir: number) => {
-            setSelectedIdx((prevIdx) => {
-                const newIdx = prevIdx + dir;
-                if (newIdx >= 0 && newIdx < imagesCount) {
-                    isInternalChange.current = true;
-                    return newIdx;
-                }
-                return prevIdx;
-            });
+            const newIdx = selectedIdx + dir;
+            if (newIdx < 0 || newIdx >= imagesCount || newIdx === selectedIdx)
+                return;
+            if (!fullscreenOnly) setSelectedIdx(newIdx);
+            onIndexChangeAction?.(newIdx);
         },
-        [imagesCount],
+        [imagesCount, selectedIdx, fullscreenOnly, onIndexChangeAction],
     );
 
     const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
@@ -346,19 +328,23 @@ export default function ContentGallery({
     ]);
 
     useEffect(() => {
-        if (!entry.items || !isClient) return;
+        if (!entry.items || (fullscreenOnly && !isOpen)) return;
 
         const preloadImage = (index: number) => {
             const item = entry.items?.[index];
-            if (item && !item.path.includes(".mp4")) {
-                const img = new window.Image();
-                img.src = item.path;
-            }
+            if (item) preloadGalleryImage(item, fullscreenOnly || isFullscreen);
         };
 
         if (selectedIdx > 0) preloadImage(selectedIdx - 1);
         if (selectedIdx < imagesCount - 1) preloadImage(selectedIdx + 1);
-    }, [selectedIdx, entry.items, imagesCount, isClient]);
+    }, [
+        selectedIdx,
+        entry.items,
+        imagesCount,
+        fullscreenOnly,
+        isOpen,
+        isFullscreen,
+    ]);
 
     if (fullscreenOnly) {
         if (!isOpen || !selectedContent) {
@@ -436,6 +422,7 @@ export default function ContentGallery({
                         }}
                         itemEntry={entry}
                         header={true}
+                        hideReferences
                     />
                 </div>
             </div>
@@ -479,71 +466,62 @@ export default function ContentGallery({
             </div>
 
             {entry.items && entry.items.length > 1 && (
-                <>
-                    <div className="w-full">
-                        <div className="grid grid-cols-3 gap-3 px-0.5 pb-0.5 sm:grid-cols-5 lg:px-0 xl:grid-cols-10">
-                            {entry.items?.map((content, idx) => (
-                                <div
-                                    key={idx}
-                                    className={clsx(
-                                        "aspect-square cursor-pointer",
-                                    )}
-                                    onClick={() => {
-                                        setSelectedIdx(idx);
-                                    }}
-                                >
-                                    {content.path.includes(".mp4") ? (
-                                        <div
-                                            className={clsx(
-                                                "relative flex h-full w-full items-center justify-center overflow-hidden rounded-lg bg-black",
-                                                selectedIdx === idx
-                                                    ? "border-white-600 border-2 ring-2 ring-p0 dark:border-black dark:ring-o0"
-                                                    : "hover:ring-1 hover:ring-neutral-200 dark:hover:ring-neutral-600",
-                                            )}
-                                        >
-                                            {selectedIdx === idx && (
-                                                <div className="pointer-events-none absolute inset-[3px] z-10 rounded-md"></div>
-                                            )}
-                                            <video
-                                                className="h-full w-full object-cover"
-                                                src={content.path}
-                                                muted
-                                                autoPlay={false}
-                                                loop={false}
-                                                controls={false}
-                                                playsInline={false}
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div
-                                            className={clsx(
-                                                "relative box-border h-full w-full overflow-hidden rounded-lg bg-white dark:bg-black",
-                                                selectedIdx === idx
-                                                    ? "border-white-600 border-2 ring-2 ring-p0 dark:border-black dark:ring-o0"
-                                                    : "hover:ring-1 hover:ring-neutral-200 dark:hover:ring-neutral-600",
-                                            )}
-                                        >
-                                            {selectedIdx === idx && (
-                                                <div className="pointer-events-none absolute inset-[3px] z-10 rounded-md"></div>
-                                            )}
-                                            <Image
-                                                alt={`thumbnail-${idx}`}
-                                                className="h-full w-full object-cover"
-                                                src={content.path}
-                                                width={200}
-                                                height={200}
-                                                draggable={false}
-                                                loading={
-                                                    idx <= 6 ? "eager" : "lazy"
-                                                }
-                                            />
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
+                <div className="w-full min-w-0">
+                    <div className="mb-2 flex items-center justify-end font-mono text-[11px] uppercase text-neutral-500">
+                        <span aria-live="polite">
+                            {selectedIdx + 1} / {imagesCount}
+                        </span>
                     </div>
-                </>
+                    <div
+                        ref={thumbnailStripRef}
+                        role="group"
+                        aria-label="Gallery thumbnails"
+                        className="relative flex w-full gap-2 overflow-x-auto p-1 pb-3"
+                    >
+                        {entry.items.map((content, idx) => (
+                            <button
+                                key={content.path}
+                                type="button"
+                                aria-label={`Show ${content.path.includes(".mp4") ? "video" : "image"} ${idx + 1}`}
+                                aria-pressed={selectedIdx === idx}
+                                onClick={() => updateIdx(idx - selectedIdx)}
+                                className={clsx(
+                                    "relative h-16 w-16 shrink-0 overflow-hidden bg-neutral-100 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-p0 dark:bg-neutral-900 dark:focus-visible:outline-o0 sm:h-20 sm:w-20",
+                                    selectedIdx === idx
+                                        ? "ring-2 ring-p0 dark:ring-o0"
+                                        : "opacity-60 hover:opacity-100",
+                                )}
+                            >
+                                {content.path.includes(".mp4") ? (
+                                    <>
+                                        <video
+                                            className="h-full w-full object-cover"
+                                            src={content.path}
+                                            muted
+                                            playsInline
+                                            preload="metadata"
+                                        />
+                                        {FiPlay({
+                                            className:
+                                                "absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 text-white drop-shadow",
+                                        })}
+                                    </>
+                                ) : (
+                                    <Image
+                                        alt=""
+                                        className="h-full w-full object-cover"
+                                        src={content.path}
+                                        width={160}
+                                        height={160}
+                                        sizes="(max-width: 639px) 64px, 80px"
+                                        draggable={false}
+                                        loading="lazy"
+                                    />
+                                )}
+                            </button>
+                        ))}
+                    </div>
+                </div>
             )}
 
             {isFullscreen && selectedContent && (

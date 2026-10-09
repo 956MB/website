@@ -5,6 +5,20 @@ import { hl } from "./util";
 
 const icons = [
     entry(
+        "glass-icons",
+        "Glass 2.0",
+        "10.9.2026",
+        "icon",
+        [item("/images/extras/icons/glass-2.webp", 1024, 1024)],
+        {
+            summary: [
+                "icons i currently use or have messed with in the past in the Icon Composer 2.0 (macOS) style.",
+            ],
+            link: "https://drive.google.com/drive/folders/12Npmxg9jYyqvMyGziHQo2ls8U89b6LVw?usp=sharing",
+            credit: "Various",
+        },
+    ),
+    entry(
         "black-icons",
         "B/W Icons",
         "4.11.2025",

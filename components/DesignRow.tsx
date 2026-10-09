@@ -85,18 +85,30 @@ function getRadius(
     };
 }
 
-function DesignItem({
+export function DesignItem({
     item,
     cornerRadius,
     pathname,
     delay,
+    href,
+    standalone = false,
 }: {
     item: IEntry;
     cornerRadius: ReturnType<typeof getRadius>;
     pathname: string;
     delay: number;
+    href?: string;
+    standalone?: boolean;
 }) {
     const [hoverThumb, setHoverThumb] = useState<IEntryItem | null>(null);
+    const itemHref =
+        href ??
+        (item.linkBlog
+            ? item.linkBlog
+            : item.items && item.items.length > 0
+              ? `${pathname}/${item.id}`
+              : "#");
+    const isExternal = /^https?:\/\//.test(itemHref);
 
     const thumbSrc = item.thumbnail
         ? item.thumbnail.path
@@ -134,7 +146,9 @@ function DesignItem({
     return (
         <motion.div
             variants={itemVariants}
-            transition={{ duration: 0.5, delay }}
+            initial={standalone ? "initial" : undefined}
+            animate={standalone ? "animate" : undefined}
+            transition={{ duration: 0.35, delay }}
             id={item.id}
             className={clsx(
                 "group relative z-0 box-content flex flex-col justify-start uppercase saturate-0 hover:saturate-100",
@@ -146,13 +160,10 @@ function DesignItem({
         >
             <Link
                 className="group relative flex flex-col justify-end"
-                href={
-                    item.linkBlog
-                        ? item.linkBlog
-                        : item.items && item.items.length > 0
-                          ? `${pathname}/${item.id}`
-                          : "#"
-                }
+                href={itemHref}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                aria-label={item.title}
             >
                 <div
                     className={clsx(

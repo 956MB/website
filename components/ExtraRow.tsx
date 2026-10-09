@@ -1,16 +1,50 @@
 "use client";
 
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import parse from "html-react-parser";
 import { IEntryGroup } from "lib/interfaces";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import { PiWarningCircleBold } from "react-icons/pi";
 import GroupHeader from "./GroupHeader";
 import Tooltip from "./Tooltip";
 
-export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
+const toggleAreaHeight = 120;
+
+export default function ExtraRow({
+    entry,
+    collapsible = false,
+}: {
+    entry: IEntryGroup;
+    collapsible?: boolean;
+}) {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [isLargeDesktop, setIsLargeDesktop] = useState(false);
+    const canCollapse = collapsible && isLargeDesktop;
+    const contentId = useId();
+    const gridRef = useRef<HTMLDivElement>(null);
+    const [contentHeight, setContentHeight] = useState(900);
+    const reduceMotion = useReducedMotion();
+
+    useEffect(() => {
+        if (!collapsible) return;
+        const desktop = window.matchMedia("(min-width: 1024px)");
+        const updateDesktop = () => setIsLargeDesktop(desktop.matches);
+        updateDesktop();
+        desktop.addEventListener("change", updateDesktop);
+        return () => desktop.removeEventListener("change", updateDesktop);
+    }, [collapsible]);
+
+    useEffect(() => {
+        const grid = gridRef.current;
+        if (!collapsible || !grid) return;
+        const observer = new ResizeObserver(() => {
+            setContentHeight(grid.getBoundingClientRect().height);
+        });
+        observer.observe(grid);
+        return () => observer.disconnect();
+    }, [collapsible]);
     const containerVariants = {
         initial: {},
         animate: {
@@ -38,145 +72,220 @@ export default function ExtraRow({ entry }: { entry: IEntryGroup }) {
                     <hr className="my-auto h-px w-full border-b border-dotted border-neutral-200 bg-transparent dark:border-neutral-800" />
                 </div>
 
-                <motion.div
-                    variants={containerVariants}
-                    initial="initial"
-                    animate="animate"
-                    className={clsx(
-                        "grid w-full max-w-screen-lg items-start justify-center",
-                        entry.category === "icons"
-                            ? "grid-cols-2 gap-2 pt-3.5 md:grid-cols-3 lg:grid-cols-4"
-                            : "grid-cols-1 gap-3 pt-3.5 lg:grid-cols-2",
-                    )}
-                >
-                    {React.Children.toArray(
-                        entry.items.map((item, i) => {
-                            return (
-                                <motion.div
-                                    key={i}
-                                    variants={itemVariants}
-                                    id={item.id}
-                                    className={clsx(
-                                        "group relative z-0 box-content flex flex-col justify-start",
-                                    )}
-                                >
-                                    <a
-                                        className={clsx(
-                                            "duration-50 group relative flex select-none flex-col justify-end overflow-hidden border-transparent object-cover saturate-0 backdrop-blur-sm transition-opacity ease-linear group-hover:border-p0 group-hover:saturate-100 dark:group-hover:border-o0 sm:backdrop-blur-none lg:border",
-                                            item.link && " cursor-pointer",
-                                            item.items?.[0].saturation ===
-                                                true && "saturate-100",
-                                        )}
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                        href={item.link ? item.link : undefined}
-                                    >
-                                        <div
+                <div className="relative w-full max-w-screen-lg scroll-mt-24">
+                    <motion.div
+                        id={contentId}
+                        initial={false}
+                        animate={{
+                            height: canCollapse
+                                ? isExpanded
+                                    ? contentHeight + toggleAreaHeight
+                                    : Math.min(900, contentHeight)
+                                : "auto",
+                        }}
+                        transition={{
+                            duration: reduceMotion ? 0 : 0.25,
+                            ease: [0.4, 0, 0.2, 1],
+                        }}
+                        className={clsx(canCollapse && "overflow-hidden")}
+                        onFocusCapture={(event) => {
+                            if (!canCollapse || isExpanded) return;
+                            const bounds =
+                                event.currentTarget.getBoundingClientRect();
+                            if (
+                                event.target.getBoundingClientRect().bottom >
+                                bounds.bottom - toggleAreaHeight
+                            ) {
+                                setIsExpanded(true);
+                            }
+                        }}
+                    >
+                        <motion.div
+                            ref={gridRef}
+                            variants={containerVariants}
+                            initial="initial"
+                            animate="animate"
+                            className={clsx(
+                                "grid w-full max-w-screen-lg items-start justify-center",
+                                entry.category === "icons"
+                                    ? "grid-cols-2 gap-2 pt-3.5 md:grid-cols-3 lg:grid-cols-4"
+                                    : "grid-cols-1 gap-3 pt-3.5 lg:grid-cols-2",
+                            )}
+                        >
+                            {React.Children.toArray(
+                                entry.items.map((item, i) => {
+                                    return (
+                                        <motion.div
+                                            key={i}
+                                            variants={itemVariants}
+                                            id={item.id}
                                             className={clsx(
-                                                "relative w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900",
-                                                item.category === "icon"
-                                                    ? "aspect-square"
-                                                    : "aspect-video",
+                                                "group relative z-0 box-content flex flex-col justify-start",
                                             )}
                                         >
-                                            <Image
-                                                alt={item.id}
+                                            <a
                                                 className={clsx(
-                                                    "duration-50 block h-full w-full transition-transform delay-0 ease-linear group-hover:scale-105",
-                                                    item.category === "icon"
-                                                        ? "aspect-square object-contain"
-                                                        : "aspect-video object-cover sm:aspect-video",
+                                                    "duration-50 group relative flex select-none flex-col justify-end overflow-hidden border-transparent object-cover saturate-0 backdrop-blur-sm transition-opacity ease-linear group-hover:border-p0 group-hover:saturate-100 dark:group-hover:border-o0 sm:backdrop-blur-none lg:border",
+                                                    item.link &&
+                                                        " cursor-pointer",
+                                                    item.items?.[0]
+                                                        .saturation === true &&
+                                                        "saturate-100",
                                                 )}
-                                                src={
-                                                    item.items
-                                                        ? item.items[0].path
-                                                        : ""
+                                                rel="noopener noreferrer"
+                                                target="_blank"
+                                                href={
+                                                    item.link
+                                                        ? item.link
+                                                        : undefined
                                                 }
-                                                width={
-                                                    item.items
-                                                        ? item.items[0].width
-                                                        : 0
-                                                }
-                                                height={
-                                                    item.items
-                                                        ? item.items[0].height
-                                                        : 0
-                                                }
-                                                loading="eager"
-                                                unoptimized={true}
-                                            />
-                                        </div>
-                                    </a>
-                                    <div
-                                        className={clsx(
-                                            "z-10 flex w-full flex-col justify-center gap-y-2 pb-[16px] pt-[10px] text-start",
-                                            item.summary &&
-                                                item.summary.length <= 0 &&
-                                                "h-[53px] max-h-[53px] min-h-[53px]",
-                                        )}
-                                    >
-                                        <div className="flex w-full flex-row items-start justify-start gap-x-2">
-                                            <div className="flex w-full flex-col items-start justify-start gap-y-1">
-                                                <div className="flex w-full flex-row items-center justify-start gap-1">
-                                                    <a
+                                            >
+                                                <div
+                                                    className={clsx(
+                                                        "relative w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900",
+                                                        item.category === "icon"
+                                                            ? "aspect-square"
+                                                            : "aspect-video",
+                                                    )}
+                                                >
+                                                    <Image
+                                                        alt={item.id}
                                                         className={clsx(
-                                                            "m-0 overflow-hidden text-ellipsis whitespace-nowrap font-degular font-semibold text-black transition-colors duration-100 hover:text-p0 dark:text-white dark:hover:text-o0",
-                                                            "block max-w-full text-sm",
-                                                            item.link &&
-                                                                "hover:underline group-hover:text-p0 dark:group-hover:text-o0",
+                                                            "duration-50 block h-full w-full transition-transform delay-0 ease-linear group-hover:scale-105",
+                                                            item.category ===
+                                                                "icon"
+                                                                ? "aspect-square object-contain"
+                                                                : "aspect-video object-cover sm:aspect-video",
                                                         )}
-                                                        rel="noopener noreferrer"
-                                                        target="_blank"
-                                                        href={
-                                                            item.link
-                                                                ? item.link
-                                                                : undefined
+                                                        src={
+                                                            item.items
+                                                                ? item.items[0]
+                                                                      .path
+                                                                : ""
                                                         }
-                                                    >
-                                                        {parse(item.title)}
-                                                    </a>
-
-                                                    {item.credit && (
-                                                        <Tooltip
-                                                            content={
-                                                                item.credit
-                                                            }
-                                                            position={"top"}
-                                                            warn={true}
-                                                            groupHover={true}
-                                                        >
-                                                            <a className="rounded-full bg-[#9759AE]/20 p-[2px] transition-all duration-300 ease-out hover:bg-[#9759AE]/40 dark:bg-[#FF8200]/20 dark:hover:bg-[#FF8200]/40">
-                                                                {PiWarningCircleBold(
-                                                                    {
-                                                                        size: 16,
-                                                                        className:
-                                                                            "min-h-[16px] min-w-[16px] text-p0 transition-all duration-300 ease-out dark:text-o0",
-                                                                    },
+                                                        width={
+                                                            item.items
+                                                                ? item.items[0]
+                                                                      .width
+                                                                : 0
+                                                        }
+                                                        height={
+                                                            item.items
+                                                                ? item.items[0]
+                                                                      .height
+                                                                : 0
+                                                        }
+                                                        loading="eager"
+                                                        unoptimized={true}
+                                                    />
+                                                </div>
+                                            </a>
+                                            <div
+                                                className={clsx(
+                                                    "z-10 flex w-full flex-col justify-center gap-y-2 pb-[16px] pt-[10px] text-start",
+                                                    item.summary &&
+                                                        item.summary.length <=
+                                                            0 &&
+                                                        "h-[53px] max-h-[53px] min-h-[53px]",
+                                                )}
+                                            >
+                                                <div className="flex w-full flex-row items-start justify-start gap-x-2">
+                                                    <div className="flex w-full flex-col items-start justify-start gap-y-1">
+                                                        <div className="flex w-full flex-row items-center justify-start gap-1">
+                                                            <a
+                                                                className={clsx(
+                                                                    "m-0 overflow-hidden text-ellipsis whitespace-nowrap font-degular font-semibold text-black transition-colors duration-100 hover:text-p0 dark:text-white dark:hover:text-o0",
+                                                                    "block max-w-full text-sm",
+                                                                    item.link &&
+                                                                        "hover:underline group-hover:text-p0 dark:group-hover:text-o0",
+                                                                )}
+                                                                rel="noopener noreferrer"
+                                                                target="_blank"
+                                                                href={
+                                                                    item.link
+                                                                        ? item.link
+                                                                        : undefined
+                                                                }
+                                                            >
+                                                                {parse(
+                                                                    item.title,
                                                                 )}
                                                             </a>
-                                                        </Tooltip>
-                                                    )}
-                                                </div>
 
-                                                {item.summary && (
-                                                    <span className="entry-summary w-full font-degular text-xs leading-4 text-neutral-800 dark:text-neutral-350">
-                                                        {parse(
-                                                            (
-                                                                item.summary.join(
-                                                                    "",
-                                                                ) || ""
-                                                            ).toString(),
+                                                            {item.credit && (
+                                                                <Tooltip
+                                                                    content={
+                                                                        item.credit
+                                                                    }
+                                                                    position={
+                                                                        "top"
+                                                                    }
+                                                                    warn={true}
+                                                                    groupHover={
+                                                                        true
+                                                                    }
+                                                                >
+                                                                    <a className="rounded-full bg-[#9759AE]/20 p-[2px] transition-all duration-300 ease-out hover:bg-[#9759AE]/40 dark:bg-[#FF8200]/20 dark:hover:bg-[#FF8200]/40">
+                                                                        {PiWarningCircleBold(
+                                                                            {
+                                                                                size: 16,
+                                                                                className:
+                                                                                    "min-h-[16px] min-w-[16px] text-p0 transition-all duration-300 ease-out dark:text-o0",
+                                                                            },
+                                                                        )}
+                                                                    </a>
+                                                                </Tooltip>
+                                                            )}
+                                                        </div>
+
+                                                        {item.summary && (
+                                                            <span className="entry-summary w-full font-degular text-xs leading-4 text-neutral-800 dark:text-neutral-350">
+                                                                {parse(
+                                                                    (
+                                                                        item.summary.join(
+                                                                            "",
+                                                                        ) || ""
+                                                                    ).toString(),
+                                                                )}
+                                                            </span>
                                                         )}
-                                                    </span>
-                                                )}
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            );
-                        }),
+                                        </motion.div>
+                                    );
+                                }),
+                            )}
+                        </motion.div>
+                    </motion.div>
+                    {canCollapse && (
+                        <button
+                            type="button"
+                            aria-expanded={isExpanded}
+                            aria-controls={contentId}
+                            aria-label={`${isExpanded ? "Collapse" : "Expand"} ${entry.title}`}
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            style={{ height: toggleAreaHeight }}
+                            className="absolute inset-x-0 bottom-0 z-20 cursor-pointer text-neutral-500 transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-p0 dark:focus-visible:outline-o0"
+                        >
+                            <motion.span
+                                aria-hidden="true"
+                                initial={false}
+                                animate={{ opacity: isExpanded ? 0 : 1 }}
+                                transition={{
+                                    duration: reduceMotion ? 0 : 0.2,
+                                }}
+                                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black to-transparent"
+                            />
+                            <span
+                                aria-hidden="true"
+                                className="pointer-events-none absolute bottom-3 right-3 font-mono text-lg"
+                            >
+                                {isExpanded ? "−" : "+"}
+                            </span>
+                        </button>
                     )}
-                </motion.div>
+                </div>
             </div>
         </div>
     );

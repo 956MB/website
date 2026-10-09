@@ -2,7 +2,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import clsx from "clsx";
 import Header, { Footer } from "components/NavBar";
-import Particles from "components/particles";
 import { ThemeProvider } from "components/ThemeProvider";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
@@ -174,13 +173,6 @@ export default function RootLayout({
                     "flex min-h-screen flex-col overflow-auto antialiased md:flex-row",
                 )}
             >
-                <div className="pointer-events-none fixed inset-0 z-0">
-                    <Particles
-                        className="absolute inset-0 hidden animate-fade-in invert dark:invert-0 sm:block"
-                        quantity={128}
-                    />
-                </div>
-
                 <ThemeProvider>
                     <main className="relative z-10 flex w-full min-w-0 flex-1 flex-grow flex-col items-center">
                         <Header />
