@@ -1,19 +1,83 @@
 "use client";
 
-import clsx from "clsx";
 import ContentGallery from "components/ContentGallery";
 import { motion } from "framer-motion";
 import { preloadGalleryImage } from "lib/gallery";
+import { getImageHoverColors, IImageHoverColors } from "lib/imageColor";
 import { name } from "lib/info";
 import { IEntry } from "lib/interfaces";
 import { generateRandomDelays, itemVariants } from "lib/util";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { CSSProperties, useEffect, useMemo, useState } from "react";
 
 interface IColumnPhoto {
     photo: IEntry;
     originalIndex: number;
+}
+
+function PhotoTile({
+    photo,
+    delay,
+    onOpen,
+}: {
+    photo: IEntry;
+    delay: number;
+    onOpen: () => void;
+}) {
+    const [hoverColors, setHoverColors] = useState<IImageHoverColors>({});
+    const thumbnail = photo.thumbnail || photo.items?.[0];
+    if (!thumbnail) return null;
+
+    const preload = () => {
+        if (photo.items?.[0]) preloadGalleryImage(photo.items[0]);
+    };
+
+    return (
+        <motion.div
+            variants={itemVariants}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.35, delay }}
+            className="group relative w-full overflow-hidden rounded-lg border border-transparent focus-within:border-[var(--photo-hover-light,#9759ae)] hover:border-[var(--photo-hover-light,#9759ae)] dark:focus-within:border-[var(--photo-hover-dark,#ff8200)] dark:hover:border-[var(--photo-hover-dark,#ff8200)]"
+            style={
+                {
+                    "--photo-hover-light": hoverColors.light,
+                    "--photo-hover-dark": hoverColors.dark,
+                } as CSSProperties
+            }
+            onMouseEnter={preload}
+            onFocus={preload}
+            onPointerDown={preload}
+        >
+            <button
+                type="button"
+                onClick={onOpen}
+                aria-label={`Open ${photo.title}`}
+                className="relative block w-full overflow-hidden rounded-[inherit] focus-visible:outline-none"
+            >
+                <Image
+                    alt={photo.title}
+                    className="duration-50 h-auto w-full transition-transform group-hover:scale-105"
+                    src={thumbnail.path}
+                    width={thumbnail.width}
+                    height={thumbnail.height}
+                    draggable={false}
+                    loading="lazy"
+                    unoptimized={false}
+                    quality={85}
+                    sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw"
+                    onLoad={(e) => {
+                        setHoverColors(getImageHoverColors(e.currentTarget));
+                    }}
+                />
+            </button>
+            <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 z-10 rounded-[calc(0.5rem-1px)] border border-[var(--bg)] opacity-0 group-focus-within:opacity-100 group-hover:opacity-100"
+            />
+        </motion.div>
+    );
 }
 
 function PhotoCol({
@@ -27,59 +91,14 @@ function PhotoCol({
 }) {
     return (
         <div className="flex flex-col gap-3">
-            {items.map(({ photo, originalIndex }) => {
-                const thumbnail =
-                    photo.thumbnail || (photo.items && photo.items[0]);
-                if (!thumbnail) return null;
-
-                return (
-                    <motion.div
-                        key={photo.id}
-                        variants={itemVariants}
-                        initial="initial"
-                        animate="animate"
-                        transition={{
-                            duration: 0.35,
-                            delay: randomDelays[originalIndex],
-                        }}
-                        className="group relative w-full cursor-pointer overflow-hidden rounded-lg border-transparent hover:border-p0  dark:hover:border-o0 lg:border"
-                        onClick={() => onPhotoClick(originalIndex)}
-                        onMouseEnter={() => {
-                            if (photo.items?.[0])
-                                preloadGalleryImage(photo.items[0]);
-                        }}
-                        onFocus={() => {
-                            if (photo.items?.[0])
-                                preloadGalleryImage(photo.items[0]);
-                        }}
-                        onPointerDown={() => {
-                            if (photo.items?.[0])
-                                preloadGalleryImage(photo.items[0]);
-                        }}
-                    >
-                        <button
-                            type="button"
-                            aria-label={`Open ${photo.title}`}
-                            className={clsx(
-                                "relative block w-full overflow-hidden transition-all",
-                            )}
-                        >
-                            <Image
-                                alt={photo.title}
-                                className="duration-50 h-auto w-full transition-transform group-hover:scale-105"
-                                src={thumbnail.path}
-                                width={thumbnail.width}
-                                height={thumbnail.height}
-                                draggable={false}
-                                loading="lazy"
-                                unoptimized={false}
-                                quality={85}
-                                sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw"
-                            />
-                        </button>
-                    </motion.div>
-                );
-            })}
+            {items.map(({ photo, originalIndex }) => (
+                <PhotoTile
+                    key={photo.id}
+                    photo={photo}
+                    delay={randomDelays[originalIndex]}
+                    onOpen={() => onPhotoClick(originalIndex)}
+                />
+            ))}
         </div>
     );
 }
