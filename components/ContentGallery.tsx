@@ -20,8 +20,9 @@ import {
 
 const controlClasses =
     "group flex h-8 w-8 items-center justify-center rounded-lg border border-neutral-200 bg-white/90 backdrop-blur-sm transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-p0 dark:border-neutral-800 dark:bg-black/90 dark:focus-visible:outline-o0 sm:h-9 sm:w-9";
-
 const iconClasses = "h-4 w-4 text-neutral-400";
+const thumbClasses = "h-12 w-12 sm:h-16 sm:w-16";
+const entryLinkOffsetClasses = "bottom-[5.375rem] sm:bottom-[6.375rem]";
 
 const trimUrl = (url: string) => {
     const clean = url.replace(/^https?:\/\//, "");
@@ -234,24 +235,6 @@ export default function ContentGallery({
             onTouchEnd={handleTouchEnd}
         >
             <div className="absolute right-3 top-3 z-[10000] flex items-center gap-2">
-                {entry.link && (
-                    <a
-                        href={entry.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="group flex h-8 items-center gap-1.5 rounded-lg border border-neutral-200 bg-white/90 px-2.5 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90 sm:h-9 sm:gap-2"
-                        aria-label="View on Lightroom"
-                    >
-                        <span className="text-[13px] font-normal text-neutral-600 group-hover:text-p0 dark:text-neutral-500 dark:group-hover:text-o0">
-                            {trimUrl(entry.link)}
-                        </span>
-                        {FiExternalLink({
-                            className:
-                                "h-3.5 w-3.5 flex-shrink-0 text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
-                        })}
-                    </a>
-                )}
                 <button
                     onClick={(e) => {
                         e.stopPropagation();
@@ -366,7 +349,8 @@ export default function ContentGallery({
                                 aria-pressed={selectedIdx === idx}
                                 onClick={() => updateIdx(idx - selectedIdx)}
                                 className={clsx(
-                                    "relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-p0 dark:bg-neutral-900 dark:focus-visible:outline-o0 sm:h-16 sm:w-16",
+                                    "relative shrink-0 overflow-hidden rounded-lg bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-p0 dark:bg-neutral-900 dark:focus-visible:outline-o0",
+                                    thumbClasses,
                                     selectedIdx === idx
                                         ? "ring-2 ring-p0 dark:ring-o0"
                                         : "opacity-60 hover:opacity-100",
@@ -401,6 +385,34 @@ export default function ContentGallery({
                             </button>
                         ))}
                     </div>
+                </div>
+            )}
+
+            {entry.link && (
+                <div
+                    className={clsx(
+                        "absolute right-3 z-[10000] max-w-[calc(100vw-1.5rem)]",
+                        hasThumbnails ? entryLinkOffsetClasses : "bottom-3",
+                    )}
+                    onTouchStart={(e) => e.stopPropagation()}
+                    onTouchEnd={(e) => e.stopPropagation()}
+                >
+                    <a
+                        href={entry.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="group flex h-8 items-center gap-1.5 rounded-lg border border-neutral-200 bg-white/90 px-2.5 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90 sm:h-9 sm:gap-2"
+                        aria-label="View on Lightroom"
+                    >
+                        <span className="min-w-0 truncate text-[13px] font-normal text-neutral-600 group-hover:text-p0 dark:text-neutral-500 dark:group-hover:text-o0">
+                            {trimUrl(entry.link)}
+                        </span>
+                        {FiExternalLink({
+                            className:
+                                "h-3.5 w-3.5 flex-shrink-0 text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
+                        })}
+                    </a>
                 </div>
             )}
         </div>

@@ -16,14 +16,18 @@ interface IColumnPhoto {
     originalIndex: number;
 }
 
+const EAGER_TILES_PER_COLUMN = 2;
+
 function PhotoTile({
     photo,
     delay,
     onOpen,
+    position,
 }: {
     photo: IEntry;
     delay: number;
     onOpen: () => void;
+    position: number;
 }) {
     const [hoverColors, setHoverColors] = useState<IImageHoverColors>({});
     const thumbnail = photo.thumbnail || photo.items?.[0];
@@ -63,7 +67,10 @@ function PhotoTile({
                     width={thumbnail.width}
                     height={thumbnail.height}
                     draggable={false}
-                    loading="lazy"
+                    loading={
+                        position < EAGER_TILES_PER_COLUMN ? "eager" : "lazy"
+                    }
+                    fetchPriority={position === 0 ? "high" : "auto"}
                     unoptimized={false}
                     quality={85}
                     sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw"
@@ -91,11 +98,12 @@ function PhotoCol({
 }) {
     return (
         <div className="flex flex-col gap-3">
-            {items.map(({ photo, originalIndex }) => (
+            {items.map(({ photo, originalIndex }, position) => (
                 <PhotoTile
                     key={photo.id}
                     photo={photo}
                     delay={randomDelays[originalIndex]}
+                    position={position}
                     onOpen={() => onPhotoClick(originalIndex)}
                 />
             ))}
