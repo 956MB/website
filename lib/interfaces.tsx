@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { imgUrl, stripHtml } from "./util";
+import { imgUrl } from "./util";
 
 export interface IEntryItem {
     saturation?: boolean;
@@ -129,40 +129,6 @@ export const pageMetadata = (
             title: group.title,
             description: group.description,
             images: og,
-        },
-    };
-};
-
-export const slugMetadata = (
-    baseUrl: string,
-    name: string,
-    og: string,
-    entry: IEntry,
-): Metadata => {
-    const image =
-        entry.thumbnail?.path ||
-        (entry.items && entry.items.length > 0 ? entry.items[0].path : null);
-
-    return {
-        title: entry.title,
-        authors: [{ name }],
-        keywords: entry.tags,
-        description: stripHtml(entry.summary?.join(" ") ?? ""),
-        openGraph: {
-            title: entry.title,
-            description: stripHtml(entry.summary?.join(" ") ?? ""),
-            url: image ? `${baseUrl}${image}` : undefined,
-            images: [
-                {
-                    url: image ?? "",
-                },
-            ],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: entry.title,
-            description: stripHtml(entry.summary?.join(" ") ?? ""),
-            images: image ?? "",
         },
     };
 };

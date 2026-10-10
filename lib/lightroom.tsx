@@ -2,29 +2,37 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const photos = [
     entry(
+        "plastic-plant",
+        "Can you tell it's plastic?",
+        "10.9.2026",
+        "photography",
+        [item("/images/lightroom/plastic-plant.webp", 2880, 4032)],
+        {
+            summary: ["iPhone 18 Pro test shot in my reading corner window."],
+            thumbnail: item("/images/lightroom/plastic-plant.webp", 2880, 4032),
+            link: "https://lightroom.app.link/DTLzhKiU66b",
+        },
+    ),
+    entry(
+        "moth",
         "Moth",
-        "They land on the window sometimes.",
         "10.4.2026",
         "photography",
         [item("/images/lightroom/moth.webp", 3024, 3024)],
         {
-            summary: [
-                "They land on the window sometimes.",
-            ],
+            summary: ["They land on the window sometimes."],
             thumbnail: item("/images/lightroom/moth.webp", 3024, 3024),
             link: "https://lightroom.app.link/F3FBvLwqX6b",
         },
     ),
     entry(
         "2100-ross",
-        "It's my North East view.",
+        "2100 Ross",
         "8.21.2026",
         "photography",
         [item("/images/lightroom/2100-ross.webp", 3024, 4032)],
         {
-            summary: [
-                "It's my North East view.",
-            ],
+            summary: ["It's my North East view."],
             thumbnail: item("/images/lightroom/2100-ross.webp", 3024, 4032),
             link: "https://lightroom.app.link/yQQmpj4F05b",
         },
@@ -36,9 +44,7 @@ const photos = [
         "photography",
         [item("/images/lightroom/hilltop.webp", 2773, 3697)],
         {
-            summary: [
-                "It reflects a lot around sunset.",
-            ],
+            summary: ["It reflects a lot around sunset."],
             thumbnail: item("/images/lightroom/hilltop.webp", 2773, 3697),
             link: "https://lightroom.app.link/3mWh69cG05b",
         },
@@ -50,9 +56,7 @@ const photos = [
         "photography",
         [item("/images/lightroom/yellow-jacket.webp", 3008, 4011)],
         {
-            summary: [
-                "How did it turn out this good?",
-            ],
+            summary: ["How did it turn out this good?"],
             thumbnail: item("/images/lightroom/yellow-jacket.webp", 3008, 4011),
         },
     ),

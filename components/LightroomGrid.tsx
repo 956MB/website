@@ -42,7 +42,7 @@ function PhotoCol({
                             duration: 0.35,
                             delay: randomDelays[originalIndex],
                         }}
-                        className="group relative w-full cursor-pointer overflow-hidden border-transparent hover:border-p0  dark:hover:border-o0 lg:border"
+                        className="group relative w-full cursor-pointer overflow-hidden rounded-lg border-transparent hover:border-p0  dark:hover:border-o0 lg:border"
                         onClick={() => onPhotoClick(originalIndex)}
                         onMouseEnter={() => {
                             if (photo.items?.[0])
@@ -146,6 +146,8 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
         [photos],
     );
 
+    const selectedPhoto = photos[selectedPhotoIndex];
+
     useEffect(() => {
         document.title = isGalleryOpen
             ? `${photos[selectedPhotoIndex].title} · Lightroom`
@@ -196,10 +198,12 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
                 <ContentGallery
                     entry={{
                         ...allPhotosEntry,
-                        link: photos[selectedPhotoIndex]?.link,
+                        title: selectedPhoto?.title ?? allPhotosEntry.title,
+                        summary: selectedPhoto?.summary,
+                        link: selectedPhoto?.link,
                     }}
-                    fullscreenOnly={true}
                     isOpen={isGalleryOpen}
+                    showThumbnails={false}
                     onCloseAction={handleCloseGallery}
                     initialIndex={selectedPhotoIndex}
                     onIndexChangeAction={handleIndexChange}

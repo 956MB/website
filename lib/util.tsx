@@ -1,4 +1,3 @@
-import { IEntry, IEntryGroup } from "lib/interfaces";
 import { HiMiniLanguage } from "react-icons/hi2";
 import { PiFigmaLogo } from "react-icons/pi";
 import { RiReactjsLine } from "react-icons/ri";
@@ -89,14 +88,6 @@ export function getLangColor(
         return `${prefix}bg-[${color}]`;
     }
     return `${prefix}bg-${color}`;
-}
-
-export function findEntryById(
-    id: string,
-    groups: IEntryGroup[],
-): IEntry | null {
-    const allEntries = groups.flatMap((group) => group.items);
-    return allEntries.find((item) => item.id === id) || null;
 }
 
 export function CategoryIcon({

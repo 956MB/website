@@ -125,7 +125,7 @@ export default function ExtraRow({
                                         >
                                             <a
                                                 className={clsx(
-                                                    "duration-50 group relative flex select-none flex-col justify-end overflow-hidden border-transparent object-cover saturate-0 backdrop-blur-sm transition-opacity ease-linear group-hover:border-p0 group-hover:saturate-100 dark:group-hover:border-o0 sm:backdrop-blur-none lg:border",
+                                                    "duration-50 group relative flex select-none flex-col justify-end overflow-hidden rounded-lg border-transparent object-cover saturate-0 backdrop-blur-sm transition-opacity ease-linear group-hover:border-p0 group-hover:saturate-100 dark:group-hover:border-o0 sm:backdrop-blur-none lg:border",
                                                     item.link &&
                                                         " cursor-pointer",
                                                     item.items?.[0]

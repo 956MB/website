@@ -6,136 +6,34 @@ import {
     mediaImageSizes,
     preloadGalleryImage,
 } from "lib/gallery";
-import { IEntry } from "lib/interfaces";
+import { IEntry, IEntryItem } from "lib/interfaces";
+import { stripHtml } from "lib/util";
 import Image from "next/image";
 import { TouchEvent, useCallback, useEffect, useRef, useState } from "react";
 import {
     FiChevronLeft,
     FiChevronRight,
     FiExternalLink,
-    FiMaximize,
     FiMinimize,
     FiPlay,
 } from "react-icons/fi";
-import GroupHeader from "./GroupHeader";
 
-function NavigationButtons({
-    selectedIdx,
-    imagesCount,
-    isFullscreen,
-    onPrevious,
-    onNext,
-    onToggleFullscreen,
-}: {
-    selectedIdx: number;
-    imagesCount: number;
-    isFullscreen: boolean;
-    onPrevious: () => void;
-    onNext: () => void;
-    onToggleFullscreen: () => void;
-}) {
-    const sizeClasses = isFullscreen
-        ? "h-8 w-8 sm:h-9 sm:w-9"
-        : "h-8 w-8 sm:h-8 sm:w-8";
-    const iconSizeClasses = isFullscreen ? "h-4 w-4" : "h-4 w-4";
-    const fullscreenIconSize = isFullscreen ? "h-4 w-4" : "h-3.5 w-3.5";
+const controlClasses =
+    "group flex h-8 w-8 items-center justify-center rounded-lg border border-neutral-200 bg-white/90 backdrop-blur-sm transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-p0 dark:border-neutral-800 dark:bg-black/90 dark:focus-visible:outline-o0 sm:h-9 sm:w-9";
 
-    return (
-        <>
-            {imagesCount > 1 && (
-                <>
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            onPrevious();
-                        }}
-                        disabled={selectedIdx === 0}
-                        title="Previous"
-                        aria-label="Previous"
-                        className={clsx(
-                            "group flex items-center justify-center rounded-lg border border-neutral-200 bg-white/90 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90",
-                            sizeClasses,
-                            selectedIdx === 0
-                                ? "cursor-default opacity-40"
-                                : "",
-                        )}
-                    >
-                        {FiChevronLeft({
-                            className: clsx(
-                                "text-neutral-400",
-                                iconSizeClasses,
-                                selectedIdx === 0
-                                    ? ""
-                                    : "group-hover:text-p0 dark:group-hover:text-o0",
-                            ),
-                        })}
-                    </button>
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            onNext();
-                        }}
-                        disabled={selectedIdx === imagesCount - 1}
-                        title="Next"
-                        aria-label="Next"
-                        className={clsx(
-                            "group flex items-center justify-center rounded-lg border border-neutral-200 bg-white/90 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90",
-                            sizeClasses,
-                            selectedIdx === imagesCount - 1
-                                ? "cursor-default opacity-40"
-                                : "",
-                        )}
-                    >
-                        {FiChevronRight({
-                            className: clsx(
-                                "text-neutral-400",
-                                iconSizeClasses,
-                                selectedIdx === imagesCount - 1
-                                    ? ""
-                                    : "group-hover:text-p0 dark:group-hover:text-o0",
-                            ),
-                        })}
-                    </button>
-                </>
-            )}
-            <button
-                onClick={(e) => {
-                    e.stopPropagation();
-                    onToggleFullscreen();
-                }}
-                className={clsx(
-                    "group flex items-center justify-center rounded-lg border border-neutral-200 bg-white/90 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90",
-                    sizeClasses,
-                )}
-                title={isFullscreen ? "Minimize" : "Maximize"}
-                aria-label={isFullscreen ? "Minimize" : "Maximize"}
-            >
-                {isFullscreen
-                    ? FiMinimize({
-                          className: clsx(
-                              "text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
-                              fullscreenIconSize,
-                          ),
-                      })
-                    : FiMaximize({
-                          className: clsx(
-                              "text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
-                              fullscreenIconSize,
-                          ),
-                      })}
-            </button>
-        </>
-    );
-}
+const iconClasses = "h-4 w-4 text-neutral-400";
+
+const trimUrl = (url: string) => {
+    const clean = url.replace(/^https?:\/\//, "");
+    return clean.length >= 40 ? clean.substring(0, 40) + "..." : clean;
+};
 
 function MediaContent({
     content,
     selectedIdx,
-    isFullscreen = false,
 }: {
-    content: { path: string; width: number; height: number };
+    content: IEntryItem;
     selectedIdx: number;
-    isFullscreen?: boolean;
 }) {
     const isVideo = content.path.includes(".mp4");
 
@@ -144,15 +42,8 @@ function MediaContent({
             <video
                 key={content.path}
                 onClick={(e) => e.stopPropagation()}
-                className={
-                    isFullscreen ? "max-h-full max-w-full" : "h-full w-full"
-                }
-                style={{
-                    objectFit: "contain",
-                    ...(isFullscreen
-                        ? {}
-                        : { minHeight: "100%", minWidth: "100%" }),
-                }}
+                className="max-h-full max-w-full"
+                style={{ objectFit: "contain" }}
                 src={content.path}
                 width={content.width}
                 height={content.height}
@@ -160,7 +51,7 @@ function MediaContent({
                 loop
                 muted
                 playsInline
-                autoPlay={isFullscreen}
+                autoPlay
             />
         );
     }
@@ -169,22 +60,9 @@ function MediaContent({
         <Image
             key={content.path}
             onClick={(e) => e.stopPropagation()}
-            alt={
-                isFullscreen
-                    ? `fullscreen-image-${selectedIdx}`
-                    : `project-image-${selectedIdx}`
-            }
-            className={
-                isFullscreen
-                    ? "max-h-full max-w-full"
-                    : "h-full w-full bg-transparent dark:bg-black"
-            }
-            style={{
-                objectFit: "contain",
-                ...(isFullscreen
-                    ? {}
-                    : { minHeight: "100%", minWidth: "100%" }),
-            }}
+            alt={`fullscreen-image-${selectedIdx}`}
+            className="max-h-full max-w-full"
+            style={{ objectFit: "contain" }}
             src={content.path}
             width={content.width}
             height={content.height}
@@ -192,35 +70,39 @@ function MediaContent({
             draggable={false}
             loading="eager"
             quality={mediaImageQuality}
-            sizes={mediaImageSizes(isFullscreen, content)}
+            sizes={mediaImageSizes(true, content)}
         />
     );
 }
 
 export default function ContentGallery({
     entry,
-    _backLink,
-    fullscreenOnly = false,
     isOpen,
     onCloseAction,
     initialIndex = 0,
     onIndexChangeAction,
+    showThumbnails = true,
 }: {
     entry: IEntry;
-    _backLink?: string;
-    fullscreenOnly?: boolean;
-    isOpen?: boolean;
+    isOpen: boolean;
     onCloseAction?: () => void;
     initialIndex?: number;
     onIndexChangeAction?: (index: number) => void;
+    showThumbnails?: boolean;
 }) {
+    const isControlled = onIndexChangeAction !== undefined;
     const [internalSelectedIdx, setSelectedIdx] = useState(initialIndex);
-    const selectedIdx = fullscreenOnly ? initialIndex : internalSelectedIdx;
-    const [isFullscreen, setIsFullscreen] = useState(false);
+    const selectedIdx = isControlled ? initialIndex : internalSelectedIdx;
     const imagesCount = entry.items?.length || 0;
+    const selectedContent = entry.items?.[selectedIdx];
+    const description = entry.summary?.length
+        ? stripHtml(entry.summary.join(" "))
+        : "";
     const touchStartX = useRef<number | null>(null);
-    const thumbnailStripRef = useRef<HTMLDivElement>(null);
     const touchEndX = useRef<number | null>(null);
+    const thumbnailStripRef = useRef<HTMLDivElement>(null);
+    const hasThumbnails = showThumbnails && imagesCount > 1;
+
     useEffect(() => {
         const strip = thumbnailStripRef.current;
         const selected = strip?.children[selectedIdx] as
@@ -238,22 +120,23 @@ export default function ContentGallery({
                 left: left + selected.offsetWidth - strip.clientWidth,
             });
         }
-    }, [selectedIdx]);
+    }, [selectedIdx, hasThumbnails, isOpen]);
 
     const updateIdx = useCallback(
         (dir: number) => {
             const newIdx = selectedIdx + dir;
             if (newIdx < 0 || newIdx >= imagesCount || newIdx === selectedIdx)
                 return;
-            if (!fullscreenOnly) setSelectedIdx(newIdx);
+            if (!isControlled) setSelectedIdx(newIdx);
             onIndexChangeAction?.(newIdx);
         },
-        [imagesCount, selectedIdx, fullscreenOnly, onIndexChangeAction],
+        [imagesCount, selectedIdx, isControlled, onIndexChangeAction],
     );
 
     const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
         touchStartX.current = e.touches[0].clientX;
     };
+
     const handleTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
         touchEndX.current = e.changedTouches[0].clientX;
         handleSwipe();
@@ -277,23 +160,16 @@ export default function ContentGallery({
         touchEndX.current = null;
     };
 
-    const selectedContent = entry.items?.[selectedIdx];
-
     useEffect(() => {
+        if (!isOpen) return;
+
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === "Escape") {
-                if (fullscreenOnly && isOpen) {
-                    onCloseAction?.();
-                } else if (isFullscreen) {
-                    setIsFullscreen(false);
-                }
+                onCloseAction?.();
                 return;
             }
 
-            if (
-                (isFullscreen || (fullscreenOnly && isOpen)) &&
-                imagesCount > 1
-            ) {
+            if (imagesCount > 1) {
                 if (e.key === "ArrowLeft" || e.key === "h") {
                     e.preventDefault();
                     updateIdx(-1);
@@ -304,181 +180,185 @@ export default function ContentGallery({
             }
         };
 
-        if (fullscreenOnly && isOpen) {
-            document.addEventListener("keydown", handleKeyDown);
-            document.body.style.overflow = "hidden";
-        } else if (isFullscreen) {
-            document.addEventListener("keydown", handleKeyDown);
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-        }
-
-        return () => {
-            document.removeEventListener("keydown", handleKeyDown);
-            document.body.style.overflow = "";
-        };
-    }, [
-        isFullscreen,
-        fullscreenOnly,
-        isOpen,
-        onCloseAction,
-        imagesCount,
-        updateIdx,
-    ]);
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, [isOpen, onCloseAction, imagesCount, updateIdx]);
 
     useEffect(() => {
-        if (!entry.items || (fullscreenOnly && !isOpen)) return;
+        if (!isOpen) return;
 
-        const preloadImage = (index: number) => {
-            const item = entry.items?.[index];
-            if (item) preloadGalleryImage(item, fullscreenOnly || isFullscreen);
+        const body = document.body;
+        const root = document.documentElement;
+        const previous = {
+            overflow: body.style.overflow,
+            bodyGutter: body.style.scrollbarGutter,
+            rootGutter: root.style.scrollbarGutter,
         };
 
-        if (selectedIdx > 0) preloadImage(selectedIdx - 1);
-        if (selectedIdx < imagesCount - 1) preloadImage(selectedIdx + 1);
-    }, [
-        selectedIdx,
-        entry.items,
-        imagesCount,
-        fullscreenOnly,
-        isOpen,
-        isFullscreen,
-    ]);
+        // lock background scrolling and drop the reserved scrollbar gutter,
+        // otherwise a strip on the right keeps the overlay from covering the
+        // whole window (and throws off the top/right control margins)
+        body.style.overflow = "hidden";
+        body.style.scrollbarGutter = "auto";
+        root.style.scrollbarGutter = "auto";
 
-    if (fullscreenOnly) {
-        if (!isOpen || !selectedContent) {
-            return null;
-        }
+        return () => {
+            body.style.overflow = previous.overflow;
+            body.style.scrollbarGutter = previous.bodyGutter;
+            root.style.scrollbarGutter = previous.rootGutter;
+        };
+    }, [isOpen]);
 
-        return (
-            <div
-                className="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-black"
-                onClick={onCloseAction}
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-            >
-                <div className="absolute right-3 top-3 z-[10000] flex gap-2">
-                    {entry.link && (
-                        <a
-                            href={entry.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="group flex h-8 items-center gap-1.5 rounded-lg border border-neutral-200 bg-white/90 px-2.5 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90 sm:h-9 sm:gap-2"
-                            aria-label="View on Lightroom"
-                        >
-                            <span className="text-[13px] font-normal text-neutral-600 group-hover:text-p0 dark:text-neutral-500 dark:group-hover:text-o0">
-                                {(() => {
-                                    const cleanUrl = entry.link.replace(
-                                        /^https?:\/\//,
-                                        "",
-                                    );
-                                    return cleanUrl.length >= 40
-                                        ? cleanUrl.substring(0, 40) + "..."
-                                        : cleanUrl;
-                                })()}
-                            </span>
-                            {FiExternalLink({
-                                className:
-                                    "h-3.5 w-3.5 flex-shrink-0 text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
-                            })}
-                        </a>
-                    )}
-                    <NavigationButtons
-                        selectedIdx={selectedIdx}
-                        imagesCount={imagesCount}
-                        isFullscreen={true}
-                        onPrevious={() => updateIdx(-1)}
-                        onNext={() => updateIdx(1)}
-                        onToggleFullscreen={onCloseAction || (() => {})}
-                    />
-                </div>
+    useEffect(() => {
+        if (!isOpen || !entry.items) return;
 
-                <div
-                    className="relative z-[9998] flex h-full w-full items-center justify-center p-4"
-                    onClick={onCloseAction}
-                >
-                    <MediaContent
-                        content={selectedContent}
-                        selectedIdx={selectedIdx}
-                        isFullscreen={true}
-                    />
-                </div>
-            </div>
-        );
-    }
+        const preload = (index: number) => {
+            const item = entry.items?.[index];
+            if (item) preloadGalleryImage(item, true);
+        };
+
+        if (selectedIdx > 0) preload(selectedIdx - 1);
+        if (selectedIdx < imagesCount - 1) preload(selectedIdx + 1);
+    }, [isOpen, selectedIdx, entry.items, imagesCount]);
+
+    if (!isOpen || !selectedContent) return null;
 
     return (
-        <div className="flex h-full w-full max-w-screen-lg flex-col items-center overflow-visible">
-            <div className="w-full px-2 sm:px-0">
-                <div className="flex flex-col items-start">
-                    <GroupHeader
-                        entry={{
-                            title: entry.title,
-                            description: entry.summary?.join("") || "",
-                            category: entry.category || "",
-                            items: [] as IEntry[],
-                        }}
-                        itemEntry={entry}
-                        header={true}
-                        hideReferences
-                    />
-                </div>
+        <div
+            // w-screen keeps the overlay spanning the full window (100vw
+            // includes the scrollbar gutter), so right-3 measures from the
+            // window edge and matches the top-3 offset.
+            className="fixed inset-y-0 left-0 z-[9999] flex w-screen items-center justify-center bg-white dark:bg-black"
+            onClick={onCloseAction}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+        >
+            <div className="absolute right-3 top-3 z-[10000] flex items-center gap-2">
+                {entry.link && (
+                    <a
+                        href={entry.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="group flex h-8 items-center gap-1.5 rounded-lg border border-neutral-200 bg-white/90 px-2.5 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90 sm:h-9 sm:gap-2"
+                        aria-label="View on Lightroom"
+                    >
+                        <span className="text-[13px] font-normal text-neutral-600 group-hover:text-p0 dark:text-neutral-500 dark:group-hover:text-o0">
+                            {trimUrl(entry.link)}
+                        </span>
+                        {FiExternalLink({
+                            className:
+                                "h-3.5 w-3.5 flex-shrink-0 text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
+                        })}
+                    </a>
+                )}
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onCloseAction?.();
+                    }}
+                    title="Close"
+                    aria-label="Close"
+                    className={controlClasses}
+                >
+                    {FiMinimize({
+                        className: clsx(
+                            iconClasses,
+                            "group-hover:text-p0 dark:group-hover:text-o0",
+                        ),
+                    })}
+                </button>
             </div>
+
+            {imagesCount > 1 && (
+                <>
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            updateIdx(-1);
+                        }}
+                        disabled={selectedIdx === 0}
+                        title="Previous"
+                        aria-label="Previous"
+                        className={clsx(
+                            controlClasses,
+                            "absolute left-3 top-1/2 z-[10000] -translate-y-1/2",
+                            selectedIdx === 0 && "cursor-default opacity-40",
+                        )}
+                    >
+                        {FiChevronLeft({
+                            className: clsx(
+                                iconClasses,
+                                selectedIdx > 0 &&
+                                    "group-hover:text-p0 dark:group-hover:text-o0",
+                            ),
+                        })}
+                    </button>
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            updateIdx(1);
+                        }}
+                        disabled={selectedIdx === imagesCount - 1}
+                        title="Next"
+                        aria-label="Next"
+                        className={clsx(
+                            controlClasses,
+                            "absolute right-3 top-1/2 z-[10000] -translate-y-1/2",
+                            selectedIdx === imagesCount - 1 &&
+                                "cursor-default opacity-40",
+                        )}
+                    >
+                        {FiChevronRight({
+                            className: clsx(
+                                iconClasses,
+                                selectedIdx < imagesCount - 1 &&
+                                    "group-hover:text-p0 dark:group-hover:text-o0",
+                            ),
+                        })}
+                    </button>
+                </>
+            )}
 
             <div
-                className="relative mb-3 mt-4 flex w-full items-center justify-center overflow-hidden border border-neutral-200 px-2 dark:border-neutral-800 sm:mt-8 sm:px-0"
-                style={{
-                    aspectRatio: "16/10",
-                    maxHeight: "60vh",
-                }}
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
+                className="relative z-[9998] flex h-full w-full items-center justify-center"
+                onClick={onCloseAction}
             >
-                <div
-                    className={clsx(
-                        "absolute right-3 top-3 z-20 flex gap-2",
-                        isFullscreen ? "hidden" : "",
-                    )}
-                >
-                    <NavigationButtons
-                        selectedIdx={selectedIdx}
-                        imagesCount={imagesCount}
-                        isFullscreen={false}
-                        onPrevious={() => updateIdx(-1)}
-                        onNext={() => updateIdx(1)}
-                        onToggleFullscreen={() =>
-                            setIsFullscreen(!isFullscreen)
-                        }
-                    />
-                </div>
-
-                {selectedContent && (
-                    <div className="flex h-full w-full items-center justify-center overflow-hidden bg-neutral-50 dark:bg-black">
-                        <MediaContent
-                            content={selectedContent}
-                            selectedIdx={selectedIdx}
-                            isFullscreen={false}
-                        />
-                    </div>
-                )}
+                <MediaContent
+                    content={selectedContent}
+                    selectedIdx={selectedIdx}
+                />
             </div>
 
-            {entry.items && entry.items.length > 1 && (
-                <div className="w-full min-w-0">
-                    <div className="mb-2 flex items-center justify-end font-mono text-[11px] uppercase text-neutral-500">
-                        <span aria-live="polite">
-                            {selectedIdx + 1} / {imagesCount}
-                        </span>
+            {(entry.title || description) && (
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-[9999] bg-gradient-to-b from-black via-black/70 to-transparent px-4 pb-12 pt-6 text-center">
+                    <div className="mx-auto flex max-w-xl flex-col items-center gap-1">
+                        {entry.title && (
+                            <span className="font-degular text-[11px] font-semibold uppercase text-white">
+                                {entry.title}
+                            </span>
+                        )}
+                        {description && (
+                            <span className="line-clamp-2 font-mono text-[9px] uppercase leading-4 text-white/70">
+                                {description}
+                            </span>
+                        )}
                     </div>
+                </div>
+            )}
+
+            {hasThumbnails && (
+                <div className="absolute bottom-3 left-1/2 z-[10000] max-w-[calc(100%-1.5rem)] -translate-x-1/2 rounded-lg border border-neutral-200 bg-white/85 backdrop-blur-sm dark:border-neutral-800 dark:bg-black/85">
                     <div
                         ref={thumbnailStripRef}
                         role="group"
                         aria-label="Gallery thumbnails"
-                        className="relative flex w-full gap-2 overflow-x-auto p-1 pb-3"
+                        className="relative flex gap-2 overflow-x-auto p-2"
+                        onClick={(e) => e.stopPropagation()}
+                        onTouchStart={(e) => e.stopPropagation()}
+                        onTouchEnd={(e) => e.stopPropagation()}
                     >
-                        {entry.items.map((content, idx) => (
+                        {entry.items?.map((content, idx) => (
                             <button
                                 key={content.path}
                                 type="button"
@@ -486,7 +366,7 @@ export default function ContentGallery({
                                 aria-pressed={selectedIdx === idx}
                                 onClick={() => updateIdx(idx - selectedIdx)}
                                 className={clsx(
-                                    "relative h-16 w-16 shrink-0 overflow-hidden bg-neutral-100 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-p0 dark:bg-neutral-900 dark:focus-visible:outline-o0 sm:h-20 sm:w-20",
+                                    "relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-p0 dark:bg-neutral-900 dark:focus-visible:outline-o0 sm:h-16 sm:w-16",
                                     selectedIdx === idx
                                         ? "ring-2 ring-p0 dark:ring-o0"
                                         : "opacity-60 hover:opacity-100",
@@ -503,7 +383,7 @@ export default function ContentGallery({
                                         />
                                         {FiPlay({
                                             className:
-                                                "absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 text-white drop-shadow",
+                                                "absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 text-white drop-shadow",
                                         })}
                                     </>
                                 ) : (
@@ -511,73 +391,15 @@ export default function ContentGallery({
                                         alt=""
                                         className="h-full w-full object-cover"
                                         src={content.path}
-                                        width={160}
-                                        height={160}
-                                        sizes="(max-width: 639px) 64px, 80px"
+                                        width={128}
+                                        height={128}
+                                        sizes="(max-width: 639px) 48px, 64px"
                                         draggable={false}
                                         loading="lazy"
                                     />
                                 )}
                             </button>
                         ))}
-                    </div>
-                </div>
-            )}
-
-            {isFullscreen && selectedContent && (
-                <div
-                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-black"
-                    onClick={() => setIsFullscreen(false)}
-                >
-                    <div className="absolute right-3 top-3 z-[10000] flex gap-2">
-                        {entry.link && (
-                            <a
-                                href={entry.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={(e) => e.stopPropagation()}
-                                className="group flex h-8 items-center gap-1.5 rounded-lg border border-neutral-200 bg-white/90 px-2.5 backdrop-blur-sm transition-all dark:border-neutral-800 dark:bg-black/90 sm:h-9 sm:gap-2 sm:px-3"
-                                title={entry.link}
-                                aria-label="View on Lightroom"
-                            >
-                                {FiExternalLink({
-                                    className:
-                                        "h-4 w-4 flex-shrink-0 text-neutral-400 group-hover:text-p0 dark:group-hover:text-o0",
-                                })}
-                                <span className="text-[13px] font-medium !lowercase text-neutral-600 group-hover:text-p0 dark:text-neutral-400 dark:group-hover:text-o0 sm:text-sm">
-                                    {(() => {
-                                        const cleanUrl = entry.link.replace(
-                                            /^https?:\/\//,
-                                            "",
-                                        );
-                                        return cleanUrl.length >= 40
-                                            ? cleanUrl.substring(0, 40) + "..."
-                                            : cleanUrl;
-                                    })()}
-                                </span>
-                            </a>
-                        )}
-                        <NavigationButtons
-                            selectedIdx={selectedIdx}
-                            imagesCount={imagesCount}
-                            isFullscreen={true}
-                            onPrevious={() => updateIdx(-1)}
-                            onNext={() => updateIdx(1)}
-                            onToggleFullscreen={() =>
-                                setIsFullscreen(!isFullscreen)
-                            }
-                        />
-                    </div>
-
-                    <div
-                        className="relative z-[9998] flex h-full w-full items-center justify-center p-4"
-                        onClick={() => setIsFullscreen(false)}
-                    >
-                        <MediaContent
-                            content={selectedContent}
-                            selectedIdx={selectedIdx}
-                            isFullscreen={true}
-                        />
                     </div>
                 </div>
             )}
