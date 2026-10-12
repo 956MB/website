@@ -322,7 +322,7 @@ export default function ContentGallery({
                             </span>
                         )}
                         {description && (
-                            <span className="line-clamp-2 font-mono text-[9px] uppercase leading-4 text-white/70">
+                            <span className="line-clamp-2 font-mono text-[9px] uppercase leading-4 text-white/70 max-w-sm">
                                 {description}
                             </span>
                         )}

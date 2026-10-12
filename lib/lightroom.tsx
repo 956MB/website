@@ -2,6 +2,18 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const photos = [
     entry(
+        "hilltop-securities-plus-trees",
+        "Hilltop Securities + Trees",
+        "10.12.2026",
+        "photography",
+        [item("/images/lightroom/hilltop-securities-plus-trees.webp", 2521, 3361)],
+        {
+            summary: ["First time ever a Robotaxi has passed right by me and looped around the block... TWICE. I took this while waiting."],
+            thumbnail: item("/images/lightroom/hilltop-securities-plus-trees.webp", 2521, 3361),
+            link: "https://lightroom.app.link/L0VFgVoJa7b",
+        },
+    ),
+    entry(
         "plastic-plant",
         "Can you tell it's plastic?",
         "10.9.2026",
