@@ -314,15 +314,15 @@ export default function ContentGallery({
             </div>
 
             {(entry.title || description) && (
-                <div className="pointer-events-none absolute inset-x-0 top-0 z-[9999] bg-gradient-to-b from-black via-black/70 to-transparent px-4 pb-12 pt-6 text-center">
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-[9999] bg-gradient-to-b from-black/90 via-black/50 to-transparent px-4 pb-12 pt-6 text-center">
                     <div className="mx-auto flex max-w-xl flex-col items-center gap-1">
                         {entry.title && (
-                            <span className="font-degular text-[11px] font-semibold uppercase text-white">
+                            <span className="font-degular text-[11px] font-semibold uppercase text-white/90">
                                 {entry.title}
                             </span>
                         )}
                         {description && (
-                            <span className="line-clamp-2 font-mono text-[9px] uppercase leading-4 text-white/70 max-w-sm">
+                            <span className="line-clamp-2 font-mono text-[9px] uppercase leading-4 text-white/70 max-w-xs">
                                 {description}
                             </span>
                         )}

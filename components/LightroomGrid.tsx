@@ -43,7 +43,7 @@ function PhotoTile({
             initial="initial"
             animate="animate"
             transition={{ duration: 0.35, delay }}
-            className="group relative w-full overflow-hidden rounded-lg border border-transparent focus-within:border-[var(--photo-hover-light,#9759ae)] hover:border-[var(--photo-hover-light,#9759ae)] dark:focus-within:border-[var(--photo-hover-dark,#ff8200)] dark:hover:border-[var(--photo-hover-dark,#ff8200)]"
+            className="group relative w-full overflow-hidden rounded-lg border lg:saturate-0 hover:saturate-100 border-transparent focus-within:border-[var(--photo-hover-light,#9759ae)] hover:border-[var(--photo-hover-light,#9759ae)] dark:focus-within:border-[var(--photo-hover-dark,#ff8200)] dark:hover:border-[var(--photo-hover-dark,#ff8200)]"
             style={
                 {
                     "--photo-hover-light": hoverColors.light,

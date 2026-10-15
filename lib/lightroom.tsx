@@ -2,6 +2,30 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const photos = [
     entry(
+        "cube-perot-2",
+        "The Cube (Perot)",
+        "10.14.2026",
+        "photography",
+        [item("/images/lightroom/cube-perot-2.webp", 3024, 4032)],
+        {
+            summary: ["From this angle it's Blade Runner 2049 or something."],
+            thumbnail: item("/images/lightroom/cube-perot-2.webp", 3024, 4032),
+            link: "https://lightroom.adobe.com/learn/discover/81d2b115-13c9-4dbd-b61a-87975f4f2cdc",
+        },
+    ),
+    entry(
+        "cube-perot-1",
+        "The Cube (Perot)",
+        "10.14.2026",
+        "photography",
+        [item("/images/lightroom/cube-perot-1.webp", 3024, 4032)],
+        {
+            summary: ["Late. Feet hurt."],
+            thumbnail: item("/images/lightroom/cube-perot-1.webp", 3024, 4032),
+            link: "https://lightroom.adobe.com/learn/discover/5dc365ae-6c2b-4f95-803c-f730215a3d7b",
+        },
+    ),
+    entry(
         "hilltop-securities-plus-trees",
         "Hilltop Securities + Trees",
         "10.12.2026",
