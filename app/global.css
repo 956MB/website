@@ -116,11 +116,11 @@ hr {
 }
 
 ::selection {
-    @apply bg-[#9759aea2] text-black !decoration-black dark:bg-[#FF8200];
+    @apply bg-[#9759aea2] text-white !decoration-black dark:bg-[#FF8200];
 }
 
 ::-moz-selection {
-    @apply bg-[#9759AE] text-black !decoration-black dark:bg-[#FF8200];
+    @apply bg-[#9759AE] text-white !decoration-black dark:bg-[#FF8200];
 }
 
 .noselect {

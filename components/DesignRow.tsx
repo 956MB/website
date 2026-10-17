@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import ContentGallery from "./ContentGallery";
 import GroupHeader from "./GroupHeader";
+import ProgressiveBlur from "./ProgressiveBlur";
 
 function useBreakpoint() {
     const [breakpoint, setBreakpoint] = useState<"sm" | "md" | "base">("base");
@@ -209,7 +210,7 @@ export function DesignItem({
             )}
             <div
                 className={clsx(
-                    "pointer-events-none absolute bottom-0 z-10 flex h-1/2 w-full flex-col justify-end gap-y-2 border-transparent bg-gradient-to-t from-black/80 to-black/0 px-2 py-3 text-start opacity-100 group-hover:border-p0 group-hover:opacity-100 dark:group-hover:border-o0 sm:h-full sm:justify-center sm:from-black/80 sm:to-black/20 sm:transition-opacity sm:duration-200 lg:border lg:py-4 lg:opacity-0",
+                    "pointer-events-none absolute bottom-0 z-10 flex h-1/2 w-full flex-col items-start justify-end gap-y-1 overflow-hidden border-transparent p-3 text-start opacity-100 group-hover:border-p0 group-hover:opacity-100 dark:group-hover:border-o0 sm:h-full lg:border-2 lg:opacity-0",
                     item.category === "photoshop" && "pl-4 pr-4",
                     item.summary &&
                         item.summary.length <= 0 &&
@@ -217,30 +218,27 @@ export function DesignItem({
                 )}
                 style={cornerRadius.style}
             >
-                <div
-                    className={clsx(
-                        "flex flex-row items-center justify-start gap-2 overflow-hidden sm:flex-col sm:justify-center lg:gap-1",
-                        item.category === "photoshop" && "gap-x-3",
-                    )}
-                >
-                    <span
-                        className={clsx(
-                            "font-pixel-square pointer-events-none select-none text-center text-base font-bold text-white sm:mt-[6px] sm:w-full sm:text-base sm:leading-5 lg:whitespace-normal",
-                        )}
-                    >
+                <ProgressiveBlur
+                    position="bottom"
+                    height="55%"
+                    blurLevels={[0.5, 1, 2, 3, 4, 6, 8, 12]}
+                />
+                <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-t from-white/90 to-white/0 dark:from-black/90 dark:to-black/0 sm:from-white/90 sm:to-white/20 dark:sm:from-black/90 dark:sm:to-black/20" />
+                <div className="relative z-30 flex flex-col items-start gap-y-0.5 overflow-hidden">
+                    <span className="font-pixel-square pointer-events-none select-none text-start text-sm font-bold leading-4 text-neutral-900 dark:text-white">
                         {item.title}
                     </span>
 
                     {item.date && (
-                        <span
-                            className={
-                                "pointer-events-none select-none text-center font-mono text-sm text-white/70 sm:w-full sm:leading-5 lg:mb-2"
-                            }
-                        >
+                        <span className="pointer-events-none select-none text-start font-mono text-xs leading-4 text-neutral-600 dark:text-white/70">
                             {item.date}
                         </span>
                     )}
                 </div>
+                <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 z-40 hidden rounded-[calc(0.5rem-2px)] border border-[var(--bg)] opacity-0 group-hover:opacity-100 lg:block"
+                />
             </div>
         </motion.div>
     );
@@ -338,7 +336,7 @@ export default function DesignRow({
                         initial="initial"
                         animate="animate"
                         className={clsx(
-                            "grid w-full grid-cols-1 items-start justify-center gap-2 sm:grid-cols-2 md:grid-cols-3",
+                            "grid w-full grid-cols-1 items-start justify-center gap-2 sm:grid-cols-2 md:grid-cols-4",
                             "min-h-0",
                         )}
                     >

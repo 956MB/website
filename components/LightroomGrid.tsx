@@ -43,7 +43,7 @@ function PhotoTile({
             initial="initial"
             animate="animate"
             transition={{ duration: 0.35, delay }}
-            className="group relative w-full overflow-hidden rounded-lg border lg:saturate-0 hover:saturate-100 border-transparent focus-within:border-[var(--photo-hover-light,#9759ae)] hover:border-[var(--photo-hover-light,#9759ae)] dark:focus-within:border-[var(--photo-hover-dark,#ff8200)] dark:hover:border-[var(--photo-hover-dark,#ff8200)]"
+            className="group relative w-full overflow-hidden rounded-lg border-2 border-transparent focus-within:border-[var(--photo-hover-light,#9759ae)] hover:border-[var(--photo-hover-light,#9759ae)] hover:saturate-100 dark:focus-within:border-[var(--photo-hover-dark,#ff8200)] dark:hover:border-[var(--photo-hover-dark,#ff8200)] lg:saturate-0"
             style={
                 {
                     "--photo-hover-light": hoverColors.light,
@@ -81,7 +81,7 @@ function PhotoTile({
             </button>
             <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 z-10 rounded-[calc(0.5rem-1px)] border border-[var(--bg)] opacity-0 group-focus-within:opacity-100 group-hover:opacity-100"
+                className="pointer-events-none absolute inset-0 z-10 rounded-[calc(0.5rem-2px)] border border-[var(--bg)] opacity-0 group-focus-within:opacity-100 group-hover:opacity-100"
             />
         </motion.div>
     );

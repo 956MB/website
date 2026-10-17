@@ -3,6 +3,9 @@ export interface IImageHoverColors {
     dark?: string;
 }
 
+/** Text tone for copy sitting on top of a photo: "light" = white text. */
+export type TImageTextTone = "light" | "dark";
+
 interface IColorBucket {
     count: number;
     red: number;
@@ -11,6 +14,7 @@ interface IColorBucket {
 }
 
 const colorCache = new Map<string, IImageHoverColors>();
+const sliceLuminanceCache = new Map<string, number | null>();
 
 function luminance(red: number, green: number, blue: number): number {
     const linear = (channel: number) => {
@@ -115,4 +119,72 @@ export function getImageHoverColors(
     }
     colorCache.set(source, colors);
     return colors;
+}
+
+export function getImageSliceLuminance(
+    image: HTMLImageElement | null | undefined,
+    fromFraction = 0,
+    toFraction = 0.25,
+): number | null {
+    if (!image) return null;
+    const source = image.currentSrc || image.src;
+    if (!source || !image.complete || !image.naturalWidth) return null;
+
+    const top = Math.min(fromFraction, toFraction);
+    const bottom = Math.max(fromFraction, toFraction);
+    const cacheKey = `${source}|${top.toFixed(3)}|${bottom.toFixed(3)}`;
+    const cached = sliceLuminanceCache.get(cacheKey);
+    if (cached !== undefined) return cached;
+
+    let result: number | null = null;
+    try {
+        const nativeHeight = image.naturalHeight || image.height;
+        const offsetY = Math.round(
+            Math.min(Math.max(top, 0), 1) * nativeHeight,
+        );
+        const sliceHeight = Math.round(
+            (Math.min(Math.max(bottom, 0), 1) - Math.min(Math.max(top, 0), 1)) *
+                nativeHeight,
+        );
+        if (offsetY < nativeHeight && sliceHeight > 0) {
+            const canvas = document.createElement("canvas");
+            canvas.width = 32;
+            canvas.height = 32;
+            const context = canvas.getContext("2d", {
+                willReadFrequently: true,
+            });
+            if (context) {
+                context.drawImage(
+                    image,
+                    0,
+                    offsetY,
+                    image.naturalWidth,
+                    sliceHeight,
+                    0,
+                    0,
+                    32,
+                    32,
+                );
+                const { data } = context.getImageData(0, 0, 32, 32);
+                let sum = 0;
+                let count = 0;
+                for (let i = 0; i < data.length; i += 4) {
+                    if (data[i + 3] < 128) continue;
+                    sum += luminance(data[i], data[i + 1], data[i + 2]);
+                    count++;
+                }
+                result = count ? sum / count : null;
+            }
+        }
+    } catch {
+        result = null;
+    }
+
+    sliceLuminanceCache.set(cacheKey, result);
+    return result;
+}
+
+export function getContrastTextTone(backdropLuminance: number): TImageTextTone {
+    // 0.179 is the equal-contrast crossover for white vs black text
+    return backdropLuminance < 0.179 ? "light" : "dark";
 }

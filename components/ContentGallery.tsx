@@ -6,6 +6,11 @@ import {
     mediaImageSizes,
     preloadGalleryImage,
 } from "lib/gallery";
+import {
+    getContrastTextTone,
+    getImageSliceLuminance,
+    TImageTextTone,
+} from "lib/imageColor";
 import { IEntry, IEntryItem } from "lib/interfaces";
 import { stripHtml } from "lib/util";
 import Image from "next/image";
@@ -17,6 +22,8 @@ import {
     FiMinimize,
     FiPlay,
 } from "react-icons/fi";
+import ProgressiveBlur from "./ProgressiveBlur";
+import { useTheme } from "./ThemeProvider";
 
 const controlClasses =
     "group flex h-8 w-8 items-center justify-center rounded-lg border border-neutral-200 bg-white/90 backdrop-blur-sm transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-p0 dark:border-neutral-800 dark:bg-black/90 dark:focus-visible:outline-o0 sm:h-9 sm:w-9";
@@ -32,9 +39,11 @@ const trimUrl = (url: string) => {
 function MediaContent({
     content,
     selectedIdx,
+    onReady,
 }: {
     content: IEntryItem;
     selectedIdx: number;
+    onReady?: () => void;
 }) {
     const isVideo = content.path.includes(".mp4");
 
@@ -61,6 +70,7 @@ function MediaContent({
         <Image
             key={content.path}
             onClick={(e) => e.stopPropagation()}
+            onLoad={onReady}
             alt={`fullscreen-image-${selectedIdx}`}
             className="max-h-full max-w-full"
             style={{ objectFit: "contain" }}
@@ -102,7 +112,70 @@ export default function ContentGallery({
     const touchStartX = useRef<number | null>(null);
     const touchEndX = useRef<number | null>(null);
     const thumbnailStripRef = useRef<HTMLDivElement>(null);
+    const mediaRef = useRef<HTMLDivElement>(null);
+    const titleBandRef = useRef<HTMLDivElement>(null);
+    const [textTone, setTextTone] = useState<TImageTextTone>("light");
+    const { theme } = useTheme();
     const hasThumbnails = showThumbnails && imagesCount > 1;
+
+    const updateTextTone = useCallback(() => {
+        const band = titleBandRef.current;
+        const image = mediaRef.current?.querySelector("img") ?? null;
+        const backdropLuminance = theme === "dark" ? 0 : 1;
+        let coverage = 0;
+        let fromFraction = 0;
+        let toFraction = 0;
+
+        const bandRect = band?.getBoundingClientRect();
+        const imageRect = image?.getBoundingClientRect();
+        if (
+            bandRect?.width &&
+            bandRect.height &&
+            imageRect?.width &&
+            imageRect.height
+        ) {
+            const overlapWidth = Math.max(
+                0,
+                Math.min(bandRect.right, imageRect.right) -
+                    Math.max(bandRect.left, imageRect.left),
+            );
+            const overlapHeight = Math.max(
+                0,
+                Math.min(bandRect.bottom, imageRect.bottom) -
+                    Math.max(bandRect.top, imageRect.top),
+            );
+            coverage = Math.min(
+                1,
+                (overlapWidth * overlapHeight) /
+                    (bandRect.width * bandRect.height),
+            );
+            fromFraction = Math.max(
+                0,
+                (bandRect.top - imageRect.top) / imageRect.height,
+            );
+            toFraction = Math.min(
+                1,
+                (bandRect.bottom - imageRect.top) / imageRect.height,
+            );
+        }
+
+        const photoLuminance =
+            coverage > 0
+                ? getImageSliceLuminance(image, fromFraction, toFraction)
+                : null;
+        const backdrop =
+            photoLuminance === null
+                ? backdropLuminance
+                : photoLuminance * coverage +
+                  backdropLuminance * (1 - coverage);
+        setTextTone(getContrastTextTone(backdrop));
+    }, [theme]);
+
+    useEffect(() => {
+        updateTextTone();
+        window.addEventListener("resize", updateTextTone);
+        return () => window.removeEventListener("resize", updateTextTone);
+    }, [updateTextTone, selectedIdx, isOpen]);
 
     useEffect(() => {
         const strip = thumbnailStripRef.current;
@@ -304,25 +377,49 @@ export default function ContentGallery({
             )}
 
             <div
+                ref={mediaRef}
                 className="relative z-[9998] flex h-full w-full items-center justify-center"
                 onClick={onCloseAction}
             >
                 <MediaContent
                     content={selectedContent}
                     selectedIdx={selectedIdx}
+                    onReady={updateTextTone}
                 />
             </div>
 
             {(entry.title || description) && (
-                <div className="pointer-events-none absolute inset-x-0 top-0 z-[9999] bg-gradient-to-b from-black/90 via-black/50 to-transparent px-4 pb-12 pt-6 text-center">
-                    <div className="mx-auto flex max-w-xl flex-col items-center gap-1">
+                <div
+                    ref={titleBandRef}
+                    className="pointer-events-none absolute inset-x-0 top-0 z-[9999] flex flex-col items-center px-4 pb-12 pt-6 text-center"
+                >
+                    <ProgressiveBlur
+                        position="top"
+                        height="100%"
+                        blurLevels={[1, 2, 3, 5, 8, 12, 18, 28]}
+                    />
+                    <div className="relative z-20 mx-auto flex max-w-xl flex-col items-center gap-1">
                         {entry.title && (
-                            <span className="font-degular text-[11px] font-semibold uppercase text-white/90">
+                            <span
+                                className={clsx(
+                                    "font-degular text-[11px] font-semibold uppercase",
+                                    textTone === "light"
+                                        ? "text-white"
+                                        : "text-neutral-900",
+                                )}
+                            >
                                 {entry.title}
                             </span>
                         )}
                         {description && (
-                            <span className="line-clamp-2 font-mono text-[9px] uppercase leading-4 text-white/70 max-w-xs">
+                            <span
+                                className={clsx(
+                                    "line-clamp-2 max-w-xs font-mono text-[9px] uppercase leading-4",
+                                    textTone === "light"
+                                        ? "text-white/80"
+                                        : "text-neutral-700",
+                                )}
+                            >
                                 {description}
                             </span>
                         )}

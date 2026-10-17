@@ -8,6 +8,7 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { PiWarningCircleBold } from "react-icons/pi";
 import GroupHeader from "./GroupHeader";
+import ProgressiveBlur from "./ProgressiveBlur";
 import Tooltip from "./Tooltip";
 
 const toggleAreaHeight = 120;
@@ -72,7 +73,7 @@ export default function ExtraRow({
                     <hr className="my-auto h-px w-full border-b border-dotted border-neutral-200 bg-transparent dark:border-neutral-800" />
                 </div>
 
-                <div className="relative w-full max-w-screen-lg scroll-mt-24">
+                <div className="relative w-full max-w-screen-lg scroll-mt-24 rounded-b-md overflow-hidden">
                     <motion.div
                         id={contentId}
                         initial={false}
@@ -87,7 +88,9 @@ export default function ExtraRow({
                             duration: reduceMotion ? 0 : 0.25,
                             ease: [0.4, 0, 0.2, 1],
                         }}
-                        className={clsx(canCollapse && "overflow-hidden")}
+                        className={clsx(
+                            canCollapse && "overflow-hidden rounded-b-lg",
+                        )}
                         onFocusCapture={(event) => {
                             if (!canCollapse || isExpanded) return;
                             const bounds =
@@ -125,7 +128,7 @@ export default function ExtraRow({
                                         >
                                             <a
                                                 className={clsx(
-                                                    "duration-50 group relative flex select-none flex-col justify-end overflow-hidden rounded-lg border-transparent object-cover saturate-0 backdrop-blur-sm transition-opacity ease-linear group-hover:border-p0 group-hover:saturate-100 dark:group-hover:border-o0 sm:backdrop-blur-none lg:border",
+                                                    "duration-50 group relative flex select-none flex-col justify-end overflow-hidden rounded-lg border-transparent object-cover saturate-0 backdrop-blur-sm transition-opacity ease-linear group-hover:border-p0 group-hover:saturate-100 dark:group-hover:border-o0 sm:backdrop-blur-none lg:border-2",
                                                     item.link &&
                                                         " cursor-pointer",
                                                     item.items?.[0]
@@ -179,6 +182,10 @@ export default function ExtraRow({
                                                         unoptimized={true}
                                                     />
                                                 </div>
+                                                <span
+                                                    aria-hidden="true"
+                                                    className="pointer-events-none absolute inset-0 z-10 hidden rounded-[calc(0.5rem-2px)] border border-[var(--bg)] opacity-0 group-hover:opacity-100 lg:block"
+                                                />
                                             </a>
                                             <div
                                                 className={clsx(
@@ -258,6 +265,13 @@ export default function ExtraRow({
                             )}
                         </motion.div>
                     </motion.div>
+                    {canCollapse && !isExpanded && (
+                        <ProgressiveBlur
+                            position="bottom"
+                            height={`${toggleAreaHeight}px`}
+                            blurLevels={[1, 2, 3, 5, 8, 12, 18, 28]}
+                        />
+                    )}
                     {canCollapse && (
                         <button
                             type="button"
@@ -268,15 +282,6 @@ export default function ExtraRow({
                             style={{ height: toggleAreaHeight }}
                             className="absolute inset-x-0 bottom-0 z-20 cursor-pointer text-neutral-500 transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-p0 dark:focus-visible:outline-o0"
                         >
-                            <motion.span
-                                aria-hidden="true"
-                                initial={false}
-                                animate={{ opacity: isExpanded ? 0 : 1 }}
-                                transition={{
-                                    duration: reduceMotion ? 0 : 0.2,
-                                }}
-                                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black to-transparent"
-                            />
                             <span
                                 aria-hidden="true"
                                 className="pointer-events-none absolute bottom-3 right-3 font-mono text-lg"
