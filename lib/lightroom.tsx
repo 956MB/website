@@ -2,6 +2,18 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const photos = [
     entry(
+        "sky-and-stuff",
+        "A sky and stuff",
+        "10.17.2026",
+        "photography",
+        [item("/images/lightroom/sky-and-stuff.webp", 2955, 3940)],
+        {
+            summary: ["The buildings aren't visible, I apologize."],
+            thumbnail: item("/images/lightroom/sky-and-stuff.webp", 2955, 3940),
+            link: "https://lightroom.adobe.com/learn/discover/1b26717d-20c7-49ce-b58f-4ced711fbaec",
+        },
+    ),
+    entry(
         "cube-perot-2",
         "The Cube (Perot)",
         "10.14.2026",
