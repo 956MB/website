@@ -2,6 +2,24 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const photos = [
     entry(
+        "thanks-foliage",
+        "Me giving thanks to you (square)",
+        "10.26.2026",
+        "photography",
+        [item("/images/lightroom/thanks-foliage.webp", 3024, 4032)],
+        {
+            summary: [
+                '"Hey, is that a building reflecting off another building and foliage in front of it? Gimme it!"',
+            ],
+            thumbnail: item(
+                "/images/lightroom/thanks-foliage.webp",
+                3024,
+                4032,
+            ),
+            link: "https://lightroom.adobe.com/learn/discover/71bd2994-2521-46a4-82b4-bf7be5341cf7",
+        },
+    ),
+    entry(
         "sky-and-stuff",
         "A sky and stuff",
         "10.17.2026",
@@ -42,10 +60,22 @@ const photos = [
         "Hilltop Securities + Trees",
         "10.12.2026",
         "photography",
-        [item("/images/lightroom/hilltop-securities-plus-trees.webp", 2521, 3361)],
+        [
+            item(
+                "/images/lightroom/hilltop-securities-plus-trees.webp",
+                2521,
+                3361,
+            ),
+        ],
         {
-            summary: ["First time ever a Robotaxi has passed right by me and looped around the block... TWICE. I took this while waiting."],
-            thumbnail: item("/images/lightroom/hilltop-securities-plus-trees.webp", 2521, 3361),
+            summary: [
+                "First time ever a Robotaxi has passed right by me and looped around the block... TWICE. I took this while waiting.",
+            ],
+            thumbnail: item(
+                "/images/lightroom/hilltop-securities-plus-trees.webp",
+                2521,
+                3361,
+            ),
             link: "https://lightroom.app.link/L0VFgVoJa7b",
         },
     ),
