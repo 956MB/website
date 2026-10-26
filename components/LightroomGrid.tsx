@@ -1,7 +1,12 @@
 "use client";
 
 import ContentGallery from "components/ContentGallery";
+import DevAddTile from "components/dev/DevAddTile";
+import DevEntryDialog from "components/dev/DevEntryDialog";
+import { useDevDrafts } from "components/dev/useDevDrafts";
 import { motion } from "framer-motion";
+import { devGroupForTitle, isDev } from "lib/dev/config";
+import { draftToEntry, IDevDraft } from "lib/dev/drafts";
 import { preloadGalleryImage } from "lib/gallery";
 import { getImageHoverColors, IImageHoverColors } from "lib/imageColor";
 import { name } from "lib/info";
@@ -12,8 +17,10 @@ import { useSearchParams } from "next/navigation";
 import { CSSProperties, useEffect, useMemo, useState } from "react";
 
 interface IColumnPhoto {
-    photo: IEntry;
+    photo?: IEntry;
     originalIndex: number;
+    draft?: IDevDraft;
+    isAdd?: boolean;
 }
 
 const EAGER_TILES_PER_COLUMN = 2;
@@ -23,11 +30,13 @@ function PhotoTile({
     delay,
     onOpen,
     position,
+    draft,
 }: {
     photo: IEntry;
     delay: number;
     onOpen: () => void;
     position: number;
+    draft?: boolean;
 }) {
     const [hoverColors, setHoverColors] = useState<IImageHoverColors>({});
     const thumbnail = photo.thumbnail || photo.items?.[0];
@@ -54,6 +63,11 @@ function PhotoTile({
             onFocus={preload}
             onPointerDown={preload}
         >
+            {draft && (
+                <span className="pointer-events-none absolute left-2 top-2 z-20 rounded bg-p0 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase text-white dark:bg-o0 dark:text-black">
+                    draft
+                </span>
+            )}
             <button
                 type="button"
                 onClick={onOpen}
@@ -71,7 +85,7 @@ function PhotoTile({
                         position < EAGER_TILES_PER_COLUMN ? "eager" : "lazy"
                     }
                     fetchPriority={position === 0 ? "high" : "auto"}
-                    unoptimized={false}
+                    unoptimized={thumbnail.path.startsWith("/api/dev/")}
                     quality={85}
                     sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw"
                     onLoad={(e) => {
@@ -91,22 +105,44 @@ function PhotoCol({
     items,
     randomDelays,
     onPhotoClick,
+    onEditDraft,
+    onAdd,
 }: {
     items: IColumnPhoto[];
     randomDelays: number[];
     onPhotoClick: (originalIndex: number) => void;
+    onEditDraft: (draft: IDevDraft) => void;
+    onAdd: () => void;
 }) {
     return (
         <div className="flex flex-col gap-3">
-            {items.map(({ photo, originalIndex }, position) => (
-                <PhotoTile
-                    key={photo.id}
-                    photo={photo}
-                    delay={randomDelays[originalIndex]}
-                    position={position}
-                    onOpen={() => onPhotoClick(originalIndex)}
-                />
-            ))}
+            {items.map(({ photo, originalIndex, draft, isAdd }, position) => {
+                if (isAdd) {
+                    return (
+                        <DevAddTile
+                            key="dev-add-photo"
+                            label="new photo"
+                            onClick={onAdd}
+                        />
+                    );
+                }
+                if (!photo) return null;
+
+                return (
+                    <PhotoTile
+                        key={draft ? draft.key : photo.id}
+                        photo={photo}
+                        draft={Boolean(draft)}
+                        delay={randomDelays[originalIndex] ?? 0}
+                        position={position}
+                        onOpen={() =>
+                            draft
+                                ? onEditDraft(draft)
+                                : onPhotoClick(originalIndex)
+                        }
+                    />
+                );
+            })}
         </div>
     );
 }
@@ -119,6 +155,11 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
     );
     const isGalleryOpen = selectedPhotoIndex >= 0;
     const [columnCount, setColumnCount] = useState(1);
+    const devGroup = isDev ? devGroupForTitle("Lightroom") : undefined;
+    const { drafts, saveDraft, removeDraft } = useDevDrafts(devGroup?.key);
+    const [editing, setEditing] = useState<{ draft: IDevDraft | null } | null>(
+        null,
+    );
 
     useEffect(() => {
         const tablet = window.matchMedia("(min-width: 640px)");
@@ -140,29 +181,54 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
         [photos.length],
     );
 
+    const workingDraft = useMemo(
+        () => drafts.find((draft) => !draft.previewed),
+        [drafts],
+    );
+
+    // drafts render first so a new preview sits at the top of the grid
+    const tiles = useMemo<IColumnPhoto[]>(() => {
+        return [
+            ...drafts
+                .filter((draft) => draft.previewed)
+                .map((draft) => ({
+                    photo: draftToEntry(draft),
+                    originalIndex: -1,
+                    draft,
+                })),
+            ...photos.map((photo, originalIndex) => ({
+                photo,
+                originalIndex,
+            })),
+        ];
+    }, [photos, drafts]);
+
     const columns = useMemo<IColumnPhoto[][]>(() => {
         const cols: IColumnPhoto[][] = Array.from(
             { length: columnCount },
             () => [],
         );
         const heights = Array.from({ length: columnCount }, () => 0);
-        photos.forEach((photo, originalIndex) => {
+        tiles.forEach((tile) => {
             const thumbnail =
-                photo.thumbnail || (photo.items && photo.items[0]);
-            if (!thumbnail) return;
+                tile.photo?.thumbnail ||
+                (tile.photo?.items && tile.photo.items[0]);
+            if (!tile.isAdd && !thumbnail) return;
             const ratio =
-                thumbnail && thumbnail.width
-                    ? thumbnail.height / thumbnail.width
-                    : 1;
+                !thumbnail || !thumbnail.width
+                    ? 1
+                    : thumbnail.height / thumbnail.width;
             let shortest = 0;
             for (let i = 1; i < columnCount; i++) {
                 if (heights[i] < heights[shortest]) shortest = i;
             }
-            cols[shortest].push({ photo, originalIndex });
+            cols[shortest].push(tile);
             heights[shortest] += ratio;
         });
+        if (devGroup)
+            cols[cols.length - 1].push({ originalIndex: -1, isAdd: true });
         return cols;
-    }, [photos, columnCount]);
+    }, [tiles, columnCount, devGroup]);
 
     const allPhotosEntry = useMemo<IEntry>(
         () => ({
@@ -215,6 +281,10 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
                                 items={items}
                                 randomDelays={randomDelays}
                                 onPhotoClick={handlePhotoClick}
+                                onEditDraft={(draft) => setEditing({ draft })}
+                                onAdd={() =>
+                                    setEditing({ draft: workingDraft ?? null })
+                                }
                             />
                         ))}
                     </div>
@@ -234,6 +304,24 @@ export default function LightroomGrid({ photos }: { photos: IEntry[] }) {
                     onCloseAction={handleCloseGallery}
                     initialIndex={selectedPhotoIndex}
                     onIndexChangeAction={handleIndexChange}
+                />
+            )}
+
+            {devGroup && editing && (
+                <DevEntryDialog
+                    group={devGroup}
+                    draft={editing.draft}
+                    onClose={() => setEditing(null)}
+                    onPersist={saveDraft}
+                    onPreview={(next) => saveDraft(next)}
+                    onCommitted={() => {
+                        if (editing.draft) removeDraft(editing.draft.key);
+                    }}
+                    onRemove={
+                        editing.draft
+                            ? () => removeDraft(editing.draft!.key)
+                            : undefined
+                    }
                 />
             )}
         </>

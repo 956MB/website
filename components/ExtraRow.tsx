@@ -1,11 +1,16 @@
 "use client";
 
 import clsx from "clsx";
+import DevAddTile from "components/dev/DevAddTile";
+import DevEntryDialog from "components/dev/DevEntryDialog";
+import { useDevDrafts } from "components/dev/useDevDrafts";
 import { motion, useReducedMotion } from "framer-motion";
 import parse from "html-react-parser";
+import { devGroupForTitle, isDev } from "lib/dev/config";
+import { draftToEntry, IDevDraft } from "lib/dev/drafts";
 import { IEntryGroup } from "lib/interfaces";
 import Image from "next/image";
-import React, { useEffect, useId, useRef, useState } from "react";
+import React, { useEffect, useId, useMemo, useRef, useState } from "react";
 import { PiWarningCircleBold } from "react-icons/pi";
 import GroupHeader from "./GroupHeader";
 import ProgressiveBlur from "./ProgressiveBlur";
@@ -27,6 +32,28 @@ export default function ExtraRow({
     const gridRef = useRef<HTMLDivElement>(null);
     const [contentHeight, setContentHeight] = useState(900);
     const reduceMotion = useReducedMotion();
+    const devGroup = isDev ? devGroupForTitle(entry.title) : undefined;
+    const { drafts, saveDraft, removeDraft } = useDevDrafts(devGroup?.key);
+    const [editing, setEditing] = useState<{ draft: IDevDraft | null } | null>(
+        null,
+    );
+
+    const workingDraft = useMemo(
+        () => drafts.find((draft) => !draft.previewed),
+        [drafts],
+    );
+    const renderedItems = useMemo(
+        () => [
+            ...drafts
+                .filter((draft) => draft.previewed)
+                .map((draft) => ({
+                    item: draftToEntry(draft),
+                    draft,
+                })),
+            ...entry.items.map((item) => ({ item, draft: undefined })),
+        ],
+        [entry.items, drafts],
+    );
 
     useEffect(() => {
         if (!collapsible) return;
@@ -73,7 +100,7 @@ export default function ExtraRow({
                     <hr className="my-auto h-px w-full border-b border-dotted border-neutral-200 bg-transparent dark:border-neutral-800" />
                 </div>
 
-                <div className="relative w-full max-w-screen-lg scroll-mt-24 rounded-b-md overflow-hidden">
+                <div className="relative w-full max-w-screen-lg scroll-mt-24 overflow-hidden rounded-b-md">
                     <motion.div
                         id={contentId}
                         initial={false}
@@ -116,16 +143,28 @@ export default function ExtraRow({
                             )}
                         >
                             {React.Children.toArray(
-                                entry.items.map((item, i) => {
+                                renderedItems.map(({ item, draft }, i) => {
                                     return (
                                         <motion.div
-                                            key={i}
+                                            key={draft ? draft.key : i}
                                             variants={itemVariants}
                                             id={item.id}
+                                            onClick={
+                                                draft
+                                                    ? () =>
+                                                          setEditing({ draft })
+                                                    : undefined
+                                            }
                                             className={clsx(
                                                 "group relative z-0 box-content flex flex-col justify-start",
+                                                draft && "cursor-pointer",
                                             )}
                                         >
+                                            {draft && (
+                                                <span className="pointer-events-none absolute left-2 top-2 z-30 rounded bg-p0 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase text-white dark:bg-o0 dark:text-black">
+                                                    draft
+                                                </span>
+                                            )}
                                             <a
                                                 className={clsx(
                                                     "duration-50 group relative flex select-none flex-col justify-end overflow-hidden rounded-lg border-transparent object-cover saturate-0 backdrop-blur-sm transition-opacity ease-linear group-hover:border-p0 group-hover:saturate-100 dark:group-hover:border-o0 sm:backdrop-blur-none lg:border-2",
@@ -263,6 +302,18 @@ export default function ExtraRow({
                                     );
                                 }),
                             )}
+
+                            {devGroup && (
+                                <DevAddTile
+                                    variant="video"
+                                    label={`new ${devGroup.section} entry`}
+                                    onClick={() =>
+                                        setEditing({
+                                            draft: workingDraft ?? null,
+                                        })
+                                    }
+                                />
+                            )}
                         </motion.div>
                     </motion.div>
                     {canCollapse && !isExpanded && (
@@ -292,6 +343,24 @@ export default function ExtraRow({
                     )}
                 </div>
             </div>
+
+            {devGroup && editing && (
+                <DevEntryDialog
+                    group={devGroup}
+                    draft={editing.draft}
+                    onClose={() => setEditing(null)}
+                    onPersist={saveDraft}
+                    onPreview={(next) => saveDraft(next)}
+                    onCommitted={() => {
+                        if (editing.draft) removeDraft(editing.draft.key);
+                    }}
+                    onRemove={
+                        editing.draft
+                            ? () => removeDraft(editing.draft!.key)
+                            : undefined
+                    }
+                />
+            )}
         </div>
     );
 }

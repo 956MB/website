@@ -1,7 +1,12 @@
 "use client";
 
 import clsx from "clsx";
+import DevAddTile from "components/dev/DevAddTile";
+import DevEntryDialog from "components/dev/DevEntryDialog";
+import { useDevDrafts } from "components/dev/useDevDrafts";
 import { motion } from "framer-motion";
+import { devGroupForTitle, isDev } from "lib/dev/config";
+import { draftToEntry, IDevDraft } from "lib/dev/drafts";
 import { IEntry, IEntryGroup, IEntryItem } from "lib/interfaces";
 import {
     containerVariants,
@@ -94,11 +99,13 @@ export function DesignItem({
     cornerRadius,
     delay,
     onOpen,
+    draft,
 }: {
     item: IEntry;
     cornerRadius: ReturnType<typeof getRadius>;
     delay: number;
     onOpen?: () => void;
+    draft?: boolean;
 }) {
     const [hoverThumb, setHoverThumb] = useState<IEntryItem | null>(null);
     const itemHref = item.linkBlog ?? "#";
@@ -188,6 +195,11 @@ export function DesignItem({
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
+            {draft && (
+                <span className="pointer-events-none absolute left-2 top-2 z-40 rounded bg-p0 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase text-white dark:bg-o0 dark:text-black">
+                    draft
+                </span>
+            )}
             {onOpen ? (
                 <button
                     type="button"
@@ -254,11 +266,35 @@ export default function DesignRow({
     const breakpoint = useBreakpoint();
     const columns = getColumns(breakpoint);
     const [openId, setOpenId] = useState<string | null>(null);
+    const devGroup = isDev ? devGroupForTitle(entry.title) : undefined;
+    const { drafts, saveDraft, removeDraft } = useDevDrafts(devGroup?.key);
+    const [editing, setEditing] = useState<{ draft: IDevDraft | null } | null>(
+        null,
+    );
 
     const randomDelays = useMemo(
         () => generateRandomDelays(entry.items.length),
         [entry.items.length],
     );
+
+    const previewDrafts = useMemo(
+        () => drafts.filter((draft) => draft.previewed),
+        [drafts],
+    );
+    const workingDraft = useMemo(
+        () => drafts.find((draft) => !draft.previewed),
+        [drafts],
+    );
+    const draftItems = useMemo(
+        () =>
+            previewDrafts.map((draft) => ({
+                draft,
+                entry: draftToEntry(draft),
+            })),
+        [previewDrafts],
+    );
+    const cellCount =
+        entry.items.length + draftItems.length + (devGroup ? 1 : 0);
 
     const itemIds = useMemo(
         () => new Set(entry.items.map((item) => item.id)),
@@ -340,10 +376,21 @@ export default function DesignRow({
                             "min-h-0",
                         )}
                     >
+                        {draftItems.map(({ draft, entry: draftEntry }, i) => (
+                            <DesignItem
+                                key={draft.key}
+                                item={draftEntry}
+                                draft
+                                cornerRadius={getRadius(i, cellCount, columns)}
+                                delay={0}
+                                onOpen={() => setEditing({ draft })}
+                            />
+                        ))}
+
                         {entry.items.map((item, i) => {
                             const cornerRadius = getRadius(
-                                i,
-                                entry.items.length,
+                                draftItems.length + i,
+                                cellCount,
                                 columns,
                             );
 
@@ -361,6 +408,15 @@ export default function DesignRow({
                                 />
                             );
                         })}
+
+                        {devGroup && (
+                            <DevAddTile
+                                label={`new ${devGroup.section} entry`}
+                                onClick={() =>
+                                    setEditing({ draft: workingDraft ?? null })
+                                }
+                            />
+                        )}
                     </motion.div>
                 </div>
             </div>
@@ -371,6 +427,24 @@ export default function DesignRow({
                     entry={galleryEntry}
                     isOpen
                     onCloseAction={closeGallery}
+                />
+            )}
+
+            {devGroup && editing && (
+                <DevEntryDialog
+                    group={devGroup}
+                    draft={editing.draft}
+                    onClose={() => setEditing(null)}
+                    onPersist={saveDraft}
+                    onPreview={(next) => saveDraft(next)}
+                    onCommitted={() => {
+                        if (editing.draft) removeDraft(editing.draft.key);
+                    }}
+                    onRemove={
+                        editing.draft
+                            ? () => removeDraft(editing.draft!.key)
+                            : undefined
+                    }
                 />
             )}
         </>
