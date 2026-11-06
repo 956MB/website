@@ -2,6 +2,18 @@ import { entry, group, IEntryGroups, item } from "./interfaces";
 
 const photos = [
     entry(
+        "w-but-l",
+        "W, but still an L",
+        "11.3.2026",
+        "photography",
+        [item("/images/lightroom/w-but-l.webp", 2818, 3757)],
+        {
+            summary: ["I let more in than I should have, I realize that now."],
+            thumbnail: item("/images/lightroom/w-but-l.webp", 2818, 3757),
+            link: "https://lightroom.app.link/QKwRJg4JQ7b",
+        },
+    ),
+    entry(
         "thanks-foliage",
         "Me giving thanks to you (square)",
         "10.26.2026",
